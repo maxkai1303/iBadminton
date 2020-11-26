@@ -29,7 +29,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainImage: UIImageView!
     
     func setUi() {
-        mainImage.layer.cornerRadius = 5
         plusOneButton.layer.cornerRadius = 5
         
     }

@@ -42,8 +42,21 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeCollectionViewCell", for: indexPath) as? HomeCollectionViewCell
-        cell?.setUi()
-        return cell!
+    guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "HomeCollectionViewCell",
+            for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
+        cell.setShadow()
+        cell.setUi()
+        return cell
+    }
+}
+
+extension UIView {
+    func setShadow() {
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+        self.layer.shadowRadius = 3.0
+        self.layer.shadowOpacity = 1
     }
 }
