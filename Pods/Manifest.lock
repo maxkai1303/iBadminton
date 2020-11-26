@@ -1,5 +1,4 @@
 PODS:
-  - D2PDatePicker (0.1.4)
   - IQKeyboardManager (6.5.6)
   - LineSDKSwift (5.7.0):
     - LineSDKSwift/Core (= 5.7.0)
@@ -8,7 +7,6 @@ PODS:
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
-  - D2PDatePicker
   - IQKeyboardManager
   - LineSDKSwift (~> 5.0)
   - lottie-ios
@@ -16,19 +14,17 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - D2PDatePicker
     - IQKeyboardManager
     - LineSDKSwift
     - lottie-ios
     - SwiftLint
 
 SPEC CHECKSUMS:
-  D2PDatePicker: e35a6b3dd5fac16de8a17606dc0bb285e8b1a875
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: e0560d228e37450272d26dba826d81c7aff54554
+PODFILE CHECKSUM: ca697a89c24117ca114db3b5d26d9151dfd17244
 
 COCOAPODS: 1.10.0

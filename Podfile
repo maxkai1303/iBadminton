@@ -10,6 +10,6 @@ target 'iBadminton' do
     pod 'SwiftLint'
     pod 'lottie-ios'
     pod 'IQKeyboardManager'
-    pod 'D2PDatePicker'
+
 
 end
