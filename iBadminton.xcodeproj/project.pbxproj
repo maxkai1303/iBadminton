@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4504354F256FA2C900B031D5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504354E256FA2C900B031D5 /* SearchView.swift */; };
+		4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B57C2570EAFB00BDE238 /* DetailViewController.swift */; };
 		453B5BBF256E6B2800DF67CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453B5BBE256E6B2800DF67CC /* Assets.xcassets */; };
 		453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
@@ -23,6 +24,7 @@
 		05FC7BC96BC0EC4A1657EE15 /* Pods_iBadminton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBadminton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CF8DE9AE83D9E9375CCBD4 /* Pods-iBadminton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.release.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.release.xcconfig"; sourceTree = "<group>"; };
 		4504354E256FA2C900B031D5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4524B57C2570EAFB00BDE238 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		453B5BBE256E6B2800DF67CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +50,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4524B57F2570EB6300BDE238 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				45D47DCE256CA7610098F799 /* ViewController.swift */,
+				4524B57C2570EAFB00BDE238 /* DetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4524B5802570EB8200BDE238 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
 		45D47DBE256CA7600098F799 = {
 			isa = PBXGroup;
 			children = (
@@ -71,11 +90,11 @@
 			children = (
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
-				45D47DCE256CA7610098F799 /* ViewController.swift */,
 				45D47DE4256D07410098F799 /* LineSDK.swift */,
 				45D47DD0256CA7610098F799 /* Main.storyboard */,
+				4524B57F2570EB6300BDE238 /* ViewController */,
 				4504354E256FA2C900B031D5 /* SearchView.swift */,
-				453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */,
+				4524B5802570EB8200BDE238 /* ViewCell */,
 				45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */,
 				453B5BBE256E6B2800DF67CC /* Assets.xcassets */,
 				45D47DD8256CA7620098F799 /* Info.plist */,
@@ -238,6 +257,7 @@
 				45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
+				4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
