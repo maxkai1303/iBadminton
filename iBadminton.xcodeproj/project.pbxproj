@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4504354F256FA2C900B031D5 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4504354E256FA2C900B031D5 /* SearchView.swift */; };
 		4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B57C2570EAFB00BDE238 /* DetailViewController.swift */; };
+		4524B5952570F6E400BDE238 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */; };
+		4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5972570F77100BDE238 /* ImageTableViewCell.swift */; };
 		453B5BBF256E6B2800DF67CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453B5BBE256E6B2800DF67CC /* Assets.xcassets */; };
 		453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
@@ -17,6 +19,8 @@
 		45D47DD2256CA7610098F799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD0256CA7610098F799 /* Main.storyboard */; };
 		45D47DD7256CA7620098F799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */; };
 		45D47DE5256D07410098F799 /* LineSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DE4256D07410098F799 /* LineSDK.swift */; };
+		45EEE8942570F92E00ED6DB9 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEE8932570F92E00ED6DB9 /* ImageCollectionViewCell.swift */; };
+		45EEE8972571545500ED6DB9 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEE8962571545500ED6DB9 /* TagTableViewCell.swift */; };
 		C59CA8489C4A8171CF151029 /* Pods_iBadminton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FC7BC96BC0EC4A1657EE15 /* Pods_iBadminton.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +29,8 @@
 		38CF8DE9AE83D9E9375CCBD4 /* Pods-iBadminton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.release.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.release.xcconfig"; sourceTree = "<group>"; };
 		4504354E256FA2C900B031D5 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		4524B57C2570EAFB00BDE238 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
+		4524B5972570F77100BDE238 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = iBadminton/ViewCell/DetailViewCell/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		453B5BBE256E6B2800DF67CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,6 +41,8 @@
 		45D47DD6256CA7620098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D47DD8256CA7620098F799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D47DE4256D07410098F799 /* LineSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSDK.swift; sourceTree = "<group>"; };
+		45EEE8932570F92E00ED6DB9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		45EEE8962571545500ED6DB9 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagTableViewCell.swift; path = iBadminton/TagTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		8037EAC60E5771658E98A3BB /* Pods-iBadminton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.debug.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,9 +70,21 @@
 		4524B5802570EB8200BDE238 /* ViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4524B59A2570F77D00BDE238 /* DetailViewCell */,
 				453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */,
 			);
 			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		4524B59A2570F77D00BDE238 /* DetailViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				45EEE8962571545500ED6DB9 /* TagTableViewCell.swift */,
+				45EEE8932570F92E00ED6DB9 /* ImageCollectionViewCell.swift */,
+				4524B5972570F77100BDE238 /* ImageTableViewCell.swift */,
+				4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */,
+			);
+			path = DetailViewCell;
 			sourceTree = "<group>";
 		};
 		45D47DBE256CA7600098F799 = {
@@ -251,10 +271,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4524B5952570F6E400BDE238 /* TitleTableViewCell.swift in Sources */,
 				453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */,
 				45D47DCF256CA7610098F799 /* ViewController.swift in Sources */,
+				4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */,
 				4504354F256FA2C900B031D5 /* SearchView.swift in Sources */,
 				45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */,
+				45EEE8972571545500ED6DB9 /* TagTableViewCell.swift in Sources */,
+				45EEE8942570F92E00ED6DB9 /* ImageCollectionViewCell.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
 				4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */,
