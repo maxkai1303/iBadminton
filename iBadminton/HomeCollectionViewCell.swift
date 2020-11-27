@@ -29,6 +29,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var mainImage: UIImageView!
     
     func setUi() {
+        // 設定主要圖片上面兩個圓角
+        mainImage.layer.cornerRadius = 5
+        mainImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         plusOneButton.layer.cornerRadius = 5
         
     }

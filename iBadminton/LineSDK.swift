@@ -27,7 +27,6 @@ class LineSDKClass: ViewController {
         loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
-
     func getProfile() {
         LoginManager.shared.login(permissions: [.profile], in: self) {
             result in
