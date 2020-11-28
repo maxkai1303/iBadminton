@@ -40,6 +40,26 @@ extension DetailViewController: UITableViewDataSource {
                     withIdentifier: "tagTableViewCell", for: indexPath)
                     as? TagTableViewCell else { return UITableViewCell() }
             return cell
+        case 3:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "dateTableViewCell", for: indexPath)
+                    as? DateTableViewCell else { return UITableViewCell() }
+            return cell
+        case 4:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "locationTableViewCell", for: indexPath)
+                    as? LocationTableViewCell else { return UITableViewCell() }
+            return cell
+        case 5:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "ballTableViewCell", for: indexPath)
+                    as? BallTableViewCell else { return UITableViewCell() }
+            return cell
+        case 6:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "noteTableViewCell", for: indexPath)
+                    as? NoteTableViewCell else { return UITableViewCell() }
+            return cell
         default:
             return UITableViewCell()
         }
