@@ -1,5 +1,5 @@
 //
-//  DateTableViewCell.swift
+//  PriceTableViewCell.swift
 //  iBadminton
 //
 //  Created by Max Kai on 2020/11/28.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DateTableViewCell: UITableViewCell {
+class PriceTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,8 +18,9 @@ class DateTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBOutlet weak var dateImage: UIImageView!
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var priceImage: UIImageView!
     
-    @IBOutlet weak var lackCount: UILabel!
+    @IBOutlet weak var malePrice: UILabel!
+    @IBOutlet weak var femalePrice: UILabel!
+    
 }

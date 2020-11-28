@@ -211,7 +211,7 @@
                                                         <constraint firstAttribute="height" constant="40" id="CDe-5b-zaR"/>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ffT-nU-CpL"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
@@ -255,6 +255,7 @@
                                         <connections>
                                             <outlet property="averageStar" destination="nRv-ol-FHY" id="0El-Vb-Ssx"/>
                                             <outlet property="girlPrice" destination="0U3-7I-L06" id="Vds-gB-SQm"/>
+                                            <outlet property="lackCount" destination="SVU-Dh-4zT" id="MtP-BW-Nge"/>
                                             <outlet property="levelRating" destination="7H4-iy-25f" id="elI-6f-qMC"/>
                                             <outlet property="locationButton" destination="w5l-7k-cGO" id="91m-pP-rGc"/>
                                             <outlet property="mainImage" destination="j9o-A8-kVQ" id="2ev-I8-Brv"/>
@@ -333,7 +334,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <color key="backgroundColor" name="LightBlue"/>
                                 <constraints>
                                     <constraint firstItem="3d7-dH-xHu" firstAttribute="top" secondItem="buh-GF-iVT" secondAttribute="top" constant="20.5" id="0l8-nb-TeI"/>
                                     <constraint firstAttribute="bottom" secondItem="ndK-fZ-Bkz" secondAttribute="bottom" constant="20.5" id="22S-5j-8wa"/>
@@ -346,8 +347,9 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1OV-6F-XKE">
                                 <rect key="frame" x="0.0" y="88" width="414" height="629"/>
-                                <color key="backgroundColor" name="LightBlue"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" name="MainBlue"/>
+                                <color key="sectionIndexBackgroundColor" name="LightBlue"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageTableViewCell" rowHeight="225" id="oo3-dS-22E" customClass="ImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="225"/>
@@ -587,17 +589,28 @@
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="缺 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70G-Tc-Iiq">
+                                                    <rect key="frame" x="367" y="8" width="39" height="28"/>
+                                                    <color key="backgroundColor" name="LightBlue"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                                    <color key="textColor" name="MainBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="70G-Tc-Iiq" firstAttribute="centerY" secondItem="Imp-Lj-ySy" secondAttribute="centerY" id="C0v-EL-z6D"/>
+                                                <constraint firstAttribute="trailing" secondItem="70G-Tc-Iiq" secondAttribute="trailing" constant="8" id="CE6-TB-RdN"/>
                                                 <constraint firstAttribute="trailing" secondItem="Imp-Lj-ySy" secondAttribute="trailing" constant="106" id="Cno-7t-NbT"/>
                                                 <constraint firstItem="qC2-DY-TVZ" firstAttribute="leading" secondItem="L7A-Fr-Fh4" secondAttribute="leading" constant="8" id="Srd-br-f1g"/>
-                                                <constraint firstItem="Imp-Lj-ySy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qC2-DY-TVZ" secondAttribute="trailing" symbolic="YES" id="Tcz-gK-nxh"/>
+                                                <constraint firstItem="Imp-Lj-ySy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qC2-DY-TVZ" secondAttribute="trailing" constant="8" symbolic="YES" id="Tcz-gK-nxh"/>
                                                 <constraint firstItem="Imp-Lj-ySy" firstAttribute="centerY" secondItem="qC2-DY-TVZ" secondAttribute="centerY" id="gHq-dU-YnC"/>
                                                 <constraint firstItem="qC2-DY-TVZ" firstAttribute="centerY" secondItem="L7A-Fr-Fh4" secondAttribute="centerY" id="kFr-5J-nMH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateImage" destination="qC2-DY-TVZ" id="T4t-NC-fnV"/>
+                                            <outlet property="dateLabel" destination="Imp-Lj-ySy" id="4pE-sg-hOV"/>
+                                            <outlet property="lackCount" destination="70G-Tc-Iiq" id="WsD-Jb-f6O"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationTableViewCell" id="ZlC-PI-BRk" customClass="LocationTableViewCell" customModule="iBadminton" customModuleProvider="target">
@@ -669,11 +682,51 @@
                                             <outlet property="ballLabel" destination="qBH-iS-Z5y" id="Yc1-cn-3Yf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteTableViewCell" rowHeight="133" id="CRs-bN-EEh" customClass="NoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="498.5" width="414" height="133"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="44" id="YMb-4w-Z8Y" customClass="PriceTableViewCell" customModule="iBadminton" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="498.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMb-4w-Z8Y" id="Wvs-Xy-OAw">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-coin" translatesAutoresizingMaskIntoConstraints="NO" id="Gjg-j7-N1s">
+                                                    <rect key="frame" x="8" y="2" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="7L0-qd-uoe"/>
+                                                        <constraint firstAttribute="height" constant="40" id="HJ0-77-aQ2"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N70-jX-VOV">
+                                                    <rect key="frame" x="67" y="12" width="66" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                    <color key="textColor" name="MainBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$ 150" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cf-3U-hTJ">
+                                                    <rect key="frame" x="190" y="11" width="66" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                    <color key="textColor" name="MainBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Gjg-j7-N1s" firstAttribute="centerY" secondItem="Wvs-Xy-OAw" secondAttribute="centerY" id="Btq-29-c3G"/>
+                                                <constraint firstItem="Gjg-j7-N1s" firstAttribute="leading" secondItem="Wvs-Xy-OAw" secondAttribute="leading" constant="8" id="RLx-R4-M64"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="femalePrice" destination="2cf-3U-hTJ" id="Gvr-Uv-w9s"/>
+                                            <outlet property="malePrice" destination="N70-jX-VOV" id="Bze-av-Qzh"/>
+                                            <outlet property="priceImage" destination="Gjg-j7-N1s" id="msN-eL-0Ou"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteTableViewCell" rowHeight="133.5" id="CRs-bN-EEh" customClass="NoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="542.5" width="414" height="133.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CRs-bN-EEh" id="58w-JL-yGG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="133"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="133.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badminton" translatesAutoresizingMaskIntoConstraints="NO" id="3HB-iL-WdS">
@@ -684,9 +737,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="J4G-qq-Zwj">
-                                                    <rect key="frame" x="56" y="8" width="350" height="117"/>
+                                                    <rect key="frame" x="56" y="8" width="350" height="117.5"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                    <mutableString key="text">“Starlight”——那是受到全世界熱愛的歌與舞的“Revue”（大眾娛樂表演）。
+                                                    <string key="text">“Starlight”——那是受到全世界熱愛的歌與舞的“Revue”（大眾娛樂表演）。
 為這個舞台著迷的華戀與光，在她們小的時候定下了約定。
 “總有一天一定——兩個人一起站上那個舞台！”
 時光流逝，牢記約定每日修習課程的愛城華戀，16歲。
@@ -704,8 +757,8 @@
 披著舞台演劇外衣的熱血戰鬥番
 
 閱讀更多：少女歌劇_Revue_Starlight（https://zh.moegirl.org.cn/%E5%B0%91%E5%A5%B3%E6%AD%8C%E5%89%A7_Revue_Starlight ）
-本文引自萌娘百科(https://zh.moegirl.org.cn )，文字內容默認使用《知識共享署名-非商業性使用-相同方式共享3.0》協議。</mutableString>
-                                                    <color key="textColor" systemColor="labelColor"/>
+本文引自萌娘百科(https://zh.moegirl.org.cn )，文字內容默認使用《知識共享署名-非商業性使用-相同方式共享3.0》協議。</string>
+                                                    <color key="textColor" name="Blue"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textView>
@@ -759,14 +812,127 @@
                     <view key="view" contentMode="scaleToFill" id="kFk-9f-G5r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FYh-7O-uXl">
+                                <rect key="frame" x="8" y="96" width="148" height="148"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="qJR-5Q-ZJE"/>
+                                    <constraint firstAttribute="height" constant="148" id="rPl-t5-xhy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="齊藤飛鳥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-1m-VoC">
+                                <rect key="frame" x="164" y="104" width="92" height="32.5"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="23"/>
+                                <color key="textColor" name="MainBlue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="EB8-wh-vcm">
+                                <rect key="frame" x="164" y="144.5" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="aDJ-lq-O90"/>
+                                    <constraint firstAttribute="width" constant="24" id="z10-kf-ace"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 顆星" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3E-7K-DsH">
+                                <rect key="frame" x="196" y="144.5" width="50" height="24"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <color key="textColor" name="Blue"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-Qj-PJk">
+                                <rect key="frame" x="164" y="193" width="107" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="LightBlue"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                <state key="normal" title="創建球隊">
+                                    <color key="titleColor" name="MainBlue"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H83-eT-h6F">
+                                <rect key="frame" x="342" y="96" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="N20-MO-BBf"/>
+                                    <constraint firstAttribute="width" constant="64" id="jNK-eZ-Lpk"/>
+                                </constraints>
+                                <state key="normal" image="email"/>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXt-ff-Ffm">
+                                <rect key="frame" x="0.0" y="717" width="414" height="96"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累計參加次數：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiE-wx-AV5">
+                                        <rect key="frame" x="8" y="8" width="140" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="140" id="KUm-kC-Cby"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                        <color key="textColor" name="MainBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="報名未到次數：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-tl-t8g">
+                                        <rect key="frame" x="8" y="44" width="140" height="28"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                        <color key="textColor" name="MainBlue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-3g-uQv">
+                                        <rect key="frame" x="156" y="10" width="33" height="24"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                        <color key="textColor" name="Blue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-G1-5fA">
+                                        <rect key="frame" x="156" y="46" width="30" height="24"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                        <color key="textColor" name="Blue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="累計三次未到系統將會凍結帳號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qW-iO-sjE">
+                                        <rect key="frame" x="8" y="69" width="182" height="19"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                        <color key="textColor" name="Blue"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstItem="EiE-wx-AV5" firstAttribute="top" secondItem="ZXt-ff-Ffm" secondAttribute="top" constant="8" id="0Ai-Z1-dhq"/>
+                                    <constraint firstAttribute="bottom" secondItem="2qW-iO-sjE" secondAttribute="bottom" constant="8" id="52u-8Y-psu"/>
+                                    <constraint firstItem="EP6-tl-t8g" firstAttribute="width" secondItem="EiE-wx-AV5" secondAttribute="width" id="HVe-bO-RDV"/>
+                                    <constraint firstItem="2q3-G1-5fA" firstAttribute="centerY" secondItem="EP6-tl-t8g" secondAttribute="centerY" id="KK1-ij-nSW"/>
+                                    <constraint firstItem="2q3-G1-5fA" firstAttribute="leading" secondItem="FRX-3g-uQv" secondAttribute="leading" id="MtU-3s-Uxv"/>
+                                    <constraint firstItem="EP6-tl-t8g" firstAttribute="leading" secondItem="EiE-wx-AV5" secondAttribute="leading" id="QHp-zY-c7A"/>
+                                    <constraint firstItem="FRX-3g-uQv" firstAttribute="centerY" secondItem="EiE-wx-AV5" secondAttribute="centerY" id="R1o-Hg-qKp"/>
+                                    <constraint firstItem="EP6-tl-t8g" firstAttribute="top" secondItem="EiE-wx-AV5" secondAttribute="bottom" constant="8" id="cOU-Hf-1ZJ"/>
+                                    <constraint firstAttribute="height" constant="96" id="g2E-MS-K4k"/>
+                                    <constraint firstItem="FRX-3g-uQv" firstAttribute="leading" secondItem="EiE-wx-AV5" secondAttribute="trailing" constant="8" id="pAD-1N-Evu"/>
+                                    <constraint firstItem="2qW-iO-sjE" firstAttribute="leading" secondItem="ZXt-ff-Ffm" secondAttribute="leading" constant="8" id="wA2-QW-u4U"/>
+                                    <constraint firstItem="EiE-wx-AV5" firstAttribute="leading" secondItem="ZXt-ff-Ffm" secondAttribute="leading" constant="8" id="xl8-iA-uZB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="rf5-YG-g2G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZXt-ff-Ffm" firstAttribute="bottom" secondItem="rf5-YG-g2G" secondAttribute="bottom" id="6fx-KE-Qfm"/>
+                            <constraint firstItem="rf5-YG-g2G" firstAttribute="trailing" secondItem="H83-eT-h6F" secondAttribute="trailing" constant="8" id="7NM-DE-Pug"/>
+                            <constraint firstItem="9Ec-1m-VoC" firstAttribute="leading" secondItem="FYh-7O-uXl" secondAttribute="trailing" constant="8" id="9PG-es-CC4"/>
+                            <constraint firstItem="EB8-wh-vcm" firstAttribute="leading" secondItem="9Ec-1m-VoC" secondAttribute="leading" id="CBe-Y3-6VL"/>
+                            <constraint firstItem="FYh-7O-uXl" firstAttribute="leading" secondItem="rf5-YG-g2G" secondAttribute="leading" constant="8" id="Rge-ge-6OZ"/>
+                            <constraint firstItem="rf5-YG-g2G" firstAttribute="trailing" secondItem="ZXt-ff-Ffm" secondAttribute="trailing" id="XY0-G3-flx"/>
+                            <constraint firstItem="ZXt-ff-Ffm" firstAttribute="leading" secondItem="rf5-YG-g2G" secondAttribute="leading" id="gEz-E2-nmG"/>
+                            <constraint firstItem="FYh-7O-uXl" firstAttribute="top" secondItem="rf5-YG-g2G" secondAttribute="top" constant="8" id="jKS-JC-PY2"/>
+                            <constraint firstItem="u3E-7K-DsH" firstAttribute="centerY" secondItem="EB8-wh-vcm" secondAttribute="centerY" id="joh-tA-R4t"/>
+                            <constraint firstItem="u3E-7K-DsH" firstAttribute="leading" secondItem="EB8-wh-vcm" secondAttribute="trailing" constant="8" id="kJJ-B4-fUo"/>
+                            <constraint firstItem="H83-eT-h6F" firstAttribute="top" secondItem="FYh-7O-uXl" secondAttribute="top" id="mBf-Yc-qYY"/>
+                            <constraint firstItem="9Ec-1m-VoC" firstAttribute="top" secondItem="rf5-YG-g2G" secondAttribute="top" constant="16" id="uUL-GN-Jzd"/>
+                            <constraint firstItem="EB8-wh-vcm" firstAttribute="top" secondItem="9Ec-1m-VoC" secondAttribute="bottom" constant="8" id="zFH-Tx-gEO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7D6-e6-qiK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw3-De-a9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2293" y="858"/>
+            <point key="canvasLocation" x="2292.753623188406" y="857.8125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kg9-cy-9m8">
@@ -809,11 +975,11 @@
             </objects>
             <point key="canvasLocation" x="2690" y="-796"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="VnG-MC-3DM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ezF-Bf-Eez" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="MV2-I1-fJX"/>
+                    <tabBarItem key="tabBarItem" title="" id="MV2-I1-fJX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W13-LX-Btm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -835,10 +1001,14 @@
         <image name="badminton-bai-bwf-fb" width="1200" height="667"/>
         <image name="calendar" width="64" height="64"/>
         <image name="dollar-coin" width="64" height="64"/>
+        <image name="email" width="128" height="128"/>
         <image name="home" width="24" height="24"/>
         <image name="map" width="64" height="64"/>
         <image name="medal-of-honor" width="64" height="64"/>
         <image name="stars" width="128" height="128"/>
+        <namedColor name="Blue">
+            <color red="0.0" green="0.33700001239776611" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="LightBlue">
             <color red="0.9100000262260437" green="0.94499999284744263" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -851,9 +1021,6 @@
         <namedColor name="White">
             <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
