@@ -10,6 +10,8 @@ target 'iBadminton' do
     pod 'SwiftLint'
     pod 'lottie-ios'
     pod 'IQKeyboardManager'
+    pod 'Eureka'
+    pod 'ImageRow'
 
 
 

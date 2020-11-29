@@ -19,5 +19,4 @@ class NoteTableViewCell: UITableViewCell {
     @IBOutlet weak var noteImage: UIImageView!
     @IBOutlet weak var noteTextView: UITextView!
     
-
 }

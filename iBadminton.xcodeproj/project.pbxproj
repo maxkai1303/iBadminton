@@ -19,6 +19,7 @@
 		459E614A2572139B00C05266 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E61492572139B00C05266 /* NoteTableViewCell.swift */; };
 		459E614D257285E400C05266 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E614C257285E400C05266 /* PriceTableViewCell.swift */; };
 		459E6150257297F800C05266 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E614F257297F800C05266 /* ProfileViewController.swift */; };
+		459E61802573F2A200C05266 /* TeamEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E617F2573F2A200C05266 /* TeamEditViewController.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
 		45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCC256CA7610098F799 /* SceneDelegate.swift */; };
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		459E61492572139B00C05266 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = iBadminton/ViewController/NoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E614C257285E400C05266 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PriceTableViewCell.swift; path = iBadminton/PriceTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E614F257297F800C05266 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = iBadminton/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		459E617F2573F2A200C05266 /* TeamEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamEditViewController.swift; path = iBadminton/TeamEditViewController.swift; sourceTree = SOURCE_ROOT; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				459E617F2573F2A200C05266 /* TeamEditViewController.swift */,
 				459E614F257297F800C05266 /* ProfileViewController.swift */,
 				45D47DCE256CA7610098F799 /* ViewController.swift */,
 				4524B57C2570EAFB00BDE238 /* DetailViewController.swift */,
@@ -293,6 +296,7 @@
 				453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */,
 				45D47DCF256CA7610098F799 /* ViewController.swift in Sources */,
 				459E614025720E8C00C05266 /* DateTableViewCell.swift in Sources */,
+				459E61802573F2A200C05266 /* TeamEditViewController.swift in Sources */,
 				4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */,
 				459E6144257210FA00C05266 /* LocationTableViewCell.swift in Sources */,
 				4504354F256FA2C900B031D5 /* SearchView.swift in Sources */,

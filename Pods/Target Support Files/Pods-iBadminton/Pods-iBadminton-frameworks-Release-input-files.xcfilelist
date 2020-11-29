@@ -1,4 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-iBadminton/Pods-iBadminton-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework
 ${BUILT_PRODUCTS_DIR}/LineSDKSwift/LineSDK.framework
 ${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework
