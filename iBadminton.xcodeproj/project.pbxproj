@@ -13,6 +13,7 @@
 		4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5972570F77100BDE238 /* ImageTableViewCell.swift */; };
 		453B5BBF256E6B2800DF67CC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 453B5BBE256E6B2800DF67CC /* Assets.xcassets */; };
 		453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */; };
+		456463C92574911700FB0A9E /* InProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456463C82574911700FB0A9E /* InProfileViewController.swift */; };
 		459E614025720E8C00C05266 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E613F25720E8C00C05266 /* DateTableViewCell.swift */; };
 		459E6144257210FA00C05266 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E6143257210FA00C05266 /* LocationTableViewCell.swift */; };
 		459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E6146257212DB00C05266 /* BallTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 		4524B5972570F77100BDE238 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = iBadminton/ViewCell/DetailViewCell/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		453B5BBE256E6B2800DF67CC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		456463C82574911700FB0A9E /* InProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InProfileViewController.swift; path = iBadminton/InProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		459E613F25720E8C00C05266 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTableViewCell.swift; path = iBadminton/DateTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E6143257210FA00C05266 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E6146257212DB00C05266 /* BallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BallTableViewCell.swift; path = iBadminton/BallTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -75,6 +77,7 @@
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				456463C82574911700FB0A9E /* InProfileViewController.swift */,
 				459E617F2573F2A200C05266 /* TeamEditViewController.swift */,
 				459E614F257297F800C05266 /* ProfileViewController.swift */,
 				45D47DCE256CA7610098F799 /* ViewController.swift */,
@@ -297,6 +300,7 @@
 				45D47DCF256CA7610098F799 /* ViewController.swift in Sources */,
 				459E614025720E8C00C05266 /* DateTableViewCell.swift in Sources */,
 				459E61802573F2A200C05266 /* TeamEditViewController.swift in Sources */,
+				456463C92574911700FB0A9E /* InProfileViewController.swift in Sources */,
 				4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */,
 				459E6144257210FA00C05266 /* LocationTableViewCell.swift in Sources */,
 				4504354F256FA2C900B031D5 /* SearchView.swift in Sources */,

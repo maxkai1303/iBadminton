@@ -3,7 +3,7 @@
 //  iBadminton
 //
 //  Created by Max Kai on 2020/11/29.
-//
+//  swiftlint:disable all
 
 import UIKit
 import Eureka
@@ -36,7 +36,7 @@ class TeamEditViewController: FormViewController {
                 row.title = "Note"
                 row.placeholder = "Enter text here"
             }
-            +++ Section("硬體設施")
+            +++ Section("球場環境")
             <<< MultipleSelectorRow<String>() {
                 $0.title = "硬體設施"
                 $0.selectorTitle = "選擇設備"
@@ -45,13 +45,13 @@ class TeamEditViewController: FormViewController {
             +++ Section("上傳照片")
             <<< ImageRow() { row in
                 row.title = "Image Row 1"
-                row.sourceTypes = [.PhotoLibrary, .SavedPhotosAlbum]
+                row.sourceTypes = .PhotoLibrary
                 row.clearAction = .yes(style: UIAlertAction.Style.destructive)
             }
             <<< ImageRow() {
                 $0.title = "Image Row 2"
                 $0.sourceTypes = .PhotoLibrary
-                $0.clearAction = .no
+                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
             }
             .cellUpdate { cell, row in
                 cell.accessoryView?.layer.cornerRadius = 17
