@@ -24,7 +24,7 @@
 
 import Foundation
 
-open class RowOf<T>: BaseRow where T: Equatable {
+open class RowOf<T>: BaseRow where T: Equatable{
 
     private var _value: T? {
         didSet {
@@ -82,20 +82,16 @@ open class RowOf<T>: BaseRow where T: Equatable {
         super.init(tag: tag)
     }
 
-    public internal(set) var rules: [ValidationRuleHelper<T>] = []
+    internal var rules: [ValidationRuleHelper<T>] = []
 
     @discardableResult
-    open override func validate(quietly: Bool = false) -> [ValidationError] {
-        var vErrors = [ValidationError]()
+    public override func validate() -> [ValidationError] {
         #if swift(>=4.1)
-        vErrors = rules.compactMap { $0.validateFn(value) }
+        validationErrors = rules.compactMap { $0.validateFn(value) }
         #else
-        vErrors = rules.flatMap { $0.validateFn(value) }
+        validationErrors = rules.flatMap { $0.validateFn(value) }
         #endif
-        if (!quietly) {
-            validationErrors = vErrors
-        }
-        return vErrors
+        return validationErrors
     }
     
     /// Resets the value of the row. Setting it's value to it's reset value.
@@ -119,7 +115,7 @@ open class RowOf<T>: BaseRow where T: Equatable {
     }
 
     public func remove(ruleWithIdentifier identifier: String) {
-        if let index = rules.firstIndex(where: { (validationRuleHelper) -> Bool in
+        if let index = rules.index(where: { (validationRuleHelper) -> Bool in
             return validationRuleHelper.rule.id == identifier
         }) {
             rules.remove(at: index)

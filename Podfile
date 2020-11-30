@@ -12,6 +12,7 @@ target 'iBadminton' do
     pod 'IQKeyboardManager'
     pod 'Eureka'
     pod 'ImageRow'
+    pod 'LocationRow'
 
 
 

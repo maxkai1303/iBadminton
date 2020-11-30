@@ -72,7 +72,7 @@ public protocol BaseRowType: Taggable {
     /**
      Typically we don't need to explicitly call this method since it is called by Eureka framework. It will validates the row if you invoke it.
      */
-    func validate(quietly: Bool) -> [ValidationError]
+    func validate() -> [ValidationError]
 }
 
 public protocol TypedRowType: BaseRowType {
@@ -202,7 +202,7 @@ extension RowType where Self: BaseRow {
      */
     @discardableResult
     public func onChange(_ callback: @escaping (Self) -> Void) -> Self {
-        callbackOnChange = { [weak self] in callback(self!) }
+        callbackOnChange = { [unowned self] in callback(self) }
         return self
     }
 
@@ -213,7 +213,7 @@ extension RowType where Self: BaseRow {
      */
     @discardableResult
     public func cellUpdate(_ callback: @escaping ((_ cell: Cell, _ row: Self) -> Void)) -> Self {
-        callbackCellUpdate = { [weak self] in  callback(self!.cell, self!) }
+        callbackCellUpdate = { [unowned self] in  callback(self.cell, self) }
         return self
     }
 
@@ -224,7 +224,7 @@ extension RowType where Self: BaseRow {
      */
     @discardableResult
     public func cellSetup(_ callback: @escaping ((_ cell: Cell, _ row: Self) -> Void)) -> Self {
-        callbackCellSetup = { [weak self] (cell: Cell) in  callback(cell, self!) }
+        callbackCellSetup = { [unowned self] (cell: Cell) in  callback(cell, self) }
         return self
     }
 
@@ -235,7 +235,7 @@ extension RowType where Self: BaseRow {
      */
     @discardableResult
     public func onCellSelection(_ callback: @escaping ((_ cell: Cell, _ row: Self) -> Void)) -> Self {
-        callbackCellOnSelection = { [weak self] in  callback(self!.cell, self!) }
+        callbackCellOnSelection = { [unowned self] in  callback(self.cell, self) }
         return self
     }
 
@@ -246,13 +246,13 @@ extension RowType where Self: BaseRow {
      */
     @discardableResult
     public func onCellHighlightChanged(_ callback: @escaping (_ cell: Cell, _ row: Self) -> Void) -> Self {
-        callbackOnCellHighlightChanged = { [weak self] in callback(self!.cell, self!) }
+        callbackOnCellHighlightChanged = { [unowned self] in callback(self.cell, self) }
         return self
     }
 
     @discardableResult
     public func onRowValidationChanged(_ callback: @escaping (_ cell: Cell, _ row: Self) -> Void) -> Self {
-        callbackOnRowValidationChanged = { [weak self] in  callback(self!.cell, self!) }
+        callbackOnRowValidationChanged = { [unowned self] in  callback(self.cell, self) }
         return self
     }
 }

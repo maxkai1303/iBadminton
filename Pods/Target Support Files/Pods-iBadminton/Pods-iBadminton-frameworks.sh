@@ -179,6 +179,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LineSDKSwift/LineSDK.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LocationRow/LocationRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -186,6 +187,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LineSDKSwift/LineSDK.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LocationRow/LocationRow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

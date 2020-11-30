@@ -1,11 +1,13 @@
 PODS:
-  - Eureka (5.3.2)
-  - ImageRow (4.0.0):
-    - Eureka (~> 5.0)
+  - Eureka (4.3.1)
+  - ImageRow (3.2.0):
+    - Eureka (~> 4.3)
   - IQKeyboardManager (6.5.6)
   - LineSDKSwift (5.7.0):
     - LineSDKSwift/Core (= 5.7.0)
   - LineSDKSwift/Core (5.7.0)
+  - LocationRow (1.0.0):
+    - Eureka (~> 4.3)
   - lottie-ios (3.1.9)
   - SwiftLint (0.41.0)
 
@@ -14,6 +16,7 @@ DEPENDENCIES:
   - ImageRow
   - IQKeyboardManager
   - LineSDKSwift (~> 5.0)
+  - LocationRow
   - lottie-ios
   - SwiftLint
 
@@ -23,17 +26,19 @@ SPEC REPOS:
     - ImageRow
     - IQKeyboardManager
     - LineSDKSwift
+    - LocationRow
     - lottie-ios
     - SwiftLint
 
 SPEC CHECKSUMS:
-  Eureka: 1c2b8b5892bfb0e972d0fe05f8c09fd89f8625ec
-  ImageRow: e65b2e1a33f89062bf2a553a2aad61d975eb7428
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  ImageRow: 03681b3ef8034b5a649440325f5d5ba7b22c1b0a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
+  LocationRow: b4d85cc066e3756f01bdec091784b72bd174bf4e
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: da2e442c09ea03148a379983367a938999c7a035
+PODFILE CHECKSUM: 24be3898833150ace41317f04ac51dba42516dbf
 
 COCOAPODS: 1.10.0

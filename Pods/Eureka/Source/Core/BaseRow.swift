@@ -74,13 +74,8 @@ open class BaseRow: BaseRowType {
         get { return nil }
     }
 
-    open func validate(quietly: Bool = false) -> [ValidationError] {
+    public func validate() -> [ValidationError] {
         return []
-    }
-
-    // Reset validation
-    open func cleanValidationErrors() {
-        validationErrors = []
     }
 
     public static var estimatedRowHeight: CGFloat = 44.0
@@ -106,10 +101,10 @@ open class BaseRow: BaseRowType {
     /// The section to which this row belongs.
     open weak var section: Section?
 	
-    public lazy var trailingSwipe = {[unowned self] in SwipeConfiguration(self)}()
+    public lazy var trailingSwipe = SwipeConfiguration(self)
 	
     //needs the accessor because if marked directly this throws "Stored properties cannot be marked potentially unavailable with '@available'"
-    private lazy var _leadingSwipe = {[unowned self] in SwipeConfiguration(self)}()
+    private lazy var _leadingSwipe = SwipeConfiguration(self)
 
     @available(iOS 11,*)
     public var leadingSwipe: SwipeConfiguration{
@@ -136,13 +131,13 @@ open class BaseRow: BaseRowType {
     /**
      Helps to pick destination part of the cell after scrolling
      */
-    open var destinationScrollPosition: UITableView.ScrollPosition? = UITableView.ScrollPosition.bottom
+    open var destinationScrollPosition = UITableView.ScrollPosition.bottom
 
     /**
      Returns the IndexPath where this row is in the current form.
      */
     public final var indexPath: IndexPath? {
-        guard let sectionIndex = section?.index, let rowIndex = section?.firstIndex(of: self) else { return nil }
+        guard let sectionIndex = section?.index, let rowIndex = section?.index(of: self) else { return nil }
         return IndexPath(row: rowIndex, section: sectionIndex)
     }
 
@@ -153,6 +148,13 @@ open class BaseRow: BaseRowType {
                 baseCell.cellResignFirstResponder()
             }
         }
+    }
+}
+
+extension BaseRow {
+    // Reset validation
+    public func cleanValidationErrors(){
+        validationErrors = []
     }
 }
 

@@ -80,18 +80,13 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         textView.font = .preferredFont(forTextStyle: .body)
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = UIEdgeInsets.zero
-        textView.backgroundColor = .clear
         contentView.addSubview(textView)
 
         let placeholderLabel = UILabel()
         self.placeholderLabel = placeholderLabel
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
         placeholderLabel.numberOfLines = 0
-        if #available(iOS 13.0, *) {
-            placeholderLabel.textColor = UIColor.tertiaryLabel
-        } else {
-            placeholderLabel.textColor = UIColor(white: 0, alpha: 0.22)
-        }
+        placeholderLabel.textColor = UIColor(white: 0, alpha: 0.22)
         placeholderLabel.font = textView.font
         contentView.addSubview(placeholderLabel)
     }
@@ -138,11 +133,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
         textLabel?.text = nil
         detailTextLabel?.text = nil
         textView.isEditable = !row.isDisabled
-        if #available(iOS 13.0, *) {
-            textView.textColor = row.isDisabled ? .tertiaryLabel : .label
-        } else {
-            textView.textColor = row.isDisabled ? .gray : .black
-        }
+        textView.textColor = row.isDisabled ? .gray : .black
         textView.text = row.displayValueFor?(row.value)
         placeholderLabel?.text = (row as? TextAreaConformance)?.placeholder
         placeholderLabel?.isHidden = textView.text.count != 0
@@ -206,10 +197,10 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
 
         if let textAreaConformance = row as? TextAreaConformance, case .dynamic = textAreaConformance.textAreaHeight, let tableView = formViewController()?.tableView {
             let currentOffset = tableView.contentOffset
-            UIView.performWithoutAnimation {
-                tableView.beginUpdates()
-                tableView.endUpdates()
-            }
+            UIView.setAnimationsEnabled(false)
+            tableView.beginUpdates()
+            tableView.endUpdates()
+            UIView.setAnimationsEnabled(true)
             tableView.setContentOffset(currentOffset, animated: false)
         }
         placeholderLabel?.isHidden = textView.text.count != 0
@@ -217,11 +208,11 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
             row.value = nil
             return
         }
-        guard let formatterRow = row as? FormatterConformance, let formatter = formatterRow.formatter else {
+        guard let fieldRow = row as? FieldRowConformance, let formatter = fieldRow.formatter else {
             row.value = textValue.isEmpty ? nil : (T.init(string: textValue) ?? row.value)
             return
         }
-        if formatterRow.useFormatterDuringInput {
+        if fieldRow.useFormatterDuringInput {
             let value: AutoreleasingUnsafeMutablePointer<AnyObject?> = AutoreleasingUnsafeMutablePointer<AnyObject?>.init(UnsafeMutablePointer<T>.allocate(capacity: 1))
             let errorDesc: AutoreleasingUnsafeMutablePointer<NSString?>? = nil
             if formatter.getObjectValue(value, for: textValue, errorDescription: errorDesc) {
@@ -282,7 +273,7 @@ open class _TextAreaCell<T> : Cell<T>, UITextViewDelegate, AreaCell where T: Equ
             textView.textAlignment = .right
             dynamicConstraints += NSLayoutConstraint.constraints(withVisualFormat: "H:[textView]-|", options: [], metrics: nil, views: views)
             let sideSpaces = (layoutMargins.right + layoutMargins.left)
-            dynamicConstraints.append(NSLayoutConstraint(item: textView!,
+            dynamicConstraints.append(NSLayoutConstraint(item: textView,
                                                          attribute: .width,
                                                          relatedBy: .equal,
                                                          toItem: contentView,
