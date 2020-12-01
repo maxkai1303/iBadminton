@@ -1,5 +1,6 @@
 PODS:
   - Eureka (4.3.1)
+  - ExpandingMenu (0.4.0)
   - ImageRow (3.2.0):
     - Eureka (~> 4.3)
   - IQKeyboardManager (6.5.6)
@@ -13,6 +14,7 @@ PODS:
 
 DEPENDENCIES:
   - Eureka
+  - ExpandingMenu
   - ImageRow
   - IQKeyboardManager
   - LineSDKSwift (~> 5.0)
@@ -23,6 +25,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Eureka
+    - ExpandingMenu
     - ImageRow
     - IQKeyboardManager
     - LineSDKSwift
@@ -32,6 +35,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
+  ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   ImageRow: 03681b3ef8034b5a649440325f5d5ba7b22c1b0a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
@@ -39,6 +43,6 @@ SPEC CHECKSUMS:
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 24be3898833150ace41317f04ac51dba42516dbf
+PODFILE CHECKSUM: 872b1d1425dc8815d1d946b3073d26a092aa6477
 
 COCOAPODS: 1.10.0

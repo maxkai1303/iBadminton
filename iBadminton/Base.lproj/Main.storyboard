@@ -74,30 +74,30 @@
                                     <size key="itemSize" width="400" height="430"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="RS3-Yl-iFN" customClass="HomeCollectionViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="7" y="10" width="400" height="430"/>
+                                        <rect key="frame" x="10" y="10" width="394" height="430"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hfo-XS-Mxa">
-                                            <rect key="frame" x="0.0" y="0.0" width="400" height="430"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="430"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofM-b1-R10">
-                                                    <rect key="frame" x="8" y="240" width="204" height="23"/>
+                                                    <rect key="frame" x="8" y="236.5" width="204" height="26.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="badminton-bai-bwf-fb" translatesAutoresizingMaskIntoConstraints="NO" id="j9o-A8-kVQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="400" height="232"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="394" height="228.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="j9o-A8-kVQ" secondAttribute="height" multiplier="50:29" id="KhY-eS-NkS"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9j-Ne-5sa">
-                                                    <rect key="frame" x="8" y="390" width="384" height="32"/>
+                                                    <rect key="frame" x="8" y="390" width="378" height="32"/>
                                                     <color key="backgroundColor" name="MainBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="32" id="fUE-ZU-TmN"/>
@@ -108,14 +108,14 @@
                                                     </state>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="2DU-sF-9tN">
-                                                    <rect key="frame" x="318" y="241.5" width="20" height="20"/>
+                                                    <rect key="frame" x="312" y="240" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="3Wg-O1-RZ0"/>
                                                         <constraint firstAttribute="width" constant="20" id="rTv-D3-Qfa"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7 顆星" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRv-ol-FHY">
-                                                    <rect key="frame" x="343" y="242.5" width="49" height="18.5"/>
+                                                    <rect key="frame" x="337" y="240.5" width="49" height="18.5"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -240,7 +240,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Dh-4zT">
-                                                    <rect key="frame" x="352" y="8" width="40" height="40"/>
+                                                    <rect key="frame" x="346" y="8" width="40" height="40"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="CDe-5b-zaR"/>
@@ -281,7 +281,7 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" name="White"/>
-                                        <size key="customSize" width="400" height="430"/>
+                                        <size key="customSize" width="394" height="430"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="5"/>
@@ -982,28 +982,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qHE-rU-Uwo">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qHE-rU-Uwo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="717"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamTitleTableViewCell" id="mWa-pR-IUt" customClass="TeamTitleTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="49"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mWa-pR-IUt" id="fCD-hI-JkW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yu-Ub-Tts">
-                                                    <rect key="frame" x="20" y="8" width="228" height="27.5"/>
+                                                    <rect key="frame" x="20" y="11" width="228" height="27"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="19"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="9yu-Ub-Tts" secondAttribute="trailing" constant="166" id="7I9-nK-sp8"/>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="top" secondItem="fCD-hI-JkW" secondAttribute="topMargin" constant="-3" id="IZ2-xp-6FG"/>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fCD-hI-JkW" secondAttribute="leadingMargin" id="McI-3v-ee6"/>
+                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="leading" secondItem="fCD-hI-JkW" secondAttribute="leading" constant="20" id="IVn-Ae-bGa"/>
+                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="top" secondItem="fCD-hI-JkW" secondAttribute="topMargin" id="IZ2-xp-6FG"/>
                                                 <constraint firstItem="9yu-Ub-Tts" firstAttribute="centerY" secondItem="fCD-hI-JkW" secondAttribute="centerY" id="Zer-z7-U0H"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1012,24 +1011,24 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="upperLayerImageTableViewCell" rowHeight="116" id="aTm-71-2bA" customClass="UpperLayerImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="116"/>
+                                        <rect key="frame" x="0.0" y="77" width="414" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aTm-71-2bA" id="Toy-65-7xg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-Qs-qnT">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="122"/>
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="116"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badminton-Generic-121_571_855" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-8C-Zsn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="122"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="116"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="180" id="Rbm-JN-TYB"/>
                                                                 <constraint firstAttribute="height" constant="122" id="kgo-NP-5Nx"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badminton-Generic-121_571_855" translatesAutoresizingMaskIntoConstraints="NO" id="1tc-6T-nrM">
-                                                            <rect key="frame" x="194" y="0.0" width="180" height="122"/>
+                                                            <rect key="frame" x="194" y="0.0" width="180" height="116"/>
                                                         </imageView>
                                                     </subviews>
                                                     <constraints>
@@ -1038,6 +1037,7 @@
                                                         <constraint firstAttribute="height" constant="122" id="NOD-Ct-68N"/>
                                                         <constraint firstItem="9VQ-8C-Zsn" firstAttribute="leading" secondItem="Hmq-Qs-qnT" secondAttribute="leading" id="PLL-Qv-fCD"/>
                                                         <constraint firstAttribute="trailing" secondItem="1tc-6T-nrM" secondAttribute="trailing" id="RB5-Iz-ras"/>
+                                                        <constraint firstItem="1tc-6T-nrM" firstAttribute="width" secondItem="9VQ-8C-Zsn" secondAttribute="width" id="Wcz-cX-sBg"/>
                                                         <constraint firstItem="9VQ-8C-Zsn" firstAttribute="top" secondItem="Hmq-Qs-qnT" secondAttribute="top" id="XuJ-Cb-hkn"/>
                                                         <constraint firstItem="1tc-6T-nrM" firstAttribute="top" secondItem="Hmq-Qs-qnT" secondAttribute="top" id="e4i-8d-5Tn"/>
                                                         <constraint firstAttribute="bottom" secondItem="9VQ-8C-Zsn" secondAttribute="bottom" id="sDk-b7-xtF"/>
@@ -1047,6 +1047,7 @@
                                             <constraints>
                                                 <constraint firstItem="Hmq-Qs-qnT" firstAttribute="top" secondItem="Toy-65-7xg" secondAttribute="top" id="Gv9-yf-wq5"/>
                                                 <constraint firstAttribute="trailing" secondItem="Hmq-Qs-qnT" secondAttribute="trailing" constant="20" symbolic="YES" id="bo2-Pf-aU2"/>
+                                                <constraint firstAttribute="bottom" secondItem="Hmq-Qs-qnT" secondAttribute="bottom" id="rIX-Ca-jkk"/>
                                                 <constraint firstItem="Hmq-Qs-qnT" firstAttribute="leading" secondItem="Toy-65-7xg" secondAttribute="leading" constant="20" symbolic="YES" id="uHP-ab-GCD"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1056,7 +1057,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lowerImageTableViewCell" rowHeight="136" id="wTS-qa-DUB" customClass="LowerImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="187.5" width="414" height="136"/>
+                                        <rect key="frame" x="0.0" y="193" width="414" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wTS-qa-DUB" id="WoM-Gg-Tf2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
@@ -1078,16 +1079,19 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="h5B-Bm-cMQ" firstAttribute="leading" secondItem="9SH-40-pRo" secondAttribute="leading" id="10k-xT-UHS"/>
+                                                        <constraint firstItem="Yca-jk-isQ" firstAttribute="height" secondItem="h5B-Bm-cMQ" secondAttribute="height" id="4mn-2U-hym"/>
                                                         <constraint firstItem="h5B-Bm-cMQ" firstAttribute="top" secondItem="9SH-40-pRo" secondAttribute="top" id="HfZ-Gs-YCh"/>
                                                         <constraint firstItem="Yca-jk-isQ" firstAttribute="top" secondItem="9SH-40-pRo" secondAttribute="top" id="IY8-qW-at3"/>
                                                         <constraint firstAttribute="height" constant="122" id="RDB-OQ-bP2"/>
                                                         <constraint firstAttribute="trailing" secondItem="Yca-jk-isQ" secondAttribute="trailing" id="WKX-1l-SCl"/>
                                                         <constraint firstAttribute="bottom" secondItem="Yca-jk-isQ" secondAttribute="bottom" id="ZuN-0r-fy6"/>
+                                                        <constraint firstItem="Yca-jk-isQ" firstAttribute="width" secondItem="h5B-Bm-cMQ" secondAttribute="width" id="i1v-gt-UY9"/>
                                                         <constraint firstAttribute="bottom" secondItem="h5B-Bm-cMQ" secondAttribute="bottom" id="u93-as-QDo"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="9SH-40-pRo" secondAttribute="bottom" constant="6" id="ER3-l2-idG"/>
                                                 <constraint firstItem="9SH-40-pRo" firstAttribute="top" secondItem="WoM-Gg-Tf2" secondAttribute="top" constant="8" id="IiW-gO-rjy"/>
                                                 <constraint firstItem="9SH-40-pRo" firstAttribute="leading" secondItem="WoM-Gg-Tf2" secondAttribute="leading" constant="20" symbolic="YES" id="Ujt-Qd-2Hc"/>
                                                 <constraint firstAttribute="trailing" secondItem="9SH-40-pRo" secondAttribute="trailing" constant="20" symbolic="YES" id="noU-h8-bEs"/>
@@ -1099,14 +1103,17 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamBallTableViewCell" id="VMD-PT-mn8" customClass="TeamBallTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="323.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="329" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VMD-PT-mn8" id="JzC-qi-WDK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用球種：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-se-c6k">
                                                     <rect key="frame" x="20" y="10" width="85" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="85" id="Pux-wh-tu2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -1119,7 +1126,7 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fm7-af-3QU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z2d-se-c6k" secondAttribute="trailing" symbolic="YES" id="0Sn-Ga-PAl"/>
+                                                <constraint firstItem="Fm7-af-3QU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z2d-se-c6k" secondAttribute="trailing" constant="8" symbolic="YES" id="0Sn-Ga-PAl"/>
                                                 <constraint firstAttribute="trailing" secondItem="Fm7-af-3QU" secondAttribute="trailing" constant="161.5" id="Mhi-4G-dDe"/>
                                                 <constraint firstItem="Z2d-se-c6k" firstAttribute="leading" secondItem="JzC-qi-WDK" secondAttribute="leading" constant="20" symbolic="YES" id="UYF-Oq-Rwj"/>
                                                 <constraint firstItem="Z2d-se-c6k" firstAttribute="centerY" secondItem="JzC-qi-WDK" secondAttribute="centerY" id="YLU-yA-8ly"/>
@@ -1132,7 +1139,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamNoteTableViewCell" rowHeight="268" id="OVJ-6u-WQa" customClass="TeamNoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="367" width="414" height="268"/>
+                                        <rect key="frame" x="0.0" y="373" width="414" height="268"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OVJ-6u-WQa" id="MET-Kc-XBR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="268"/>
@@ -1140,6 +1147,9 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Note：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax2-MN-6Fy">
                                                     <rect key="frame" x="24" y="8" width="55" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="4CD-po-vCT"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -1379,6 +1389,7 @@
             <point key="canvasLocation" x="1083" y="896"/>
         </scene>
     </scenes>
+    <color key="tintColor" name="MainBlue"/>
     <resources>
         <image name="2111574r0dn5rz5gc0nwor" width="1200" height="630"/>
         <image name="Badminton-Generic-121_571_855" width="855" height="571"/>

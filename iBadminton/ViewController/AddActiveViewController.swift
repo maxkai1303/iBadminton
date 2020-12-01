@@ -14,9 +14,15 @@ import CoreLocation
 
 class AddActiveViewController: FormViewController {
     
+    var placeMark: CLPlacemark?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTable()
+    }
+    
+    func setTable() {
         
         form +++ Section("活動資訊")
             <<< IntRow(){
@@ -32,9 +38,8 @@ class AddActiveViewController: FormViewController {
                 row.placeholder = "Enter text here"
             }
             <<< LocationRow(){
-                $0.title = "LocationRow"
-                $0.value = CLLocation(latitude: -34.9124, longitude: -56.1594)
-                
+                $0.placeholder = "請輸入打球地點"
+//                $0.value = placeMark
             }
             +++ Section("球場環境")
             <<< MultipleSelectorRow<String>() {
@@ -60,6 +65,37 @@ class AddActiveViewController: FormViewController {
                 cell.accessoryView?.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
             }
     }
+    
+//    func geocode(latitude: Double, longitude: Double, completion: @escaping (CLPlacemark?, Error?) -> ())  {
+//
+//        let locale = Locale(identifier: "zh_TW")
+//        let loc: CLLocation = CLLocation(latitude: latitude, longitude: longitude)
+//            CLGeocoder().reverseGeocodeLocation(loc, preferredLocale: locale) { placemarks, error in
+//                guard let placemark = placemarks?.first, error == nil else {
+//                    UserDefaults.standard.removeObject(forKey: "AppleLanguages")
+//                    completion(nil, error)
+//                    return
+//                }
+//                completion(placemark, nil)
+//            }
+//    }
+//
+//    func locationAddress(){
+//        // CLGeocoder地理編碼 經緯度轉換地址位置
+//        geocode(latitude: 24.12721655694024, longitude: 120.6682352929325) { placemark, error in
+//            guard let placemark = placemark, error == nil else { return }
+//            DispatchQueue.main.async {
+//                print("address1:", placemark.thoroughfare ?? "")
+//                print("address2:", placemark.subThoroughfare ?? "")
+//                print("city:",     placemark.locality ?? "")
+//                print("state:",    placemark.administrativeArea ?? "")
+//                print("zip code:", placemark.postalCode ?? "")
+//                print("country:",  placemark.country ?? "")
+//                print("placemark",placemark)
+//                self.placeMark = placemark
+//            }
+//        }
+//    }
 }
 
 

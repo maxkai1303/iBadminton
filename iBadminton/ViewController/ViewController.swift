@@ -30,10 +30,10 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     func setUi() {
         // 設定 searchBar文字框顏色
-        searchBarOutlet.barTintColor = .white
+//        searchBarOutlet.barTintColor = .white
         if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
             textfield.backgroundColor = .white
-            textfield.textColor = .white
+//            textfield.textColor = .white
         }
     }
 }

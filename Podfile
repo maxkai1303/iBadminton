@@ -13,7 +13,7 @@ target 'iBadminton' do
     pod 'Eureka'
     pod 'ImageRow'
     pod 'LocationRow'
-
-
+    pod 'ExpandingMenu'
+    
 
 end
