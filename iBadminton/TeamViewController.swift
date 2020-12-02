@@ -23,7 +23,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "writing"),
             rotatedImage: #imageLiteral(resourceName: "cancel"))
-        menuButton.center = CGPoint(x: self.view.bounds.width - 38.0, y: self.view.bounds.height - 210.0)
+        menuButton.center = CGPoint(x: self.view.bounds.width - 38.0, y: self.view.bounds.height - 130.0)
         view.addSubview(menuButton)
         
         let itemEdit = ExpandingMenuItem(
@@ -33,9 +33,9 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "edit"),
             backgroundImage: #imageLiteral(resourceName: "edit"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
-            // Do some action
+            self.performSegue(withIdentifier: "showTeamEditView", sender: nil)
         }
-        itemEdit.titleColor = UIColor(named: "MainBlue")
+        itemEdit.titleColor = .white
         
         let itemNewPost = ExpandingMenuItem(
             size: menuButtonSize,
@@ -44,9 +44,9 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "add-file"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "add-file")) { () -> Void in
-            // Do some action
+            self.performSegue(withIdentifier: "showAddActiveView", sender: nil)
         }
-        itemNewPost.titleColor = UIColor(named: "MainBlue")
+        itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])
     }
 }

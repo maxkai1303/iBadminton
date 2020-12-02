@@ -41,18 +41,22 @@ class InProfileViewController: FormViewController {
             }
             <<< LabelRow(){
                 $0.title = "羽龍共舞"
-                
+                $0.value = "2020/12/16"
             }
 
             <<< LabelRow(){
                 $0.title = "羽龍共舞"
+                $0.value = "2020/12/12"
             }
             <<< LabelRow(){
                 $0.title = "南無阿密陀佛"
+                $0.value = "2020/11/15"
             }
             <<< LabelRow(){
                 $0.title = "今日躲雨"
+                $0.value = "2020/11/03"
             }
+
 //
 //            +++ Section(){
 //                $0.tag = "films_s"

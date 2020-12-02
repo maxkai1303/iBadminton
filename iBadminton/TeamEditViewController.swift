@@ -24,6 +24,12 @@ class TeamEditViewController: FormViewController {
                 row.title = "Note"
                 row.placeholder = "Enter text here"
             }
+            +++ Section("球隊成員")
+            <<< PushRow<String>(){ row in
+                row.selectorTitle = "球隊成員"
+                row.options = ["高麗菜", "高級玩家"]
+                
+            }
             
             .cellUpdate { cell, row in
                 cell.accessoryView?.layer.cornerRadius = 17

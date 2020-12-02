@@ -23,7 +23,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "add"),
             rotatedImage: #imageLiteral(resourceName: "cancel"))
-        menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 210.0)
+        menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 130.0)
         view.addSubview(menuButton)
         
         let item1 = ExpandingMenuItem(

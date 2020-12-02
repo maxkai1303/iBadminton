@@ -93,9 +93,9 @@
 			children = (
 				456463D02574DF0E00FB0A9E /* TeamViewController.swift */,
 				45AA848B2574FFA7007E284E /* AddActiveViewController.swift */,
-				456463C82574911700FB0A9E /* InProfileViewController.swift */,
 				459E617F2573F2A200C05266 /* TeamEditViewController.swift */,
 				459E614F257297F800C05266 /* ProfileViewController.swift */,
+				456463C82574911700FB0A9E /* InProfileViewController.swift */,
 				45D47DCE256CA7610098F799 /* ViewController.swift */,
 				4524B57C2570EAFB00BDE238 /* DetailViewController.swift */,
 			);
