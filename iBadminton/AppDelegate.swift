@@ -8,6 +8,8 @@
 import UIKit
 import LineSDK
 import CoreLocation
+import Firebase
+import FirebaseFirestoreSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         LoginManager.shared.setup(channelID: "1655262516", universalLinkURL: nil)
         locationManager.requestWhenInUseAuthorization()
+        FirebaseApp.configure()
         return true
     }
     

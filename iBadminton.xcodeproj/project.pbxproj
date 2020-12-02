@@ -28,6 +28,7 @@
 		459E61802573F2A200C05266 /* TeamEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E617F2573F2A200C05266 /* TeamEditViewController.swift */; };
 		45AA84892574F9FB007E284E /* TeamNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */; };
 		45AA848C2574FFA7007E284E /* AddActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA848B2574FFA7007E284E /* AddActiveViewController.swift */; };
+		45B78B1025776A8600B0922B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45B78B0F25776A8600B0922B /* GoogleService-Info.plist */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
 		45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCC256CA7610098F799 /* SceneDelegate.swift */; };
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
@@ -63,6 +64,7 @@
 		459E617F2573F2A200C05266 /* TeamEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamEditViewController.swift; path = iBadminton/TeamEditViewController.swift; sourceTree = SOURCE_ROOT; };
 		45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamNoteTableViewCell.swift; path = iBadminton/TeamNoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45AA848B2574FFA7007E284E /* AddActiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActiveViewController.swift; sourceTree = "<group>"; };
+		45B78B0F25776A8600B0922B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */,
 				453B5BBE256E6B2800DF67CC /* Assets.xcassets */,
 				45D47DD8256CA7620098F799 /* Info.plist */,
+				45B78B0F25776A8600B0922B /* GoogleService-Info.plist */,
 			);
 			path = iBadminton;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45D47DD7256CA7620098F799 /* LaunchScreen.storyboard in Resources */,
+				45B78B1025776A8600B0922B /* GoogleService-Info.plist in Resources */,
 				453B5BBF256E6B2800DF67CC /* Assets.xcassets in Resources */,
 				45D47DD2256CA7610098F799 /* Main.storyboard in Resources */,
 			);

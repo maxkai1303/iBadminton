@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
@@ -19,21 +20,32 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    let searchManager = SearchViewManager()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 隱藏 navigation
         self.navigationController?.isNavigationBarHidden = true
         setUi()
+        listen()
+    }
+    
+    let fireDb = Firestore.firestore()
+    
+    func listen() {
+        fireDb.collection("Event").addSnapshotListener { documentSnapshot, error in
+            guard let document = documentSnapshot else {
+                print("Error fetching document: \(error!)")
+                return
+            }
+            let data = document.documents[0].data()
+                  print("監聽到的資料: \(data)")
+                }
     }
     
     func setUi() {
         // 設定 searchBar文字框顏色
-//        searchBarOutlet.barTintColor = .white
         if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = .white
-//            textfield.textColor = .white
+            textfield.backgroundColor = UIColor.white
+            textfield.textColor = UIColor.blue
         }
     }
 }
@@ -44,9 +56,9 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: "HomeCollectionViewCell",
-            for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "HomeCollectionViewCell",
+                for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         cell.setShadow()
         cell.setUi()
         return cell
