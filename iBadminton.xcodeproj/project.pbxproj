@@ -29,6 +29,7 @@
 		45AA84892574F9FB007E284E /* TeamNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */; };
 		45AA848C2574FFA7007E284E /* AddActiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45AA848B2574FFA7007E284E /* AddActiveViewController.swift */; };
 		45B78B1025776A8600B0922B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45B78B0F25776A8600B0922B /* GoogleService-Info.plist */; };
+		45B78B5E25779F1C00B0922B /* FireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78B5D25779F1C00B0922B /* FireBaseManager.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
 		45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCC256CA7610098F799 /* SceneDelegate.swift */; };
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
@@ -65,6 +66,7 @@
 		45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamNoteTableViewCell.swift; path = iBadminton/TeamNoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45AA848B2574FFA7007E284E /* AddActiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActiveViewController.swift; sourceTree = "<group>"; };
 		45B78B0F25776A8600B0922B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		45B78B5D25779F1C00B0922B /* FireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FireBaseManager.swift; path = ViewController/FireBaseManager.swift; sourceTree = "<group>"; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		45D47DC9256CA7610098F799 /* iBadminton */ = {
 			isa = PBXGroup;
 			children = (
+				45B78B5D25779F1C00B0922B /* FireBaseManager.swift */,
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
 				45D47DE4256D07410098F799 /* LineSDK.swift */,
@@ -342,6 +345,7 @@
 				4504354F256FA2C900B031D5 /* SearchView.swift in Sources */,
 				456463E72574EEB200FB0A9E /* TeamBallTableViewCell.swift in Sources */,
 				456463D12574DF0E00FB0A9E /* TeamViewController.swift in Sources */,
+				45B78B5E25779F1C00B0922B /* FireBaseManager.swift in Sources */,
 				45AA84892574F9FB007E284E /* TeamNoteTableViewCell.swift in Sources */,
 				459E6150257297F800C05266 /* ProfileViewController.swift in Sources */,
 				45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */,

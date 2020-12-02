@@ -3,7 +3,7 @@
 //  iBadminton
 //
 //  Created by Max Kai on 2020/11/28.
-//
+//  swiftlint:disable all
 
 import UIKit
 import Eureka

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import FirebaseFirestore
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
@@ -20,25 +19,14 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    var firebaseManager = FireBaseManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 隱藏 navigation
         self.navigationController?.isNavigationBarHidden = true
         setUi()
-        listen()
-    }
-    
-    let fireDb = Firestore.firestore()
-    
-    func listen() {
-        fireDb.collection("Event").addSnapshotListener { documentSnapshot, error in
-            guard let document = documentSnapshot else {
-                print("Error fetching document: \(error!)")
-                return
-            }
-            let data = document.documents[0].data()
-                  print("監聽到的資料: \(data)")
-                }
+        self.firebaseManager.readEvet()
     }
     
     func setUi() {
@@ -62,6 +50,16 @@ extension ViewController: UICollectionViewDataSource {
         cell.setShadow()
         cell.setUi()
         return cell
+    }
+}
+
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let screenWidth = UIScreen.main.bounds.size.width - 20
+        
+        return CGSize(width: screenWidth, height: 430)
     }
 }
 

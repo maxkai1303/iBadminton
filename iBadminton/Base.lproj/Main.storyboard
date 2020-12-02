@@ -971,23 +971,24 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamTitleTableViewCell" id="mWa-pR-IUt" customClass="TeamTitleTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="49"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mWa-pR-IUt" id="fCD-hI-JkW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yu-Ub-Tts">
-                                                    <rect key="frame" x="20" y="11" width="228" height="27"/>
+                                                    <rect key="frame" x="24" y="16" width="228" height="27"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="19"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="leading" secondItem="fCD-hI-JkW" secondAttribute="leading" constant="20" id="IVn-Ae-bGa"/>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="top" secondItem="fCD-hI-JkW" secondAttribute="topMargin" id="IZ2-xp-6FG"/>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="centerY" secondItem="fCD-hI-JkW" secondAttribute="centerY" id="Zer-z7-U0H"/>
+                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="leading" secondItem="fCD-hI-JkW" secondAttribute="leading" constant="24" id="4oV-KY-n3f"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="9yu-Ub-Tts" secondAttribute="trailing" constant="142" id="Azn-ob-kGG"/>
+                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="top" secondItem="fCD-hI-JkW" secondAttribute="top" constant="16" id="Izh-KN-3MZ"/>
+                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="centerY" secondItem="fCD-hI-JkW" secondAttribute="centerY" id="fDW-XZ-bDn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -995,7 +996,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="upperLayerImageTableViewCell" rowHeight="116" id="aTm-71-2bA" customClass="UpperLayerImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="77" width="414" height="116"/>
+                                        <rect key="frame" x="0.0" y="87" width="414" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aTm-71-2bA" id="Toy-65-7xg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
@@ -1041,7 +1042,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lowerImageTableViewCell" rowHeight="136" id="wTS-qa-DUB" customClass="LowerImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="193" width="414" height="136"/>
+                                        <rect key="frame" x="0.0" y="203" width="414" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wTS-qa-DUB" id="WoM-Gg-Tf2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
@@ -1087,7 +1088,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamBallTableViewCell" id="VMD-PT-mn8" customClass="TeamBallTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="329" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="339" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VMD-PT-mn8" id="JzC-qi-WDK">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -1095,9 +1096,6 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用球種：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-se-c6k">
                                                     <rect key="frame" x="20" y="10" width="85" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="85" id="Pux-wh-tu2"/>
-                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
@@ -1110,8 +1108,8 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fm7-af-3QU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Z2d-se-c6k" secondAttribute="trailing" constant="8" symbolic="YES" id="0Sn-Ga-PAl"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fm7-af-3QU" secondAttribute="trailing" constant="161.5" id="Mhi-4G-dDe"/>
+                                                <constraint firstItem="Fm7-af-3QU" firstAttribute="leading" secondItem="Z2d-se-c6k" secondAttribute="trailing" constant="8" symbolic="YES" id="0Sn-Ga-PAl"/>
+                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Fm7-af-3QU" secondAttribute="trailing" constant="161.5" id="Mhi-4G-dDe"/>
                                                 <constraint firstItem="Z2d-se-c6k" firstAttribute="leading" secondItem="JzC-qi-WDK" secondAttribute="leading" constant="20" symbolic="YES" id="UYF-Oq-Rwj"/>
                                                 <constraint firstItem="Z2d-se-c6k" firstAttribute="centerY" secondItem="JzC-qi-WDK" secondAttribute="centerY" id="YLU-yA-8ly"/>
                                                 <constraint firstItem="Fm7-af-3QU" firstAttribute="centerY" secondItem="JzC-qi-WDK" secondAttribute="centerY" id="rJf-pz-BAG"/>
@@ -1123,7 +1121,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamNoteTableViewCell" rowHeight="268" id="OVJ-6u-WQa" customClass="TeamNoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="373" width="414" height="268"/>
+                                        <rect key="frame" x="0.0" y="383" width="414" height="268"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OVJ-6u-WQa" id="MET-Kc-XBR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="268"/>

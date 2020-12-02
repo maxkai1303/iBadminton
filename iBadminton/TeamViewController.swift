@@ -10,6 +10,8 @@ import ExpandingMenu
 
 class TeamViewController: UIViewController, UITableViewDelegate {
     
+    var firebaseManager = FireBaseManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setMenuButton()
@@ -21,7 +23,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
         let menuButtonSize: CGSize = CGSize(width: 70.0, height: 70.0)
         let menuButton = ExpandingMenuButton(
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
-            image: #imageLiteral(resourceName: "writing"),
+            image: #imageLiteral(resourceName: "settings"),
             rotatedImage: #imageLiteral(resourceName: "cancel"))
         menuButton.center = CGPoint(x: self.view.bounds.width - 38.0, y: self.view.bounds.height - 130.0)
         view.addSubview(menuButton)
@@ -40,11 +42,12 @@ class TeamViewController: UIViewController, UITableViewDelegate {
         let itemNewPost = ExpandingMenuItem(
             size: menuButtonSize,
             title: "新增活動",
-            image: #imageLiteral(resourceName: "add-file"),
-            highlightedImage: #imageLiteral(resourceName: "add-file"),
-            backgroundImage: #imageLiteral(resourceName: "circle"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "add-file")) { () -> Void in
+            image: #imageLiteral(resourceName: "writing"),
+            highlightedImage: #imageLiteral(resourceName: "writing"),
+            backgroundImage: #imageLiteral(resourceName: "writing"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
             self.performSegue(withIdentifier: "showAddActiveView", sender: nil)
+            self.firebaseManager.addEvent()
         }
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])

@@ -88,15 +88,15 @@ extension DetailViewController: UITableViewDataSource {
                     withIdentifier: "ballTableViewCell", for: indexPath)
                     as? BallTableViewCell else { return UITableViewCell() }
             return cell
-                case 6:
-                    guard let cell = tableView.dequeueReusableCell(
-                            withIdentifier: "priceTableViewCell", for: indexPath) as? PriceTableViewCell else { return UITableViewCell() }
-                    return cell
-                case 7:
-                    guard let cell = tableView.dequeueReusableCell(
-                            withIdentifier: "noteTableViewCell", for: indexPath)
-                            as? NoteTableViewCell else { return UITableViewCell() }
-                    return cell
+        case 6:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "priceTableViewCell", for: indexPath) as? PriceTableViewCell else { return UITableViewCell() }
+            return cell
+        case 7:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "noteTableViewCell", for: indexPath)
+                    as? NoteTableViewCell else { return UITableViewCell() }
+            return cell
         default:
             return UITableViewCell()
         }
