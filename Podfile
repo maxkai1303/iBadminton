@@ -14,9 +14,9 @@ target 'iBadminton' do
     pod 'ImageRow'
     pod 'LocationRow'
     pod 'ExpandingMenu'
-    pod 'Firebase/Analytics'
     pod 'Firebase/Firestore'
     pod 'FirebaseFirestoreSwift'
     pod 'Firebase/Storage'
+    pod 'ISTimeline'
 
 end
