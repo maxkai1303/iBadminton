@@ -3,15 +3,15 @@
 //  iBadminton
 //
 //  Created by Max Kai on 2020/12/3.
-//
+//  swiftlint:disable all
 
 import Foundation
 import ISTimeline
 
 class FakeData {
     
-    func pointsData() {
-        let touchAction = { (point:ISPoint) in
+    static func pointsData() -> [ISPoint] {
+        let touchAction = { (point: ISPoint) in
             print("point \(point.title)")
         }
         
@@ -56,5 +56,7 @@ class FakeData {
                     description: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.",
                     touchUpInside: touchAction)
         ]
+        
+        return myPoints
     }
 }

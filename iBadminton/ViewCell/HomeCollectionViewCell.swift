@@ -30,6 +30,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         mainImage.layer.cornerRadius = 5
         mainImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         plusOneButton.layer.cornerRadius = 5
-        
+    }
+    func setData() {
     }
 }

@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-4e-SUo" customClass="SearchView" customModule="iBadminton" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-4e-SUo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="搜尋時間" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Wc-Df-nY6">
@@ -74,11 +74,11 @@
                                     <size key="itemSize" width="400" height="430"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomeCollectionViewCell" id="RS3-Yl-iFN" customClass="HomeCollectionViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="10" width="394" height="430"/>
+                                        <rect key="frame" x="10" y="0.0" width="394" height="430"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Hfo-XS-Mxa">
                                             <rect key="frame" x="0.0" y="0.0" width="394" height="430"/>
@@ -326,6 +326,7 @@
                         <outlet property="datePicker" destination="ryn-NM-0fx" id="7IW-4D-GvW"/>
                         <outlet property="searchBarOutlet" destination="TFR-Oj-5pA" id="XDh-wQ-Wip"/>
                         <outlet property="searchDateTextField" destination="5Wc-Df-nY6" id="WSo-Yj-4oA"/>
+                        <outlet property="searchView" destination="nzf-4e-SUo" id="L8b-EV-4Ur"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

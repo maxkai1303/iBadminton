@@ -12,6 +12,9 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet weak var searchBarOutlet: UISearchBar!
+    @IBOutlet weak var searchView: UIView!
+    
+    private var height: CGFloat?
     
     @IBOutlet weak var searchDateTextField: UITextField! {
         didSet {
@@ -19,14 +22,28 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    var firebaseManager = FireBaseManager()
+    override func viewDidLayoutSubviews() {
+        
+        if let tabBarHeight = tabBarController?.tabBar.frame.size.height {
+            
+            height = UIScreen.main.bounds.height - searchView.frame.height - tabBarHeight
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // 隱藏 navigation
         self.navigationController?.isNavigationBarHidden = true
         setUi()
-        self.firebaseManager.readEvet()
+        FireBaseManager.shared.listen(collectionName: .event) { }
+//        FireBaseManager.shared.read(collectionName: .event, dataType: Event.self) { (result) in
+//            switch result {
+//            case .success(let event):
+//
+//            case .failure(let error):
+//            }
+//        }
     }
     
     func setUi() {
@@ -58,8 +75,8 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
         let screenWidth = UIScreen.main.bounds.size.width - 20
-        
-        return CGSize(width: screenWidth, height: 430)
+            
+            return CGSize(width: screenWidth, height: height ?? 430)
     }
 }
 

@@ -10,7 +10,7 @@ import ExpandingMenu
 
 class TeamViewController: UIViewController, UITableViewDelegate {
     
-    var firebaseManager = FireBaseManager()
+    var firebaseManager = FireBaseManager.shared
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             backgroundImage: #imageLiteral(resourceName: "edit"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
             self.performSegue(withIdentifier: "showTeamEditView", sender: nil)
+            self.firebaseManager.edit(collectionName: .event) { }
         }
         itemEdit.titleColor = .white
         
@@ -47,7 +48,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             backgroundImage: #imageLiteral(resourceName: "writing"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
             self.performSegue(withIdentifier: "showAddActiveView", sender: nil)
-//            self.firebaseManager.addEvent()
+            self.firebaseManager.add(collectionName: .event) { }
         }
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])

@@ -39,17 +39,19 @@ class TimeLineViewController: UIViewController {
         
         self.view.addSubview(timeline)
         
-        for content in 0...9 {
-            let point = ISPoint(title: "point \(content)")
-            point.description = "my awesome description"
-            point.lineColor = content % 2 == 0 ? .red : .green
-            point.pointColor = point.lineColor
-            point.touchUpInside = { (point:ISPoint) in
-                print(point.title)
-            }
+        let fake = FakeData.pointsData()
+        
+//        for content in 0...9 {
+//            let point = ISPoint(title: "point \(content)")
+//            point.description = "my awesome description"
+//            point.lineColor = content % 2 == 0 ? .red : .green
+//            point.pointColor = point.lineColor
+//            point.touchUpInside = { (point: ISPoint) in
+//                print(point.title)
+//            }
         timeline.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
-        timeline.points.append(point)
-    }
+        timeline.points = fake
+//    }
     }
 }
 /*
