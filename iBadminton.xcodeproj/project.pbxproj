@@ -32,6 +32,7 @@
 		45B78B812577E80B00B0922B /* TimeLineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78B802577E80B00B0922B /* TimeLineViewController.swift */; };
 		45B78BA92577FB8C00B0922B /* fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BA82577FB8C00B0922B /* fake.swift */; };
 		45B78BCC2578737F00B0922B /* ModleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BCB2578737F00B0922B /* ModleData.swift */; };
+		45B78BFB257A47A900B0922B /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
 		45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCC256CA7610098F799 /* SceneDelegate.swift */; };
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
@@ -71,6 +72,7 @@
 		45B78B802577E80B00B0922B /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLineViewController.swift; path = iBadminton/TimeLineViewController.swift; sourceTree = SOURCE_ROOT; };
 		45B78BA82577FB8C00B0922B /* fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = fake.swift; path = ViewController/fake.swift; sourceTree = "<group>"; };
 		45B78BCB2578737F00B0922B /* ModleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModleData.swift; path = ViewController/ModleData.swift; sourceTree = "<group>"; };
+		45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				453B5BBE256E6B2800DF67CC /* Assets.xcassets */,
 				45D47DD8256CA7620098F799 /* Info.plist */,
 				45B78B0F25776A8600B0922B /* GoogleService-Info.plist */,
+				45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */,
 			);
 			path = iBadminton;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
 				456463DA2574E24300FB0A9E /* TeamTitleTableViewCell.swift in Sources */,
 				4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */,
+				45B78BFB257A47A900B0922B /* Dictionary+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

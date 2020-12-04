@@ -41,8 +41,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         teamNameLabel.text = data.teamID
         level.text = data.level
         startTime.text = timeStampToStringDetail(data.dateStart)
-        
+        averageStar.text = String(describing: data.teamRating.averageRating())
     }
+    
     func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
         let timeSta = timeStamp.dateValue()
         let dfmatter = DateFormatter()
