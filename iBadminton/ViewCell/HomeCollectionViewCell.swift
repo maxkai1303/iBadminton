@@ -6,17 +6,19 @@
 //
 
 import UIKit
+import Kingfisher
+import Firebase
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var teamNameLabel: UILabel!
-
+    
     @IBOutlet weak var averageStar: UILabel!
     
     @IBOutlet weak var manPrice: UILabel!
     @IBOutlet weak var girlPrice: UILabel!
-
-    @IBOutlet weak var levelRating: UILabel!
+    
+    @IBOutlet weak var level: UILabel!
     @IBOutlet weak var startDate: UILabel!
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var lackCount: UILabel!
@@ -31,6 +33,21 @@ class HomeCollectionViewCell: UICollectionViewCell {
         mainImage.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         plusOneButton.layer.cornerRadius = 5
     }
-    func setData() {
+    
+    func setup(data: Event) {
+        let url = URL(string: "\(data.image[0])")
+        mainImage.kf.setImage(with: url)
+        manPrice.text = "\(data.price)"
+        teamNameLabel.text = data.teamID
+        level.text = data.level
+        startTime.text = timeStampToStringDetail(data.dateStart)
+        
     }
+    func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
+        let timeSta = timeStamp.dateValue()
+        let dfmatter = DateFormatter()
+        dfmatter.dateFormat="yyyy年MM月dd日 HH:mm:ss"
+        return dfmatter.string(from: timeSta)
+    }
+    
 }

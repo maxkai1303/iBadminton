@@ -289,6 +289,9 @@ PODS:
     - Eureka (~> 4.3)
   - IQKeyboardManager (6.5.6)
   - ISTimeline (1.0.0)
+  - Kingfisher (5.15.7):
+    - Kingfisher/Core (= 5.15.7)
+  - Kingfisher/Core (5.15.7)
   - leveldb-library (1.22)
   - LineSDKSwift (5.7.0):
     - LineSDKSwift/Core (= 5.7.0)
@@ -313,6 +316,7 @@ DEPENDENCIES:
   - ImageRow
   - IQKeyboardManager
   - ISTimeline
+  - Kingfisher
   - LineSDKSwift (~> 5.0)
   - LocationRow
   - lottie-ios
@@ -338,6 +342,7 @@ SPEC REPOS:
     - ImageRow
     - IQKeyboardManager
     - ISTimeline
+    - Kingfisher
     - leveldb-library
     - LineSDKSwift
     - LocationRow
@@ -365,6 +370,7 @@ SPEC CHECKSUMS:
   ImageRow: 03681b3ef8034b5a649440325f5d5ba7b22c1b0a
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   ISTimeline: 1b5c01c76724b3ba3b41a07e508a271e93cd82ad
+  Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
   LocationRow: b4d85cc066e3756f01bdec091784b72bd174bf4e
@@ -373,6 +379,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: 627721ba016a1253ecbce9b210597c63281ec7f5
+PODFILE CHECKSUM: 3b2cf922283c2d4c7b5ea56d0970d21b898c325f
 
 COCOAPODS: 1.10.0

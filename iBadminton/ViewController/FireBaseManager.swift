@@ -83,23 +83,26 @@ class FireBaseManager {
     
     func add(collectionName: CollectionName, handler: @escaping() -> Void) {
         getCollection(name: .event).document().setData([
-            "DateStart": "2020/12/30 12:00",
-            "DateEnd": "",
-            "Image": ["ccccc", "iiiii"],
-            "JoinID": ["高集", "高檔"],
-            "Price": 150,
-            "TeamID": "let辣條=shit",
-            "Status": true,
-            "PeopleRating": ["高集": 3, "高檔": 5],
-            "TeamRating": ["高集": 2, "高檔": 1],
-            "Location": "你家樓下"
-        ], merge: true)
+            "dateStart": Timestamp(),
+            "dateEnd": Timestamp(),
+            "image": ["https://cf.shopee.tw/file/fb99ba8becd15becf1ab1513f5a40acc",
+                      "https://srw.wingzero.tw/assets/robot/51b4a-6597188513911913476.jpg"],
+            "joinID": ["高賽", "高子"],
+            "price": 3000,
+            "teamID": "龍王號",
+            "status": true,
+            "peopleRating": ["高集": 3, "高檔": 5],
+            "teamRating": ["高集": 2, "高檔": 1],
+            "location": "你家樓下",
+            "ball": "200磅鉛球",
+            "level": "中 - 高"
+        ])
         
     }
     
     func edit(collectionName: CollectionName, handler: @escaping() -> Void) {
         getCollection(name: .event).document("57avlZeo1P1Ue1wMoBEE").updateData([
-            "PeopleRating": ["高山": 100]
+            "peopleRating": ["高山": 100]
         ])
         print("======= Edit Sucess! =======")
     }

@@ -291,7 +291,7 @@
                                             <outlet property="averageStar" destination="nRv-ol-FHY" id="0El-Vb-Ssx"/>
                                             <outlet property="girlPrice" destination="0U3-7I-L06" id="Vds-gB-SQm"/>
                                             <outlet property="lackCount" destination="SVU-Dh-4zT" id="MtP-BW-Nge"/>
-                                            <outlet property="levelRating" destination="7H4-iy-25f" id="elI-6f-qMC"/>
+                                            <outlet property="level" destination="7H4-iy-25f" id="elI-6f-qMC"/>
                                             <outlet property="locationButton" destination="w5l-7k-cGO" id="91m-pP-rGc"/>
                                             <outlet property="mainImage" destination="j9o-A8-kVQ" id="2ev-I8-Brv"/>
                                             <outlet property="manPrice" destination="lYG-7e-dW7" id="ZHT-Al-WfG"/>
@@ -299,7 +299,6 @@
                                             <outlet property="startDate" destination="djd-X7-ITY" id="dp4-tP-Xv2"/>
                                             <outlet property="startTime" destination="taN-xV-Gpt" id="StJ-6q-3Bh"/>
                                             <outlet property="teamNameLabel" destination="ofM-b1-R10" id="vTD-AE-npa"/>
-                                            <segue destination="20w-GU-IWm" kind="show" id="Lgr-Vu-cvy"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -324,9 +323,11 @@
                     <navigationItem key="navigationItem" id="YmW-dZ-dPP"/>
                     <connections>
                         <outlet property="datePicker" destination="ryn-NM-0fx" id="7IW-4D-GvW"/>
+                        <outlet property="homePageCollection" destination="5bo-Vl-MIa" id="dxN-ZH-8Oa"/>
                         <outlet property="searchBarOutlet" destination="TFR-Oj-5pA" id="XDh-wQ-Wip"/>
                         <outlet property="searchDateTextField" destination="5Wc-Df-nY6" id="WSo-Yj-4oA"/>
                         <outlet property="searchView" destination="nzf-4e-SUo" id="L8b-EV-4Ur"/>
+                        <segue destination="20w-GU-IWm" kind="show" identifier="showDetailSegue" id="iJX-Ia-Xou"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1345,11 +1346,11 @@
             </objects>
             <point key="canvasLocation" x="433" y="1111"/>
         </scene>
-        <!--Item-->
+        <!--Navigation Controller-->
         <scene sceneID="MTH-eg-y05">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EbD-QE-4Lq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Jfy-aw-LUu"/>
+                    <tabBarItem key="tabBarItem" title="" image="timeline" id="Jfy-aw-LUu"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="58k-uY-YbJ"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="M7f-h7-9vS">
@@ -1383,6 +1384,7 @@
         <image name="medal-of-honor" width="64" height="64"/>
         <image name="note" width="512" height="512"/>
         <image name="stars" width="128" height="128"/>
+        <image name="timeline" width="32" height="32"/>
         <image name="user" width="256" height="256"/>
         <image name="userSmall" width="32" height="32"/>
         <namedColor name="Blue">

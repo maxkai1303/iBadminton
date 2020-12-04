@@ -18,5 +18,6 @@ target 'iBadminton' do
     pod 'FirebaseFirestoreSwift'
     pod 'Firebase/Storage'
     pod 'ISTimeline'
+    pod 'Kingfisher'
 
 end
