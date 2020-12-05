@@ -127,7 +127,7 @@
                                                     <rect key="frame" x="8" y="271" width="343" height="111"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="qwo-hR-db4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="220.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="86" height="24"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar-coin" translatesAutoresizingMaskIntoConstraints="NO" id="6YP-de-yZI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -136,28 +136,8 @@
                                                                         <constraint firstAttribute="height" constant="24" id="kNS-WU-1Mm"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="male" translatesAutoresizingMaskIntoConstraints="NO" id="GGu-eT-9jO">
-                                                                    <rect key="frame" x="38" y="0.0" width="24" height="24"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="24" id="JsE-74-7K0"/>
-                                                                        <constraint firstAttribute="width" constant="24" id="rld-3M-IJK"/>
-                                                                    </constraints>
-                                                                </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＄200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYG-7e-dW7">
-                                                                    <rect key="frame" x="76" y="0.0" width="48" height="24"/>
-                                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                                    <color key="textColor" name="MainBlue"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="female" translatesAutoresizingMaskIntoConstraints="NO" id="TTj-Tb-1Vr">
-                                                                    <rect key="frame" x="138" y="0.0" width="24" height="24"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="24" id="67Y-3Y-5on"/>
-                                                                        <constraint firstAttribute="width" constant="24" id="akp-Ke-fCM"/>
-                                                                    </constraints>
-                                                                </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="＄150" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0U3-7I-L06">
-                                                                    <rect key="frame" x="176" y="0.0" width="44.5" height="24"/>
+                                                                    <rect key="frame" x="38" y="0.0" width="48" height="24"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                                     <color key="textColor" name="MainBlue"/>
                                                                     <nil key="highlightedColor"/>
@@ -166,17 +146,9 @@
                                                             <constraints>
                                                                 <constraint firstItem="6YP-de-yZI" firstAttribute="top" secondItem="qwo-hR-db4" secondAttribute="top" id="1eP-FU-z07"/>
                                                                 <constraint firstItem="lYG-7e-dW7" firstAttribute="top" secondItem="qwo-hR-db4" secondAttribute="top" id="6am-06-EDt"/>
-                                                                <constraint firstItem="GGu-eT-9jO" firstAttribute="top" secondItem="qwo-hR-db4" secondAttribute="top" id="9c3-Eg-BcC"/>
-                                                                <constraint firstItem="0U3-7I-L06" firstAttribute="top" secondItem="qwo-hR-db4" secondAttribute="top" id="Frf-Ry-f3v"/>
                                                                 <constraint firstAttribute="bottom" secondItem="lYG-7e-dW7" secondAttribute="bottom" id="IpY-cM-lFY"/>
-                                                                <constraint firstAttribute="trailing" secondItem="0U3-7I-L06" secondAttribute="trailing" id="KgT-FQ-gQK"/>
                                                                 <constraint firstAttribute="bottom" secondItem="6YP-de-yZI" secondAttribute="bottom" id="Tbs-w2-IKZ"/>
-                                                                <constraint firstAttribute="bottom" secondItem="GGu-eT-9jO" secondAttribute="bottom" id="URD-Ca-1Rb"/>
-                                                                <constraint firstItem="TTj-Tb-1Vr" firstAttribute="centerY" secondItem="lYG-7e-dW7" secondAttribute="centerY" id="f0J-3e-aah"/>
-                                                                <constraint firstItem="TTj-Tb-1Vr" firstAttribute="top" secondItem="qwo-hR-db4" secondAttribute="top" id="iPu-9t-2j0"/>
                                                                 <constraint firstItem="6YP-de-yZI" firstAttribute="leading" secondItem="qwo-hR-db4" secondAttribute="leading" id="kiD-eK-FY2"/>
-                                                                <constraint firstItem="GGu-eT-9jO" firstAttribute="centerY" secondItem="6YP-de-yZI" secondAttribute="centerY" id="pig-cz-D71"/>
-                                                                <constraint firstItem="lYG-7e-dW7" firstAttribute="centerY" secondItem="GGu-eT-9jO" secondAttribute="centerY" id="yQE-Rt-HZR"/>
                                                             </constraints>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0hN-rA-AAz">
@@ -198,7 +170,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="qZJ-qy-ItA">
-                                                            <rect key="frame" x="0.0" y="58" width="271.5" height="24"/>
+                                                            <rect key="frame" x="0.0" y="58" width="141" height="24"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="pFc-fl-JrF">
                                                                     <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -207,14 +179,8 @@
                                                                         <constraint firstAttribute="height" constant="24" id="COq-Vf-NNZ"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020 / 12 / 13" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djd-X7-ITY">
-                                                                    <rect key="frame" x="40" y="0.0" width="114.5" height="24"/>
-                                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                                    <color key="textColor" name="MainBlue"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20:00-22:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taN-xV-Gpt">
-                                                                    <rect key="frame" x="170.5" y="0.0" width="101" height="24"/>
+                                                                    <rect key="frame" x="40" y="0.0" width="101" height="24"/>
                                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                                     <color key="textColor" name="MainBlue"/>
                                                                     <nil key="highlightedColor"/>
@@ -292,14 +258,12 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="averageStar" destination="nRv-ol-FHY" id="0El-Vb-Ssx"/>
-                                            <outlet property="girlPrice" destination="0U3-7I-L06" id="Vds-gB-SQm"/>
                                             <outlet property="lackCount" destination="SVU-Dh-4zT" id="MtP-BW-Nge"/>
                                             <outlet property="level" destination="7H4-iy-25f" id="elI-6f-qMC"/>
                                             <outlet property="locationButton" destination="w5l-7k-cGO" id="91m-pP-rGc"/>
                                             <outlet property="mainImage" destination="j9o-A8-kVQ" id="2ev-I8-Brv"/>
                                             <outlet property="manPrice" destination="lYG-7e-dW7" id="ZHT-Al-WfG"/>
                                             <outlet property="plusOneButton" destination="f9j-Ne-5sa" id="C4f-Y4-O8O"/>
-                                            <outlet property="startDate" destination="djd-X7-ITY" id="dp4-tP-Xv2"/>
                                             <outlet property="startTime" destination="taN-xV-Gpt" id="StJ-6q-3Bh"/>
                                             <outlet property="teamNameLabel" destination="ofM-b1-R10" id="vTD-AE-npa"/>
                                         </connections>
@@ -432,6 +396,9 @@
                                                     <state key="normal" title="查看球隊評價">
                                                         <color key="titleColor" name="White"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="checkTeamRating:" destination="20w-GU-IWm" eventType="touchUpInside" id="r9I-lr-73M"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFj-g3-Oi5">
                                                     <rect key="frame" x="8" y="8" width="240" height="28"/>
@@ -899,6 +866,9 @@
                                 <state key="normal" title="創建球隊">
                                     <color key="titleColor" name="MainBlue"/>
                                 </state>
+                                <connections>
+                                    <action selector="createTeam:" destination="yrS-Mm-hoi" eventType="touchUpInside" id="TW2-L2-cO5"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H83-eT-h6F">
                                 <rect key="frame" x="342" y="96" width="64" height="64"/>
@@ -993,6 +963,7 @@
                     <navigationItem key="navigationItem" id="7D6-e6-qiK"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw3-De-a9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="yrS-Mm-hoi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1122" y="767"/>
         </scene>

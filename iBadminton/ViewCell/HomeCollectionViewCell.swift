@@ -41,13 +41,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
         teamNameLabel.text = data.teamID
         level.text = data.level
         startTime.text = timeStampToStringDetail(data.dateStart)
-        averageStar.text = String(describing: data.teamRating.averageRating())
+        averageStar.text = String(describing: data.teamRating.averageRating()) + " 顆星"
     }
     
     func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
         let timeSta = timeStamp.dateValue()
         let dfmatter = DateFormatter()
-        dfmatter.dateFormat="yyyy年MM月dd日 HH:mm:ss"
+        dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
         return dfmatter.string(from: timeSta)
     }
     

@@ -119,8 +119,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                     if let loginController = self.storyboard?.instantiateViewController(identifier: "SignInViewController") {
                         self.present(loginController, animated: true, completion: nil)
                     }
-                } else {
-                    // Fallback on earlier versions
                 }
             }
         }
