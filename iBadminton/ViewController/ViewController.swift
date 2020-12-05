@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
@@ -18,12 +19,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     private var height: CGFloat?
     
     var events: [Event] = []
-    
-    private let imageView: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
-        imageView.image = UIImage(named: "i badminton")
-        return imageView
-    }()
     
     @IBOutlet weak var searchDateTextField: UITextField! {
         didSet {
@@ -43,6 +38,12 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             })
         }
     }
+    // MARK: Launch Screen 動畫設定
+    private let imageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        imageView.image = UIImage(named: "i badminton")
+        return imageView
+    }()
     
     private func animate() {
         UIView.animate(withDuration: 1, animations: {
@@ -96,6 +97,35 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+            super.viewWillAppear(animated)
+            
+    }
+    
+    @IBAction func homeJoinButton(_ sender: Any) {
+        checkLogin()
+        
+    }
+    
+    func checkLogin() {
+        var loginHandle: AuthStateDidChangeListenerHandle?
+        loginHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            if let user = user {
+                print("\(String(describing: user.email)) login")
+            } else {
+                print("not login")
+                if #available(iOS 13.0, *) {
+                    if let loginController = self.storyboard?.instantiateViewController(identifier: "SignInViewController") {
+                        self.present(loginController, animated: true, completion: nil)
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+        }
+    }
+    
 }
 
 extension ViewController: UICollectionViewDataSource {
