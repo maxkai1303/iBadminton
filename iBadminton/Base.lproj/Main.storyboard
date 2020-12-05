@@ -821,6 +821,31 @@
             </objects>
             <point key="canvasLocation" x="5119" y="767"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="M5z-g3-hMc">
+            <objects>
+                <viewController id="8eT-CY-exU" customClass="SignInViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ckJ-80-C0h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="srU-ja-zS7">
+                                <rect key="frame" x="40" y="705" width="334" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hOA-pS-jbH"/>
+                        <color key="backgroundColor" name="LightBlue"/>
+                    </view>
+                    <connections>
+                        <outlet property="appleLoginView" destination="srU-ja-zS7" id="5m3-Sh-0vE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cs1-Hf-hca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="228.98550724637684" y="452.67857142857139"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="bhE-dG-Bhm">
             <objects>

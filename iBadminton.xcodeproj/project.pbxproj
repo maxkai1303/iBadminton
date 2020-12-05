@@ -33,6 +33,8 @@
 		45B78BA92577FB8C00B0922B /* fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BA82577FB8C00B0922B /* fake.swift */; };
 		45B78BCC2578737F00B0922B /* ModleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BCB2578737F00B0922B /* ModleData.swift */; };
 		45B78BFB257A47A900B0922B /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */; };
+		45B78BFF257B41D500B0922B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B78BFE257B41D500B0922B /* MapKit.framework */; };
+		45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78C02257B488E00B0922B /* SignInViewController.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
 		45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCC256CA7610098F799 /* SceneDelegate.swift */; };
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
@@ -73,6 +75,9 @@
 		45B78BA82577FB8C00B0922B /* fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = fake.swift; path = ViewController/fake.swift; sourceTree = "<group>"; };
 		45B78BCB2578737F00B0922B /* ModleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModleData.swift; path = ViewController/ModleData.swift; sourceTree = "<group>"; };
 		45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+Extension.swift"; sourceTree = "<group>"; };
+		45B78BFE257B41D500B0922B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		45B78C00257B428A00B0922B /* iBadminton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iBadminton.entitlements; sourceTree = "<group>"; };
+		45B78C02257B488E00B0922B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = iBadminton/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45B78BFF257B41D500B0922B /* MapKit.framework in Frameworks */,
 				C59CA8489C4A8171CF151029 /* Pods_iBadminton.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,6 +107,7 @@
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				45B78C02257B488E00B0922B /* SignInViewController.swift */,
 				45B78B802577E80B00B0922B /* TimeLineViewController.swift */,
 				456463D02574DF0E00FB0A9E /* TeamViewController.swift */,
 				45AA848B2574FFA7007E284E /* AddActiveViewController.swift */,
@@ -172,12 +179,14 @@
 		45D47DC9256CA7610098F799 /* iBadminton */ = {
 			isa = PBXGroup;
 			children = (
+				45B78C00257B428A00B0922B /* iBadminton.entitlements */,
 				45B78BCB2578737F00B0922B /* ModleData.swift */,
 				45B78BA82577FB8C00B0922B /* fake.swift */,
 				45B78B5D25779F1C00B0922B /* FireBaseManager.swift */,
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
 				45D47DE4256D07410098F799 /* LineSDK.swift */,
+				45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */,
 				45D47DD0256CA7610098F799 /* Main.storyboard */,
 				4524B57F2570EB6300BDE238 /* ViewController */,
 				4524B5802570EB8200BDE238 /* ViewCell */,
@@ -185,7 +194,6 @@
 				453B5BBE256E6B2800DF67CC /* Assets.xcassets */,
 				45D47DD8256CA7620098F799 /* Info.plist */,
 				45B78B0F25776A8600B0922B /* GoogleService-Info.plist */,
-				45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */,
 			);
 			path = iBadminton;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 		F95D6B8B057B08F90F92D82A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45B78BFE257B41D500B0922B /* MapKit.framework */,
 				05FC7BC96BC0EC4A1657EE15 /* Pods_iBadminton.framework */,
 			);
 			name = Frameworks;
@@ -364,6 +373,7 @@
 				459E614D257285E400C05266 /* PriceTableViewCell.swift in Sources */,
 				45EEE8972571545500ED6DB9 /* TagTableViewCell.swift in Sources */,
 				45EEE8942570F92E00ED6DB9 /* ImageCollectionViewCell.swift in Sources */,
+				45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */,
 				459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
@@ -517,6 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iBadminton/iBadminton.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97D8WZ992M;
 				INFOPLIST_FILE = iBadminton/Info.plist;
@@ -537,6 +548,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iBadminton/iBadminton.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97D8WZ992M;
 				INFOPLIST_FILE = iBadminton/Info.plist;

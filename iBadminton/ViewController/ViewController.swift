@@ -19,6 +19,12 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     var events: [Event] = []
     
+    private let imageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
+        imageView.image = UIImage(named: "i badminton")
+        return imageView
+    }()
+    
     @IBOutlet weak var searchDateTextField: UITextField! {
         didSet {
             searchDateTextField.inputView = datePicker
@@ -26,12 +32,39 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         
         if let tabBarHeight = tabBarController?.tabBar.frame.size.height {
-            
             height = UIScreen.main.bounds.height - searchView.frame.height - tabBarHeight
             
+            imageView.center = view.center
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                self.animate()
+            })
         }
+    }
+    
+    private func animate() {
+        UIView.animate(withDuration: 1, animations: {
+            let size = self.view.frame.size.width * 2
+            let diffX = size - self.view.frame.size.width
+            let diffY = self.view.frame.size.height - size
+            self.imageView.frame = CGRect(
+                x: -(diffX / 2),
+                y: diffY / 2,
+                width: size,
+                height: size
+            )
+        })
+        UIView.animate(withDuration: 1.5, animations: {
+            self.imageView.alpha = 0
+        }, completion: { done in
+            if done {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                    self.imageView.removeFromSuperview()
+                })
+            }
+        })
     }
     
     override func viewDidLoad() {
@@ -42,6 +75,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         FireBaseManager.shared.listen(collectionName: .event) {
             self.read()
         }
+        view.addSubview(imageView)
     }
     
     func setUi() {

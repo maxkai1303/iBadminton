@@ -19,5 +19,6 @@ target 'iBadminton' do
     pod 'Firebase/Storage'
     pod 'ISTimeline'
     pod 'Kingfisher'
+    pod 'Firebase/Auth'
 
 end
