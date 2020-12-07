@@ -35,6 +35,8 @@
 		45B78BFB257A47A900B0922B /* Dictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */; };
 		45B78BFF257B41D500B0922B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B78BFE257B41D500B0922B /* MapKit.framework */; };
 		45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B78C02257B488E00B0922B /* SignInViewController.swift */; };
+		45CB4ECC257DBEB0008E48C3 /* TeamRatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */; };
+		45CB4ECF257DC002008E48C3 /* TeamRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */; };
 		45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCA256CA7610098F799 /* AppDelegate.swift */; };
 		45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCC256CA7610098F799 /* SceneDelegate.swift */; };
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
@@ -78,6 +80,8 @@
 		45B78BFE257B41D500B0922B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		45B78C00257B428A00B0922B /* iBadminton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iBadminton.entitlements; sourceTree = "<group>"; };
 		45B78C02257B488E00B0922B /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignInViewController.swift; path = iBadminton/SignInViewController.swift; sourceTree = SOURCE_ROOT; };
+		45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamRatingViewController.swift; path = iBadminton/TeamRatingViewController.swift; sourceTree = SOURCE_ROOT; };
+		45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamRatingTableViewCell.swift; path = iBadminton/ViewCell/TeamRatingTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */,
 				45B78C02257B488E00B0922B /* SignInViewController.swift */,
 				45B78B802577E80B00B0922B /* TimeLineViewController.swift */,
 				456463D02574DF0E00FB0A9E /* TeamViewController.swift */,
@@ -123,9 +128,10 @@
 		4524B5802570EB8200BDE238 /* ViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */,
+				453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */,
 				456463D32574E19800FB0A9E /* TeamViewCell */,
 				4524B59A2570F77D00BDE238 /* DetailViewCell */,
-				453B5BC1256E88B600DF67CC /* HomeCollectionViewCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -353,6 +359,7 @@
 				4524B5952570F6E400BDE238 /* TitleTableViewCell.swift in Sources */,
 				453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */,
 				45B78BCC2578737F00B0922B /* ModleData.swift in Sources */,
+				45CB4ECC257DBEB0008E48C3 /* TeamRatingViewController.swift in Sources */,
 				45D47DCF256CA7610098F799 /* ViewController.swift in Sources */,
 				456463E42574EA2700FB0A9E /* LowerImageTableViewCell.swift in Sources */,
 				459E614025720E8C00C05266 /* DateTableViewCell.swift in Sources */,
@@ -377,6 +384,7 @@
 				459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
+				45CB4ECF257DC002008E48C3 /* TeamRatingTableViewCell.swift in Sources */,
 				456463DA2574E24300FB0A9E /* TeamTitleTableViewCell.swift in Sources */,
 				4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */,
 				45B78BFB257A47A900B0922B /* Dictionary+Extension.swift in Sources */,

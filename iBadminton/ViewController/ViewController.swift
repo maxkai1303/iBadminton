@@ -19,6 +19,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     private var height: CGFloat?
     
     var events: [Event] = []
+    var team: [Team] = []
     
     @IBOutlet weak var searchDateTextField: UITextField! {
         didSet {
@@ -74,8 +75,11 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         self.navigationController?.isNavigationBarHidden = true
         setUi()
         FireBaseManager.shared.listen(collectionName: .event) {
-            self.read()
+            self.readEvent()
         }
+//        FireBaseManager.shared.listen(collectionName: .team) {
+//            self.readTeam()
+//        }
         view.addSubview(imageView)
     }
     
@@ -87,7 +91,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    func read() {
+    func readEvent() {
         FireBaseManager.shared.read(collectionName: .event, dataType: Event.self) { (result) in
             switch result {
             case .success(let event):
@@ -105,7 +109,24 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     @IBAction func homeJoinButton(_ sender: Any) {
         checkLogin()
-        
+    }
+    
+    func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
+        let docRef = FireBaseManager.shared.fireDb.collection("Team").document("\(teamID)")
+        docRef.getDocument { (document, _) in
+            if let document = document, document.exists {
+                _ = document.data().map(String.init(describing:)) ?? "nil"
+                
+                guard let data = try? document.data(as: Team.self) else {
+                    return
+                }
+                
+                handler(data)
+                
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     func checkLogin() {
@@ -123,7 +144,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
-    
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -139,7 +159,10 @@ extension ViewController: UICollectionViewDataSource {
                 for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
         cell.setShadow()
         cell.setUi()
-        cell.setup(data: events[indexPath.row])
+        
+        readTeamRating(teamID: events[indexPath.row].teamID) { [self] (data) in
+            cell.setup(data: self.events[indexPath.row], team: data)
+        }
         return cell
     }
     

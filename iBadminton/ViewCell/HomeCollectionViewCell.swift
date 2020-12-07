@@ -16,10 +16,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var averageStar: UILabel!
     
     @IBOutlet weak var manPrice: UILabel!
-    @IBOutlet weak var girlPrice: UILabel!
     
     @IBOutlet weak var level: UILabel!
-    @IBOutlet weak var startDate: UILabel!
+
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var lackCount: UILabel!
     @IBOutlet weak var plusOneButton: UIButton!
@@ -34,13 +33,19 @@ class HomeCollectionViewCell: UICollectionViewCell {
         plusOneButton.layer.cornerRadius = 5
     }
     
-    func setup(data: Event) {
+    func setup(data: Event, team: Team) {
         let url = URL(string: "\(data.image[0])")
         mainImage.kf.setImage(with: url)
         manPrice.text = "\(data.price)"
         teamNameLabel.text = data.teamID
         level.text = data.level
         startTime.text = timeStampToStringDetail(data.dateStart)
+        locationButton.setTitle(data.location, for: .normal)
+        lackCount.text = "\(data.lackCount)"
+        getTeamRating(data: team)
+    }
+    
+    func getTeamRating(data: Team) {
         averageStar.text = String(describing: data.teamRating.averageRating()) + " 顆星"
     }
     

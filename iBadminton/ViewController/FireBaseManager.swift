@@ -11,6 +11,8 @@ import FirebaseFirestoreSwift
 
 enum CollectionName: String {
     case event = "Event"
+    case user = "User"
+    case team = "Team"
 }
 
 enum Result<T> {
@@ -24,7 +26,7 @@ enum FirebaseError: String, Error {
 
 class FireBaseManager {
     
-    private let fireDb = Firestore.firestore()
+    let fireDb = Firestore.firestore()
     
     static let shared = FireBaseManager()
     
@@ -37,6 +39,8 @@ class FireBaseManager {
     func getCollection(name: CollectionName) -> CollectionReference {
         switch name {
         case .event: return Firestore.firestore().collection(name.rawValue)
+        case .user: return Firestore.firestore().collection(name.rawValue)
+        case .team: return Firestore.firestore().collection(name.rawValue)
         }
     }
     
@@ -88,14 +92,13 @@ class FireBaseManager {
             "image": ["https://cf.shopee.tw/file/fb99ba8becd15becf1ab1513f5a40acc",
                       "https://srw.wingzero.tw/assets/robot/51b4a-6597188513911913476.jpg"],
             "joinID": ["高賽", "高子"],
-            "price": 3000,
-            "teamID": "龍王號",
+            "price": 900,
+            "teamID": "let辣條是shit",
             "status": true,
-            "peopleRating": ["高集": 3, "高檔": 5],
-            "teamRating": ["高集": 2, "高檔": 1],
-            "location": "你家樓下",
+            "location": "AppWorksSchool",
             "ball": "200磅鉛球",
-            "level": "中 - 高"
+            "level": "中 - 高",
+            "lackCount": 14
         ])
         
     }

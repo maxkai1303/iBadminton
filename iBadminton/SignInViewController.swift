@@ -123,7 +123,9 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                     return
                 }
                 // User is signed in to Firebase with Apple.
-                // ...
+                else {
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
@@ -146,6 +148,7 @@ func authorizationController(controller: ASAuthorizationController, didCompleteW
             print("fullName: \(String(describing: appleIDCredential.fullName))")
             print("Email: \(String(describing: appleIDCredential.email))")
             print("realUserStatus: \(String(describing: appleIDCredential.realUserStatus))")
+            
         }
     }
     /// 授權失敗
@@ -174,7 +177,6 @@ func authorizationController(controller: ASAuthorizationController, didCompleteW
     }
 @available(iOS 13.0, *)
 extension SignInViewController: ASAuthorizationControllerPresentationContextProviding {
-    
     /// - Parameter controller: _
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!

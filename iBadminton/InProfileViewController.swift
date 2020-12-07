@@ -13,7 +13,13 @@ class InProfileViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        form = Section()
+        tableView.backgroundColor = UIColor(named: "LightBlue")
+        
+        TextRow.defaultCellUpdate = { cell, row in
+            cell.textLabel?.font = UIFont.italicSystemFont(ofSize: 12)
+        }
+        
+        form = Section("點擊切換顯示")
             <<< SegmentedRow<String>("segments"){
                 $0.options = ["參加的球隊", "活動歷史"]
                 $0.value = "Films"
@@ -42,6 +48,9 @@ class InProfileViewController: FormViewController {
             <<< LabelRow(){
                 $0.title = "羽龍共舞"
                 $0.value = "2020/12/16"
+            }
+            <<< ButtonRow() {
+                $0.title = "前往評價"
             }
 
             <<< LabelRow(){

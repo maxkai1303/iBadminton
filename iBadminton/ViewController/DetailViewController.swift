@@ -12,10 +12,6 @@ import FirebaseAuth
 class DetailViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var detailTableView: UITableView!
-    
-    @IBAction func checkTeamRating(_ sender: Any) {
-        loginOut()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +22,6 @@ class DetailViewController: UIViewController, UITableViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    func loginOut() {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            print("===== LoginOut Success! =====")
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
     }
     
     func setMenuButton() {

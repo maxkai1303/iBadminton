@@ -8,22 +8,26 @@
 import Foundation
 import UIKit
 
-extension Dictionary where Key == String, Value == Int {
-    
-    typealias TeamRate = [String: Int]
+extension Array where Element == Int {
     
     func averageRating() -> Double {
-        var count: CGFloat = 0
-        var totalValue: CGFloat = 0
         
-        for (_, value) in self {
-            
-            totalValue += CGFloat(value)
-            
-            count += 1
+        let count: Double = Double(self.count)
+        
+        var totalValue: Double = 0
+        
+        self.forEach {
+            totalValue += Double($0)
         }
         
-        return Double(totalValue / count)
+        return Double(totalValue / count).rounding(toDecimal: 1)
     }
     
+}
+
+extension Double {
+    func rounding(toDecimal decimal: Int) -> Double {
+        let numberOfDigits = pow(10.0, Double(decimal))
+        return (self * numberOfDigits).rounded(.toNearestOrAwayFromZero) / numberOfDigits
+    }
 }
