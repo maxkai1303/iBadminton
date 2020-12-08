@@ -108,7 +108,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     @IBAction func homeJoinButton(_ sender: Any) {
-        checkLogin()
+        joinEvent()
     }
     
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
@@ -129,10 +129,11 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    func checkLogin() {
-        var loginHandle: AuthStateDidChangeListenerHandle?
-        loginHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+    func joinEvent() {
+        Auth.auth().addStateDidChangeListener { (_, user) in
             if let user = user {
+                FireBaseManager.shared.joinEvent(id: user.uid, event: "4LX4DRzAYDF1RnclXvNq")
+                print("\(String(describing: user.uid))")
                 print("\(String(describing: user.email)) login")
             } else {
                 print("not login")

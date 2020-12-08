@@ -85,7 +85,7 @@ class FireBaseManager {
         }
     }
     
-    func add(collectionName: CollectionName, handler: @escaping() -> Void) {
+    func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
         getCollection(name: .event).document().setData([
             "dateStart": Timestamp(),
             "dateEnd": Timestamp(),
@@ -101,6 +101,12 @@ class FireBaseManager {
             "lackCount": 14
         ])
         
+    }
+    
+    func joinEvent(id: String, event: String) {
+        getCollection(name: .event).document(event).updateData([
+            "joinID": FieldValue.arrayUnion([id])
+        ])
     }
     
     func edit(collectionName: CollectionName, handler: @escaping() -> Void) {

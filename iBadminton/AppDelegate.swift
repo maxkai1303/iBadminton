@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationManager = CLLocationManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        LoginManager.shared.setup(channelID: "1655262516", universalLinkURL: nil)
+//        LoginManager.shared.setup(channelID: "1655262516", universalLinkURL: nil)
         locationManager.requestWhenInUseAuthorization()
         FirebaseApp.configure()
         return true

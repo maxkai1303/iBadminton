@@ -15,15 +15,18 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setButton()
+    }
+    
+    func setButton() {
         let authorizationAppleIDButton: ASAuthorizationAppleIDButton = ASAuthorizationAppleIDButton(type: .default, style: .black)
         authorizationAppleIDButton.addTarget(self, action: #selector(pressSignInWithAppleButton), for: UIControl.Event.touchUpInside)
         
         authorizationAppleIDButton.frame = self.appleLoginView.bounds
         self.appleLoginView.addSubview(authorizationAppleIDButton)
-        
     }
     @IBOutlet weak var appleLoginView: UIView!
+    
     //    @IBAction func lineLoginButton(_ sender: Any) {
     //        print("==== Line login ====")
     //    }
@@ -63,18 +66,18 @@ class SignInViewController: UIViewController {
     fileprivate var currentNonce: String?
     @available(iOS 13, *)
     func startSignInWithAppleFlow() {
-            let nonce = randomNonceString()
-            currentNonce = nonce
-            let appleIDProvider = ASAuthorizationAppleIDProvider()
-            let request = appleIDProvider.createRequest()
-            request.requestedScopes = [.fullName, .email]
-            request.nonce = sha256(nonce)
-
-            let authorizationController = ASAuthorizationController(authorizationRequests: [request])
-            authorizationController.delegate = self
-            authorizationController.presentationContextProvider = self
-            authorizationController.performRequests()
-        }
+        let nonce = randomNonceString()
+        currentNonce = nonce
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = sha256(nonce)
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = self
+        authorizationController.presentationContextProvider = self
+        authorizationController.performRequests()
+    }
     
     @available(iOS 13, *)
     private func sha256(_ input: String) -> String {
@@ -122,7 +125,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                     print(error?.localizedDescription as Any)
                     return
                 }
-                // User is signed in to Firebase with Apple.
+                // 登入成功.
                 else {
                     self.dismiss(animated: true, completion: nil)
                 }
@@ -136,45 +139,46 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
     }
     
 }
-    /// 授權成功
-    /// - Parameters:
-    ///   - controller: _
-    ///   - authorization: _
+/// 授權成功
+/// - Parameters:
+///   - controller: _
+///   - authorization: _
 @available(iOS 13.0, *)
 func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
-
-        if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
-            print("user: \(appleIDCredential.user)")
-            print("fullName: \(String(describing: appleIDCredential.fullName))")
-            print("Email: \(String(describing: appleIDCredential.email))")
-            print("realUserStatus: \(String(describing: appleIDCredential.realUserStatus))")
-            
-        }
+    
+    if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
+        print("user: \(appleIDCredential.user)")
+        print("fullName: \(String(describing: appleIDCredential.fullName))")
+        print("Email: \(String(describing: appleIDCredential.email))")
+        print("realUserStatus: \(String(describing: appleIDCredential.realUserStatus))")
+        
     }
-    /// 授權失敗
-    /// - Parameters:
-    ///   - controller: _
-    ///   - error: _
+}
+/// 授權失敗
+/// - Parameters:
+///   - controller: _
+///   - error: _
 @available(iOS 13.0, *)
 func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-
-        switch error {
-        case ASAuthorizationError.canceled:
-            break
-        case ASAuthorizationError.failed:
-            break
-        case ASAuthorizationError.invalidResponse:
-            break
-        case ASAuthorizationError.notHandled:
-            break
-        case ASAuthorizationError.unknown:
-            break
-        default:
-            break
-        }
-
-        print("didCompleteWithError: \(error.localizedDescription)")
+    
+    switch error {
+    case ASAuthorizationError.canceled:
+        break
+    case ASAuthorizationError.failed:
+        break
+    case ASAuthorizationError.invalidResponse:
+        break
+    case ASAuthorizationError.notHandled:
+        break
+    case ASAuthorizationError.unknown:
+        break
+    default:
+        break
     }
+    
+    print("didCompleteWithError: \(error.localizedDescription)")
+}
+
 @available(iOS 13.0, *)
 extension SignInViewController: ASAuthorizationControllerPresentationContextProviding {
     /// - Parameter controller: _

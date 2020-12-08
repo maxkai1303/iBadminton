@@ -48,7 +48,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             backgroundImage: #imageLiteral(resourceName: "writing"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
             self.performSegue(withIdentifier: "showAddActiveView", sender: nil)
-            self.firebaseManager.add(collectionName: .event) { }
+            self.firebaseManager.addEvent(collectionName: .event) { }
         }
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])
