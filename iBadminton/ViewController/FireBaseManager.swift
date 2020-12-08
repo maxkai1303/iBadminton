@@ -86,7 +86,10 @@ class FireBaseManager {
     }
     
     func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
-        getCollection(name: .event).document().setData([
+        
+        let doc = getCollection(name: .event).document()
+        
+        doc.setData([
             "dateStart": Timestamp(),
             "dateEnd": Timestamp(),
             "image": ["https://cf.shopee.tw/file/fb99ba8becd15becf1ab1513f5a40acc",
@@ -98,14 +101,40 @@ class FireBaseManager {
             "location": "AppWorksSchool",
             "ball": "200磅鉛球",
             "level": "中 - 高",
-            "lackCount": 14
+            "lackCount": 14,
+            "eventID": doc.documentID
         ])
-        
+    }
+    // MARK: 首次登入創建 User
+    func addUser(collectionName: CollectionName, id: String) {
+        getCollection(name: .user).document("\(id)").setData([
+            "userID": id,
+            "userName": id,
+            "joinCount": 0,
+            "noShow": 0,
+            "rating": [],
+            "message": ["歡迎加入 iBadminton, 建議修改暱稱讓大家認得你喔！"],
+            "userImage": ""
+        ])
     }
     
-    func joinEvent(id: String, event: String) {
+    func checkLogin(handler: @escaping (String?) -> Void) {
+        Auth.auth().addStateDidChangeListener { (_, user) in
+            if let user = user {
+                print("\(String(describing: user.uid))")
+                print("\(String(describing: user.email)) login")
+                handler(user.uid)
+            } else {
+                print("not login")
+                handler(nil)
+            }
+        }
+    }
+    
+    func joinEvent(id: String, event: String, lackCout: Int) {
         getCollection(name: .event).document(event).updateData([
-            "joinID": FieldValue.arrayUnion([id])
+            "joinID": FieldValue.arrayUnion([id]),
+            "lackCount": lackCout - 1
         ])
     }
     

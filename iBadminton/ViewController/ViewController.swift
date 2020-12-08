@@ -77,9 +77,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         FireBaseManager.shared.listen(collectionName: .event) {
             self.readEvent()
         }
-//        FireBaseManager.shared.listen(collectionName: .team) {
-//            self.readTeam()
-//        }
         view.addSubview(imageView)
     }
     
@@ -106,9 +103,18 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             super.viewWillAppear(animated)
             
     }
-    
-    @IBAction func homeJoinButton(_ sender: Any) {
-        joinEvent()
+    // MARK: 還需要取得 event活動ＩＤ
+    @IBAction func homeJoinButton(_ sender: UIButton) {
+        FireBaseManager.shared.checkLogin { uid in
+            if uid == nil {
+                if #available(iOS 13.0, *) {
+                    let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+                    self.present(signInPage!, animated: true, completion: nil)
+                } else {
+                    FireBaseManager.shared.joinEvent(id: uid!, event: "hW1rf7liBAoipak8AtaQ", lackCout: self.events[sender.tag].lackCount)
+                }
+            }
+        }
     }
     
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
@@ -125,23 +131,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                 
             } else {
                 print("Document does not exist")
-            }
-        }
-    }
-    
-    func joinEvent() {
-        Auth.auth().addStateDidChangeListener { (_, user) in
-            if let user = user {
-                FireBaseManager.shared.joinEvent(id: user.uid, event: "4LX4DRzAYDF1RnclXvNq")
-                print("\(String(describing: user.uid))")
-                print("\(String(describing: user.email)) login")
-            } else {
-                print("not login")
-                if #available(iOS 13.0, *) {
-                    if let loginController = self.storyboard?.instantiateViewController(identifier: "SignInViewController") {
-                        self.present(loginController, animated: true, completion: nil)
-                    }
-                }
             }
         }
     }
@@ -162,7 +151,7 @@ extension ViewController: UICollectionViewDataSource {
         cell.setUi()
         
         readTeamRating(teamID: events[indexPath.row].teamID) { [self] (data) in
-            cell.setup(data: self.events[indexPath.row], team: data)
+            cell.setup(data: self.events[indexPath.row], team: data, index: indexPath.row)
         }
         return cell
     }

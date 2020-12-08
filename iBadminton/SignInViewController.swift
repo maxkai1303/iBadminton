@@ -117,16 +117,14 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
             // Sign in with Firebase.
-            Auth.auth().signIn(with: credential) { (authResult, error) in
+            Auth.auth().signIn(with: credential) { (result, error) in
                 if error != nil {
-                    // Error. If error.code == .MissingOrInvalidNonce, make sure
-                    // you're sending the SHA256-hashed nonce as a hex string with
-                    // your request to Apple.
                     print(error?.localizedDescription as Any)
                     return
                 }
                 // 登入成功.
                 else {
+                    FireBaseManager.shared.addUser(collectionName: .user, id: result?.user.uid ?? "")
                     self.dismiss(animated: true, completion: nil)
                 }
             }

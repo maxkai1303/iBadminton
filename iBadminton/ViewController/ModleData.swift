@@ -20,9 +20,11 @@ struct Event: Codable {
     var price: Int
     var status: Bool
     var teamID: String
+    var eventID: String
 }
 
 struct Uesr: Codable {
+    var userID: String
     var userName: String
     var userImage: String
     var message: String

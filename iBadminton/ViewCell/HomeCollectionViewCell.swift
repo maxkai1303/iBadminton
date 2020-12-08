@@ -33,7 +33,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         plusOneButton.layer.cornerRadius = 5
     }
     
-    func setup(data: Event, team: Team) {
+    func setup(data: Event, team: Team, index: Int) {
         let url = URL(string: "\(data.image[0])")
         mainImage.kf.setImage(with: url)
         manPrice.text = "\(data.price)"
@@ -43,6 +43,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         locationButton.setTitle(data.location, for: .normal)
         lackCount.text = "\(data.lackCount)"
         getTeamRating(data: team)
+        
+        plusOneButton.tag = index
     }
     
     func getTeamRating(data: Team) {
