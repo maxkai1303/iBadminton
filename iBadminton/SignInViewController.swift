@@ -124,7 +124,7 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 }
                 // 登入成功.
                 else {
-                    FireBaseManager.shared.addUser(collectionName: .user, id: result?.user.uid ?? "")
+                    FireBaseManager.shared.addUser(collectionName: .user, userId: result?.user.uid ?? "")
                     self.dismiss(animated: true, completion: nil)
                 }
             }

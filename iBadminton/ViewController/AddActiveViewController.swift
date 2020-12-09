@@ -39,7 +39,6 @@ class AddActiveViewController: FormViewController {
             }
             <<< LocationRow(){
                 $0.placeholder = "請輸入打球地點"
-                //                $0.value = placeMark
             }
             +++ Section("球場環境")
             <<< MultipleSelectorRow<String>() {

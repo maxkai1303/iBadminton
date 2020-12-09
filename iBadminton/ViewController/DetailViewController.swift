@@ -11,6 +11,13 @@ import FirebaseAuth
 
 class DetailViewController: UIViewController, UITableViewDelegate {
     
+    var detailEvent: Event?
+    
+    enum ButtonFunction {
+        case joinTeam
+        case joinPlay
+    }
+    
     @IBOutlet weak var detailTableView: UITableView!
 
     override func viewDidLoad() {
@@ -40,7 +47,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "badminton-court"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "badminton-court")) { () -> Void in
-            // Do some action
+            self.detailJoin(buttonFunc: .joinTeam)
         }
         
         let item5 = ExpandingMenuItem(
@@ -50,11 +57,44 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "shuttlecock"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "shuttlecock")) { () -> Void in
-            // Do some action
+            self.detailJoin(buttonFunc: .joinPlay)
         }
         
         menuButton.addMenuItems([item1, item5])
+    }
+    
+    func detailJoin(buttonFunc: ButtonFunction) {
         
+        FireBaseManager.shared.checkLogin { (uid) in
+            
+            guard let userId = uid else {
+                if #available(iOS 13.0, *) {
+                    let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+                    self.present(signInPage!, animated: true, completion: nil)
+                }
+                return
+            }
+            
+            switch buttonFunc {
+            
+            case .joinTeam:
+                
+                guard let team = self.detailEvent else {
+                    print("event is nil")
+                    return
+                }
+                FireBaseManager.shared.joinTeam(userId: userId, teamID: team.teamID)
+                
+            case .joinPlay:
+                
+                guard let event = self.detailEvent else {
+                    print("event is nil")
+                    return
+                }
+                
+                FireBaseManager.shared.joinEvent(userId: userId, event: event.eventID, lackCout: event.lackCount)
+            }
+        }
     }
 }
 
@@ -68,41 +108,50 @@ extension DetailViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "imageTableViewCell", for: indexPath)
-                    as? ImageTableViewCell else { return UITableViewCell() }
+                    as? ImageTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(event: data)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "titleTableViewCell", for: indexPath)
                     as? TitleTableViewCell else { return UITableViewCell() }
+            cell.setUp(teamID: detailEvent?.teamID ?? "")
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "tagTableViewCell", for: indexPath)
-                    as? TagTableViewCell else { return UITableViewCell() }
+                    as? TagTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(tag: data)
             return cell
         case 3:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "dateTableViewCell", for: indexPath)
-                    as? DateTableViewCell else { return UITableViewCell() }
+                    as? DateTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(lack: data.lackCount, date: data.dateStart)
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "locationTableViewCell", for: indexPath)
-                    as? LocationTableViewCell else { return UITableViewCell() }
+                    as? LocationTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(location: data.location)
             return cell
         case 5:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "ballTableViewCell", for: indexPath)
-                    as? BallTableViewCell else { return UITableViewCell() }
+                    as? BallTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(ball: data.ball)
             return cell
         case 6:
             guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "priceTableViewCell", for: indexPath) as? PriceTableViewCell else { return UITableViewCell() }
+                    withIdentifier: "priceTableViewCell", for: indexPath)
+                    as? PriceTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(price: data.price)
             return cell
         case 7:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "noteTableViewCell", for: indexPath)
-                    as? NoteTableViewCell else { return UITableViewCell() }
+                    as? NoteTableViewCell, let data = detailEvent else { return UITableViewCell() }
+            cell.setUp(note: data.note)
             return cell
         default:
             return UITableViewCell()

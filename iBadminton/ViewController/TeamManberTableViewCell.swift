@@ -1,13 +1,13 @@
 //
-//  PriceTableViewCell.swift
+//  TeamManberTableViewCell.swift
 //  iBadminton
 //
-//  Created by Max Kai on 2020/11/28.
+//  Created by Max Kai on 2020/12/9.
 //
 
 import UIKit
 
-class PriceTableViewCell: UITableViewCell {
+class TeamManberTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -16,13 +16,10 @@ class PriceTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
-    @IBOutlet weak var priceImage: UIImageView!
-    @IBOutlet weak var priceLabel: UILabel!
     
-    func setUp(price: Int) {
-        priceLabel.text = "\(price)"
-    }
-    
+
 }

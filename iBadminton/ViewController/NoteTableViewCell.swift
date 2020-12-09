@@ -17,6 +17,11 @@ class NoteTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     @IBOutlet weak var noteImage: UIImageView!
-    @IBOutlet weak var noteTextView: UITextView!
+  
+    @IBOutlet weak var noteLabel: UILabel!
+    
+    func setUp(note: String) {
+        noteLabel.text = note
+    }
     
 }

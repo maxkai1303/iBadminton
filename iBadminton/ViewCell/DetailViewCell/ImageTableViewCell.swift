@@ -9,6 +9,8 @@ import UIKit
 
 class ImageTableViewCell: UITableViewCell, UICollectionViewDelegate {
 
+    var imageArray: [String] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -17,11 +19,15 @@ class ImageTableViewCell: UITableViewCell, UICollectionViewDelegate {
         super.setSelected(selected, animated: animated)
     }
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    
+    func setUp(event: Event) {
+        imageArray = event.image
+    }
 }
 
 extension ImageTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,6 +35,7 @@ extension ImageTableViewCell: UICollectionViewDataSource {
                 withReuseIdentifier: "imageCollectionViewCell",
                 for: indexPath) as? ImageCollectionViewCell
         else { return UICollectionViewCell() }
+        cell.setImage(image: imageArray[indexPath.row])
         return cell
     }
 }

@@ -57,7 +57,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
 
 extension TeamViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -86,6 +86,11 @@ extension TeamViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "teamNoteTableViewCell", for: indexPath)
                     as? TeamNoteTableViewCell else { return UITableViewCell() }
+            return cell
+        case 5:
+            guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: "teamManberTableViewCell", for: indexPath)
+                    as? TeamManberTableViewCell else { return UITableViewCell() }
             return cell
         default:
             return UITableViewCell()

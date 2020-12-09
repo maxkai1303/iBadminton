@@ -12,6 +12,7 @@ struct Event: Codable {
     var ball: String
     var dateStart: Timestamp
     var dateEnd: Timestamp
+    var eventID: String
     var image: [String]
     var joinID: [String]
     var lackCount: Int
@@ -20,7 +21,8 @@ struct Event: Codable {
     var price: Int
     var status: Bool
     var teamID: String
-    var eventID: String
+    var tag: [String]
+    var note: String
 }
 
 struct Uesr: Codable {

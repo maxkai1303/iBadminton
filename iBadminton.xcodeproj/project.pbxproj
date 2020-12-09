@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4507FFD725809C780066CEDF /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507FFD625809C780066CEDF /* TagCollectionViewCell.swift */; };
+		4507FFDA2580E3200066CEDF /* TeamManberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */; };
 		4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B57C2570EAFB00BDE238 /* DetailViewController.swift */; };
 		4524B5952570F6E400BDE238 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */; };
 		4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5972570F77100BDE238 /* ImageTableViewCell.swift */; };
@@ -51,6 +53,8 @@
 /* Begin PBXFileReference section */
 		05FC7BC96BC0EC4A1657EE15 /* Pods_iBadminton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBadminton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CF8DE9AE83D9E9375CCBD4 /* Pods-iBadminton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.release.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.release.xcconfig"; sourceTree = "<group>"; };
+		4507FFD625809C780066CEDF /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberTableViewCell.swift; path = iBadminton/ViewController/TeamManberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4524B57C2570EAFB00BDE238 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		4524B5972570F77100BDE238 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = iBadminton/ViewCell/DetailViewCell/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -148,6 +152,7 @@
 				4524B5972570F77100BDE238 /* ImageTableViewCell.swift */,
 				4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */,
 				45EEE8962571545500ED6DB9 /* TagTableViewCell.swift */,
+				4507FFD625809C780066CEDF /* TagCollectionViewCell.swift */,
 			);
 			path = DetailViewCell;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 		456463D32574E19800FB0A9E /* TeamViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */,
 				45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */,
 				456463E62574EEB200FB0A9E /* TeamBallTableViewCell.swift */,
 				456463E32574EA2700FB0A9E /* LowerImageTableViewCell.swift */,
@@ -357,6 +363,7 @@
 			files = (
 				456463E12574E8C800FB0A9E /* UpperLayerImageTableViewCell.swift in Sources */,
 				4524B5952570F6E400BDE238 /* TitleTableViewCell.swift in Sources */,
+				4507FFDA2580E3200066CEDF /* TeamManberTableViewCell.swift in Sources */,
 				453B5BC2256E88B600DF67CC /* HomeCollectionViewCell.swift in Sources */,
 				45B78BCC2578737F00B0922B /* ModleData.swift in Sources */,
 				45CB4ECC257DBEB0008E48C3 /* TeamRatingViewController.swift in Sources */,
@@ -386,6 +393,7 @@
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
 				45CB4ECF257DC002008E48C3 /* TeamRatingTableViewCell.swift in Sources */,
 				456463DA2574E24300FB0A9E /* TeamTitleTableViewCell.swift in Sources */,
+				4507FFD725809C780066CEDF /* TagCollectionViewCell.swift in Sources */,
 				4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */,
 				45B78BFB257A47A900B0922B /* Dictionary+Extension.swift in Sources */,
 			);

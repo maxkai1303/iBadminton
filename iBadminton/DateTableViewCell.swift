@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DateTableViewCell: UITableViewCell {
 
@@ -22,4 +23,9 @@ class DateTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var lackCount: UILabel!
+    
+    func setUp(lack: Int, date: Timestamp) {
+        dateLabel.text = "\(date)"
+        lackCount.text = "缺 \(lack)"
+    }
 }

@@ -7,7 +7,16 @@
 
 import UIKit
 
-class TagTableViewCell: UITableViewCell {
+class TagTableViewCell: UITableViewCell, UICollectionViewDelegate {
+    
+    @IBOutlet weak var collectionView: UICollectionView! {
+        didSet {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+    }
+    
+    var eventTag: [String] = []
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +26,21 @@ class TagTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    @IBOutlet weak var tagLabel: UILabel!
-    @IBOutlet weak var secondTagLine: UILabel!
+    func setUp(tag: Event) {
+        eventTag = tag.tag
+    }
+}
+
+extension TagTableViewCell: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return eventTag.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "tagCollectionViewCell", for: indexPath)
+                as? TagCollectionViewCell else { return UICollectionViewCell() }
+        cell.setTag(tag: eventTag[indexPath.row])
+        return cell
+    }
 }

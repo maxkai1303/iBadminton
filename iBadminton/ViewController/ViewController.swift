@@ -20,6 +20,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     var events: [Event] = []
     var team: [Team] = []
+    var event: Event?
     
     @IBOutlet weak var searchDateTextField: UITextField! {
         didSet {
@@ -39,6 +40,19 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             })
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetailSegue" {
+            
+            guard let nextVC = segue.destination as? DetailViewController else {
+                print("next view controller is nil")
+                return
+            }
+            
+            nextVC.detailEvent = event
+        }
+    }
+    
     // MARK: Launch Screen 動畫設定
     private let imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
@@ -103,7 +117,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             super.viewWillAppear(animated)
             
     }
-    // MARK: 還需要取得 event活動ＩＤ
+    // MARK: 判斷有沒有登入後加入活動或是跳出登入畫面
     @IBAction func homeJoinButton(_ sender: UIButton) {
         FireBaseManager.shared.checkLogin { uid in
             if uid == nil {
@@ -111,7 +125,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                     let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
                     self.present(signInPage!, animated: true, completion: nil)
                 } else {
-                    FireBaseManager.shared.joinEvent(id: uid!, event: "hW1rf7liBAoipak8AtaQ", lackCout: self.events[sender.tag].lackCount)
+                    FireBaseManager.shared.joinEvent(userId: uid!, event: self.events[sender.tag].eventID, lackCout: self.events[sender.tag].lackCount)
                 }
             }
         }
@@ -120,10 +134,11 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
         let docRef = FireBaseManager.shared.fireDb.collection("Team").document("\(teamID)")
         docRef.getDocument { (document, _) in
-            if let document = document, document.exists {
+            if let document = document {
                 _ = document.data().map(String.init(describing:)) ?? "nil"
                 
                 guard let data = try? document.data(as: Team.self) else {
+                    print("Team decod error ")
                     return
                 }
                 
@@ -157,6 +172,7 @@ extension ViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        event = events[indexPath.row]
         performSegue(withIdentifier: "showDetailSegue", sender: nil)
     }
 }

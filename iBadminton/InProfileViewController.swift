@@ -23,6 +23,7 @@ class InProfileViewController: FormViewController {
             <<< SegmentedRow<String>("segments"){
                 $0.options = ["參加的球隊", "活動歷史"]
                 $0.value = "Films"
+                $0.cell.backgroundColor = UIColor(named: "LightBlue")
             }
             +++ Section(){
                 $0.tag = "team"
