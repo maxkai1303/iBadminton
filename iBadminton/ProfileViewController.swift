@@ -21,16 +21,29 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var createTeamOutlet: UIButton!
     @IBOutlet weak var messageOutlet: UIButton!
     
-    var profileData: [Uesr] = []
+    var profileData: User?
+    var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        FireBaseManager.shared.listen(collectionName:.user) {
-            self.read()
-        }
-        
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        FireBaseManager.shared.checkLogin { uid in
+            if uid == nil {
+                if #available(iOS 13.0, *) {
+                    let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+                    self.present(signInPage!, animated: true, completion: nil)
+                }
+            } else {
+                self.userId = uid!
+                self.read()
+                self.setData()
+                print("login \(self.userId)")
+            }
+        }
+    }
+    
     @IBAction func createTeam(_ sender: Any) {
         loginOut()
     }
@@ -46,23 +59,28 @@ class ProfileViewController: UIViewController {
     }
     
     func read() {
-        FireBaseManager.shared.read(collectionName: .user, dataType: Uesr.self) { (result) in
-            switch result {
-            case .success(let user):
-                self.profileData = user
-                self.setData()
-            case .failure(let error): print("======== Home Page Set Data \(error.localizedDescription)=========")
+        let doc = FireBaseManager.shared.fireDb.collection("User").document(userId)
+        doc.getDocument { (document, error) in
+            if let document = document {
+                guard let data = try? document.data(as: User.self) else {
+                    return
+                }
+                
+                self.profileData = data
+                print(self.profileData ?? "")
+            } else {
+                print("Document does not exist in cache")
             }
         }
     }
     
-    func setData() {
-        let url = URL(string: profileData[0].userImage)
-        userImage.kf.setImage(with: url)
-        userName.text = profileData[0].userName
-        userRating.text = String(describing: profileData[0].rating.averageRating()) + " 顆星"
-        noShowCount.text = "\(profileData[0].noShow) 次"
-        joinCount.text = "\(profileData[0].joinCount) 次"
-    }
-
+        func setData() {
+            let url = URL(string: profileData?.userImage ?? "")
+            userImage.kf.setImage(with: url)
+            userName.text = profileData?.userName
+            userRating.text = String(describing: profileData?.rating.averageRating()) + " 顆星"
+            noShowCount.text = "\(profileData?.noShow ?? 0) 次"
+            joinCount.text = "\(profileData?.joinCount ?? 0) 次"
+        }
+    
 }

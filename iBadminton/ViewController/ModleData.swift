@@ -25,11 +25,11 @@ struct Event: Codable {
     var note: String
 }
 
-struct Uesr: Codable {
+struct User: Codable {
     var userID: String
     var userName: String
     var userImage: String
-    var message: String
+    var message: [String]
     var joinCount: Int
     var noShow: Int
     var rating: [Int]

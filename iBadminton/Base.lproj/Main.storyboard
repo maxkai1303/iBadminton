@@ -841,7 +841,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="齊藤飛鳥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-1m-VoC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="尚未登入" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ec-1m-VoC">
                                 <rect key="frame" x="116" y="104" width="140" height="32.5"/>
                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="23"/>
                                 <color key="textColor" name="MainBlue"/>
@@ -898,14 +898,14 @@
                                         <color key="textColor" name="MainBlue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-3g-uQv">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FRX-3g-uQv">
                                         <rect key="frame" x="156" y="10" width="33" height="24"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                         <color key="textColor" name="Blue"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-G1-5fA">
-                                        <rect key="frame" x="156" y="46" width="30" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 次" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2q3-G1-5fA">
+                                        <rect key="frame" x="156" y="46" width="33" height="24"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                         <color key="textColor" name="Blue"/>
                                         <nil key="highlightedColor"/>
@@ -1219,25 +1219,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="268"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="球隊成員：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WUn-7o-76T">
-                                                    <rect key="frame" x="24" y="8" width="85" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="球隊成員：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5N-se-IkN">
+                                                    <rect key="frame" x="28" y="19" width="87" height="36"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="HM4-Bv-ai1"/>
+                                                        <constraint firstAttribute="height" constant="36" id="6Sv-p3-jC3"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="WUn-7o-76T" firstAttribute="top" secondItem="cRH-1k-Wrz" secondAttribute="top" constant="8" id="EMg-qH-x51"/>
-                                                <constraint firstAttribute="trailing" secondItem="WUn-7o-76T" secondAttribute="trailing" constant="305" id="RuO-xk-u6Z"/>
-                                                <constraint firstItem="WUn-7o-76T" firstAttribute="leading" secondItem="cRH-1k-Wrz" secondAttribute="leading" constant="24" id="uhV-aH-x3k"/>
+                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="T5N-se-IkN" secondAttribute="trailing" constant="279" id="U9I-2E-tSs"/>
+                                                <constraint firstItem="T5N-se-IkN" firstAttribute="leading" secondItem="cRH-1k-Wrz" secondAttribute="leadingMargin" constant="8" id="a73-04-09Y"/>
+                                                <constraint firstItem="T5N-se-IkN" firstAttribute="top" secondItem="cRH-1k-Wrz" secondAttribute="topMargin" constant="8" id="zty-HQ-y4t"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="noteTitleLabel" destination="WUn-7o-76T" id="qw7-Pr-3x5"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1474,9 +1471,6 @@
         </namedColor>
         <namedColor name="LightBlue">
             <color red="0.9100000262260437" green="0.94499999284744263" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainBlue">
-            <color red="0.0" green="0.28999999165534973" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainBlue">
             <color red="0.0" green="0.28999999165534973" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
