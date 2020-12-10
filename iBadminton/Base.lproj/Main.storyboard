@@ -22,21 +22,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nzf-4e-SUo">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="搜尋時間" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Wc-Df-nY6">
-                                        <rect key="frame" x="8" y="114" width="200" height="34"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="bTy-kO-XKp"/>
-                                        </constraints>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="輸入關鍵字搜尋" translatesAutoresizingMaskIntoConstraints="NO" id="TFR-Oj-5pA">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="56"/>
+                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </searchBar>
+                                    <datePicker contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="0Tj-QZ-1hG">
+                                        <rect key="frame" x="8" y="100" width="210" height="55"/>
+                                    </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TVr-co-FMJ">
-                                        <rect key="frame" x="275" y="116" width="131" height="30"/>
+                                        <rect key="frame" x="276" y="110" width="130" height="35"/>
                                         <color key="backgroundColor" name="MainBlue"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="131" id="DeT-O7-Tta"/>
+                                            <constraint firstAttribute="height" constant="35" id="4UA-h5-MfO"/>
+                                            <constraint firstAttribute="width" constant="130" id="Idi-pB-XWN"/>
                                         </constraints>
                                         <state key="normal" title="搜尋">
                                             <color key="titleColor" name="White"/>
@@ -47,24 +46,19 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </button>
-                                    <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="輸入關鍵字搜尋" translatesAutoresizingMaskIntoConstraints="NO" id="TFR-Oj-5pA">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="56"/>
-                                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                    </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" name="LightBlue"/>
                                 <constraints>
-                                    <constraint firstItem="TVr-co-FMJ" firstAttribute="height" secondItem="5Wc-Df-nY6" secondAttribute="height" multiplier="0.882353" id="6GY-9d-N3S"/>
-                                    <constraint firstItem="TVr-co-FMJ" firstAttribute="centerY" secondItem="5Wc-Df-nY6" secondAttribute="centerY" id="A1a-hh-w7W"/>
-                                    <constraint firstAttribute="trailing" secondItem="TVr-co-FMJ" secondAttribute="trailing" constant="8" id="DXL-fY-8CY"/>
-                                    <constraint firstItem="5Wc-Df-nY6" firstAttribute="leading" secondItem="nzf-4e-SUo" secondAttribute="leading" constant="8" id="E17-xI-Iqi"/>
+                                    <constraint firstItem="0Tj-QZ-1hG" firstAttribute="leading" secondItem="nzf-4e-SUo" secondAttribute="leading" constant="8" id="1e5-zO-UVI"/>
+                                    <constraint firstItem="TVr-co-FMJ" firstAttribute="centerY" secondItem="0Tj-QZ-1hG" secondAttribute="centerY" id="2KI-aV-We3"/>
                                     <constraint firstItem="TFR-Oj-5pA" firstAttribute="top" secondItem="nzf-4e-SUo" secondAttribute="top" constant="50" id="FOg-TY-pd6"/>
-                                    <constraint firstItem="5Wc-Df-nY6" firstAttribute="top" secondItem="TFR-Oj-5pA" secondAttribute="bottom" constant="8" id="GGk-De-YiH"/>
+                                    <constraint firstItem="TVr-co-FMJ" firstAttribute="leading" secondItem="0Tj-QZ-1hG" secondAttribute="trailing" constant="58" id="N62-wa-AUa"/>
+                                    <constraint firstAttribute="trailing" secondItem="TVr-co-FMJ" secondAttribute="trailing" constant="8" id="Qn8-A5-vPZ"/>
                                     <constraint firstItem="TFR-Oj-5pA" firstAttribute="leading" secondItem="nzf-4e-SUo" secondAttribute="leading" id="ZNO-1c-aSm"/>
+                                    <constraint firstAttribute="bottom" secondItem="0Tj-QZ-1hG" secondAttribute="bottom" id="aiT-9z-2nR"/>
                                     <constraint firstAttribute="trailing" secondItem="TFR-Oj-5pA" secondAttribute="trailing" id="krB-3J-dF1"/>
                                     <constraint firstAttribute="height" constant="155" id="lwP-Lk-vFn"/>
-                                    <constraint firstItem="TVr-co-FMJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5Wc-Df-nY6" secondAttribute="trailing" constant="8" symbolic="YES" id="ydA-Mn-395"/>
+                                    <constraint firstItem="TVr-co-FMJ" firstAttribute="top" secondItem="TFR-Oj-5pA" secondAttribute="bottom" constant="4" id="pzR-F6-FqY"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5bo-Vl-MIa">
@@ -289,22 +283,15 @@
                     </view>
                     <navigationItem key="navigationItem" id="YmW-dZ-dPP"/>
                     <connections>
-                        <outlet property="datePicker" destination="ryn-NM-0fx" id="7IW-4D-GvW"/>
                         <outlet property="homePageCollection" destination="5bo-Vl-MIa" id="dxN-ZH-8Oa"/>
                         <outlet property="searchBarOutlet" destination="TFR-Oj-5pA" id="XDh-wQ-Wip"/>
-                        <outlet property="searchDateTextField" destination="5Wc-Df-nY6" id="WSo-Yj-4oA"/>
                         <outlet property="searchView" destination="nzf-4e-SUo" id="L8b-EV-4Ur"/>
                         <segue destination="20w-GU-IWm" kind="show" identifier="showDetailSegue" id="iJX-Ia-Xou"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" id="ryn-NM-0fx">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" name="MainYellow"/>
-                </datePicker>
             </objects>
-            <point key="canvasLocation" x="4993" y="767"/>
+            <point key="canvasLocation" x="4992.753623188406" y="766.74107142857144"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lBs-b1-1mN">

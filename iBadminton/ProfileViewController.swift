@@ -26,9 +26,22 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       getData()
+    }
+    
+    
+    @IBAction func createTeam(_ sender: Any) {
+        loginOut()
+    }
+    
+    // MARK: - func 
+    
+    // 確認有沒有登入，抓取用戶資料顯示
+    func getData() {
         FireBaseManager.shared.checkLogin { uid in
             if uid == nil {
                 if #available(iOS 13.0, *) {
@@ -38,14 +51,9 @@ class ProfileViewController: UIViewController {
             } else {
                 self.userId = uid!
                 self.read()
-                self.setData()
                 print("login \(self.userId)")
             }
         }
-    }
-    
-    @IBAction func createTeam(_ sender: Any) {
-        loginOut()
     }
     
     func loginOut() {
@@ -68,19 +76,26 @@ class ProfileViewController: UIViewController {
                 
                 self.profileData = data
                 print(self.profileData ?? "")
+                self.setLabel()
             } else {
                 print("Document does not exist in cache")
             }
         }
     }
     
-        func setData() {
+        func setLabel() {
             let url = URL(string: profileData?.userImage ?? "")
             userImage.kf.setImage(with: url)
             userName.text = profileData?.userName
-            userRating.text = String(describing: profileData?.rating.averageRating()) + " 顆星"
             noShowCount.text = "\(profileData?.noShow ?? 0) 次"
             joinCount.text = "\(profileData?.joinCount ?? 0) 次"
+            guard String(describing: profileData!.rating.averageRating()) != "nan"
+            else {
+                userRating.text = "尚未收到評分"
+                return
+            }
+            userRating.text = String(describing: profileData!.rating.averageRating()) + " 顆星"
+            
         }
     
 }

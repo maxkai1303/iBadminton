@@ -48,6 +48,11 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     func getTeamRating(data: Team) {
+       guard String(describing: data.teamRating.averageRating()) != "nan"
+       else {
+        averageStar.text = "尚未收到評分"
+        return
+       }
         averageStar.text = String(describing: data.teamRating.averageRating()) + " 顆星"
     }
     
