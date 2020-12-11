@@ -12,22 +12,31 @@ import FirebaseFirestoreSwift
 
 class TimeLineViewController: UIViewController {
     
-    //    var lineTitle: String?
-    //    var lineDescription: String?
-    //    var pointColor: UIColor
-    //    var lineColor: UIColor
-    //    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
-    //    var fill: Bool
+    var timeline = ISTimeline()
     
     var data: [TeamPoint] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setView()
+        
+//        readPoint(dataType: TeamPoint.self) { (result) in
+//            switch result {
+//            case.success(let data):
+//                self.data = data
+//                self.setView()
+//            case.failure(let error): print("===== Get Error \(error) ======")
+//            }
+//        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
         readPoint(dataType: TeamPoint.self) { (result) in
             switch result {
             case.success(let data):
                 self.data = data
-                self.setView()
+                print("data: ", self.data)
+                self.setData()
             case.failure(let error): print("===== Get Error \(error) ======")
             }
         }
@@ -62,11 +71,11 @@ class TimeLineViewController: UIViewController {
     }
     
     func setView() {
+        navigationController?.navigationBar.isHidden = true
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
-        let frame = CGRect(x: 0.0, y: 20.0, width: screenWidth, height: screenHeight)
-        let timeline = ISTimeline(frame: frame)
-        
+        let frame = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: screenHeight)
+        timeline.frame = frame
         timeline.backgroundColor = UIColor(named: "MainBlue")
         timeline.bubbleColor = .init(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
         timeline.titleColor = UIColor(named: "MainBlue")!
@@ -74,13 +83,12 @@ class TimeLineViewController: UIViewController {
         timeline.pointDiameter = 7.0
         timeline.lineWidth = 2.0
         timeline.bubbleRadius = 0.0
-        
         self.view.addSubview(timeline)
-        
-//        let data = FakeData.pointsData()
+    }
+    
+    func setData() {
         let data = pointsData()
-        
-        timeline.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+        timeline.contentInset = UIEdgeInsets(top: 70.0, left: 20.0, bottom: 20.0, right: 20.0)
         timeline.points = data
     }
     
@@ -92,17 +100,21 @@ class TimeLineViewController: UIViewController {
         var myPoint: [ISPoint] = []
         
         for item in self.data {
-            let point =
-                ISPoint(title: FireBaseManager.shared.timeStampToStringDetail(item.time),
-                        description: item.content,
-                        pointColor: UIColor(named: "Blue")!,
-                        lineColor: UIColor(named: "MainBlue")!,
+            let point = 
+                ISPoint(title: item.content,
+                        description: FireBaseManager.shared.timeStampToStringDetail(item.time),
+                        pointColor: UIColor(named: "LightBlue")!,
+                        lineColor: UIColor.yellow,
                         touchUpInside: touchAction,
-                        fill: false
+                        fill: true
                 )
+            print("point data: ", point)
             
             myPoint.append(point)
         }
+        print("==================\(myPoint)=============")
+        
+        print("myPoing data: ", myPoint)
         return myPoint
     }
 }
