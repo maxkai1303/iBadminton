@@ -42,3 +42,9 @@ struct Team: Codable {
     var adminID: String
     var teamRating: [Int]
 }
+
+struct TeamPoint: Codable {
+    var event: Bool
+    var time: Timestamp
+    var content: String
+}

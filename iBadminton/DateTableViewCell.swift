@@ -25,7 +25,7 @@ class DateTableViewCell: UITableViewCell {
     @IBOutlet weak var lackCount: UILabel!
     
     func setUp(lack: Int, date: Timestamp) {
-        dateLabel.text = "\(date)"
+        dateLabel.text = FireBaseManager.shared.timeStampToStringDetail(date)
         lackCount.text = "缺 \(lack)"
     }
 }

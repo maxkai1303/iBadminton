@@ -1399,6 +1399,7 @@
         <!--Navigation Controller-->
         <scene sceneID="MTH-eg-y05">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="han-a5-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EbD-QE-4Lq" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="timeline" id="Jfy-aw-LUu"/>
                     <toolbarItems/>
@@ -1412,7 +1413,6 @@
                         <segue destination="7SE-wx-blJ" kind="relationship" relationship="rootViewController" id="eJp-IN-Rbs"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="han-a5-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3973.913043478261" y="20.758928571428569"/>
         </scene>

@@ -167,4 +167,11 @@ class FireBaseManager {
         ])
         print("======= Edit Sucess! =======")
     }
+    
+    func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
+        let timeSta = timeStamp.dateValue()
+        let dfmatter = DateFormatter()
+        dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        return dfmatter.string(from: timeSta)
+    }
 }

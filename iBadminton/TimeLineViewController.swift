@@ -7,20 +7,58 @@
 
 import UIKit
 import ISTimeline
+import Firebase
+import FirebaseFirestoreSwift
 
 class TimeLineViewController: UIViewController {
     
-//    var lineTitle: String?
-//    var lineDescription: String?
-//    var pointColor: UIColor
-//    var lineColor: UIColor
-//    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
-//    var fill: Bool
+    //    var lineTitle: String?
+    //    var lineDescription: String?
+    //    var pointColor: UIColor
+    //    var lineColor: UIColor
+    //    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
+    //    var fill: Bool
+    
+    var data: [TeamPoint] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setView()
-        
+        readPoint(dataType: TeamPoint.self) { (result) in
+            switch result {
+            case.success(let data):
+                self.data = data
+                self.setView()
+            case.failure(let error): print("===== Get Error \(error) ======")
+            }
+        }
+    }
+    
+    func readPoint <T: Codable> (dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
+        let collection = FireBaseManager.shared.fireDb.collection("Team").document("let辣條=shit").collection("TeamPoint")
+        collection.getDocuments(completion: { (querySnapshot, error) in
+            guard let querySnapshot = querySnapshot else {
+                handler(.failure(error!))
+                return
+            }
+            self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                switch result {
+                case .success(let data): handler(.success(data))
+                case .failure(let error): handler(.failure(error))
+                }
+            }
+        })
+    }
+    
+    func decode<T: Codable>(_ dataType: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
+        var datas: [T] = []
+        for document in documents {
+            guard let data = try? document.data(as: dataType) else {
+                handler(.failure(FirebaseError.decode))
+                return
+            }
+            datas.append(data)
+        }
+        handler(.success(datas))
     }
     
     func setView() {
@@ -39,11 +77,33 @@ class TimeLineViewController: UIViewController {
         
         self.view.addSubview(timeline)
         
-        let fake = FakeData.pointsData()
-
+//        let data = FakeData.pointsData()
+        let data = pointsData()
+        
         timeline.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
-        timeline.points = fake
-//    }
+        timeline.points = data
+    }
+    
+    func pointsData() -> [ISPoint] {
+        let touchAction = { (point: ISPoint) in
+            print("point \(point.title)")
+        }
+        
+        var myPoint: [ISPoint] = []
+        
+        for item in self.data {
+            let point =
+                ISPoint(title: FireBaseManager.shared.timeStampToStringDetail(item.time),
+                        description: item.content,
+                        pointColor: UIColor(named: "Blue")!,
+                        lineColor: UIColor(named: "MainBlue")!,
+                        touchUpInside: touchAction,
+                        fill: false
+                )
+            
+            myPoint.append(point)
+        }
+        return myPoint
     }
 }
 /*

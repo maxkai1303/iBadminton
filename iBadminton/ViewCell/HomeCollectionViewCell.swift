@@ -39,9 +39,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         manPrice.text = "\(data.price)"
         teamNameLabel.text = data.teamID
         level.text = data.level
-        startTime.text = timeStampToStringDetail(data.dateStart)
+        startTime.text = FireBaseManager.shared.timeStampToStringDetail(data.dateStart)
         locationButton.setTitle(data.location, for: .normal)
-        lackCount.text = "\(data.lackCount)"
+        lackCount.text = "缺\(data.lackCount)"
         getTeamRating(data: team)
         
         plusOneButton.tag = index
@@ -55,12 +55,4 @@ class HomeCollectionViewCell: UICollectionViewCell {
        }
         averageStar.text = String(describing: data.teamRating.averageRating()) + " 顆星"
     }
-    
-    func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
-        let timeSta = timeStamp.dateValue()
-        let dfmatter = DateFormatter()
-        dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-        return dfmatter.string(from: timeSta)
-    }
-    
 }
