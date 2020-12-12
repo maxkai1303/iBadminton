@@ -11,13 +11,31 @@ import ExpandingMenu
 class TeamViewController: UIViewController, UITableViewDelegate {
     
     var firebaseManager = FireBaseManager.shared
+    var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMenuButton()
+        checkOwnTeam()
     }
     
     @IBOutlet weak var teamTableView: UITableView!
+    
+    // MARK: 還需要判斷到底有沒有球隊
+    func checkOwnTeam() {
+        firebaseManager.checkLogin { uid in
+            if uid == nil {
+                if #available(iOS 13.0, *) {
+                    let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+                    self.present(signInPage!, animated: true, completion: nil)
+                }
+            } else {
+                self.userId = uid!
+                self.setMenuButton()
+                print("login \(self.userId)")
+            }
+            
+        }
+    }
     
     func setMenuButton() {
         let menuButtonSize: CGSize = CGSize(width: 70.0, height: 70.0)
@@ -35,8 +53,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "edit"),
             backgroundImage: #imageLiteral(resourceName: "edit"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
-            self.performSegue(withIdentifier: "showTeamEditView", sender: nil)
-            self.firebaseManager.edit(collectionName: .event) { }
+            self.performSegue(withIdentifier: "showTeamEditView", sender: self.userId)
         }
         itemEdit.titleColor = .white
         
@@ -47,8 +64,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "writing"),
             backgroundImage: #imageLiteral(resourceName: "writing"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
-            self.performSegue(withIdentifier: "showAddActiveView", sender: nil)
-            self.firebaseManager.addEvent(collectionName: .event) { }
+            self.performSegue(withIdentifier: "showAddActiveView", sender: self.userId)
         }
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])

@@ -969,7 +969,13 @@
                             <constraint firstItem="EB8-wh-vcm" firstAttribute="top" secondItem="9Ec-1m-VoC" secondAttribute="bottom" constant="8" id="zFH-Tx-gEO"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="7D6-e6-qiK"/>
+                    <navigationItem key="navigationItem" id="7D6-e6-qiK">
+                        <barButtonItem key="rightBarButtonItem" title="修改暱稱" image="editSmall" id="fDR-zc-Qzd">
+                            <connections>
+                                <action selector="editProfile:" destination="t8D-C6-ekS" id="feK-Kk-f2S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="createTeamOutlet" destination="jUB-Qj-PJk" id="4Rs-SM-Sab"/>
                         <outlet property="joinCount" destination="FRX-3g-uQv" id="a9N-eh-wOS"/>
@@ -1443,6 +1449,7 @@
         <image name="badminton-bai-bwf-fb" width="1200" height="667"/>
         <image name="calendar" width="64" height="64"/>
         <image name="dollar-coin" width="64" height="64"/>
+        <image name="editSmall" width="32" height="32"/>
         <image name="email" width="128" height="128"/>
         <image name="group" width="32" height="32"/>
         <image name="home" width="24" height="24"/>

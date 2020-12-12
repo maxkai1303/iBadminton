@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController {
     
     var profileData: User?
     var userId: String = ""
+    var nickName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,11 @@ class ProfileViewController: UIViewController {
     
     @IBAction func createTeam(_ sender: Any) {
         loginOut()
+    }
+    
+    
+    @IBAction func editProfile(_ sender: Any) {
+        setEditAlert()
     }
     
     // MARK: - func 
@@ -97,5 +103,28 @@ class ProfileViewController: UIViewController {
             userRating.text = String(describing: profileData!.rating.averageRating()) + " 顆星"
             
         }
+    
+    func setEditAlert() {
+        let controller = UIAlertController(
+            title: "修改暱稱",
+            message: "請輸入暱稱",
+            preferredStyle: .alert
+        )
+        controller.addTextField { (textField) in
+            textField.placeholder = "您的暱稱"
+            textField.keyboardType = .default
+        }
+        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            guard controller.textFields?[0].text != "" else { return }
+            self.nickName = (controller.textFields?[0].text)!
+            self.userName.text = self.nickName
+            FireBaseManager.shared.edit(collectionName: .user, userId: self.userId, key: "userName", value: "\(self.nickName)") { }
+        }
+        controller.addAction(okAction)
+        let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        controller.addAction(cancelAction)
+        
+        present(controller, animated: true, completion: nil)
+    }
     
 }

@@ -85,19 +85,18 @@ class FireBaseManager {
         }
     }
     
+    // MARK: 要拿到球隊的資訊，直接帶入新活動
     func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
-        
+        var noteText: String = ""
         let doc = getCollection(name: .event).document()
-        let noteText =
-            """
-            1、把簡單弄複雜是找事，把複雜弄簡單才是本事。
-            2、所謂「成熟」就是，喜歡的東西依舊喜歡，但可以不擁有；討厭的東西依舊討厭，但可以忍受；害怕的東西依舊害怕，但可以面對。
-            3、令人感到難過，不是因為你欺騙了我，而是因為我再也不能相信你了。
-            4、敵人變成朋友，就比朋友更可靠，朋友變成敵人，比敵人更危險。有些事知道了就好，不必多說。有些人認識了就好，不必深交。
-            5、能看穿你三方面的人值得信任：看穿你笑容背後的悲傷、諒解你怒火裡掩藏的善意、了解你沉默之下的原因。
-            6、人生第一快樂是做到自己認為自己做不到的事，人生第二快樂是做到別人認為自己做不到的事。
-            7、人越是怕丟人，就越是在乎別人的看法；越是在乎別人的看法，就越是會忽略自己的感受。"
-            """
+//        getCollection(name: .team).getDocuments { (querySnapshot, error) in
+//            if let querySnapshot = querySnapshot {
+//               for document in querySnapshot.documents {
+//                noteText = document.data()["teamMessage"] as! String
+//                  print(document.data())
+//               }
+//            }
+//         }
         
         let event = Event(ball: "200磅鉛球",
                           dateStart: Timestamp(),
@@ -112,7 +111,8 @@ class FireBaseManager {
                           status: true,
                           teamID: "let辣條=shit",
                           tag: ["停車場", "辣妹陪打", "霓虹燈"],
-                          note: noteText)
+                          note: noteText
+        )
         do {
             
             try doc.setData(from: event)
@@ -122,6 +122,21 @@ class FireBaseManager {
             print(error.localizedDescription)
         }
     }
+    
+    func getOwnTeam(userId: String) {
+        let collection = FireBaseManager.shared.getCollection(name: .team)
+        collection.whereField("admin", isEqualTo: userId)
+    }
+    
+    func addTimeline(team: String, content: String, event: Bool) {
+        let doc = getCollection(name: .team).document(team).collection("TeamPoint")
+        doc.document().setData([
+            "content": "",
+            "event": false,
+            "time": Timestamp()
+        ])
+    }
+    
     // MARK: 首次登入創建 User
     func addUser(collectionName: CollectionName, userId: String) {
         getCollection(name: .user).document("\(userId)").setData([
@@ -161,9 +176,9 @@ class FireBaseManager {
         ])
     }
     
-    func edit(collectionName: CollectionName, handler: @escaping() -> Void) {
-        getCollection(name: .event).document("57avlZeo1P1Ue1wMoBEE").updateData([
-            "peopleRating": ["高山": 100]
+    func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
+        getCollection(name: collectionName).document(userId).updateData([
+            key: value
         ])
         print("======= Edit Sucess! =======")
     }

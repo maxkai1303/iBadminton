@@ -94,6 +94,21 @@ class SignInViewController: UIViewController {
     @objc func pressSignInWithAppleButton() {
         startSignInWithAppleFlow()
     }
+    // MARK: 這裡確認是不是原有用戶要再調整一下方法
+    func checkOldUser(userId: String) {
+        let collection = FireBaseManager.shared.getCollection(name: .user)
+        collection.whereField("userID", isEqualTo: userId).getDocuments()
+        { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                                print("\(document.documentID) => \(document.data())")
+                            }
+            }
+            
+        }
+    }
 }
 
 @available(iOS 13.0, *)
@@ -112,11 +127,9 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 print("Unable to serialize token string from data: \(appleIDToken.debugDescription)")
                 return
             }
-            // Initialize a Firebase credential.
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
-            // Sign in with Firebase.
             Auth.auth().signIn(with: credential) { (result, error) in
                 if error != nil {
                     print(error?.localizedDescription as Any)
