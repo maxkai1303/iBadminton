@@ -125,7 +125,13 @@ class FireBaseManager {
     
     func getOwnTeam(userId: String) {
         let collection = FireBaseManager.shared.getCollection(name: .team)
-        collection.whereField("admin", isEqualTo: userId)
+        collection.whereField("admin", isEqualTo: userId).getDocuments { (querySnapshot, error) in
+            if let querySnapshot = querySnapshot {
+               for document in querySnapshot.documents {
+                  print(document.data())
+               }
+            }
+         }
     }
     
     func addTimeline(team: String, content: String, event: Bool) {

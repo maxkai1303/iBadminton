@@ -11,10 +11,34 @@ import ImageRow
 
 class TeamEditViewController: FormViewController {
     
+    var userId: String = ""
+    
+    var pickerTeam: String = ""
+    var teamImage: [String] = []
+    var teamMessage: String = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        FireBaseManager.shared.getOwnTeam(userId: userId)
+        
+    }
+    
+    func setUi() {
         
         form +++ Section("球隊基本資料")
+            
+            <<< PickerInputRow<String>("Picker Input Row"){
+                $0.title = "活動球隊"
+                $0.options = []
+                for i in 1...10{
+                    $0.options.append("option \(i)")
+                }
+                $0.value = $0.options.first
+            }.onChange({ (row) in
+                self.pickerTeam = row.value!
+                print("value changed: \(row.value!)")
+            })
+            
             <<< TextRow(){ row in
                 row.title = "球隊名稱"
                 row.placeholder = "Enter text here"
@@ -54,5 +78,6 @@ class TeamEditViewController: FormViewController {
     @objc func multipleSelectorDone(_ item:UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
     }
-    
 }
+
+

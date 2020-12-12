@@ -69,6 +69,12 @@ class TeamViewController: UIViewController, UITableViewDelegate {
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       let controller = segue.destination as! TeamEditViewController
+        controller.userId = sender as! String
+    }
+    
 }
 
 extension TeamViewController: UITableViewDataSource {
