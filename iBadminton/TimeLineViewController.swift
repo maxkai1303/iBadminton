@@ -20,15 +20,6 @@ class TimeLineViewController: UIViewController {
         super.viewDidLoad()
         
         setView()
-        
-//        readPoint(dataType: TeamPoint.self) { (result) in
-//            switch result {
-//            case.success(let data):
-//                self.data = data
-//                self.setView()
-//            case.failure(let error): print("===== Get Error \(error) ======")
-//            }
-//        }
     }
     override func viewWillAppear(_ animated: Bool) {
         readPoint(dataType: TeamPoint.self) { (result) in

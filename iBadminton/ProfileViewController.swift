@@ -28,6 +28,15 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+//        performSegue(withIdentifier: "goInProfileSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTeamEditView" {
+            let controller = segue.destination as? InProfileViewController
+            controller?.userId = userId
+            controller?.userName = nickName
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,7 +123,7 @@ class ProfileViewController: UIViewController {
             textField.placeholder = "您的暱稱"
             textField.keyboardType = .default
         }
-        let okAction = UIAlertAction(title: "OK", style: .default) { (_) in
+        let okAction = UIAlertAction(title: "完成", style: .default) { (_) in
             guard controller.textFields?[0].text != "" else { return }
             self.nickName = (controller.textFields?[0].text)!
             self.userName.text = self.nickName

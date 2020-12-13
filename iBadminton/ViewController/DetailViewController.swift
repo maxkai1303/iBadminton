@@ -84,6 +84,8 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     return
                 }
                 FireBaseManager.shared.joinTeam(userId: userId, teamID: team.teamID)
+                // MARK: 要拿到 userName 來帶入 timeline
+                FireBaseManager.shared.addTimeline(team: team.teamID, content: "\(userId) 加入球隊", event: false)
                 
             case .joinPlay:
                 

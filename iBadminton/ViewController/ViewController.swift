@@ -53,7 +53,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    // MARK: Launch Screen 動畫設定
+    //  Launch Screen 動畫設定
     private let imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 200, height: 200))
         imageView.image = UIImage(named: "i badminton")
@@ -114,10 +114,11 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            super.viewWillAppear(animated)
-            
+        super.viewWillAppear(animated)
+        
     }
-    // MARK: 判斷有沒有登入後加入活動或是跳出登入畫面
+    
+    //  判斷有沒有登入後加入活動或是跳出登入畫面
     @IBAction func homeJoinButton(_ sender: UIButton) {
         FireBaseManager.shared.checkLogin { uid in
             if uid == nil {
@@ -153,6 +154,12 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             }
         }
     }
+    
+    // MARK: 監聽活動狀態 status 變成 false不顯示
+    func listenEvent() {
+        let collection = FireBaseManager.shared.getCollection(name: .event)
+        collection.whereField("status", isEqualTo: true)
+    }
 }
 
 extension ViewController: UICollectionViewDataSource {
@@ -184,11 +191,11 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         let screenWidth = UIScreen.main.bounds.size.width - 20
         let height = UIScreen.main.bounds.size.height * 0.5
-            
-            return CGSize(width: screenWidth, height: height)
+        
+        return CGSize(width: screenWidth, height: height)
     }
 }
 

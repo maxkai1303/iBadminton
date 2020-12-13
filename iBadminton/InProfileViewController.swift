@@ -15,24 +15,32 @@ class InProfileViewController: FormViewController {
     var joinEvent: [String] = []
     var eventDate: [String] = []
     var userId: String = ""
+    var userName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         setLabel()
-        
     }
     
-    func setLabel() {
-        // MARK: 要從 profile裡面拿到 uid
-        getTeamManber(userId: "xJlxfKVWdladCX8vKDWAvr78Xsj1") { teamID in
+//    override func viewWillAppear(_ animated: Bool) {
+//        getData()
+//    }
+    
+    func getData() {
+        // MARK: 要從 profile裡面拿到 uid 還有 userName
+        getTeamManber(userId: "ggyy") { teamID in
             self.joinTeam.append(teamID)
         }
         
-        getJoinEvent(userId: "xJlxfKVWdladCX8vKDWAvr78Xsj1") { [weak self] event in
+        getJoinEvent(userId: "ggyy") { [weak self] event in
             self?.joinEvent.append(event["teamID"] as! String)
             guard let dateString = self?.timeStampToStringDetail(event["dateStart"] as! Timestamp) else { return }
             self?.eventDate.append(dateString)
         }
+    }
+    
+    func setLabel() {
         
         tableView.backgroundColor = UIColor(named: "LightBlue")
         
@@ -43,17 +51,43 @@ class InProfileViewController: FormViewController {
         form +++ Section()
             <<< SegmentedRow<String>("segments"){
                 $0.options = ["參加的球隊", "活動歷史"]
-                $0.value = "參加的球隊"
+                $0.value = "活動歷史"
                 $0.cell.backgroundColor = UIColor(named: "LightBlue")
             }.onChange({ (segmented) in
                 if(segmented.value == "參加的球隊") {
-                    
                     segmented.section!.removeLast(segmented.section!.count - 1)
-                    
-                    for value in self.joinTeam
-                    {
-                        segmented.section! <<< LabelRow(){
+                    for value in self.joinTeam {
+                        segmented.section! <<< LabelRow() {
                             $0.title = value
+                            
+                            let deleteAction = SwipeAction(style: .destructive, title: "退出球隊", handler: { (action, row, completionHandler) in
+                                let controller = UIAlertController(title: "哎呦喂呀！", message: "確定要離開球隊嗎", preferredStyle: .alert)
+                                let okAction = UIAlertAction(title: "離開", style: .destructive, handler: {_ in
+                                    print("Delete")
+                                    FireBaseManager.shared.getCollection(name: .team).document(value).updateData([
+                                        "teamMenber": FieldValue.arrayRemove(["ggyy"])
+                                    ])
+                                    completionHandler?(true)
+                                })
+                                let backAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                                controller.addAction(backAction)
+                                controller.addAction(okAction)
+                                self.present(controller, animated: true, completion: nil)
+                                
+                            })
+                            $0.trailingSwipe.actions = [deleteAction]
+                            $0.trailingSwipe.performsFirstActionWithFullSwipe = true
+                            
+                            if #available(iOS 11,*) {
+                                let infoAction = SwipeAction(style: .normal, title: "Info", handler: { (action, row, completionHandler) in
+                                    print("Info")
+                                    completionHandler?(true)
+                                })
+                                infoAction.actionBackgroundColor = .blue
+
+                                $0.leadingSwipe.actions = [infoAction]
+                                $0.leadingSwipe.performsFirstActionWithFullSwipe = true
+                            }
                         }
                     }
                 }

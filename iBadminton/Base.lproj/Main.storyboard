@@ -301,6 +301,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U3Y-zr-HIp">
+                                <rect key="frame" x="55" y="273" width="272" height="239"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            </containerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1OV-6F-XKE">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" name="LightBlue"/>
@@ -928,7 +932,7 @@
                                 <rect key="frame" x="0.0" y="220" width="414" height="497"/>
                                 <color key="backgroundColor" name="LightBlue"/>
                                 <connections>
-                                    <segue destination="bKZ-bi-NN3" kind="embed" id="eYW-wl-K1P"/>
+                                    <segue destination="bKZ-bi-NN3" kind="embed" identifier="goInProfileSegue" id="eYW-wl-K1P"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H83-eT-h6F">

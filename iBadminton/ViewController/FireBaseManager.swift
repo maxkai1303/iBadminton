@@ -139,7 +139,7 @@ class FireBaseManager {
     func addTimeline(team: String, content: String, event: Bool) {
         let doc = getCollection(name: .team).document(team).collection("TeamPoint")
         doc.document().setData([
-            "content": "",
+            "content": content,
             "event": false,
             "time": Timestamp()
         ])
@@ -176,25 +176,52 @@ class FireBaseManager {
             "joinID": FieldValue.arrayUnion([userId]),
             "lackCount": lackCout - 1
         ])
+        if lackCout == 0 {
+            getCollection(name: .event).document(event).updateData([
+                "status": false
+            ])
+        }
     }
     
     func joinTeam(userId: String, teamID: String) {
-        getCollection(name: .team).document(teamID).updateData([
-            "teamMenber": FieldValue.arrayUnion([userId])
-        ])
+        var name = ""
+        getCollection(name: .user).document(userId).getDocument { (document, _) in
+            if let document = document, document.exists {
+                name = "\(document.data()!["userName"] ?? "靠杯")"
+                self.getCollection(name: .team).document(teamID).updateData([
+                    "teamMenber": FieldValue.arrayUnion([name])
+                ])
+                print(document.documentID, document.data()!)
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
-    func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
-        getCollection(name: collectionName).document(userId).updateData([
-            key: value
-        ])
-        print("======= Edit Sucess! =======")
+    func getUserName(userId: String) -> String {
+        var name = ""
+        getCollection(name: .user).document(userId).getDocument { (document, _) in
+            if let document = document, document.exists {
+                name = "\(document.data()!["userName"] ?? "靠杯")"
+                print(document.documentID, document.data()!)
+            } else {
+                print("Document does not exist")
+            }
+        }
+        return name
     }
-    
-    func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
-        let timeSta = timeStamp.dateValue()
-        let dfmatter = DateFormatter()
-        dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-        return dfmatter.string(from: timeSta)
+        
+        func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
+            getCollection(name: collectionName).document(userId).updateData([
+                key: value
+            ])
+            print("======= Edit Sucess! =======")
+        }
+        
+        func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
+            let timeSta = timeStamp.dateValue()
+            let dfmatter = DateFormatter()
+            dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+            return dfmatter.string(from: timeSta)
+        }
     }
-}

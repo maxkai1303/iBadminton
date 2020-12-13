@@ -40,12 +40,13 @@ class TeamEditViewController: FormViewController {
             
             <<< PickerInputRow<String>("Picker Input Row"){
                 $0.title = "活動球隊"
-                $0.options = ["龍王號"]
+                $0.options = []
                 // MARK: 缺少拿到 Own Team的方法
 //                for i in 1...10{
-//                    $0.options.append("option \(i)")
+                    $0.options.append("龍王號")
 //                }
                 $0.value = $0.options.first
+                self.pickerTeam = $0.value!
             }.onChange({ (row) in
                 self.pickerTeam = row.value ?? ""
                 print("value changed: \(row.value!)")
@@ -53,14 +54,16 @@ class TeamEditViewController: FormViewController {
             
             <<< TextRow(){ row in
                 row.title = "球隊名稱"
-                row.placeholder = "Enter text here"
+                row.placeholder = "最少2字最多12字"
                 row.add(rule: RuleRequired())
                 row.validationOptions = .validatesOnChange
+                row.add(rule: RuleMinLength(minLength: 2))
+                row.add(rule: RuleMaxLength(maxLength: 12))
             }.onChange({ row in
                 self.teamName = row.value ?? ""
             }).cellUpdate { cell, row in
                 if !row.isValid {
-                    row.placeholder = "此為必填項目"
+                    row.placeholder = "此為必填項目最少2字最多12字"
                     cell.titleLabel?.textColor = .systemRed
                 }
             }
@@ -114,9 +117,16 @@ class TeamEditViewController: FormViewController {
             +++ Section()
             <<< ButtonRow() {
                 $0.title = "送出修改"
-                $0.onCellSelection({_,_ in
-                    print("\(self.form.values())")
-                })
+                }.onCellSelection { cell, row in
+                    row.section?.form?.validate()
+                    if self.pickerTeam == "" || self.teamName == "" {
+                        let controller = UIAlertController(title: "哎呦喂呀！", message: "請修改完整資訊再送出", preferredStyle: .alert)
+                        let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
+                        controller.addAction(backAction)
+                        self.present(controller, animated: true, completion: nil)
+                    } else {
+                        print("\(self.form.values())")
+                    }
             }
     }
     
