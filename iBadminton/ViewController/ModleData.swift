@@ -41,6 +41,7 @@ struct Team: Codable {
     var teamMenber: [String]
     var adminID: String
     var teamRating: [Int]
+    var teamID: String
 }
 
 struct TeamPoint: Codable {

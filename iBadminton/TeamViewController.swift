@@ -53,7 +53,7 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "edit"),
             backgroundImage: #imageLiteral(resourceName: "edit"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
-            self.performSegue(withIdentifier: "showTeamEditView", sender: self.userId)
+            self.performSegue(withIdentifier: "showTeamEditView", sender: self)
         }
         itemEdit.titleColor = .white
         
@@ -64,15 +64,20 @@ class TeamViewController: UIViewController, UITableViewDelegate {
             highlightedImage: #imageLiteral(resourceName: "writing"),
             backgroundImage: #imageLiteral(resourceName: "writing"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
-            self.performSegue(withIdentifier: "showAddActiveView", sender: self.userId)
+            self.performSegue(withIdentifier: "showAddActiveView", sender: self)
         }
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-       let controller = segue.destination as! TeamEditViewController
-        controller.userId = sender as! String
+        if segue.identifier == "showTeamEditView" {
+            let controller = segue.destination as? TeamEditViewController
+            controller?.userId = userId
+        } else if segue.identifier == "showAddActiveView" {
+            let controller = segue.destination as? AddActiveViewController
+            controller?.userId = userId
+        }
     }
     
 }

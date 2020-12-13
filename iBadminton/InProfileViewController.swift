@@ -14,6 +14,7 @@ class InProfileViewController: FormViewController {
     var joinTeam: [String] = []
     var joinEvent: [String] = []
     var eventDate: [String] = []
+    var userId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

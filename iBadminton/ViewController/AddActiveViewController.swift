@@ -15,7 +15,7 @@ import CoreLocation
 class AddActiveViewController: FormViewController {
     
     //    var placeMark: CLPlacemark?
-    
+    var userId: String = ""
     var pickerTeam: String = ""
     var people: Int = 0
     var ball: String = ""
@@ -29,12 +29,11 @@ class AddActiveViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setTable()
-        //        getTeam()
+        getTeam()
     }
     // MARK: 需要拿到擁有的球隊
     func getTeam() {
-        FireBaseManager.shared.getOwnTeam(userId: "xJlxfKVWdladCX8vKDWAvr78Xsj1")
-//        print(team)
+        FireBaseManager.shared.getOwnTeam(userId: userId)
     }
     
     

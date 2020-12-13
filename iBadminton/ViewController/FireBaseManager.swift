@@ -89,14 +89,14 @@ class FireBaseManager {
     func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
         var noteText: String = ""
         let doc = getCollection(name: .event).document()
-//        getCollection(name: .team).getDocuments { (querySnapshot, error) in
-//            if let querySnapshot = querySnapshot {
-//               for document in querySnapshot.documents {
-//                noteText = document.data()["teamMessage"] as! String
-//                  print(document.data())
-//               }
-//            }
-//         }
+        //        getCollection(name: .team).getDocuments { (querySnapshot, error) in
+        //            if let querySnapshot = querySnapshot {
+        //               for document in querySnapshot.documents {
+        //                noteText = document.data()["teamMessage"] as! String
+        //                  print(document.data())
+        //               }
+        //            }
+        //         }
         
         let event = Event(ball: "200磅鉛球",
                           dateStart: Timestamp(),
@@ -122,16 +122,18 @@ class FireBaseManager {
             print(error.localizedDescription)
         }
     }
-    
+    // MARK: 這個 func 會直接跳出去
     func getOwnTeam(userId: String) {
         let collection = FireBaseManager.shared.getCollection(name: .team)
-        collection.whereField("admin", isEqualTo: userId).getDocuments { (querySnapshot, error) in
-            if let querySnapshot = querySnapshot {
-               for document in querySnapshot.documents {
-                  print(document.data())
-               }
+        collection.whereField("adminID", isEqualTo: userId).getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("Get Own Team:\(document.data())")
+                }
             }
-         }
+        }
     }
     
     func addTimeline(team: String, content: String, event: Bool) {
