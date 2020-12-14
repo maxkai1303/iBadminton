@@ -94,21 +94,6 @@ class SignInViewController: UIViewController {
     @objc func pressSignInWithAppleButton() {
         startSignInWithAppleFlow()
     }
-    // MARK: 這裡確認是不是原有用戶要再調整一下方法
-    func checkOldUser(userId: String) {
-        let collection = FireBaseManager.shared.getCollection(name: .user)
-        collection.whereField("userID", isEqualTo: userId).getDocuments()
-        { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                                print("\(document.documentID) => \(document.data())")
-                            }
-            }
-            
-        }
-    }
 }
 
 @available(iOS 13.0, *)
@@ -135,25 +120,24 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                     print(error?.localizedDescription as Any)
                     return
                 }
-                // 登入成功.
+                // 登入成功
                 else {
-                    FireBaseManager.shared.addUser(collectionName: .user, userId: result?.user.uid ?? "")
-                    self.dismiss(animated: true, completion: nil)
+                    if Auth.auth().currentUser != nil {
+                            self.dismiss(animated: true, completion: nil)
+                    } else {
+                        FireBaseManager.shared.addUser(collectionName: .user, userId: result?.user.uid ?? "")
+                    }
                 }
             }
         }
     }
     
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
-        // Handle error.
         print("Sign in with Apple errored: \(error)")
     }
     
 }
-/// 授權成功
-/// - Parameters:
-///   - controller: _
-///   - authorization: _
+// 授權成功
 @available(iOS 13.0, *)
 func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
     
@@ -165,10 +149,7 @@ func authorizationController(controller: ASAuthorizationController, didCompleteW
         
     }
 }
-/// 授權失敗
-/// - Parameters:
-///   - controller: _
-///   - error: _
+// 授權失敗
 @available(iOS 13.0, *)
 func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
     

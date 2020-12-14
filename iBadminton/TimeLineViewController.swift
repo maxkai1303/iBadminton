@@ -62,7 +62,8 @@ class TimeLineViewController: UIViewController {
     }
     
     func setView() {
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = true
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
         let frame = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: screenHeight)
@@ -79,7 +80,7 @@ class TimeLineViewController: UIViewController {
     
     func setData() {
         let data = pointsData()
-        timeline.contentInset = UIEdgeInsets(top: 70.0, left: 20.0, bottom: 20.0, right: 20.0)
+        timeline.contentInset = UIEdgeInsets(top: 100.0, left: 20.0, bottom: 20.0, right: 20.0)
         timeline.points = data
     }
     

@@ -125,13 +125,13 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                 if #available(iOS 13.0, *) {
                     let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
                     self.present(signInPage!, animated: true, completion: nil)
-                } else {
-                    FireBaseManager.shared.joinEvent(
-                        userId: uid!,
-                        event: self.events[sender.tag].eventID,
-                        lackCout: self.events[sender.tag].lackCount
-                    )
                 }
+            } else {
+                FireBaseManager.shared.joinEvent(
+                    userId: uid!,
+                    event: self.events[sender.tag].eventID,
+                    lackCout: self.events[sender.tag].lackCount
+                )
             }
         }
     }

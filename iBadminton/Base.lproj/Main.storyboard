@@ -291,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4992.753623188406" y="766.74107142857144"/>
+            <point key="canvasLocation" x="4228" y="767"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="lBs-b1-1mN">
@@ -689,18 +689,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlc-zZ-JZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6040.579710144928" y="766.74107142857144"/>
+            <point key="canvasLocation" x="5329" y="767"/>
         </scene>
         <!--Team Rating View Controller-->
         <scene sceneID="Ipf-Fb-bDt">
             <objects>
                 <viewController id="wrC-4X-GoO" customClass="TeamRatingViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eta-fT-8dj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dtO-Ec-El3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamRatingTableViewCell" rowHeight="112" id="VoY-Uv-Cmq" customClass="TeamRatingTableViewCell" customModule="iBadminton" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="112"/>
@@ -776,7 +776,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVt-g8-Jku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7214" y="767"/>
+            <point key="canvasLocation" x="6380" y="767"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="M5z-g3-hMc">
@@ -794,12 +794,21 @@
                                     <constraint firstAttribute="width" constant="300" id="jkZ-tP-hTN"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i badminton" translatesAutoresizingMaskIntoConstraints="NO" id="yuJ-wB-rBv">
+                                <rect key="frame" x="87" y="208" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="KTw-XW-usx"/>
+                                    <constraint firstAttribute="height" constant="240" id="Ls6-YG-RHv"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hOA-pS-jbH"/>
                         <color key="backgroundColor" name="LightBlue"/>
                         <constraints>
                             <constraint firstItem="srU-ja-zS7" firstAttribute="centerX" secondItem="hOA-pS-jbH" secondAttribute="centerX" id="bDl-gj-0N0"/>
+                            <constraint firstItem="yuJ-wB-rBv" firstAttribute="centerX" secondItem="ckJ-80-C0h" secondAttribute="centerX" id="knQ-wm-iwo"/>
                             <constraint firstItem="hOA-pS-jbH" firstAttribute="bottom" secondItem="srU-ja-zS7" secondAttribute="bottom" constant="205" id="rxA-Ig-3WS"/>
+                            <constraint firstItem="yuJ-wB-rBv" firstAttribute="top" secondItem="hOA-pS-jbH" secondAttribute="top" constant="120" id="sSV-21-pTM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="zNn-uL-ZT0"/>
@@ -811,6 +820,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cs1-Hf-hca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1143" y="-938"/>
+        </scene>
+        <!--Create Team View Controller-->
+        <scene sceneID="dXq-Lp-8tp">
+            <objects>
+                <viewController id="ASi-AD-ArU" customClass="CreateTeamViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1G6-nM-zqn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="HvH-Fk-beU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NLV-8E-jly"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GuI-aS-Jqx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1032" y="781"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="bhE-dG-Bhm">
@@ -872,6 +897,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createTeam:" destination="t8D-C6-ekS" eventType="touchUpInside" id="h21-YE-Tw4"/>
+                                    <segue destination="ASi-AD-ArU" kind="show" id="8ij-2h-XiM"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXt-ff-Ffm">
@@ -942,6 +968,9 @@
                                     <constraint firstAttribute="height" constant="52" id="nuv-xM-B5A"/>
                                 </constraints>
                                 <state key="normal" image="email"/>
+                                <connections>
+                                    <action selector="mailButton:" destination="t8D-C6-ekS" eventType="touchUpInside" id="nDd-iJ-T2W"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="rf5-YG-g2G"/>
@@ -994,7 +1023,7 @@
             </objects>
             <point key="canvasLocation" x="2032" y="782"/>
         </scene>
-        <!--Team View Controller-->
+        <!--球隊總覽-->
         <scene sceneID="H3T-95-ylO">
             <objects>
                 <viewController id="6Jx-MA-0Tf" customClass="TeamViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
@@ -1002,263 +1031,125 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qHE-rU-Uwo">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamTitleTableViewCell" id="mWa-pR-IUt" customClass="TeamTitleTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="59"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mWa-pR-IUt" id="fCD-hI-JkW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="59"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Bms-T4-M8o">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" name="LightBlue"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ox2-AG-zLB">
+                                    <size key="itemSize" width="365" height="285"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="teamCollectionViewCell" id="pgk-KZ-RKh" customClass="TeamCollectionViewCell" customModule="iBadminton" customModuleProvider="target">
+                                        <rect key="frame" x="24.5" y="0.0" width="365" height="285"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="O3h-hR-FiA">
+                                            <rect key="frame" x="0.0" y="0.0" width="365" height="285"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9yu-Ub-Tts">
-                                                    <rect key="frame" x="24" y="16" width="228" height="27"/>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZe-qS-Yyz">
+                                                    <rect key="frame" x="8" y="219.5" width="204" height="24"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="leading" secondItem="fCD-hI-JkW" secondAttribute="leading" constant="24" id="4oV-KY-n3f"/>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="9yu-Ub-Tts" secondAttribute="trailing" constant="142" id="Azn-ob-kGG"/>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="top" secondItem="fCD-hI-JkW" secondAttribute="top" constant="16" id="Izh-KN-3MZ"/>
-                                                <constraint firstItem="9yu-Ub-Tts" firstAttribute="centerY" secondItem="fCD-hI-JkW" secondAttribute="centerY" id="fDW-XZ-bDn"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="titleLabel" destination="9yu-Ub-Tts" id="K0E-Ck-8z6"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="upperLayerImageTableViewCell" rowHeight="116" id="aTm-71-2bA" customClass="UpperLayerImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="87" width="414" height="116"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aTm-71-2bA" id="Toy-65-7xg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Hmq-Qs-qnT">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="116"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badminton-Generic-121_571_855" translatesAutoresizingMaskIntoConstraints="NO" id="9VQ-8C-Zsn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="116"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="180" id="Rbm-JN-TYB"/>
-                                                                <constraint firstAttribute="height" constant="122" id="kgo-NP-5Nx"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badminton-Generic-121_571_855" translatesAutoresizingMaskIntoConstraints="NO" id="1tc-6T-nrM">
-                                                            <rect key="frame" x="194" y="0.0" width="180" height="116"/>
-                                                        </imageView>
-                                                    </subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sD4-qK-4aT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="365" height="211.5"/>
+                                                    <color key="backgroundColor" name="MainBlue"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="1tc-6T-nrM" secondAttribute="bottom" id="AcY-JW-mig"/>
-                                                        <constraint firstItem="1tc-6T-nrM" firstAttribute="height" secondItem="9VQ-8C-Zsn" secondAttribute="height" id="EKC-X1-3mC"/>
-                                                        <constraint firstAttribute="height" constant="122" id="NOD-Ct-68N"/>
-                                                        <constraint firstItem="9VQ-8C-Zsn" firstAttribute="leading" secondItem="Hmq-Qs-qnT" secondAttribute="leading" id="PLL-Qv-fCD"/>
-                                                        <constraint firstAttribute="trailing" secondItem="1tc-6T-nrM" secondAttribute="trailing" id="RB5-Iz-ras"/>
-                                                        <constraint firstItem="1tc-6T-nrM" firstAttribute="width" secondItem="9VQ-8C-Zsn" secondAttribute="width" id="Wcz-cX-sBg"/>
-                                                        <constraint firstItem="9VQ-8C-Zsn" firstAttribute="top" secondItem="Hmq-Qs-qnT" secondAttribute="top" id="XuJ-Cb-hkn"/>
-                                                        <constraint firstItem="1tc-6T-nrM" firstAttribute="top" secondItem="Hmq-Qs-qnT" secondAttribute="top" id="e4i-8d-5Tn"/>
-                                                        <constraint firstAttribute="bottom" secondItem="9VQ-8C-Zsn" secondAttribute="bottom" id="sDk-b7-xtF"/>
+                                                        <constraint firstAttribute="width" secondItem="sD4-qK-4aT" secondAttribute="height" multiplier="50:29" id="arO-Hd-dkp"/>
                                                     </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Hmq-Qs-qnT" firstAttribute="top" secondItem="Toy-65-7xg" secondAttribute="top" id="Gv9-yf-wq5"/>
-                                                <constraint firstAttribute="trailing" secondItem="Hmq-Qs-qnT" secondAttribute="trailing" constant="20" symbolic="YES" id="bo2-Pf-aU2"/>
-                                                <constraint firstAttribute="bottom" secondItem="Hmq-Qs-qnT" secondAttribute="bottom" id="rIX-Ca-jkk"/>
-                                                <constraint firstItem="Hmq-Qs-qnT" firstAttribute="leading" secondItem="Toy-65-7xg" secondAttribute="leading" constant="20" symbolic="YES" id="uHP-ab-GCD"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="leftImageOutlet" destination="9VQ-8C-Zsn" id="fWE-JT-jve"/>
-                                            <outlet property="rightImageOutlet" destination="1tc-6T-nrM" id="Lyh-m1-C04"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="lowerImageTableViewCell" rowHeight="136" id="wTS-qa-DUB" customClass="LowerImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="203" width="414" height="136"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wTS-qa-DUB" id="WoM-Gg-Tf2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="9SH-40-pRo">
-                                                    <rect key="frame" x="20" y="8" width="374" height="122"/>
-                                                    <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badminton-Generic-121_571_855" translatesAutoresizingMaskIntoConstraints="NO" id="h5B-Bm-cMQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="122"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="180" id="71f-mR-07u"/>
-                                                                <constraint firstAttribute="height" constant="122" id="rRv-No-Le9"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badminton-Generic-121_571_855" translatesAutoresizingMaskIntoConstraints="NO" id="Yca-jk-isQ">
-                                                            <rect key="frame" x="194" y="0.0" width="180" height="122"/>
-                                                        </imageView>
-                                                    </subviews>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="Tqb-p0-9ZX">
+                                                    <rect key="frame" x="283" y="221.5" width="20" height="20"/>
                                                     <constraints>
-                                                        <constraint firstItem="h5B-Bm-cMQ" firstAttribute="leading" secondItem="9SH-40-pRo" secondAttribute="leading" id="10k-xT-UHS"/>
-                                                        <constraint firstItem="Yca-jk-isQ" firstAttribute="height" secondItem="h5B-Bm-cMQ" secondAttribute="height" id="4mn-2U-hym"/>
-                                                        <constraint firstItem="h5B-Bm-cMQ" firstAttribute="top" secondItem="9SH-40-pRo" secondAttribute="top" id="HfZ-Gs-YCh"/>
-                                                        <constraint firstItem="Yca-jk-isQ" firstAttribute="top" secondItem="9SH-40-pRo" secondAttribute="top" id="IY8-qW-at3"/>
-                                                        <constraint firstAttribute="height" constant="122" id="RDB-OQ-bP2"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Yca-jk-isQ" secondAttribute="trailing" id="WKX-1l-SCl"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Yca-jk-isQ" secondAttribute="bottom" id="ZuN-0r-fy6"/>
-                                                        <constraint firstItem="Yca-jk-isQ" firstAttribute="width" secondItem="h5B-Bm-cMQ" secondAttribute="width" id="i1v-gt-UY9"/>
-                                                        <constraint firstAttribute="bottom" secondItem="h5B-Bm-cMQ" secondAttribute="bottom" id="u93-as-QDo"/>
+                                                        <constraint firstAttribute="width" constant="20" id="Cba-jD-4EX"/>
+                                                        <constraint firstAttribute="height" constant="20" id="cu5-vU-YPY"/>
                                                     </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="9SH-40-pRo" secondAttribute="bottom" constant="6" id="ER3-l2-idG"/>
-                                                <constraint firstItem="9SH-40-pRo" firstAttribute="top" secondItem="WoM-Gg-Tf2" secondAttribute="top" constant="8" id="IiW-gO-rjy"/>
-                                                <constraint firstItem="9SH-40-pRo" firstAttribute="leading" secondItem="WoM-Gg-Tf2" secondAttribute="leading" constant="20" symbolic="YES" id="Ujt-Qd-2Hc"/>
-                                                <constraint firstAttribute="trailing" secondItem="9SH-40-pRo" secondAttribute="trailing" constant="20" symbolic="YES" id="noU-h8-bEs"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="leftImageOutlet" destination="h5B-Bm-cMQ" id="JMw-Vt-Llh"/>
-                                            <outlet property="rightImageOutlet" destination="Yca-jk-isQ" id="p4b-oF-g08"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamBallTableViewCell" id="VMD-PT-mn8" customClass="TeamBallTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="339" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VMD-PT-mn8" id="JzC-qi-WDK">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="使用球種：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2d-se-c6k">
-                                                    <rect key="frame" x="20" y="10" width="85" height="24"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.7 顆星" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcJ-ks-7Pa">
+                                                    <rect key="frame" x="308" y="222.5" width="49" height="18.5"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="13"/>
+                                                    <color key="textColor" name="MainBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理者：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7k-C7-uqx">
+                                                    <rect key="frame" x="8" y="253" width="68" height="24"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YY 20 或勝利藍蓋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fm7-af-3QU">
-                                                    <rect key="frame" x="113" y="10" width="139.5" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuP-sh-rUr">
+                                                    <rect key="frame" x="84" y="253" width="34" height="24"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Fm7-af-3QU" firstAttribute="leading" secondItem="Z2d-se-c6k" secondAttribute="trailing" constant="8" symbolic="YES" id="0Sn-Ga-PAl"/>
-                                                <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Fm7-af-3QU" secondAttribute="trailing" constant="161.5" id="Mhi-4G-dDe"/>
-                                                <constraint firstItem="Z2d-se-c6k" firstAttribute="leading" secondItem="JzC-qi-WDK" secondAttribute="leading" constant="20" symbolic="YES" id="UYF-Oq-Rwj"/>
-                                                <constraint firstItem="Z2d-se-c6k" firstAttribute="centerY" secondItem="JzC-qi-WDK" secondAttribute="centerY" id="YLU-yA-8ly"/>
-                                                <constraint firstItem="Fm7-af-3QU" firstAttribute="centerY" secondItem="JzC-qi-WDK" secondAttribute="centerY" id="rJf-pz-BAG"/>
+                                                <constraint firstItem="zZe-qS-Yyz" firstAttribute="top" secondItem="sD4-qK-4aT" secondAttribute="bottom" constant="8" symbolic="YES" id="9Sq-YA-uv9"/>
+                                                <constraint firstItem="zZe-qS-Yyz" firstAttribute="leading" secondItem="O3h-hR-FiA" secondAttribute="leading" constant="8" id="GGi-II-FaD"/>
+                                                <constraint firstAttribute="trailing" secondItem="sD4-qK-4aT" secondAttribute="trailing" id="J1b-aX-s12"/>
+                                                <constraint firstItem="sD4-qK-4aT" firstAttribute="leading" secondItem="O3h-hR-FiA" secondAttribute="leading" id="OJb-wE-Ylo"/>
+                                                <constraint firstItem="sD4-qK-4aT" firstAttribute="top" secondItem="O3h-hR-FiA" secondAttribute="top" id="PxV-TW-UN2"/>
+                                                <constraint firstItem="IuP-sh-rUr" firstAttribute="leading" secondItem="S7k-C7-uqx" secondAttribute="trailing" constant="8" id="Q4o-0J-UVl"/>
+                                                <constraint firstItem="S7k-C7-uqx" firstAttribute="leading" secondItem="zZe-qS-Yyz" secondAttribute="leading" id="RhX-L9-sMD"/>
+                                                <constraint firstAttribute="trailing" secondItem="sD4-qK-4aT" secondAttribute="trailing" id="VeG-hJ-nh2"/>
+                                                <constraint firstItem="Tqb-p0-9ZX" firstAttribute="centerY" secondItem="zZe-qS-Yyz" secondAttribute="centerY" id="WM8-kg-hzl"/>
+                                                <constraint firstItem="dcJ-ks-7Pa" firstAttribute="leading" secondItem="Tqb-p0-9ZX" secondAttribute="trailing" constant="5" id="ZJR-rZ-RNa"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IuP-sh-rUr" secondAttribute="trailing" constant="20" symbolic="YES" id="bYU-6U-fg5"/>
+                                                <constraint firstItem="sD4-qK-4aT" firstAttribute="leading" secondItem="O3h-hR-FiA" secondAttribute="leading" id="dwg-8L-z6J"/>
+                                                <constraint firstAttribute="trailing" secondItem="dcJ-ks-7Pa" secondAttribute="trailing" constant="8" id="hcL-QN-VXx"/>
+                                                <constraint firstItem="Tqb-p0-9ZX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="zZe-qS-Yyz" secondAttribute="trailing" constant="8" symbolic="YES" id="kXV-HJ-woO"/>
+                                                <constraint firstItem="dcJ-ks-7Pa" firstAttribute="centerY" secondItem="Tqb-p0-9ZX" secondAttribute="centerY" id="pgi-Ra-Rwp"/>
+                                                <constraint firstAttribute="bottom" secondItem="S7k-C7-uqx" secondAttribute="bottom" constant="8" id="qJY-GK-GqO"/>
+                                                <constraint firstItem="IuP-sh-rUr" firstAttribute="centerY" secondItem="S7k-C7-uqx" secondAttribute="centerY" id="qLF-NC-qkn"/>
                                             </constraints>
-                                        </tableViewCellContentView>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" name="White"/>
+                                        <size key="customSize" width="365" height="285"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <outlet property="ballLabel" destination="Fm7-af-3QU" id="3Fa-EK-MtO"/>
-                                            <outlet property="ballTitleLabel" destination="Z2d-se-c6k" id="iWQ-PE-shf"/>
+                                            <outlet property="adminName" destination="IuP-sh-rUr" id="Bg4-re-G4d"/>
+                                            <outlet property="adminTitle" destination="S7k-C7-uqx" id="Xse-GA-dmz"/>
+                                            <outlet property="teamImage" destination="sD4-qK-4aT" id="U6c-K7-vEN"/>
+                                            <outlet property="teamNameLabel" destination="zZe-qS-Yyz" id="sI0-2S-zgT"/>
+                                            <outlet property="teamRatingImage" destination="Tqb-p0-9ZX" id="OxJ-zB-46g"/>
+                                            <outlet property="teamRatingLabel" destination="dcJ-ks-7Pa" id="7fz-f9-hYR"/>
+                                            <segue destination="rgB-ie-m8e" kind="show" identifier="goTeamDetail" id="eK2-zv-SD4"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamNoteTableViewCell" rowHeight="268" id="OVJ-6u-WQa" customClass="TeamNoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="383" width="414" height="268"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OVJ-6u-WQa" id="MET-Kc-XBR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="268"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Note：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax2-MN-6Fy">
-                                                    <rect key="frame" x="24" y="8" width="55" height="24"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="55" id="4CD-po-vCT"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                    <color key="textColor" name="MainBlue"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzg-D6-EBL">
-                                                    <rect key="frame" x="87" y="8" width="307" height="240"/>
-                                                    <string key="text">“Starlight”——那是受到全世界熱愛的歌與舞的“Revue”（大眾娛樂表演）。
-為這個舞台著迷的華戀與光，在她們小的時候定下了約定。
-“總有一天一定——兩個人一起站上那個舞台！”
-時光流逝，牢記約定每日修習課程的愛城華戀，16歲。
-轉學到她的學校的人，是幼時分別的神樂光。
-以重逢為契機而轉動的命運。
-揭開帷幕的，不可思議的選拔活動。
-“想要成為Top Star嗎？”
-合格者將得到的是，獨占光輝的Top Star的寶座。
-而能夠得到它的是，在上演於舞台的混戰——“Revue”當中勝出的唯一一人。
-華戀與光，以及被選中的“舞台少女”們，賭上自己的夢想參加了謎之Revue。
-迸發的夢想。燃燒的熱情。不能退讓的夢想。
-“即使要同那個女孩交戰——！”
-喜劇與悲劇交錯的“Revue Starlight”——於此開演！
-
-披著舞台演劇外衣的熱血戰鬥番</string>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="14"/>
-                                                    <color key="textColor" name="Blue"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="ax2-MN-6Fy" firstAttribute="leading" secondItem="MET-Kc-XBR" secondAttribute="leading" constant="24" id="1CQ-ko-nBw"/>
-                                                <constraint firstItem="Hzg-D6-EBL" firstAttribute="top" secondItem="MET-Kc-XBR" secondAttribute="top" constant="8" id="BSp-PO-3fj"/>
-                                                <constraint firstAttribute="bottom" secondItem="Hzg-D6-EBL" secondAttribute="bottom" constant="20" symbolic="YES" id="CBr-5A-dvx"/>
-                                                <constraint firstItem="Hzg-D6-EBL" firstAttribute="leading" secondItem="ax2-MN-6Fy" secondAttribute="trailing" constant="8" id="NiY-Yq-0QB"/>
-                                                <constraint firstItem="ax2-MN-6Fy" firstAttribute="top" secondItem="MET-Kc-XBR" secondAttribute="top" constant="8" id="gVU-Ea-VPS"/>
-                                                <constraint firstAttribute="trailing" secondItem="Hzg-D6-EBL" secondAttribute="trailing" constant="20" id="j3W-2Q-TaF"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="noteLabel" destination="Hzg-D6-EBL" id="Kbm-b1-b4I"/>
-                                            <outlet property="noteTitleLabel" destination="ax2-MN-6Fy" id="44H-uu-h7M"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamManberTableViewCell" rowHeight="268" id="D40-eV-qn3" customClass="TeamNoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="651" width="414" height="268"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D40-eV-qn3" id="cRH-1k-Wrz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="268"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="球隊成員：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5N-se-IkN">
-                                                    <rect key="frame" x="28" y="19" width="87" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="6Sv-p3-jC3"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="MainBlue"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="T5N-se-IkN" secondAttribute="trailing" constant="279" id="U9I-2E-tSs"/>
-                                                <constraint firstItem="T5N-se-IkN" firstAttribute="leading" secondItem="cRH-1k-Wrz" secondAttribute="leadingMargin" constant="8" id="a73-04-09Y"/>
-                                                <constraint firstItem="T5N-se-IkN" firstAttribute="top" secondItem="cRH-1k-Wrz" secondAttribute="topMargin" constant="8" id="zty-HQ-y4t"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
+                                    </collectionViewCell>
+                                </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="6Jx-MA-0Tf" id="w5C-ni-pYV"/>
-                                    <outlet property="delegate" destination="6Jx-MA-0Tf" id="JlW-3v-vhf"/>
+                                    <outlet property="dataSource" destination="6Jx-MA-0Tf" id="elA-JP-Jiv"/>
+                                    <outlet property="delegate" destination="6Jx-MA-0Tf" id="vFh-kF-IwN"/>
                                 </connections>
-                            </tableView>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pUU-nV-O4t"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="pUU-nV-O4t" firstAttribute="trailing" secondItem="qHE-rU-Uwo" secondAttribute="trailing" id="CVk-SE-o4u"/>
-                            <constraint firstItem="qHE-rU-Uwo" firstAttribute="leading" secondItem="pUU-nV-O4t" secondAttribute="leading" id="ZBa-g4-2RA"/>
-                            <constraint firstItem="qHE-rU-Uwo" firstAttribute="top" secondItem="b08-xo-oXh" secondAttribute="top" id="Zmb-PO-hXb"/>
-                            <constraint firstItem="pUU-nV-O4t" firstAttribute="bottom" secondItem="qHE-rU-Uwo" secondAttribute="bottom" id="caw-Km-xKy"/>
+                            <constraint firstItem="Bms-T4-M8o" firstAttribute="leading" secondItem="pUU-nV-O4t" secondAttribute="leading" id="Fir-E1-pHA"/>
+                            <constraint firstItem="Bms-T4-M8o" firstAttribute="trailing" secondItem="pUU-nV-O4t" secondAttribute="trailing" id="aGt-TP-cRm"/>
+                            <constraint firstItem="pUU-nV-O4t" firstAttribute="bottom" secondItem="Bms-T4-M8o" secondAttribute="bottom" id="bib-ZY-RR2"/>
+                            <constraint firstItem="Bms-T4-M8o" firstAttribute="top" secondItem="pUU-nV-O4t" secondAttribute="top" id="pQp-VJ-1RB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="G7Y-Gg-YEi"/>
+                    <navigationItem key="navigationItem" title="球隊總覽" id="G7Y-Gg-YEi"/>
                     <connections>
-                        <outlet property="teamTableView" destination="qHE-rU-Uwo" id="39V-e0-Bu6"/>
+                        <outlet property="teamCollectionView" destination="Bms-T4-M8o" id="0yz-Jd-8fi"/>
                         <segue destination="Sho-ud-h9I" kind="show" identifier="showAddActiveView" id="UhE-dZ-q0T"/>
                         <segue destination="fdH-42-dFW" kind="show" identifier="showTeamEditView" id="1De-TU-yOU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVr-lr-QHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2958" y="767"/>
+            <point key="canvasLocation" x="2957.971014492754" y="766.74107142857144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kg9-cy-9m8">
@@ -1279,7 +1170,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="98J-Nx-OyO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4992.753623188406" y="-1.3392857142857142"/>
+            <point key="canvasLocation" x="4228" y="11"/>
         </scene>
         <!--Team Edit View Controller-->
         <scene sceneID="Ahx-RN-Bnj">
@@ -1295,7 +1186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raI-Uu-msO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420" y="1558"/>
+            <point key="canvasLocation" x="1839" y="1649"/>
         </scene>
         <!--Add Active View Controller-->
         <scene sceneID="SZe-x5-eGv">
@@ -1311,7 +1202,173 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wuy-Is-siN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3316" y="1558"/>
+            <point key="canvasLocation" x="2628" y="1649"/>
+        </scene>
+        <!--Team Detail View Controller-->
+        <scene sceneID="0qr-fZ-YV8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a57-RY-6IF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController id="rgB-ie-m8e" customClass="TeamDetailViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IKr-OU-x6Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uCR-ts-mHT">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATd-mS-Ooz">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="781.5"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HME-cp-IKW">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
+                                                <color key="backgroundColor" name="MainBlue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="250" id="nOW-6z-SKf"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="qkF-vY-0Jr">
+                                                <rect key="frame" x="16" y="350" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="8yY-7q-wNd"/>
+                                                    <constraint firstAttribute="width" constant="34" id="E9Y-pv-WhM"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 顆星" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tc0-Il-Eqq">
+                                                <rect key="frame" x="66" y="356.5" width="63" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="MainBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-Bi-BZA">
+                                                <rect key="frame" x="318" y="262" width="80" height="36"/>
+                                                <color key="backgroundColor" name="Blue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="vfb-aF-gQM"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <state key="normal" title="球隊動態">
+                                                    <color key="titleColor" name="White"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="7SE-wx-blJ" kind="show" identifier="showTeamLine" id="kVd-ex-9PZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EG4-N3-J8M">
+                                                <rect key="frame" x="318" y="349" width="80" height="36"/>
+                                                <color key="backgroundColor" name="MainBlue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="VEf-SJ-zX1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <state key="normal" title="球隊評價">
+                                                    <color key="titleColor" name="White"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="wrC-4X-GoO" kind="show" id="yop-yu-FNE"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZ4-X1-q8n">
+                                                <rect key="frame" x="16" y="266" width="240" height="28"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
+                                                <color key="textColor" name="MainBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTI-hB-rGk">
+                                                <rect key="frame" x="66" y="408" width="332" height="357.5"/>
+                                                <mutableString key="text">1、把簡單弄複雜是找事，把複雜弄簡單才是本事。 2、所謂「成熟」就是，喜歡的東西依舊喜歡，但可以不擁有；討厭的東西依舊討厭，但可以忍受；害怕的東西依舊害怕，但可以面對。 3、令人感到難過，不是因為你欺騙了我，而是因為我再也不能相信你了。 4、敵人變成朋友，就比朋友更可靠，朋友變成敵人，比敵人更危險。有些事知道了就好，不必多說。有些人認識了就好，不必深交。 5、能看穿你三方面的人值得信任：看穿你笑容背後的悲傷、諒解你怒火裡掩藏的善意、了解你沉默之下的原因。 6、人生第一快樂是做到自己認為自己做不到的事，人生第二快樂是做到別人認為自己做不到的事。 </mutableString>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="textColor" name="MainBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="管理者：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6XP-u1-KcV">
+                                                <rect key="frame" x="16" y="310" width="68" height="24"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="textColor" name="MainBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Max" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSI-jq-Ufq">
+                                                <rect key="frame" x="100" y="310" width="33.5" height="24"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="textColor" name="MainBlue"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="note" translatesAutoresizingMaskIntoConstraints="NO" id="mWt-ba-3E6">
+                                                <rect key="frame" x="16" y="408" width="34" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="Fn4-Gf-9eI"/>
+                                                    <constraint firstAttribute="width" constant="34" id="OcQ-k5-Eze"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="HME-cp-IKW" firstAttribute="top" secondItem="ATd-mS-Ooz" secondAttribute="top" id="0YL-B0-VZy"/>
+                                            <constraint firstItem="qkF-vY-0Jr" firstAttribute="top" secondItem="6XP-u1-KcV" secondAttribute="bottom" constant="16" id="891-jq-ukk"/>
+                                            <constraint firstItem="EG4-N3-J8M" firstAttribute="trailing" secondItem="vaU-Bi-BZA" secondAttribute="trailing" id="8Fy-da-SaP"/>
+                                            <constraint firstItem="6XP-u1-KcV" firstAttribute="leading" secondItem="DZ4-X1-q8n" secondAttribute="leading" id="8vJ-H7-L3a"/>
+                                            <constraint firstItem="6XP-u1-KcV" firstAttribute="top" secondItem="DZ4-X1-q8n" secondAttribute="bottom" constant="16" id="Bop-i8-6TK"/>
+                                            <constraint firstItem="qTI-hB-rGk" firstAttribute="top" secondItem="mWt-ba-3E6" secondAttribute="top" id="CUb-L3-yJk"/>
+                                            <constraint firstItem="mWt-ba-3E6" firstAttribute="top" secondItem="qkF-vY-0Jr" secondAttribute="bottom" constant="24" id="JA1-xf-X5p"/>
+                                            <constraint firstAttribute="trailing" secondItem="HME-cp-IKW" secondAttribute="trailing" id="PWp-A5-aag"/>
+                                            <constraint firstItem="mWt-ba-3E6" firstAttribute="leading" secondItem="qkF-vY-0Jr" secondAttribute="leading" id="RDt-qx-EPp"/>
+                                            <constraint firstItem="tc0-Il-Eqq" firstAttribute="leading" secondItem="qkF-vY-0Jr" secondAttribute="trailing" constant="16" id="TPi-CV-7hd"/>
+                                            <constraint firstItem="DSI-jq-Ufq" firstAttribute="leading" secondItem="6XP-u1-KcV" secondAttribute="trailing" constant="16" id="UdF-aZ-L8G"/>
+                                            <constraint firstItem="qkF-vY-0Jr" firstAttribute="leading" secondItem="6XP-u1-KcV" secondAttribute="leading" id="W71-9Y-vWE"/>
+                                            <constraint firstItem="EG4-N3-J8M" firstAttribute="centerY" secondItem="tc0-Il-Eqq" secondAttribute="centerY" id="Y82-KR-0O0"/>
+                                            <constraint firstItem="DZ4-X1-q8n" firstAttribute="leading" secondItem="ATd-mS-Ooz" secondAttribute="leading" constant="16" id="cMQ-CF-u3s"/>
+                                            <constraint firstItem="DZ4-X1-q8n" firstAttribute="top" secondItem="HME-cp-IKW" secondAttribute="bottom" constant="16" id="f4M-EG-JHW"/>
+                                            <constraint firstAttribute="trailing" secondItem="vaU-Bi-BZA" secondAttribute="trailing" constant="16" id="m7m-rc-dgv"/>
+                                            <constraint firstAttribute="trailing" secondItem="qTI-hB-rGk" secondAttribute="trailing" constant="16" id="osr-FA-Oai"/>
+                                            <constraint firstItem="DSI-jq-Ufq" firstAttribute="centerY" secondItem="6XP-u1-KcV" secondAttribute="centerY" id="r4Z-8Y-YAg"/>
+                                            <constraint firstItem="tc0-Il-Eqq" firstAttribute="centerY" secondItem="qkF-vY-0Jr" secondAttribute="centerY" id="ukF-fV-kSS"/>
+                                            <constraint firstAttribute="bottom" secondItem="qTI-hB-rGk" secondAttribute="bottom" constant="16" id="wZ6-mE-Die"/>
+                                            <constraint firstItem="vaU-Bi-BZA" firstAttribute="centerY" secondItem="DZ4-X1-q8n" secondAttribute="centerY" id="wgh-5e-LdL"/>
+                                            <constraint firstItem="HME-cp-IKW" firstAttribute="leading" secondItem="ATd-mS-Ooz" secondAttribute="leading" id="yka-bH-HTE"/>
+                                            <constraint firstItem="qTI-hB-rGk" firstAttribute="leading" secondItem="mWt-ba-3E6" secondAttribute="trailing" constant="16" id="zNO-hm-J3U"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ATd-mS-Ooz" firstAttribute="trailing" secondItem="Tm0-ll-qwz" secondAttribute="trailing" id="A9I-qd-rqw"/>
+                                    <constraint firstItem="ATd-mS-Ooz" firstAttribute="bottom" secondItem="Tm0-ll-qwz" secondAttribute="bottom" id="CNw-b9-M4W"/>
+                                    <constraint firstItem="ATd-mS-Ooz" firstAttribute="top" secondItem="Tm0-ll-qwz" secondAttribute="top" id="MnO-FF-PK0"/>
+                                    <constraint firstItem="ATd-mS-Ooz" firstAttribute="width" secondItem="e2x-bM-wSv" secondAttribute="width" id="Rks-Cj-XK5"/>
+                                    <constraint firstItem="ATd-mS-Ooz" firstAttribute="leading" secondItem="Tm0-ll-qwz" secondAttribute="leading" id="yUU-pg-VNv"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="Tm0-ll-qwz"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="e2x-bM-wSv"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FJ1-W3-saJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uCR-ts-mHT" firstAttribute="trailing" secondItem="FJ1-W3-saJ" secondAttribute="trailing" id="2gF-30-Oxu"/>
+                            <constraint firstItem="uCR-ts-mHT" firstAttribute="top" secondItem="FJ1-W3-saJ" secondAttribute="top" id="WYQ-g5-MTs"/>
+                            <constraint firstItem="FJ1-W3-saJ" firstAttribute="bottom" secondItem="uCR-ts-mHT" secondAttribute="bottom" id="eh0-FE-g4H"/>
+                            <constraint firstItem="uCR-ts-mHT" firstAttribute="leading" secondItem="FJ1-W3-saJ" secondAttribute="leading" id="ira-0t-7vS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Auu-aT-D7b"/>
+                    <connections>
+                        <outlet property="teamAdminLabel" destination="DSI-jq-Ufq" id="0C1-n3-7J8"/>
+                        <outlet property="teamImage" destination="HME-cp-IKW" id="3DA-Ob-eTn"/>
+                        <outlet property="teamNameLabel" destination="DZ4-X1-q8n" id="0QF-xX-xmk"/>
+                        <outlet property="teamNoteLabel" destination="qTI-hB-rGk" id="mMx-Zm-pke"/>
+                        <outlet property="teamRatingLabel" destination="tc0-Il-Eqq" id="JIA-ka-7ub"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="3608.6956521739135" y="1648.6607142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NmM-bB-be4">
@@ -1329,7 +1386,6 @@
                         <segue destination="UI2-aN-fhC" kind="relationship" relationship="viewControllers" id="5mj-VY-XIG"/>
                         <segue destination="ezF-Bf-Eez" kind="relationship" relationship="viewControllers" id="npM-hu-1ja"/>
                         <segue destination="L89-5h-HAm" kind="relationship" relationship="viewControllers" id="MH1-LH-fDh"/>
-                        <segue destination="EbD-QE-4Lq" kind="relationship" relationship="viewControllers" id="Nad-T9-Bhr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wAt-g3-oXG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1350,7 +1406,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dej-Os-Cea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3974" y="767"/>
+            <point key="canvasLocation" x="4478" y="1986"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VnG-MC-3DM">
@@ -1404,27 +1460,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnL-Cq-Zzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1343" y="823"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="MTH-eg-y05">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EbD-QE-4Lq" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="timeline" id="Jfy-aw-LUu"/>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="58k-uY-YbJ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="M7f-h7-9vS">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="7SE-wx-blJ" kind="relationship" relationship="rootViewController" id="eJp-IN-Rbs"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="han-a5-luH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3973.913043478261" y="20.758928571428569"/>
+            <point key="canvasLocation" x="1033" y="1481"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XF6-1L-p9s">
@@ -1445,10 +1481,12 @@
             <point key="canvasLocation" x="236" y="-938"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yop-yu-FNE"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" name="MainBlue"/>
     <resources>
         <image name="2111574r0dn5rz5gc0nwor" width="1200" height="630"/>
-        <image name="Badminton-Generic-121_571_855" width="855" height="571"/>
         <image name="badminton" width="64" height="64"/>
         <image name="badminton-bai-bwf-fb" width="1200" height="667"/>
         <image name="calendar" width="64" height="64"/>
@@ -1457,11 +1495,12 @@
         <image name="email" width="128" height="128"/>
         <image name="group" width="32" height="32"/>
         <image name="home" width="24" height="24"/>
+        <image name="i badminton" width="500" height="500"/>
+        <image name="image_placeholder" width="714" height="466"/>
         <image name="map" width="64" height="64"/>
         <image name="medal-of-honor" width="64" height="64"/>
         <image name="note" width="512" height="512"/>
         <image name="stars" width="128" height="128"/>
-        <image name="timeline" width="32" height="32"/>
         <image name="user" width="256" height="256"/>
         <image name="userSmall" width="32" height="32"/>
         <namedColor name="Blue">

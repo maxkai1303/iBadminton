@@ -8,17 +8,29 @@
 import UIKit
 import ExpandingMenu
 
-class TeamViewController: UIViewController, UITableViewDelegate {
+class TeamViewController: UIViewController, UICollectionViewDelegate {
     
     var firebaseManager = FireBaseManager.shared
     var userId: String = ""
+    var userName: String = ""
+    var allTeam: [Team] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         checkOwnTeam()
+        readTeam()
+        setTitle()
     }
     
-    @IBOutlet weak var teamTableView: UITableView!
+    func setTitle() {
+  
+        navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(named: "MainBlue")!
+        ]
+        
+    }
+    
+    @IBOutlet weak var teamCollectionView: UICollectionView!
     
     // MARK: 還需要判斷到底有沒有球隊
     func checkOwnTeam() {
@@ -33,7 +45,17 @@ class TeamViewController: UIViewController, UITableViewDelegate {
                 self.setMenuButton()
                 print("login \(self.userId)")
             }
-            
+        }
+    }
+    
+    func readTeam() {
+        firebaseManager.read(collectionName: .team, dataType: Team.self) { result in
+            switch result {
+            case .success(let team):
+                self.allTeam = team
+                self.teamCollectionView.reloadData()
+            case .failure(let error): print("======== All Team Set Data \(error.localizedDescription)=========")
+            }
         }
     }
     
@@ -77,51 +99,35 @@ class TeamViewController: UIViewController, UITableViewDelegate {
         } else if segue.identifier == "showAddActiveView" {
             let controller = segue.destination as? AddActiveViewController
             controller?.userId = userId
+        } else if segue.identifier == "goTeamDetail" {
+            let controller = segue.destination as? TeamDetailViewController
+            // MARK: 缺少傳送到下一頁的方法
         }
     }
     
 }
 
-extension TeamViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+extension TeamViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return allTeam.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "teamTitleTableViewCell", for: indexPath)
-                    as? TeamTitleTableViewCell else { return UITableViewCell() }
-            return cell
-        case 1:
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "upperLayerImageTableViewCell", for: indexPath)
-                    as? UpperLayerImageTableViewCell else { return UITableViewCell() }
-            return cell
-        case 2:
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "lowerImageTableViewCell", for: indexPath)
-                    as? LowerImageTableViewCell else { return UITableViewCell() }
-            return cell
-        case 3:
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "teamBallTableViewCell", for: indexPath)
-                    as? TeamBallTableViewCell else { return UITableViewCell() }
-            return cell
-        case 4:
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "teamNoteTableViewCell", for: indexPath)
-                    as? TeamNoteTableViewCell else { return UITableViewCell() }
-            return cell
-        case 5:
-            guard let cell = tableView.dequeueReusableCell(
-                    withIdentifier: "teamManberTableViewCell", for: indexPath)
-                    as? TeamManberTableViewCell else { return UITableViewCell() }
-            // 這邊還要呼叫球隊成員的 func
-            return cell
-        default:
-            return UITableViewCell()
-        }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "teamCollectionViewCell", for: indexPath)
+                as? TeamCollectionViewCell else { return UICollectionViewCell() }
+        cell.setUi(team: allTeam[indexPath.row])
+        return cell
+    }
+}
+
+extension TeamViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let screenWidth = UIScreen.main.bounds.size.width - 30
+        let height = UIScreen.main.bounds.size.height * 0.35
+        
+        return CGSize(width: screenWidth, height: height)
     }
 }

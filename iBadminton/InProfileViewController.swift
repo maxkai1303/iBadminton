@@ -9,7 +9,22 @@ import UIKit
 import Eureka
 import Firebase
 
-class InProfileViewController: FormViewController {
+class InProfileViewController: FormViewController /*ProfileData*/ {
+    
+//    func receiveData(data: String) {
+//        userName = data
+//        getTeamManber(userId: userId) { teamID in
+//            self.joinTeam.append(teamID)
+//        }
+//
+//        getJoinEvent(userId: userId) { [weak self] event in
+//            self?.joinEvent.append(event["teamID"] as! String)
+//            guard let dateString = self?.timeStampToStringDetail(event["dateStart"] as! Timestamp) else { return }
+//            self?.eventDate.append(dateString)
+//        }
+//
+////        self.form.allRows.forEach({$0.updateCell(); $0.reload()})
+//    }
     
     var joinTeam: [String] = []
     var joinEvent: [String] = []
@@ -19,25 +34,21 @@ class InProfileViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
         setLabel()
+        getData()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        getData()
-//    }
-    
     func getData() {
-        // MARK: 要從 profile裡面拿到 uid 還有 userName
-        getTeamManber(userId: "ggyy") { teamID in
-            self.joinTeam.append(teamID)
-        }
+        getTeamManber(userId: "xJlxfKVWdladCX8vKDWAvr78Xsj1") { teamID in
+                    self.joinTeam.append(teamID)
+                }
         
-        getJoinEvent(userId: "ggyy") { [weak self] event in
-            self?.joinEvent.append(event["teamID"] as! String)
-            guard let dateString = self?.timeStampToStringDetail(event["dateStart"] as! Timestamp) else { return }
-            self?.eventDate.append(dateString)
-        }
+                getJoinEvent(userId: "xJlxfKVWdladCX8vKDWAvr78Xsj1") { [weak self] event in
+                    self?.joinEvent.append(event["teamID"] as! String)
+                    guard let dateString = self?.timeStampToStringDetail(event["dateStart"] as! Timestamp) else { return }
+                    self?.eventDate.append(dateString)
+                }
+        
     }
     
     func setLabel() {
@@ -56,17 +67,23 @@ class InProfileViewController: FormViewController {
             }.onChange({ (segmented) in
                 if(segmented.value == "參加的球隊") {
                     segmented.section!.removeLast(segmented.section!.count - 1)
+                    // MARK: 離開球隊進入球隊都要重新開啟APP才會顯示
                     for value in self.joinTeam {
                         segmented.section! <<< LabelRow() {
                             $0.title = value
                             
                             let deleteAction = SwipeAction(style: .destructive, title: "退出球隊", handler: { (action, row, completionHandler) in
+                                
                                 let controller = UIAlertController(title: "哎呦喂呀！", message: "確定要離開球隊嗎", preferredStyle: .alert)
+                                
                                 let okAction = UIAlertAction(title: "離開", style: .destructive, handler: {_ in
                                     print("Delete")
+                                    
                                     FireBaseManager.shared.getCollection(name: .team).document(value).updateData([
                                         "teamMenber": FieldValue.arrayRemove(["ggyy"])
                                     ])
+                                    
+                                    FireBaseManager.shared.addTimeline(team: value, content: "ggyy 離開了球隊", event: false)
                                     completionHandler?(true)
                                 })
                                 let backAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -88,7 +105,9 @@ class InProfileViewController: FormViewController {
                                 $0.leadingSwipe.actions = [infoAction]
                                 $0.leadingSwipe.performsFirstActionWithFullSwipe = true
                             }
-                        }
+                        }.onCellSelection({ cell, row in
+                            row.reload()
+                        })
                     }
                 }
                 if(segmented.value == "活動歷史") {
@@ -111,7 +130,7 @@ class InProfileViewController: FormViewController {
     func getTeamManber(userId: String, completion: @escaping (String) -> Void) {
         
         FireBaseManager.shared.getCollection(name:.team).whereField("teamMenber",
-                                                                    arrayContains: userId
+                                                                   arrayContains: userId
         ).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")

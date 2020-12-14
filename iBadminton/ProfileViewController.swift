@@ -9,6 +9,11 @@ import UIKit
 import FirebaseAuth
 import Kingfisher
 
+protocol ProfileData: class {
+    
+      func  receiveData(data: String)
+}
+
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
@@ -25,17 +30,20 @@ class ProfileViewController: UIViewController {
     var userId: String = ""
     var nickName: String = ""
     
+    weak var delegate: ProfileData?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
-//        performSegue(withIdentifier: "goInProfileSegue", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showTeamEditView" {
+        if segue.identifier == "goInProfileSegue" {
             let controller = segue.destination as? InProfileViewController
             controller?.userId = userId
             controller?.userName = nickName
+            
+//            delegate = controller.self
         }
     }
     
@@ -45,12 +53,14 @@ class ProfileViewController: UIViewController {
     
     
     @IBAction func createTeam(_ sender: Any) {
-        loginOut()
     }
     
     
     @IBAction func editProfile(_ sender: Any) {
         setEditAlert()
+    }
+    @IBAction func mailButton(_ sender: Any) {
+        loginOut()
     }
     
     // MARK: - func 
@@ -66,6 +76,7 @@ class ProfileViewController: UIViewController {
             } else {
                 self.userId = uid!
                 self.read()
+                self.delegate?.receiveData(data: self.nickName)
                 print("login \(self.userId)")
             }
         }

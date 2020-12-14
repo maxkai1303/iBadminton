@@ -87,16 +87,16 @@ class FireBaseManager {
     
     // MARK: 要拿到球隊的資訊，直接帶入新活動
     func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
+        let doc = getCollection(name: collectionName).document()
         var noteText: String = ""
-        let doc = getCollection(name: .event).document()
-        //        getCollection(name: .team).getDocuments { (querySnapshot, error) in
-        //            if let querySnapshot = querySnapshot {
-        //               for document in querySnapshot.documents {
-        //                noteText = document.data()["teamMessage"] as! String
-        //                  print(document.data())
-        //               }
-        //            }
-        //         }
+                getCollection(name: .team).getDocuments { (querySnapshot, _) in
+                    if let querySnapshot = querySnapshot {
+                       for document in querySnapshot.documents {
+                        noteText = document.data()["teamMessage"] as! String
+                          print(document.data())
+                       }
+                    }
+                 }
         
         let event = Event(ball: "200磅鉛球",
                           dateStart: Timestamp(),
@@ -123,9 +123,9 @@ class FireBaseManager {
         }
     }
     // MARK: 這個 func 會直接跳出去
-    func getOwnTeam(userId: String) {
+    func getOwnTeam(userName: String) {
         let collection = FireBaseManager.shared.getCollection(name: .team)
-        collection.whereField("adminID", isEqualTo: userId).getDocuments { (querySnapshot, err) in
+        collection.whereField("adminID", isEqualTo: userName).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -140,7 +140,7 @@ class FireBaseManager {
         let doc = getCollection(name: .team).document(team).collection("TeamPoint")
         doc.document().setData([
             "content": content,
-            "event": false,
+            "event": event,
             "time": Timestamp()
         ])
     }
@@ -154,7 +154,7 @@ class FireBaseManager {
             "noShow": 0,
             "rating": [],
             "message": ["歡迎加入 iBadminton, 建議修改暱稱讓大家認得你喔！"],
-            "userImage": ""
+            "userImage": "https://image-cdn-flare.qdm.cloud/q695f49b90fa4a/image/cache/data/2020/03/23/1b74981886c474fe8ade85d442295c35-max-w-1024.jpg"
         ])
     }
     
@@ -184,12 +184,12 @@ class FireBaseManager {
     }
     
     func joinTeam(userId: String, teamID: String) {
-        var name = ""
+//        var name = ""
         getCollection(name: .user).document(userId).getDocument { (document, _) in
             if let document = document, document.exists {
-                name = "\(document.data()!["userName"] ?? "靠杯")"
+//                name = "\(document.data()!["userName"] ?? "靠杯")"
                 self.getCollection(name: .team).document(teamID).updateData([
-                    "teamMenber": FieldValue.arrayUnion([name])
+                    "teamMenber": FieldValue.arrayUnion([userId])
                 ])
                 print(document.documentID, document.data()!)
             } else {
@@ -202,7 +202,7 @@ class FireBaseManager {
         var name = ""
         getCollection(name: .user).document(userId).getDocument { (document, _) in
             if let document = document, document.exists {
-                name = "\(document.data()!["userName"] ?? "靠杯")"
+                name = "\(document.data()!["userName"] ?? "沒有名字")"
                 print(document.documentID, document.data()!)
             } else {
                 print("Document does not exist")

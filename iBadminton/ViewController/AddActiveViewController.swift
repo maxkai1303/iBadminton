@@ -16,6 +16,7 @@ class AddActiveViewController: FormViewController {
     
     //    var placeMark: CLPlacemark?
     var userId: String = ""
+    var userName: String = ""
     var pickerTeam: String = ""
     var people: Int = 0
     var ball: String = ""
@@ -33,7 +34,7 @@ class AddActiveViewController: FormViewController {
     }
     // MARK: 需要拿到擁有的球隊
     func getTeam() {
-        FireBaseManager.shared.getOwnTeam(userId: userId)
+        FireBaseManager.shared.getOwnTeam(userName: userName)
     }
     
     
@@ -156,9 +157,9 @@ class AddActiveViewController: FormViewController {
             <<< ImageRow() {
                 $0.title = "請上傳照片 1"
                 $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
+                $0.clearAction = .yes(style: .default)
             }.onChange({ (row) in
-                self.image = row.value!
+                self.image = row.value ?? UIImage()
                 print("=====\(String(describing: row.value))")
             })
             
@@ -171,13 +172,13 @@ class AddActiveViewController: FormViewController {
             <<< ImageRow() {
                 $0.title = "請上傳照片 3（選填）"
                 $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
+                $0.clearAction = .yes(style: .default)
             }
             
             <<< ImageRow() {
                 $0.title = "請上傳照片 4（選填）"
                 $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
+                $0.clearAction = .yes(style: .default)
             }
             +++ Section()
             <<< ButtonRow() {
@@ -186,6 +187,7 @@ class AddActiveViewController: FormViewController {
                     cell.backgroundColor = UIColor(named: "MainBule")
                 }.onCellSelection { cell, row in
                     row.section?.form?.validate()
+                    self.dismiss(animated: true, completion: nil)
                     //                    FireBaseManager.shared.addEvent(collectionName: .event, handler: <#() -> Void#>)
                 }
             }

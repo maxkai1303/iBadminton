@@ -12,6 +12,7 @@ import ImageRow
 class TeamEditViewController: FormViewController {
     
     var userId: String = ""
+    var userName: String = ""
     var ownTeam: [String] = []
     var pickerTeam: String = ""
     var teamImage: [String] = []
@@ -21,7 +22,7 @@ class TeamEditViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUi()
-        FireBaseManager.shared.getOwnTeam(userId: userId)
+        FireBaseManager.shared.getOwnTeam(userName: userName)
         
     }
     
