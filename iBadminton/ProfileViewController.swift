@@ -45,6 +45,11 @@ class ProfileViewController: UIViewController {
             
 //            delegate = controller.self
         }
+        if segue.identifier == "goCerateTeam" {
+            let controller = segue.destination as? CreateTeamViewController
+            controller?.userId = userId
+            controller?.userName = nickName
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

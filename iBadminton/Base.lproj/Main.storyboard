@@ -897,7 +897,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createTeam:" destination="t8D-C6-ekS" eventType="touchUpInside" id="h21-YE-Tw4"/>
-                                    <segue destination="ASi-AD-ArU" kind="show" id="8ij-2h-XiM"/>
+                                    <segue destination="ASi-AD-ArU" kind="show" identifier="goCerateTeam" id="8ij-2h-XiM"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXt-ff-Ffm">
@@ -1121,7 +1121,6 @@
                                             <outlet property="teamNameLabel" destination="zZe-qS-Yyz" id="sI0-2S-zgT"/>
                                             <outlet property="teamRatingImage" destination="Tqb-p0-9ZX" id="OxJ-zB-46g"/>
                                             <outlet property="teamRatingLabel" destination="dcJ-ks-7Pa" id="7fz-f9-hYR"/>
-                                            <segue destination="rgB-ie-m8e" kind="show" identifier="goTeamDetail" id="eK2-zv-SD4"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -1145,6 +1144,7 @@
                         <outlet property="teamCollectionView" destination="Bms-T4-M8o" id="0yz-Jd-8fi"/>
                         <segue destination="Sho-ud-h9I" kind="show" identifier="showAddActiveView" id="UhE-dZ-q0T"/>
                         <segue destination="fdH-42-dFW" kind="show" identifier="showTeamEditView" id="1De-TU-yOU"/>
+                        <segue destination="rgB-ie-m8e" kind="show" identifier="goTeamDetail" id="vXI-TS-1vp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mVr-lr-QHC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1207,7 +1207,6 @@
         <!--Team Detail View Controller-->
         <scene sceneID="0qr-fZ-YV8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a57-RY-6IF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="rgB-ie-m8e" customClass="TeamDetailViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IKr-OU-x6Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -1221,7 +1220,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HME-cp-IKW">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
-                                                <color key="backgroundColor" name="MainBlue"/>
+                                                <color key="backgroundColor" name="LightBlue"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="nOW-6z-SKf"/>
                                                 </constraints>
@@ -1285,7 +1284,7 @@
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTI-hB-rGk">
                                                 <rect key="frame" x="66" y="408" width="332" height="357.5"/>
-                                                <mutableString key="text">1、把簡單弄複雜是找事，把複雜弄簡單才是本事。 2、所謂「成熟」就是，喜歡的東西依舊喜歡，但可以不擁有；討厭的東西依舊討厭，但可以忍受；害怕的東西依舊害怕，但可以面對。 3、令人感到難過，不是因為你欺騙了我，而是因為我再也不能相信你了。 4、敵人變成朋友，就比朋友更可靠，朋友變成敵人，比敵人更危險。有些事知道了就好，不必多說。有些人認識了就好，不必深交。 5、能看穿你三方面的人值得信任：看穿你笑容背後的悲傷、諒解你怒火裡掩藏的善意、了解你沉默之下的原因。 6、人生第一快樂是做到自己認為自己做不到的事，人生第二快樂是做到別人認為自己做不到的事。 </mutableString>
+                                                <string key="text">1、把簡單弄複雜是找事，把複雜弄簡單才是本事。 2、所謂「成熟」就是，喜歡的東西依舊喜歡，但可以不擁有；討厭的東西依舊討厭，但可以忍受；害怕的東西依舊害怕，但可以面對。 3、令人感到難過，不是因為你欺騙了我，而是因為我再也不能相信你了。 4、敵人變成朋友，就比朋友更可靠，朋友變成敵人，比敵人更危險。有些事知道了就好，不必多說。有些人認識了就好，不必深交。 5、能看穿你三方面的人值得信任：看穿你笑容背後的悲傷、諒解你怒火裡掩藏的善意、了解你沉默之下的原因。 6、人生第一快樂是做到自己認為自己做不到的事，人生第二快樂是做到別人認為自己做不到的事。 </string>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                 <color key="textColor" name="MainBlue"/>
                                                 <nil key="highlightedColor"/>
@@ -1367,6 +1366,7 @@
                         <outlet property="teamRatingLabel" destination="tc0-Il-Eqq" id="JIA-ka-7ub"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a57-RY-6IF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3608.6956521739135" y="1648.6607142857142"/>
         </scene>

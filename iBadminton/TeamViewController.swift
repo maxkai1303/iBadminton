@@ -14,6 +14,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     var userId: String = ""
     var userName: String = ""
     var allTeam: [Team] = []
+    var team: Team?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,8 +101,11 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
             let controller = segue.destination as? AddActiveViewController
             controller?.userId = userId
         } else if segue.identifier == "goTeamDetail" {
-            let controller = segue.destination as? TeamDetailViewController
-            // MARK: 缺少傳送到下一頁的方法
+            guard let controller = segue.destination as? TeamDetailViewController else {
+                print("next view controller is nil")
+                return
+            }
+            controller.teamDetail = team
         }
     }
     
@@ -118,6 +122,11 @@ extension TeamViewController: UICollectionViewDataSource {
                 as? TeamCollectionViewCell else { return UICollectionViewCell() }
         cell.setUi(team: allTeam[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        team = allTeam[indexPath.row]
+        performSegue(withIdentifier: "goTeamDetail", sender: nil)
     }
 }
 

@@ -89,14 +89,14 @@ class FireBaseManager {
     func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
         let doc = getCollection(name: collectionName).document()
         var noteText: String = ""
-                getCollection(name: .team).getDocuments { (querySnapshot, _) in
-                    if let querySnapshot = querySnapshot {
-                       for document in querySnapshot.documents {
-                        noteText = document.data()["teamMessage"] as! String
-                          print(document.data())
-                       }
-                    }
-                 }
+//                getCollection(name: .team).getDocuments { (querySnapshot, _) in
+//                    if let querySnapshot = querySnapshot {
+//                       for document in querySnapshot.documents {
+//                        noteText = document.data()["teamMessage"] as! String
+//                          print(document.data())
+//                       }
+//                    }
+//                 }
         
         let event = Event(ball: "200磅鉛球",
                           dateStart: Timestamp(),
@@ -209,6 +209,17 @@ class FireBaseManager {
             }
         }
         return name
+    }
+    
+    func addNewTeam(admin: String, teamId: String, image: [String], menber: [String], message: String) {
+        getCollection(name: .team).document(teamId).setData([
+            "teamImage": ["https://onepage.nownews.com/sites/default/files/styles/crop_thematic_content_img/public/2020-05/04_6.jpg?h=bd907a81&itok=rxDfBMr8"],
+            "teamMessage": message,
+            "teamMenber": menber,
+            "adminID": admin,
+            "teamRating": [],
+            "teamID": teamId
+        ])
     }
         
         func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
