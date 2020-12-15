@@ -20,5 +20,6 @@ target 'iBadminton' do
     pod 'ISTimeline'
     pod 'Kingfisher'
     pod 'Firebase/Auth'
+    pod 'CarLensCollectionViewLayout'
 
 end

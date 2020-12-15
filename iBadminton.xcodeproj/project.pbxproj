@@ -23,6 +23,7 @@
 		456463E12574E8C800FB0A9E /* UpperLayerImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456463E02574E8C800FB0A9E /* UpperLayerImageTableViewCell.swift */; };
 		456463E42574EA2700FB0A9E /* LowerImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456463E32574EA2700FB0A9E /* LowerImageTableViewCell.swift */; };
 		456463E72574EEB200FB0A9E /* TeamBallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456463E62574EEB200FB0A9E /* TeamBallTableViewCell.swift */; };
+		45917E852588BD3700729176 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45917E842588BD3700729176 /* UIColorExtension.swift */; };
 		459E614025720E8C00C05266 /* DateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E613F25720E8C00C05266 /* DateTableViewCell.swift */; };
 		459E6144257210FA00C05266 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E6143257210FA00C05266 /* LocationTableViewCell.swift */; };
 		459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 459E6146257212DB00C05266 /* BallTableViewCell.swift */; };
@@ -72,6 +73,7 @@
 		456463E02574E8C800FB0A9E /* UpperLayerImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpperLayerImageTableViewCell.swift; path = iBadminton/ViewController/UpperLayerImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		456463E32574EA2700FB0A9E /* LowerImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowerImageTableViewCell.swift; path = iBadminton/LowerImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		456463E62574EEB200FB0A9E /* TeamBallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamBallTableViewCell.swift; path = iBadminton/TeamBallTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		45917E842588BD3700729176 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		459E613F25720E8C00C05266 /* DateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateTableViewCell.swift; path = iBadminton/DateTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E6143257210FA00C05266 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E6146257212DB00C05266 /* BallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BallTableViewCell.swift; path = iBadminton/BallTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -179,6 +181,15 @@
 			path = TeamViewCell;
 			sourceTree = "<group>";
 		};
+		45917E872588BD3B00729176 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				45917E842588BD3700729176 /* UIColorExtension.swift */,
+				45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		45D47DBE256CA7600098F799 = {
 			isa = PBXGroup;
 			children = (
@@ -200,6 +211,7 @@
 		45D47DC9256CA7610098F799 /* iBadminton */ = {
 			isa = PBXGroup;
 			children = (
+				45917E872588BD3B00729176 /* Extension */,
 				452D7F92258732C7005742A6 /* Assets.xcassets */,
 				45B78C00257B428A00B0922B /* iBadminton.entitlements */,
 				45B78BCB2578737F00B0922B /* ModleData.swift */,
@@ -208,7 +220,6 @@
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
 				45D47DE4256D07410098F799 /* LineSDK.swift */,
-				45B78BFA257A47A900B0922B /* Dictionary+Extension.swift */,
 				45D47DD0256CA7610098F799 /* Main.storyboard */,
 				4524B57F2570EB6300BDE238 /* ViewController */,
 				4524B5802570EB8200BDE238 /* ViewCell */,
@@ -256,6 +267,8 @@
 			dependencies = (
 			);
 			name = iBadminton;
+			packageProductDependencies = (
+			);
 			productName = iBadminton;
 			productReference = 45D47DC7256CA7610098F799 /* iBadminton.app */;
 			productType = "com.apple.product-type.application";
@@ -283,6 +296,8 @@
 				Base,
 			);
 			mainGroup = 45D47DBE256CA7600098F799;
+			packageReferences = (
+			);
 			productRefGroup = 45D47DC8256CA7610098F799 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -402,6 +417,7 @@
 				45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */,
 				459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
+				45917E852588BD3700729176 /* UIColorExtension.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
 				45CB4ECF257DC002008E48C3 /* TeamRatingTableViewCell.swift in Sources */,
 				456463DA2574E24300FB0A9E /* TeamTitleTableViewCell.swift in Sources */,

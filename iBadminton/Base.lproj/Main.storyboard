@@ -1172,7 +1172,7 @@
             </objects>
             <point key="canvasLocation" x="4228" y="11"/>
         </scene>
-        <!--Team Edit View Controller-->
+        <!--修改球隊-->
         <scene sceneID="Ahx-RN-Bnj">
             <objects>
                 <viewController id="fdH-42-dFW" customClass="TeamEditViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
@@ -1182,13 +1182,13 @@
                         <viewLayoutGuide key="safeArea" id="OPX-9g-AtK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="fEf-xx-qxZ"/>
+                    <navigationItem key="navigationItem" title="修改球隊" id="fEf-xx-qxZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raI-Uu-msO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1839" y="1649"/>
         </scene>
-        <!--Add Active View Controller-->
+        <!--新增活動-->
         <scene sceneID="SZe-x5-eGv">
             <objects>
                 <viewController id="Sho-ud-h9I" customClass="AddActiveViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
@@ -1198,7 +1198,7 @@
                         <viewLayoutGuide key="safeArea" id="XZv-Oj-vSG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="899-5r-2u6"/>
+                    <navigationItem key="navigationItem" title="新增活動" id="899-5r-2u6"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wuy-Is-siN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

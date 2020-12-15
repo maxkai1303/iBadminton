@@ -28,16 +28,7 @@ class TeamEditViewController: FormViewController {
     
     func setUi() {
         
-        form +++ Section("球隊基本資料")
-            
-            <<< ImageRow() {
-                $0.title = "請上傳照片"
-                $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
-            }.onChange({ (row) in
-//                self.image = row.value!
-                print("=====\(String(describing: row.value))")
-            })
+        form +++ Section("選擇修改的球隊")
             
             <<< PickerInputRow<String>("Picker Input Row"){
                 $0.title = "活動球隊"
@@ -53,6 +44,7 @@ class TeamEditViewController: FormViewController {
                 print("value changed: \(row.value!)")
             })
             
+            +++ Section("修改內容")
             <<< TextRow(){ row in
                 row.title = "球隊名稱"
                 row.placeholder = "最少2字最多12字"
@@ -68,6 +60,15 @@ class TeamEditViewController: FormViewController {
                     cell.titleLabel?.textColor = .systemRed
                 }
             }
+            
+            <<< ImageRow() {
+                $0.title = "上傳球隊照片"
+                $0.sourceTypes = [.PhotoLibrary, .Camera]
+                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
+            }.onChange({ (row) in
+//                self.image = row.value!
+                print("=====\(String(describing: row.value))")
+            })
             
             +++ Section("球隊訊息")
             <<< TextAreaRow(){ row in

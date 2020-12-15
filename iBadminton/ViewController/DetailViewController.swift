@@ -32,7 +32,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
     }
     
     func setMenuButton() {
-        let menuButtonSize: CGSize = CGSize(width: 80.0, height: 80.0)
+        let menuButtonSize: CGSize = CGSize(width: 40.0, height: 40.0)
         let menuButton = ExpandingMenuButton(
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "add"),

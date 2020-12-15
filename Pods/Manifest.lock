@@ -218,6 +218,7 @@ PODS:
   - BoringSSL-GRPC/Implementation (0.0.7):
     - BoringSSL-GRPC/Interface (= 0.0.7)
   - BoringSSL-GRPC/Interface (0.0.7)
+  - CarLensCollectionViewLayout (1.2.0)
   - Eureka (4.3.1)
   - ExpandingMenu (0.4.0)
   - Firebase/Auth (6.34.0):
@@ -327,6 +328,7 @@ PODS:
   - SwiftLint (0.41.0)
 
 DEPENDENCIES:
+  - CarLensCollectionViewLayout
   - Eureka
   - ExpandingMenu
   - Firebase/Auth
@@ -346,6 +348,7 @@ SPEC REPOS:
   trunk:
     - abseil
     - BoringSSL-GRPC
+    - CarLensCollectionViewLayout
     - Eureka
     - ExpandingMenu
     - Firebase
@@ -375,6 +378,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
   BoringSSL-GRPC: 8edf627ee524575e2f8d19d56f068b448eea3879
+  CarLensCollectionViewLayout: 75a28307dbd7dbacbba417d13501415ff3471a68
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   ExpandingMenu: 3187a4ed1aa1aea85418e444c213e4cd6063c122
   Firebase: c23a36d9e4cdf7877dfcba8dd0c58add66358999
@@ -401,6 +405,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: ed201a31ce7bd4d204191222aef9330e89d8fbbf
+PODFILE CHECKSUM: aefd0aaa4c094784a0f58ce7c2f64b71b0e72df0
 
 COCOAPODS: 1.10.0

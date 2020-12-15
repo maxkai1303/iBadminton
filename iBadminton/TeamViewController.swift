@@ -7,6 +7,7 @@
 
 import UIKit
 import ExpandingMenu
+import CarLensCollectionViewLayout
 
 class TeamViewController: UIViewController, UICollectionViewDelegate {
     
@@ -21,14 +22,27 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         checkOwnTeam()
         readTeam()
         setTitle()
+        setupView()
     }
     
     func setTitle() {
   
         navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor(named: "MainBlue")!
+            NSAttributedString.Key.foregroundColor: UIColor.maxColor(with: .mainBlue)
         ]
         
+    }
+    
+    private func setupView() {
+//        let viewHeight = UIScreen.main.bounds.height
+//        let viewWidth = UIScreen.main.bounds.width
+        teamCollectionView.backgroundColor = UIColor.maxColor(with: .mainBlue)
+        teamCollectionView.register(TeamCollectionViewCell.self,
+                                    forCellWithReuseIdentifier: TeamCollectionViewCell.identifier)
+        teamCollectionView.showsHorizontalScrollIndicator = false
+        teamCollectionView.collectionViewLayout = CarLensCollectionViewLayout()
+//        let options = CarLensCollectionViewLayoutOptions(itemSize: CGSize(width: viewWidth - 32, height: viewHeight + 160))
+//        teamCollectionView.collectionViewLayout = CarLensCollectionViewLayout(options: options)
     }
     
     @IBOutlet weak var teamCollectionView: UICollectionView!
@@ -61,7 +75,8 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func setMenuButton() {
-        let menuButtonSize: CGSize = CGSize(width: 70.0, height: 70.0)
+        let menuButtonSize: CGSize = CGSize(width: 40.0, height: 40.0)
+        let itemButtonSize: CGSize = CGSize(width: 30, height: 30)
         let menuButton = ExpandingMenuButton(
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "settings"),
@@ -70,7 +85,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         view.addSubview(menuButton)
         
         let itemEdit = ExpandingMenuItem(
-            size: menuButtonSize,
+            size: itemButtonSize,
             title: "修改球隊資訊",
             image: #imageLiteral(resourceName: "edit"),
             highlightedImage: #imageLiteral(resourceName: "edit"),
@@ -92,7 +107,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTeamEditView" {
             let controller = segue.destination as? TeamEditViewController
@@ -118,25 +133,25 @@ extension TeamViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "teamCollectionViewCell", for: indexPath)
+                withReuseIdentifier: TeamCollectionViewCell.identifier, for: indexPath)
                 as? TeamCollectionViewCell else { return UICollectionViewCell() }
-        cell.setUi(team: allTeam[indexPath.row])
+        
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        team = allTeam[indexPath.row]
-        performSegue(withIdentifier: "goTeamDetail", sender: nil)
-    }
-}
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        team = allTeam[indexPath.row]
+//        performSegue(withIdentifier: "goTeamDetail", sender: nil)
+//    }
+//}
 
-extension TeamViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let screenWidth = UIScreen.main.bounds.size.width - 30
-        let height = UIScreen.main.bounds.size.height * 0.35
-        
-        return CGSize(width: screenWidth, height: height)
-    }
+//extension TeamViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        let screenWidth = UIScreen.main.bounds.size.width - 30
+//        let height = UIScreen.main.bounds.size.height * 0.35
+//
+//        return CGSize(width: screenWidth, height: height)
+//    }
 }
