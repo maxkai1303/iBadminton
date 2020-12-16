@@ -34,15 +34,11 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     }
     
     private func setupView() {
-//        let viewHeight = UIScreen.main.bounds.height
-//        let viewWidth = UIScreen.main.bounds.width
         teamCollectionView.backgroundColor = UIColor.maxColor(with: .mainBlue)
         teamCollectionView.register(TeamCollectionViewCell.self,
                                     forCellWithReuseIdentifier: TeamCollectionViewCell.identifier)
         teamCollectionView.showsHorizontalScrollIndicator = false
         teamCollectionView.collectionViewLayout = CarLensCollectionViewLayout()
-//        let options = CarLensCollectionViewLayoutOptions(itemSize: CGSize(width: viewWidth - 32, height: viewHeight + 160))
-//        teamCollectionView.collectionViewLayout = CarLensCollectionViewLayout(options: options)
     }
     
     @IBOutlet weak var teamCollectionView: UICollectionView!
@@ -75,8 +71,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func setMenuButton() {
-        let menuButtonSize: CGSize = CGSize(width: 40.0, height: 40.0)
-        let itemButtonSize: CGSize = CGSize(width: 30, height: 30)
+        let menuButtonSize: CGSize = CGSize(width: 60.0, height: 60.0)
         let menuButton = ExpandingMenuButton(
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "settings"),
@@ -85,7 +80,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         view.addSubview(menuButton)
         
         let itemEdit = ExpandingMenuItem(
-            size: itemButtonSize,
+            size: menuButtonSize,
             title: "修改球隊資訊",
             image: #imageLiteral(resourceName: "edit"),
             highlightedImage: #imageLiteral(resourceName: "edit"),
@@ -123,7 +118,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
             controller.teamDetail = team
         }
     }
-    
+
 }
 
 extension TeamViewController: UICollectionViewDataSource {
@@ -135,14 +130,14 @@ extension TeamViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: TeamCollectionViewCell.identifier, for: indexPath)
                 as? TeamCollectionViewCell else { return UICollectionViewCell() }
-        
+        cell.layoutCell(team: allTeam[indexPath.row])
         return cell
     }
     
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        team = allTeam[indexPath.row]
-//        performSegue(withIdentifier: "goTeamDetail", sender: nil)
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        team = allTeam[indexPath.row]
+        performSegue(withIdentifier: "goTeamDetail", sender: nil)
+    }
 //}
 
 //extension TeamViewController: UICollectionViewDelegateFlowLayout {

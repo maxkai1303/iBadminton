@@ -36,7 +36,7 @@ struct User: Codable {
 }
 
 struct Team: Codable {
-    var teamImage: [String]
+    var teamImage: String
     var teamMessage: String
     var teamMenber: [String]
     var adminID: String

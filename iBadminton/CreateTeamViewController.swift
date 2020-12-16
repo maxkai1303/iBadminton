@@ -20,7 +20,12 @@ class CreateTeamViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabel()
-        // Do any additional setup after loading the view.
+    }
+    func getName() {
+        FireBaseManager.shared.getUserName(userId: userId) { (name) in
+            guard name != "" else { return }
+            self.userName = name!
+        }
     }
     
     func setLabel() {
@@ -94,11 +99,6 @@ class CreateTeamViewController: FormViewController {
                 }.onCellSelection {_, row in
                     row.section?.form?.validate()
                     self.checkRule()
-//                    if !row.isValid {
-//                        self.form.removeAll()
-//                        self.setLabel()
-//                    }
-                    //                    FireBaseManager.shared.addEvent(collectionName: .event, handler: <#() -> Void#>)
                 }
             }
     }
@@ -116,7 +116,7 @@ class CreateTeamViewController: FormViewController {
             let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
             controller.addAction(backAction)
             self.present(controller, animated: true, completion: nil)
-            FireBaseManager.shared.addNewTeam(admin: userId, teamId: name, image: ["uploadImage"], menber: [userId], message: msg)
+            FireBaseManager.shared.addNewTeam(admin: userId, teamId: name, image: "uploadImage", menber: [userId], message: msg)
             FireBaseManager.shared.addTimeline(team: name, content: "\(userName) 創建了球隊", event: false)
             print(self.uploadImage)
             print("================\(allValues)===================")

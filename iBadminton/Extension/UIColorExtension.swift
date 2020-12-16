@@ -13,6 +13,7 @@ enum MXColor: String {
     case mainBlue = "MainBlue"
     case blue = "Blue"
     case lightBlue = "LightBlue"
+    case yellow = "Yellow"
 }
 
 extension UIColor {
@@ -23,4 +24,16 @@ extension UIColor {
         
         return color
     }
+}
+
+extension CALayer {
+  func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+    let maskPath = UIBezierPath(roundedRect: bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
+
+    let shape = CAShapeLayer()
+    shape.path = maskPath.cgPath
+    mask = shape
+  }
 }

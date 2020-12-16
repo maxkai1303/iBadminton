@@ -15,26 +15,43 @@ class TimeLineViewController: UIViewController {
     var timeline = ISTimeline()
     
     var data: [TeamPoint] = []
+    var teamId: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setView()
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
-        readPoint(dataType: TeamPoint.self) { (result) in
-            switch result {
-            case.success(let data):
-                self.data = data
-                print("data: ", self.data)
-                self.setData()
-            case.failure(let error): print("===== Get Error \(error) ======")
+        
+        listenNew()
+    }
+    
+    func listenNew() {
+        FireBaseManager.shared.listen(collectionName: .team) {
+            self.readPoint(dataType: TeamPoint.self) { (result) in
+                switch result {
+                case.success(let data):
+                    
+                    self.data = data.sorted (by: { (first, second) -> Bool in
+                        
+                        return first.time.dateValue() > second.time.dateValue()
+                    })
+                    
+                    print("data: ", self.data)
+                    
+                    self.setData()
+                    
+                case.failure(let error): print("===== Get Error \(error) ======")
+                }
             }
+            
         }
     }
     
     func readPoint <T: Codable> (dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
-        let collection = FireBaseManager.shared.fireDb.collection("Team").document("let辣條=shit").collection("TeamPoint")
+        let collection = FireBaseManager.shared.fireDb.collection("Team").document(teamId).collection("TeamPoint")
         collection.getDocuments(completion: { (querySnapshot, error) in
             guard let querySnapshot = querySnapshot else {
                 handler(.failure(error!))
@@ -42,8 +59,10 @@ class TimeLineViewController: UIViewController {
             }
             self.decode(dataType, documents: querySnapshot.documents) { (result) in
                 switch result {
-                case .success(let data): handler(.success(data))
-                case .failure(let error): handler(.failure(error))
+                case .success(let data):
+                    handler(.success(data))
+                case .failure(let error):
+                    handler(.failure(error))
                 }
             }
         })
@@ -92,7 +111,7 @@ class TimeLineViewController: UIViewController {
         var myPoint: [ISPoint] = []
         
         for item in self.data {
-            let point = 
+            let point =
                 ISPoint(title: item.content,
                         description: FireBaseManager.shared.timeStampToStringDetail(item.time),
                         pointColor: UIColor(named: "LightBlue")!,

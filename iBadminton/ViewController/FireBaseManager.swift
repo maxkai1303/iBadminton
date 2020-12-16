@@ -198,22 +198,21 @@ class FireBaseManager {
         }
     }
     
-    func getUserName(userId: String) -> String {
-        var name = ""
+    func getUserName(userId: String, handler: @escaping (String?) -> Void) {
         getCollection(name: .user).document(userId).getDocument { (document, _) in
             if let document = document, document.exists {
-                name = "\(document.data()!["userName"] ?? "沒有名字")"
+                let name = "\(document.data()!["userName"] ?? "沒有名字")"
                 print(document.documentID, document.data()!)
+                handler(name)
             } else {
                 print("Document does not exist")
             }
         }
-        return name
     }
     
-    func addNewTeam(admin: String, teamId: String, image: [String], menber: [String], message: String) {
+    func addNewTeam(admin: String, teamId: String, image: String, menber: [String], message: String) {
         getCollection(name: .team).document(teamId).setData([
-            "teamImage": ["https://onepage.nownews.com/sites/default/files/styles/crop_thematic_content_img/public/2020-05/04_6.jpg?h=bd907a81&itok=rxDfBMr8"],
+            "teamImage": "https://onepage.nownews.com/sites/default/files/styles/crop_thematic_content_img/public/2020-05/04_6.jpg?h=bd907a81&itok=rxDfBMr8",
             "teamMessage": message,
             "teamMenber": menber,
             "adminID": admin,
