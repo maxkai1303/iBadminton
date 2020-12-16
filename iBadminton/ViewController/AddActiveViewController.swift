@@ -34,7 +34,6 @@ class AddActiveViewController: FormViewController {
     }
     // MARK: 需要拿到擁有的球隊
     func getTeam() {
-        FireBaseManager.shared.getOwnTeam(userName: userName)
     }
     
     

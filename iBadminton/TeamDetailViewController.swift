@@ -79,8 +79,7 @@ class TeamDetailViewController: UIViewController {
         }
         
         teamRatingLabel.text! = "\(teamRating)"
-        guard ((teamDetail?.teamImage.isEmpty) != nil)
-        else {
+        guard teamDetail?.teamImage != "" else {
             teamImage.image = UIImage(named: "image_placeholder")
             return
         }

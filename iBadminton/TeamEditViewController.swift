@@ -13,7 +13,7 @@ class TeamEditViewController: FormViewController {
     
     var userId: String = ""
     var userName: String = ""
-    var ownTeam: [String] = []
+    var ownTeam: [Team] = []
     var pickerTeam: String = ""
     var teamImage: [String] = []
     var teamMessage: String = ""
@@ -22,7 +22,9 @@ class TeamEditViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUi()
-        FireBaseManager.shared.getOwnTeam(userName: userName)
+        FireBaseManager.shared.getOwnTeam(userId: userId) { (result) in
+            self.ownTeam = result
+        }
         
     }
     

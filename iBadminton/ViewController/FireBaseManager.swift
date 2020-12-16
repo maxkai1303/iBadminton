@@ -122,17 +122,24 @@ class FireBaseManager {
             print(error.localizedDescription)
         }
     }
-    // MARK: 這個 func 會直接跳出去
-    func getOwnTeam(userName: String) {
+
+    func getOwnTeam(userId: String, handler: @escaping ([Team]) -> Void) {
+        var adminTeam: [Team] = []
         let collection = FireBaseManager.shared.getCollection(name: .team)
-        collection.whereField("adminID", isEqualTo: userName).getDocuments { (querySnapshot, err) in
+        collection.whereField("adminID", isEqualTo: userId).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    print("Get Own Team:\(document.data())")
+                self.decode(Team.self, documents: querySnapshot!.documents) { (result) in
+                    switch result {
+                    case .success(let item):
+                        adminTeam.append(contentsOf: item)
+                    case .failure(let error):
+                        print("Get own team decode error: \(error)")
+                    }
                 }
             }
+            handler(adminTeam)
         }
     }
     

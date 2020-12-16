@@ -16,6 +16,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     var userName: String = ""
     var allTeam: [Team] = []
     var team: Team?
+    var ownTeam: [Team] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func setTitle() {
-  
+        
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.maxColor(with: .mainBlue)
         ]
@@ -43,19 +44,20 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     
     @IBOutlet weak var teamCollectionView: UICollectionView!
     
+    func listenTeam() {
+        firebaseManager.listen(collectionName: .team) {
+            self.teamCollectionView.reloadData()
+        }
+    }
+    
     // MARK: 還需要判斷到底有沒有球隊
     func checkOwnTeam() {
-        firebaseManager.checkLogin { uid in
-            if uid == nil {
-                if #available(iOS 13.0, *) {
-                    let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
-                    self.present(signInPage!, animated: true, completion: nil)
-                }
-            } else {
-                self.userId = uid!
-                self.setMenuButton()
-                print("login \(self.userId)")
-            }
+        firebaseManager.checkLogin { (uid) in
+            guard uid != nil else { return }
+            self.userId = uid!
+        }
+        firebaseManager.getOwnTeam(userId: userId) { (result) in
+            self.ownTeam = result
         }
     }
     
@@ -102,7 +104,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         itemNewPost.titleColor = .white
         menuButton.addMenuItems([itemEdit, itemNewPost])
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showTeamEditView" {
             let controller = segue.destination as? TeamEditViewController
@@ -118,7 +120,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
             controller.teamDetail = team
         }
     }
-
+    
 }
 
 extension TeamViewController: UICollectionViewDataSource {
@@ -138,15 +140,15 @@ extension TeamViewController: UICollectionViewDataSource {
         team = allTeam[indexPath.row]
         performSegue(withIdentifier: "goTeamDetail", sender: nil)
     }
-//}
-
-//extension TeamViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let screenWidth = UIScreen.main.bounds.size.width - 30
-//        let height = UIScreen.main.bounds.size.height * 0.35
-//
-//        return CGSize(width: screenWidth, height: height)
-//    }
+    //}
+    
+    //extension TeamViewController: UICollectionViewDelegateFlowLayout {
+    //
+    //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    //
+    //        let screenWidth = UIScreen.main.bounds.size.width - 30
+    //        let height = UIScreen.main.bounds.size.height * 0.35
+    //
+    //        return CGSize(width: screenWidth, height: height)
+    //    }
 }
