@@ -35,10 +35,12 @@ class TeamEditViewController: FormViewController {
             <<< PickerInputRow<String>("Picker Input Row"){
                 $0.title = "活動球隊"
                 $0.options = []
-                // MARK: 缺少拿到 Own Team的方法
-//                for i in 1...10{
-                    $0.options.append("龍王號")
-//                }
+                let teamId = ownTeam.map {
+                    return $0.teamID
+                }
+                for i in teamId {
+                    $0.options.append("\(i)")
+                }
                 $0.value = $0.options.first
                 self.pickerTeam = $0.value!
             }.onChange({ (row) in

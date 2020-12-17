@@ -114,7 +114,7 @@ class CreateTeamViewController: FormViewController {
             self.present(controller, animated: true, completion: nil)
         } else {
             let controller = UIAlertController(title: "Success！", message: "創建成功", preferredStyle: .alert)
-            let backAction = UIAlertAction(title: "返回", style: .default) { _ in
+            let backAction = UIAlertAction(title: "返回", style: .default) {_ in
                 self.form.removeAll()
                 self.setLabel()
             }

@@ -20,6 +20,11 @@ enum Result<T> {
     case failure(Error)
 }
 
+enum UploadFile: String {
+    case event = "eventImage"
+    case team = "teamImage"
+}
+
 enum FirebaseError: String, Error {
     case decode = "====== FireBase decode error ======"
 }
@@ -86,34 +91,10 @@ class FireBaseManager {
     }
     
     // MARK: 要拿到球隊的資訊，直接帶入新活動
-    func addEvent(collectionName: CollectionName, handler: @escaping() -> Void) {
+    // , dateStart: Timestamp, dateEnd: Timestamp, image: [String], lackCount: Int, level: String
+    func addEvent(collectionName: CollectionName, event: Event, handler: @escaping() -> Void) {
         let doc = getCollection(name: collectionName).document()
-        var noteText: String = ""
-//                getCollection(name: .team).getDocuments { (querySnapshot, _) in
-//                    if let querySnapshot = querySnapshot {
-//                       for document in querySnapshot.documents {
-//                        noteText = document.data()["teamMessage"] as! String
-//                          print(document.data())
-//                       }
-//                    }
-//                 }
-        
-        let event = Event(ball: "200磅鉛球",
-                          dateStart: Timestamp(),
-                          dateEnd: Timestamp(),
-                          eventID: doc.documentID,
-                          image: ["jjiji"],
-                          joinID: [],
-                          lackCount: 14,
-                          level: "中 - 高",
-                          location: "AppWorksSchool",
-                          price: 4,
-                          status: true,
-                          teamID: "let辣條=shit",
-                          tag: ["停車場", "辣妹陪打", "霓虹燈"],
-                          note: noteText
-        )
-        do {
+         do {
             
             try doc.setData(from: event)
             
@@ -122,9 +103,8 @@ class FireBaseManager {
             print(error.localizedDescription)
         }
     }
-
+    
     func getOwnTeam(userId: String, handler: @escaping ([Team]) -> Void) {
-        var adminTeam: [Team] = []
         let collection = FireBaseManager.shared.getCollection(name: .team)
         collection.whereField("adminID", isEqualTo: userId).getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -133,13 +113,12 @@ class FireBaseManager {
                 self.decode(Team.self, documents: querySnapshot!.documents) { (result) in
                     switch result {
                     case .success(let item):
-                        adminTeam.append(contentsOf: item)
+                        handler(item)
                     case .failure(let error):
                         print("Get own team decode error: \(error)")
                     }
                 }
             }
-            handler(adminTeam)
         }
     }
     
@@ -191,10 +170,10 @@ class FireBaseManager {
     }
     
     func joinTeam(userId: String, teamID: String) {
-//        var name = ""
+        //        var name = ""
         getCollection(name: .user).document(userId).getDocument { (document, _) in
             if let document = document, document.exists {
-//                name = "\(document.data()!["userName"] ?? "靠杯")"
+                //                name = "\(document.data()!["userName"] ?? "靠杯")"
                 self.getCollection(name: .team).document(teamID).updateData([
                     "teamMenber": FieldValue.arrayUnion([userId])
                 ])
@@ -227,18 +206,18 @@ class FireBaseManager {
             "teamID": teamId
         ])
     }
-        
-        func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
-            getCollection(name: collectionName).document(userId).updateData([
-                key: value
-            ])
-            print("======= Edit Sucess! =======")
-        }
-        
-        func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
-            let timeSta = timeStamp.dateValue()
-            let dfmatter = DateFormatter()
-            dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
-            return dfmatter.string(from: timeSta)
-        }
+    
+    func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
+        getCollection(name: collectionName).document(userId).updateData([
+            key: value
+        ])
+        print("======= Edit Sucess! =======")
     }
+    
+    func timeStampToStringDetail(_ timeStamp: Timestamp) -> String {
+        let timeSta = timeStamp.dateValue()
+        let dfmatter = DateFormatter()
+        dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
+        return dfmatter.string(from: timeSta)
+    }
+}

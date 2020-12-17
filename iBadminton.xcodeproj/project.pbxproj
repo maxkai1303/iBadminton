@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4507FFD725809C780066CEDF /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507FFD625809C780066CEDF /* TagCollectionViewCell.swift */; };
 		4507FFDA2580E3200066CEDF /* TeamManberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */; };
+		4519F22A258B6E5100425218 /* FirebaseStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4519F229258B6E5000425218 /* FirebaseStorageManager.swift */; };
 		4524B57D2570EAFB00BDE238 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B57C2570EAFB00BDE238 /* DetailViewController.swift */; };
 		4524B5952570F6E400BDE238 /* TitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */; };
 		4524B5982570F77100BDE238 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4524B5972570F77100BDE238 /* ImageTableViewCell.swift */; };
@@ -59,6 +60,7 @@
 		38CF8DE9AE83D9E9375CCBD4 /* Pods-iBadminton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.release.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.release.xcconfig"; sourceTree = "<group>"; };
 		4507FFD625809C780066CEDF /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberTableViewCell.swift; path = iBadminton/ViewController/TeamManberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		4519F229258B6E5000425218 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		4524B57C2570EAFB00BDE238 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		4524B5972570F77100BDE238 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = iBadminton/ViewCell/DetailViewCell/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -217,6 +219,7 @@
 				45B78BCB2578737F00B0922B /* ModleData.swift */,
 				45B78BA82577FB8C00B0922B /* fake.swift */,
 				45B78B5D25779F1C00B0922B /* FireBaseManager.swift */,
+				4519F229258B6E5000425218 /* FirebaseStorageManager.swift */,
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
 				45D47DE4256D07410098F799 /* LineSDK.swift */,
@@ -417,6 +420,7 @@
 				45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */,
 				459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
+				4519F22A258B6E5100425218 /* FirebaseStorageManager.swift in Sources */,
 				45917E852588BD3700729176 /* UIColorExtension.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
 				45CB4ECF257DC002008E48C3 /* TeamRatingTableViewCell.swift in Sources */,
