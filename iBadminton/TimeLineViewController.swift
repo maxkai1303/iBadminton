@@ -21,7 +21,6 @@ class TimeLineViewController: UIViewController {
         super.viewDidLoad()
         setView()
         
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         

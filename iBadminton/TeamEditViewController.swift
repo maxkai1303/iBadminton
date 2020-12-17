@@ -129,6 +129,8 @@ class TeamEditViewController: FormViewController {
                         controller.addAction(backAction)
                         self.present(controller, animated: true, completion: nil)
                     } else {
+                        self.form.removeAll()
+                        self.setUi()
                         print("\(self.form.values())")
                     }
             }

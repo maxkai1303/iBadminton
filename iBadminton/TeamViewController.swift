@@ -24,6 +24,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         readTeam()
         setTitle()
         setupView()
+        setMenuButton()
     }
     
     func setTitle() {
@@ -56,8 +57,11 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
             guard uid != nil else { return }
             self.userId = uid!
         }
-        firebaseManager.getOwnTeam(userId: userId) { (result) in
+        firebaseManager.getOwnTeam(userId: userId) { result in
             self.ownTeam = result
+//            switch result {
+//            case .
+//            }
         }
     }
     

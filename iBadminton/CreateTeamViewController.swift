@@ -40,16 +40,16 @@ class CreateTeamViewController: FormViewController {
                 $0.validationOptions = .validatesOnChangeAfterBlurred
             }.onRowValidationChanged { cell, row in
                 if !row.isValid {
-//                    row.placeholder = "此為必填項目"
+                    //                    row.placeholder = "此為必填項目"
                     for (index, _) in row.validationErrors.map({ $0.msg }).enumerated() {
-                    let labelRow = LabelRow() {
-                        $0.title = "此項目為必填項目"
-                        $0.cell.height = { 30 }
-                        $0.cell.backgroundColor = .red
+                        let labelRow = LabelRow() {
+                            $0.title = "此項目為必填項目"
+                            $0.cell.height = { 30 }
+                            $0.cell.backgroundColor = .red
+                        }
+                        let indexPath = row.indexPath!.row + index + 1
+                        row.section?.insert(labelRow, at: indexPath)
                     }
-                    let indexPath = row.indexPath!.row + index + 1
-                    row.section?.insert(labelRow, at: indexPath)
-                }
                 }
                 if let teamRow: TextRow = self.form.rowBy(tag: "teamName"), let value = teamRow.value {
                     self.teamId = value
@@ -64,7 +64,7 @@ class CreateTeamViewController: FormViewController {
                 row.validationOptions = .validatesOnChangeAfterBlurred
             }.onRowValidationChanged { cell, row in
                 if !row.isValid {
-//                    row.placeholder = "此為必填項目最少2字最多250字"
+                    //                    row.placeholder = "此為必填項目最少2字最多250字"
                     for (index, _) in row.validationErrors.map({ $0.msg }).enumerated() {
                         let labelRow = LabelRow() {
                             $0.title = "此為必填項目最少2字最多250字"
@@ -99,6 +99,7 @@ class CreateTeamViewController: FormViewController {
                 }.onCellSelection {_, row in
                     row.section?.form?.validate()
                     self.checkRule()
+                    
                 }
             }
     }
@@ -113,7 +114,10 @@ class CreateTeamViewController: FormViewController {
             self.present(controller, animated: true, completion: nil)
         } else {
             let controller = UIAlertController(title: "Success！", message: "創建成功", preferredStyle: .alert)
-            let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
+            let backAction = UIAlertAction(title: "返回", style: .default) { _ in
+                self.form.removeAll()
+                self.setLabel()
+            }
             controller.addAction(backAction)
             self.present(controller, animated: true, completion: nil)
             FireBaseManager.shared.addNewTeam(admin: userId, teamId: name, image: "uploadImage", menber: [userId], message: msg)

@@ -187,6 +187,8 @@ class AddActiveViewController: FormViewController {
                 }.onCellSelection { cell, row in
                     row.section?.form?.validate()
                     self.dismiss(animated: true, completion: nil)
+                    self.form.removeAll()
+                    self.setTable()
                     //                    FireBaseManager.shared.addEvent(collectionName: .event, handler: <#() -> Void#>)
                 }
             }
