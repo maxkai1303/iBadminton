@@ -15,7 +15,7 @@ class TeamEditViewController: FormViewController {
     var userName: String = ""
     var ownTeam: [Team] = []
     var pickerTeam: String = ""
-    var teamImage: [String] = []
+    var teamImage = UIImage()
     var teamMessage: String = ""
     var teamName: String = ""
     
@@ -45,6 +45,10 @@ class TeamEditViewController: FormViewController {
                 self.pickerTeam = $0.value!
             }.onChange({ (row) in
                 self.pickerTeam = row.value ?? ""
+                
+                
+                
+                
                 print("value changed: \(row.value!)")
             })
             
@@ -70,7 +74,7 @@ class TeamEditViewController: FormViewController {
                 $0.sourceTypes = [.PhotoLibrary, .Camera]
                 $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
             }.onChange({ (row) in
-//                self.image = row.value!
+                self.teamImage = row.value!
                 print("=====\(String(describing: row.value))")
             })
             

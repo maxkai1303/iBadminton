@@ -9,7 +9,7 @@ import UIKit
 import Eureka
 import Firebase
 
-class InProfileViewController: FormViewController /*ProfileData*/ {
+class InProfileViewController: FormViewController  {
     
 //    func receiveData(data: String) {
 //        userName = data
@@ -38,6 +38,7 @@ class InProfileViewController: FormViewController /*ProfileData*/ {
         getData()
     }
     
+    // MARK: User 還沒抓
     func getData() {
         getTeamManber(userId: "xJlxfKVWdladCX8vKDWAvr78Xsj1") { teamID in
                     self.joinTeam.append(teamID)
@@ -53,7 +54,7 @@ class InProfileViewController: FormViewController /*ProfileData*/ {
     
     func setLabel() {
         
-        tableView.backgroundColor = UIColor(named: "LightBlue")
+        tableView.backgroundColor = UIColor.maxColor(with: .lightBlue)
         
         TextRow.defaultCellUpdate = { cell, row in
             cell.textLabel?.font = UIFont.italicSystemFont(ofSize: 12)

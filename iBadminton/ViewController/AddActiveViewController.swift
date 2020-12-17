@@ -34,6 +34,9 @@ class AddActiveViewController: FormViewController {
         super.viewDidLoad()
         setTable()
         
+        // 鍵盤離正在編輯的 cell距離
+            rowKeyboardSpacing = 20
+        
     }
     
     
@@ -224,11 +227,17 @@ class AddActiveViewController: FormViewController {
             
             <<< TextAreaRow() {
                 $0.title = "活動其他資訊"
-                $0.placeholder = "最多輸入兩百字"
-                //                $0.add(rule: <#T##RuleType#>)  記得設定最多200字
+                $0.placeholder = "最多輸入 200字"
+                $0.add(rule: RuleMaxLength(maxLength: 200))
                 $0.validationOptions = .validatesOnChange
+            }.onChange({ row in
+                self.note = row.value ?? ""
+            }).cellUpdate { cell, row in
+                if !row.isValid {
+                    row.placeholder = "最多輸入 200字"
+                    cell.textView.backgroundColor = .systemRed
+                }
             }
-            // 記得寫一個獲得文字的方法
             
             +++ Section()
             <<< ButtonRow() {
@@ -271,29 +280,31 @@ class AddActiveViewController: FormViewController {
         
         let backAction = UIAlertAction(title: "完成", style: .default) {_ in
             
-            for i in self.image {
-                
-            }
+            let doc = FireBaseManager.shared.getCollection(name: .event).document()
+//            let eventId = doc.documentID
             
-            let addEvent = Event(
-                ball: ball,
-                dateStart: startDate,
-                dateEnd: endDate,
-                eventID: eventId,
-                image: <#T##[String]#>,
-                joinID: [userId],
-                lackCount: people,
-                level: level,
-                location: location,
-                price: price,
-                status: true,
-                teamID: pickerTeam,
-                tag: tag,
-                note: note)
+//            let addEvent = Event (
+//                ball: ball,
+//                dateStart: startDate,
+//                dateEnd: endDate,
+//                eventID: doc.documentID,
+//                image: [],
+//                joinID: [userId],
+//                lackCount: people,
+//                level: level,
+//                location: location,
+//                price: price,
+//                status: true,
+//                teamID: pickerTeam,
+//                tag: tag,
+//                note: note)
+//
+//            // 這樣不會又開一個不一樣的 documentID嗎
+//            getUrl(id: doc.documentID) { (urls) in
+//                addEvent.image = urls
+//            }
             
-            FireBaseManager.shared.addEvent(collectionName: .event, event: addEvent) {
-                
-            }
+//            FireBaseManager.shared.addEvent(collectionName: .event, event: addEvent) { }
             
             self.form.removeAll()
             self.setTable()
@@ -303,21 +314,18 @@ class AddActiveViewController: FormViewController {
     }
     
     func getUrl(id: String, handler: @escaping ([String]) -> Void) {
+        
         var urls: [String] = []
-        let doc = FireBaseManager.shared.getCollection(name: .event).document()
-        let eventId = doc.documentID
         
         
         for i in image {
-            
-            FirebaseStorageManager.shared.uploadImage(image: i, folder: .event, id: eventId) { (result) in
+            FirebaseStorageManager.shared.uploadImage(image: i, folder: .event, id: id) { (result) in
                 switch result {
                 
                 case .success(let url):
                     
                     urls.append(url)
                     if urls.count == self.image.count {
-                        
                         handler(urls)
                     }
                 case .failure(let error):

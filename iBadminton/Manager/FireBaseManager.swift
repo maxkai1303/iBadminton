@@ -78,7 +78,7 @@ class FireBaseManager {
     }
     
     func listen(collectionName: CollectionName, handler: @escaping() -> Void) {
-        let collection = getCollection(name: .event)
+        let collection = getCollection(name: collectionName)
         collection.addSnapshotListener { documentSnapshot, error in
             guard let document = documentSnapshot else {
                 print("Error fetching document:", error!)

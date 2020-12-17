@@ -1308,6 +1308,27 @@
                                                     <constraint firstAttribute="width" constant="34" id="OcQ-k5-Eze"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPN-gi-2xT">
+                                                <rect key="frame" x="318" y="304" width="80" height="36"/>
+                                                <color key="backgroundColor" name="Blue"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="80" id="AwJ-uY-cWO"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <state key="normal" title="球隊成員">
+                                                    <color key="titleColor" name="White"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <segue destination="zTe-tf-SN7" kind="popoverPresentation" identifier="showTeamManber" popoverAnchorView="PPN-gi-2xT" id="sNc-zz-OCc">
+                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                                    </segue>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -1318,6 +1339,8 @@
                                             <constraint firstItem="6XP-u1-KcV" firstAttribute="top" secondItem="DZ4-X1-q8n" secondAttribute="bottom" constant="16" id="Bop-i8-6TK"/>
                                             <constraint firstItem="qTI-hB-rGk" firstAttribute="top" secondItem="mWt-ba-3E6" secondAttribute="top" id="CUb-L3-yJk"/>
                                             <constraint firstItem="mWt-ba-3E6" firstAttribute="top" secondItem="qkF-vY-0Jr" secondAttribute="bottom" constant="24" id="JA1-xf-X5p"/>
+                                            <constraint firstItem="PPN-gi-2xT" firstAttribute="centerY" secondItem="DSI-jq-Ufq" secondAttribute="centerY" id="Kbv-Uf-zQh"/>
+                                            <constraint firstItem="PPN-gi-2xT" firstAttribute="leading" secondItem="vaU-Bi-BZA" secondAttribute="leading" id="Lle-98-DXc"/>
                                             <constraint firstAttribute="trailing" secondItem="HME-cp-IKW" secondAttribute="trailing" id="PWp-A5-aag"/>
                                             <constraint firstItem="mWt-ba-3E6" firstAttribute="leading" secondItem="qkF-vY-0Jr" secondAttribute="leading" id="RDt-qx-EPp"/>
                                             <constraint firstItem="tc0-Il-Eqq" firstAttribute="leading" secondItem="qkF-vY-0Jr" secondAttribute="trailing" constant="16" id="TPi-CV-7hd"/>
@@ -1392,7 +1415,7 @@
             </objects>
             <point key="canvasLocation" x="2714" y="-938"/>
         </scene>
-        <!--Time Line View Controller-->
+        <!--球隊動態-->
         <scene sceneID="rqJ-Ky-95u">
             <objects>
                 <viewController id="7SE-wx-blJ" customClass="TimeLineViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
@@ -1402,11 +1425,27 @@
                         <viewLayoutGuide key="safeArea" id="eGp-kc-qOX"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4R8-wd-GAQ"/>
+                    <navigationItem key="navigationItem" title="球隊動態" id="4R8-wd-GAQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dej-Os-Cea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4478" y="1986"/>
+            <point key="canvasLocation" x="3104" y="2399"/>
+        </scene>
+        <!--Team Manber View Controller-->
+        <scene sceneID="Ivf-NT-uAx">
+            <objects>
+                <viewController id="zTe-tf-SN7" customClass="TeamManberViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1zE-Vw-n2P">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="gXO-ho-ckw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="CG1-8M-9GF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-8G-JmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4012" y="2399"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VnG-MC-3DM">

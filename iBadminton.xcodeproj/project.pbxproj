@@ -50,6 +50,7 @@
 		45D47DD2256CA7610098F799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD0256CA7610098F799 /* Main.storyboard */; };
 		45D47DD7256CA7620098F799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */; };
 		45D47DE5256D07410098F799 /* LineSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DE4256D07410098F799 /* LineSDK.swift */; };
+		45E97D32258BC2770047DF81 /* TeamManberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E97D31258BC2770047DF81 /* TeamManberViewController.swift */; };
 		45EEE8942570F92E00ED6DB9 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEE8932570F92E00ED6DB9 /* ImageCollectionViewCell.swift */; };
 		45EEE8972571545500ED6DB9 /* TagTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45EEE8962571545500ED6DB9 /* TagTableViewCell.swift */; };
 		C59CA8489C4A8171CF151029 /* Pods_iBadminton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05FC7BC96BC0EC4A1657EE15 /* Pods_iBadminton.framework */; };
@@ -86,7 +87,7 @@
 		45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamNoteTableViewCell.swift; path = iBadminton/TeamNoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45AA848B2574FFA7007E284E /* AddActiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActiveViewController.swift; sourceTree = "<group>"; };
 		45B78B0F25776A8600B0922B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		45B78B5D25779F1C00B0922B /* FireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FireBaseManager.swift; path = ViewController/FireBaseManager.swift; sourceTree = "<group>"; };
+		45B78B5D25779F1C00B0922B /* FireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseManager.swift; sourceTree = "<group>"; };
 		45B78B802577E80B00B0922B /* TimeLineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimeLineViewController.swift; path = iBadminton/TimeLineViewController.swift; sourceTree = SOURCE_ROOT; };
 		45B78BA82577FB8C00B0922B /* fake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = fake.swift; path = ViewController/fake.swift; sourceTree = "<group>"; };
 		45B78BCB2578737F00B0922B /* ModleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ModleData.swift; path = ViewController/ModleData.swift; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		45D47DD6256CA7620098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D47DD8256CA7620098F799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D47DE4256D07410098F799 /* LineSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSDK.swift; sourceTree = "<group>"; };
+		45E97D31258BC2770047DF81 /* TeamManberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberViewController.swift; path = iBadminton/TeamManberViewController.swift; sourceTree = SOURCE_ROOT; };
 		45EEE8932570F92E00ED6DB9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45EEE8962571545500ED6DB9 /* TagTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagTableViewCell.swift; path = iBadminton/TagTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		8037EAC60E5771658E98A3BB /* Pods-iBadminton.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.debug.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,9 +124,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4519F22C258BBB3B00425218 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				45B78B5D25779F1C00B0922B /* FireBaseManager.swift */,
+				4519F229258B6E5000425218 /* FirebaseStorageManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				45E97D31258BC2770047DF81 /* TeamManberViewController.swift */,
 				452D7F9825875DD6005742A6 /* CreateTeamViewController.swift */,
 				452D7F9525874393005742A6 /* TeamDetailViewController.swift */,
 				45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */,
@@ -214,12 +226,11 @@
 			isa = PBXGroup;
 			children = (
 				45917E872588BD3B00729176 /* Extension */,
+				4519F22C258BBB3B00425218 /* Manager */,
 				452D7F92258732C7005742A6 /* Assets.xcassets */,
 				45B78C00257B428A00B0922B /* iBadminton.entitlements */,
 				45B78BCB2578737F00B0922B /* ModleData.swift */,
 				45B78BA82577FB8C00B0922B /* fake.swift */,
-				45B78B5D25779F1C00B0922B /* FireBaseManager.swift */,
-				4519F229258B6E5000425218 /* FirebaseStorageManager.swift */,
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
 				45D47DE4256D07410098F799 /* LineSDK.swift */,
@@ -413,6 +424,7 @@
 				459E6150257297F800C05266 /* ProfileViewController.swift in Sources */,
 				452D7F9625874393005742A6 /* TeamDetailViewController.swift in Sources */,
 				45D47DCB256CA7610098F799 /* AppDelegate.swift in Sources */,
+				45E97D32258BC2770047DF81 /* TeamManberViewController.swift in Sources */,
 				459E614A2572139B00C05266 /* NoteTableViewCell.swift in Sources */,
 				459E614D257285E400C05266 /* PriceTableViewCell.swift in Sources */,
 				45EEE8972571545500ED6DB9 /* TagTableViewCell.swift in Sources */,

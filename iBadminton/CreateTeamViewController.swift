@@ -40,7 +40,6 @@ class CreateTeamViewController: FormViewController {
                 $0.validationOptions = .validatesOnChangeAfterBlurred
             }.onRowValidationChanged { cell, row in
                 if !row.isValid {
-                    //                    row.placeholder = "此為必填項目"
                     for (index, _) in row.validationErrors.map({ $0.msg }).enumerated() {
                         let labelRow = LabelRow() {
                             $0.title = "此項目為必填項目"

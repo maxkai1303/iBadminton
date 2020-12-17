@@ -59,6 +59,10 @@ class TeamDetailViewController: UIViewController {
             controller?.data = teamLineData
             controller?.teamId = teamDetail?.teamID ?? ""
         }
+        if segue.identifier == "showTeamManber" {
+            let controller = segue.destination as? TeamManberViewController
+            controller?.team = teamDetail
+        }
     }
     
     @IBOutlet weak var teamNameLabel: UILabel!
