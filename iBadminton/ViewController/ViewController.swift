@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import Lottie
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
@@ -22,11 +23,11 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     var team: [Team] = []
     var event: Event?
     
-    @IBOutlet weak var searchDateTextField: UITextField! {
-        didSet {
-            searchDateTextField.inputView = datePicker
-        }
-    }
+//    @IBOutlet weak var searchDateTextField: UITextField! {
+//        didSet {
+//            searchDateTextField.inputView = datePicker
+//        }
+//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -115,7 +116,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        homePageCollection.reloadData()
     }
     
     //  判斷有沒有登入後加入活動或是跳出登入畫面
@@ -136,19 +137,20 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
         let docRef = FireBaseManager.shared.fireDb.collection("Team").document("\(teamID)")
         docRef.getDocument { (document, _) in
             if let document = document {
                 _ = document.data().map(String.init(describing:)) ?? "nil"
-                
+
                 guard let data = try? document.data(as: Team.self) else {
                     print("Team decod error ")
                     return
                 }
-                
+
                 handler(data)
-                
+
             } else {
                 print("Document does not exist")
             }
@@ -156,6 +158,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     // MARK: 監聽活動狀態 status 變成 false不顯示
+    // 感覺一開始拿的時候就直接拿 true就好，然後監聽整個 team
     func listenEvent() {
         let collection = FireBaseManager.shared.getCollection(name: .event)
         collection.whereField("status", isEqualTo: true)
@@ -163,6 +166,8 @@ class ViewController: UIViewController, UICollectionViewDelegate {
 }
 
 extension ViewController: UICollectionViewDataSource {
+    
+    // numberofrow 放那個判斷如果是0的話給他動畫View不然就背景nil
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         

@@ -84,9 +84,14 @@ class FireBaseManager {
                 print("Error fetching document:", error!)
                 return
             }
-            let data = document.documents[0].data()
-            print("監聽到的資料: \(data)")
-            handler()
+            
+            if document.documents.isEmpty {
+                return
+            } else {
+                let data = document.documents[0].data()
+                print("監聽到的資料: \(data)")
+                handler()
+            }
         }
     }
     
@@ -196,18 +201,19 @@ class FireBaseManager {
         }
     }
     
-    func addNewTeam(admin: String, teamId: String, image: String, menber: [String], message: String) {
+    func addNewTeam(admin: [String], teamId: String, image: String, menber: [String], message: String) {
         getCollection(name: .team).document(teamId).setData([
-            "teamImage": "https://onepage.nownews.com/sites/default/files/styles/crop_thematic_content_img/public/2020-05/04_6.jpg?h=bd907a81&itok=rxDfBMr8",
+            "teamImage": image,
             "teamMessage": message,
             "teamMenber": menber,
             "adminID": admin,
             "teamRating": [],
-            "teamID": teamId
+            "teamID": teamId,
+            "createTime": Timestamp()
         ])
     }
     
-    func edit(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
+    func editName(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {
         getCollection(name: collectionName).document(userId).updateData([
             key: value
         ])

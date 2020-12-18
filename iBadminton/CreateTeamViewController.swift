@@ -16,6 +16,7 @@ class CreateTeamViewController: FormViewController {
     var teamMessage: String = ""
     var userId: String = ""
     var userName: String = ""
+    var adminId: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,7 +120,8 @@ class CreateTeamViewController: FormViewController {
             }
             controller.addAction(backAction)
             self.present(controller, animated: true, completion: nil)
-            FireBaseManager.shared.addNewTeam(admin: userId, teamId: name, image: "uploadImage", menber: [userId], message: msg)
+            adminId.append(userId)
+            FireBaseManager.shared.addNewTeam(admin: adminId, teamId: name, image: uploadImage, menber: [userId], message: msg)
             FireBaseManager.shared.addTimeline(team: name, content: "\(userName) 創建了球隊", event: false)
             print(self.uploadImage)
             print("================\(allValues)===================")

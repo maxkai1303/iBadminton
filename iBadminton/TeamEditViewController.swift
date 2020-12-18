@@ -8,6 +8,7 @@
 import UIKit
 import Eureka
 import ImageRow
+import Firebase
 
 class TeamEditViewController: FormViewController {
     
@@ -18,6 +19,7 @@ class TeamEditViewController: FormViewController {
     var teamImage = UIImage()
     var teamMessage: String = ""
     var teamName: String = ""
+    var admindId:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +35,7 @@ class TeamEditViewController: FormViewController {
         form +++ Section("選擇修改的球隊")
             
             <<< PickerInputRow<String>("Picker Input Row"){
-                $0.title = "活動球隊"
-                $0.options = []
+                $0.options = ["請選擇球隊"]
                 let teamId = ownTeam.map {
                     return $0.teamID
                 }
@@ -45,10 +46,6 @@ class TeamEditViewController: FormViewController {
                 self.pickerTeam = $0.value!
             }.onChange({ (row) in
                 self.pickerTeam = row.value ?? ""
-                
-                
-                
-                
                 print("value changed: \(row.value!)")
             })
             
@@ -70,43 +67,60 @@ class TeamEditViewController: FormViewController {
             }
             
             <<< ImageRow() {
-                $0.title = "上傳球隊照片"
+                $0.title = "上傳球隊照片（必填）"
                 $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: UIAlertAction.Style.destructive)
+                $0.clearAction = .yes(style: .default)
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
             }.onChange({ (row) in
                 self.teamImage = row.value!
                 print("=====\(String(describing: row.value))")
             })
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
+                }
+            }
             
             +++ Section("球隊訊息")
-            <<< TextAreaRow(){ row in
-                row.title = "Note"
-                row.placeholder = "Enter text here"
+            <<< TextAreaRow(){
+                $0.title = "Note"
+                $0.placeholder = "介紹一下你的球隊 10 - 200 字"
+                $0.add(rule: RuleMinLength(minLength: 10))
+                $0.add(rule: RuleMaxLength(maxLength: 200))
+                $0.validationOptions = .validatesOnChange
             }.onChange({ row in
                 self.teamMessage = row.value ?? ""
-            })
+            }).cellUpdate { cell, row in
+                if !row.isValid {
+                    row.placeholder = "最少 10 字最多輸入 200 字"
+                    cell.textView.backgroundColor = .systemRed
+                }
+            }
             
             +++ Section("球隊成員")
-            <<< SwitchRow("manberTag"){
-                           $0.title = "顯示球隊成員"
-                       }
-                       <<< LabelRow(){
-
-                           $0.hidden = Condition.function(["manberTag"], { form in
-                               return !((form.rowBy(tag: "manberTag") as? SwitchRow)?.value ?? false)
-                           })
-                            $0.title = "item"
-                   }
             <<< SwitchRow("adminTag"){
-                           $0.title = "顯示球隊管理者"
-                       }
-                       <<< LabelRow(){
-
-                           $0.hidden = Condition.function(["adminTag"], { form in
-                               return !((form.rowBy(tag: "adminTag") as? SwitchRow)?.value ?? false)
-                           })
-                            $0.title = "Max"
-                   }
+                $0.title = "顯示球隊管理者"
+            }
+            <<< LabelRow(){
+                
+                $0.hidden = Condition.function(["adminTag"], { form in
+                    return !((form.rowBy(tag: "adminTag") as? SwitchRow)?.value ?? false)
+                })
+                $0.title = "Max"
+            }
+            
+            <<< SwitchRow("manberTag"){
+                $0.title = "顯示球隊成員"
+            }
+            <<< LabelRow(){
+                
+                $0.hidden = Condition.function(["manberTag"], { form in
+                    return !((form.rowBy(tag: "manberTag") as? SwitchRow)?.value ?? false)
+                })
+                $0.title = "item"
+            }
+            
             
             +++
             MultivaluedSection(multivaluedOptions: [.Insert, .Delete, .Reorder],
@@ -119,6 +133,8 @@ class TeamEditViewController: FormViewController {
                         $0.options = ["二叔公", "小阿姨", "老蔡"]
                     }.onChange({ row in
                         row.title = "管理員"
+                        guard row.value != "" else { return }
+                        self.admindId.append(row.value!)
                     })
                 }
                 
@@ -127,22 +143,52 @@ class TeamEditViewController: FormViewController {
             +++ Section()
             <<< ButtonRow() {
                 $0.title = "送出修改"
-                }.onCellSelection { cell, row in
-                    row.section?.form?.validate()
-                    if self.pickerTeam == "" || self.teamName == "" {
-                        let controller = UIAlertController(title: "哎呦喂呀！", message: "請修改完整資訊再送出", preferredStyle: .alert)
-                        let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
-                        controller.addAction(backAction)
-                        self.present(controller, animated: true, completion: nil)
-                    } else {
-                        self.form.removeAll()
-                        self.setUi()
-                        print("\(self.form.values())")
-                    }
+            }.onCellSelection { cell, row in
+                row.section?.form?.validate()
+                if self.pickerTeam == "" || self.teamName == "" {
+                    let controller = UIAlertController(title: "哎呦喂呀！", message: "請修改完整資訊再送出", preferredStyle: .alert)
+                    let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
+                    controller.addAction(backAction)
+                    self.present(controller, animated: true, completion: nil)
+                } else {
+                    
+                    
+                    self.form.removeAll()
+                    self.setUi()
+                    print("\(self.form.values())")
+                }
             }
     }
     
-
+    func showSucessAlert() {
+        let controller = UIAlertController(title: "Sucess！", message: "修改成功", preferredStyle: .alert)
+        
+        let backAction = UIAlertAction(title: "完成", style: .default) { (_) in
+            self.getUrl(id: self.pickerTeam) { (result) in
+                
+                let image = result
+                FireBaseManager.shared.getCollection(name:.team).document("\(self.pickerTeam)").updateData([
+                    "teamImage": image,
+                    "teamMessage": self.teamMessage,
+                    "adminID": self.admindId,
+                    "teamID": self.teamName
+                ])
+            }
+        }
+        controller.addAction(backAction)
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    func getUrl(id: String, handler: @escaping (String) -> Void) {
+        FirebaseStorageManager.shared.uploadImage(image: self.teamImage, folder: .team, id: id) { (result) in
+            switch result {
+            case.success(let image):
+                handler(image)
+            case.failure(let error):
+                print("Upload image fail, error \(error)")
+            }
+        }
+    }
     
     @objc func multipleSelectorDone(_ item:UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)

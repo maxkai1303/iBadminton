@@ -26,6 +26,10 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         setupView()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        readTeam()
+    }
+    
     func setTitle() {
         
         navigationController?.navigationBar.titleTextAttributes = [

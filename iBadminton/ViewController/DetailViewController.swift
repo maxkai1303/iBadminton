@@ -37,7 +37,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "add"),
             rotatedImage: #imageLiteral(resourceName: "cancel"))
-        menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 130.0)
+        menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 70.0)
         view.addSubview(menuButton)
         
         let item1 = ExpandingMenuItem(
@@ -84,8 +84,9 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     return
                 }
                 FireBaseManager.shared.joinTeam(userId: userId, teamID: team.teamID)
-                // MARK: 要拿到 userName 來帶入 timeline
-                FireBaseManager.shared.addTimeline(team: team.teamID, content: "\(userId) 加入球隊", event: false)
+                FireBaseManager.shared.getUserName(userId: userId) { (resutl) in
+                    FireBaseManager.shared.addTimeline(team: team.teamID, content: "\(String(describing: resutl)) 加入球隊", event: false)
+                }
                 
             case .joinPlay:
                 

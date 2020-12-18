@@ -143,7 +143,7 @@ class ProfileViewController: UIViewController {
             guard controller.textFields?[0].text != "" else { return }
             self.nickName = (controller.textFields?[0].text)!
             self.userName.text = self.nickName
-            FireBaseManager.shared.edit(collectionName: .user, userId: self.userId, key: "userName", value: "\(self.nickName)") { }
+            FireBaseManager.shared.editName(collectionName: .user, userId: self.userId, key: "userName", value: "\(self.nickName)") { }
         }
         controller.addAction(okAction)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)

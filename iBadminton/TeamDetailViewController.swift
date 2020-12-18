@@ -142,7 +142,7 @@ class TeamDetailViewController: UIViewController {
         let url = URL(string: teamDetail!.teamImage)
         teamImage.kf.indicatorType = .activity
         teamImage.kf.setImage(with: url)
-        FireBaseManager.shared.getUserName(userId: teamDetail?.adminID ?? "") { (name) in
+        FireBaseManager.shared.getUserName(userId: teamDetail!.adminID[0]) { (name) in
             self.teamAdminLabel.text = name
         }
         teamNoteLabel.text = teamDetail?.teamMessage

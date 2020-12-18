@@ -15,7 +15,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     
     func layoutCell(team: Team) {
         let url = URL(string: team.teamImage)
-        FireBaseManager.shared.getUserName(userId: team.adminID) { (name) in
+        FireBaseManager.shared.getUserName(userId: team.adminID[0]) { (name) in
             self.adminNameLabel.text = name
         }
         teamImageView.kf.setImage(with: url)

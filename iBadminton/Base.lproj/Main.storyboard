@@ -203,18 +203,18 @@
                                                     </subviews>
                                                 </stackView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SVU-Dh-4zT">
-                                                    <rect key="frame" x="346" y="8" width="40" height="40"/>
-                                                    <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                    <rect key="frame" x="336" y="169" width="50" height="50"/>
+                                                    <color key="backgroundColor" name="Yellow"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="CDe-5b-zaR"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ffT-nU-CpL"/>
+                                                        <constraint firstAttribute="width" constant="50" id="NGt-WQ-rBe"/>
+                                                        <constraint firstAttribute="height" constant="50" id="nhm-3p-Wus"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="20"/>
+                                                            <integer key="value" value="25"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </label>
@@ -222,14 +222,14 @@
                                             <constraints>
                                                 <constraint firstItem="j9o-A8-kVQ" firstAttribute="leading" secondItem="Hfo-XS-Mxa" secondAttribute="leading" id="0ib-b1-JmY"/>
                                                 <constraint firstItem="j9o-A8-kVQ" firstAttribute="leading" secondItem="Hfo-XS-Mxa" secondAttribute="leading" id="1O5-5s-0PB"/>
-                                                <constraint firstItem="SVU-Dh-4zT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Hfo-XS-Mxa" secondAttribute="leading" constant="20" symbolic="YES" id="4aH-2M-DJy"/>
                                                 <constraint firstItem="ofM-b1-R10" firstAttribute="leading" secondItem="Hfo-XS-Mxa" secondAttribute="leading" constant="8" id="Adf-eI-bcx"/>
                                                 <constraint firstItem="nRv-ol-FHY" firstAttribute="leading" secondItem="2DU-sF-9tN" secondAttribute="trailing" constant="5" id="DWr-OW-9B5"/>
-                                                <constraint firstAttribute="trailing" secondItem="SVU-Dh-4zT" secondAttribute="trailing" constant="8" id="EYl-Xc-gjb"/>
                                                 <constraint firstItem="j9o-A8-kVQ" firstAttribute="top" secondItem="Hfo-XS-Mxa" secondAttribute="top" id="Epm-e4-Sdf"/>
                                                 <constraint firstAttribute="trailing" secondItem="f9j-Ne-5sa" secondAttribute="trailing" constant="8" id="Jmc-UZ-Guy"/>
                                                 <constraint firstAttribute="trailing" secondItem="nRv-ol-FHY" secondAttribute="trailing" constant="8" id="KYY-YF-mSC"/>
                                                 <constraint firstItem="2DU-sF-9tN" firstAttribute="centerY" secondItem="ofM-b1-R10" secondAttribute="centerY" id="N7J-lH-fTE"/>
+                                                <constraint firstAttribute="trailing" secondItem="SVU-Dh-4zT" secondAttribute="trailing" constant="8" id="Nu4-mR-kep"/>
+                                                <constraint firstItem="nRv-ol-FHY" firstAttribute="top" secondItem="SVU-Dh-4zT" secondAttribute="bottom" constant="21.5" id="PYy-ZO-I0w"/>
                                                 <constraint firstItem="ofM-b1-R10" firstAttribute="top" secondItem="j9o-A8-kVQ" secondAttribute="bottom" constant="8" symbolic="YES" id="ZU6-1H-WYc"/>
                                                 <constraint firstItem="f9j-Ne-5sa" firstAttribute="top" secondItem="bYl-9q-ssA" secondAttribute="bottom" constant="8" id="Zdx-Oh-GBp"/>
                                                 <constraint firstAttribute="bottom" secondItem="f9j-Ne-5sa" secondAttribute="bottom" constant="8" id="e7p-DZ-LOZ"/>
@@ -238,7 +238,6 @@
                                                 <constraint firstItem="bYl-9q-ssA" firstAttribute="top" secondItem="ofM-b1-R10" secondAttribute="bottom" constant="8" id="lTN-VH-JDr"/>
                                                 <constraint firstItem="bYl-9q-ssA" firstAttribute="leading" secondItem="Hfo-XS-Mxa" secondAttribute="leading" constant="8" id="m4v-5Z-qWx"/>
                                                 <constraint firstItem="nRv-ol-FHY" firstAttribute="centerY" secondItem="2DU-sF-9tN" secondAttribute="centerY" id="naP-QB-Z6A"/>
-                                                <constraint firstItem="SVU-Dh-4zT" firstAttribute="top" secondItem="Hfo-XS-Mxa" secondAttribute="top" constant="8" id="oBm-eP-L98"/>
                                                 <constraint firstAttribute="trailing" secondItem="j9o-A8-kVQ" secondAttribute="trailing" id="qaG-C7-nHE"/>
                                                 <constraint firstAttribute="trailing" secondItem="j9o-A8-kVQ" secondAttribute="trailing" id="xqM-pI-lbE"/>
                                             </constraints>
@@ -283,6 +282,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YmW-dZ-dPP"/>
                     <connections>
+                        <outlet property="datePicker" destination="0Tj-QZ-1hG" id="Bgi-fI-46N"/>
                         <outlet property="homePageCollection" destination="5bo-Vl-MIa" id="dxN-ZH-8Oa"/>
                         <outlet property="searchBarOutlet" destination="TFR-Oj-5pA" id="XDh-wQ-Wip"/>
                         <outlet property="searchView" destination="nzf-4e-SUo" id="L8b-EV-4Ur"/>
@@ -381,12 +381,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-cM-WZ0">
-                                                    <rect key="frame" x="304" y="4" width="102" height="36"/>
+                                                    <rect key="frame" x="296" y="4" width="110" height="36"/>
                                                     <color key="backgroundColor" name="MainBlue"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="110" id="8go-fx-q7s"/>
+                                                        <constraint firstAttribute="height" constant="36" id="VgZ-Fd-hrw"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <state key="normal" title="查看球隊評價">
                                                         <color key="titleColor" name="White"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="18"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <segue destination="wrC-4X-GoO" kind="presentation" id="4IY-Zt-3NB"/>
                                                     </connections>
@@ -452,6 +461,11 @@
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" name="Blue"/>
                                                             <size key="customSize" width="94" height="33"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="10"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outlet property="tagLabel" destination="KpO-lZ-n82" id="aTh-4b-o4z"/>
                                                             </connections>
@@ -696,11 +710,11 @@
             <objects>
                 <viewController id="wrC-4X-GoO" customClass="TeamRatingViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eta-fT-8dj">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dtO-Ec-El3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teamRatingTableViewCell" rowHeight="112" id="VoY-Uv-Cmq" customClass="TeamRatingTableViewCell" customModule="iBadminton" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="112"/>
@@ -1521,7 +1535,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4IY-Zt-3NB"/>
+        <segue reference="yop-yu-FNE"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="MainBlue"/>
     <resources>
@@ -1557,14 +1571,14 @@
         <namedColor name="White">
             <color red="0.98000001907348633" green="0.98000001907348633" blue="0.98000001907348633" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="Yellow">
+            <color red="0.99199998378753662" green="0.54900002479553223" blue="0.016000000759959221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGroupedBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
