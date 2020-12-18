@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import ExpandingMenu
 
 class TeamDetailViewController: UIViewController {
     
@@ -63,6 +64,10 @@ class TeamDetailViewController: UIViewController {
             let controller = segue.destination as? TeamManberViewController
             controller?.team = teamDetail
         }
+        if segue.identifier == "goTeamRating" {
+            let controller = segue.destination as? TeamRatingViewController
+            controller?.team = teamDetail
+        }
     }
     
     @IBOutlet weak var teamNameLabel: UILabel!
@@ -70,6 +75,53 @@ class TeamDetailViewController: UIViewController {
     @IBOutlet weak var teamImage: UIImageView!
     @IBOutlet weak var teamAdminLabel: UILabel!
     @IBOutlet weak var teamNoteLabel: UILabel!
+    
+    func setMenuButton() {
+        let menuButtonSize: CGSize = CGSize(width: 60.0, height: 60.0)
+        let menuButton = ExpandingMenuButton(
+            frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
+            image: #imageLiteral(resourceName: "settings"),
+            rotatedImage: #imageLiteral(resourceName: "cancel"))
+        menuButton.center = CGPoint(x: self.view.bounds.width - 38.0, y: self.view.bounds.height - 130.0)
+        view.addSubview(menuButton)
+        
+        let itemRating = ExpandingMenuItem(
+            size: menuButtonSize,
+            title: "球隊評價",
+            image: #imageLiteral(resourceName: "stars"),
+            highlightedImage: #imageLiteral(resourceName: "edit"),
+            backgroundImage: #imageLiteral(resourceName: "circle"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
+            self.performSegue(withIdentifier: "goTeamRating", sender: self)
+        }
+        itemRating.titleColor = .white
+        
+        let itemMember = ExpandingMenuItem(
+            size: menuButtonSize,
+            title: "球隊成員",
+            image: #imageLiteral(resourceName: "writing"),
+            highlightedImage: #imageLiteral(resourceName: "writing"),
+            backgroundImage: #imageLiteral(resourceName: "writing"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
+            self.performSegue(withIdentifier: "showTeamManber", sender: self)
+        }
+        itemMember.titleColor = .white
+        
+        let itemLine = ExpandingMenuItem(
+            size: menuButtonSize,
+            title: "球隊動態",
+            image: #imageLiteral(resourceName: "stars"),
+            highlightedImage: #imageLiteral(resourceName: "edit"),
+            backgroundImage: #imageLiteral(resourceName: "circle"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
+            self.performSegue(withIdentifier: "showTeamLine", sender: self)
+        }
+        itemLine.titleColor = .white
+        menuButton.addMenuItems([itemRating, itemMember, itemLine])
+    }
+    
+    
+    
     
     func setLabel() {
         teamNameLabel.text = teamDetail?.teamID

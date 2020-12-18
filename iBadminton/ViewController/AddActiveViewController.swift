@@ -11,6 +11,7 @@ import ImageRow
 import LocationRow
 import MapKit
 import CoreLocation
+import Firebase
 
 class AddActiveViewController: FormViewController {
     
@@ -35,7 +36,7 @@ class AddActiveViewController: FormViewController {
         setTable()
         
         // 鍵盤離正在編輯的 cell距離
-            rowKeyboardSpacing = 20
+//            rowKeyboardSpacing = 15
         
     }
     
@@ -46,7 +47,7 @@ class AddActiveViewController: FormViewController {
             
             <<< PickerInputRow<String>("Picker Input Row"){
                 $0.title = "活動球隊"
-                $0.options = []
+                $0.options = ["請選擇球隊"]
                 let teamId = ownTeam.map {
                     return $0.teamID
                 }
@@ -159,8 +160,11 @@ class AddActiveViewController: FormViewController {
                     cell.tintColor = .red
                 }
             }.onChange({ (row) in
-                self.location = "\(String(describing: row.value))"
-                //                print("======value changed: \(row.value)=====")
+                
+                guard let location = row.value else { return }
+                
+                self.location = String(describing: location)
+
             })
             
             
@@ -226,8 +230,7 @@ class AddActiveViewController: FormViewController {
             })
             
             <<< TextAreaRow() {
-                $0.title = "活動其他資訊"
-                $0.placeholder = "最多輸入 200字"
+                $0.placeholder = "其他資訊最多輸入 200字"
                 $0.add(rule: RuleMaxLength(maxLength: 200))
                 $0.validationOptions = .validatesOnChange
             }.onChange({ row in
@@ -251,15 +254,19 @@ class AddActiveViewController: FormViewController {
                         showFailAlert(message: "請輸入需求人數")
                         return
                     }
-                    guard level == "" else {
+                    guard level != "" else {
                         showFailAlert(message: "請選擇招募程度")
                         return
                     }
-                    guard location == "" else {
+                    guard location != "" else {
                         showFailAlert(message: "請輸入活動地點")
                         return
                     }
-                    guard image.isEmpty == true else {
+                    guard price != 0 else {
+                        showFailAlert(message: "請輸入零打價格")
+                        return
+                    }
+                    guard image.isEmpty != true else {
                         showFailAlert(message: "請至少上傳一張照片")
                         return
                     }
@@ -281,31 +288,27 @@ class AddActiveViewController: FormViewController {
         let backAction = UIAlertAction(title: "完成", style: .default) {_ in
             
             let doc = FireBaseManager.shared.getCollection(name: .event).document()
-//            let eventId = doc.documentID
-            
-//            let addEvent = Event (
-//                ball: ball,
-//                dateStart: startDate,
-//                dateEnd: endDate,
-//                eventID: doc.documentID,
-//                image: [],
-//                joinID: [userId],
-//                lackCount: people,
-//                level: level,
-//                location: location,
-//                price: price,
-//                status: true,
-//                teamID: pickerTeam,
-//                tag: tag,
-//                note: note)
-//
-//            // 這樣不會又開一個不一樣的 documentID嗎
-//            getUrl(id: doc.documentID) { (urls) in
-//                addEvent.image = urls
-//            }
-            
-//            FireBaseManager.shared.addEvent(collectionName: .event, event: addEvent) { }
-            
+        
+            var addEvent = Event(
+                ball: self.ball,
+                dateStart: FireBaseManager.shared.dataToTimeStamp(self.startDate),
+                dateEnd: FireBaseManager.shared.dataToTimeStamp(self.endDate),
+                eventID: doc.documentID,
+                image: [],
+                joinID: [self.userId],
+                lackCount: self.people,
+                level: self.level,
+                location: self.location,
+                price: self.price,
+                status: true,
+                teamID: self.pickerTeam,
+                tag: self.tag,
+                note: self.note)
+
+            self.getUrl(id: doc.documentID) { (urls) in
+                addEvent.image = urls
+                FireBaseManager.shared.addEvent(collectionName: .event, event: addEvent) { }
+            }
             self.form.removeAll()
             self.setTable()
         }
@@ -316,7 +319,6 @@ class AddActiveViewController: FormViewController {
     func getUrl(id: String, handler: @escaping ([String]) -> Void) {
         
         var urls: [String] = []
-        
         
         for i in image {
             FirebaseStorageManager.shared.uploadImage(image: i, folder: .event, id: id) { (result) in

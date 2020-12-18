@@ -220,4 +220,9 @@ class FireBaseManager {
         dfmatter.dateFormat = "yyyy年MM月dd日 HH:mm:ss"
         return dfmatter.string(from: timeSta)
     }
+    
+    func dataToTimeStamp(_ stringTime: Date) -> Timestamp {
+        
+        return Timestamp(date: stringTime)
+    }
 }

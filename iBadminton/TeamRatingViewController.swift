@@ -12,6 +12,9 @@ class TeamRatingViewController: UIViewController, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    var team: Team?
+    
 }
 
 extension TeamRatingViewController: UITableViewDataSource {
