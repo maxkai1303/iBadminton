@@ -115,17 +115,33 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
             let credential = OAuthProvider.credential(withProviderID: "apple.com",
                                                       idToken: idTokenString,
                                                       rawNonce: nonce)
-            Auth.auth().signIn(with: credential) { (result, error) in
+            Auth.auth().signIn(with: credential) { (signData, error) in
                 if error != nil {
                     print(error?.localizedDescription as Any)
                     return
                 }
                 // 登入成功
                 else {
-                    if Auth.auth().currentUser != nil {
-                            self.dismiss(animated: true, completion: nil)
-                    } else {
-                        FireBaseManager.shared.addUser(collectionName: .user, userId: result?.user.uid ?? "")
+                    guard Auth.auth().currentUser != nil  else {
+                        self.dismiss(animated: true, completion: nil)
+                        return
+                    }
+                    guard signData?.user.uid != nil else { return }
+                    FireBaseManager.shared.getCollection(name: .user).whereField(
+                        "userID", isEqualTo: signData!.user.uid).getDocuments { (querySnapshot, err) in
+                        if let err = err {
+                            print("Error getting documents: \(err)")
+                        } else {
+                            FireBaseManager.shared.decode(User.self, documents: querySnapshot!.documents) { (result) in
+                                switch result {
+                                case.success(_):
+                                    FireBaseManager.shared.addUser(collectionName: .user, userId: (signData?.user.uid)!)
+                                case.failure(let error):
+                                    print("SignIn decode fail \(error)")
+                                }
+                            }
+                            
+                        }
                     }
                 }
             }

@@ -8,6 +8,7 @@
 import UIKit
 import Eureka
 import ImageRow
+import Firebase
 
 class CreateTeamViewController: FormViewController {
     
@@ -107,7 +108,7 @@ class CreateTeamViewController: FormViewController {
         let allValues = self.form.values()
         let name = allValues["teamName"] as! String
         let msg = allValues["teamMessage"] as! String
-        if /*self.uploadImage == nil || */ name == "" || msg == "" {
+        if self.uploadImage == nil || name == "" || msg == "" {
             let controller = UIAlertController(title: "哎呦喂呀！", message: "請填入完整資訊再送出", preferredStyle: .alert)
             let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
             controller.addAction(backAction)
@@ -121,10 +122,24 @@ class CreateTeamViewController: FormViewController {
             controller.addAction(backAction)
             self.present(controller, animated: true, completion: nil)
             adminId.append(userId)
-            FireBaseManager.shared.addNewTeam(admin: adminId, teamId: name, image: uploadImage, menber: [userId], message: msg)
-            FireBaseManager.shared.addTimeline(team: name, content: "\(userName) 創建了球隊", event: false)
-            print(self.uploadImage)
-            print("================\(allValues)===================")
+            getUrl(id: teamId) { (result) in
+                FireBaseManager.shared.addNewTeam(admin: self.adminId, teamId: name, image: result, menber: [self.userId], message: msg)
+                FireBaseManager.shared.addTimeline(team: name, content: "\(self.userName) 創建了球隊", event: false)
+                print(self.uploadImage)
+                print("================\(allValues)===================")
+            }
+            
+        }
+    }
+    
+    func getUrl(id: String, handler: @escaping (String) -> Void) {
+        FirebaseStorageManager.shared.uploadImage(image: self.uploadImage, folder: .team, id: id) { (result) in
+            switch result {
+            case.success(let image):
+                handler(image)
+            case.failure(let error):
+                print("Upload image fail, error \(error)")
+            }
         }
     }
 }
