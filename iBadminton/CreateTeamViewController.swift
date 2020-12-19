@@ -65,7 +65,6 @@ class CreateTeamViewController: FormViewController {
                 row.validationOptions = .validatesOnChangeAfterBlurred
             }.onRowValidationChanged { cell, row in
                 if !row.isValid {
-                    //                    row.placeholder = "此為必填項目最少2字最多250字"
                     for (index, _) in row.validationErrors.map({ $0.msg }).enumerated() {
                         let labelRow = LabelRow() {
                             $0.title = "此為必填項目最少2字最多250字"
@@ -85,13 +84,20 @@ class CreateTeamViewController: FormViewController {
             
             +++ Section("上傳球隊圖片")
             <<< ImageRow() {
-                $0.title = "請上傳照片"
+                $0.title = "請上傳照片（必填）"
                 $0.sourceTypes = [.PhotoLibrary, .Camera]
                 $0.clearAction = .yes(style: .default)
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChangeAfterBlurred
             }.onChange({ (row) in
-                self.uploadImage = row.value!
+                self.uploadImage = row.value ?? UIImage()
+//                self.uploadImage = row.value!
                 print(self.uploadImage)
-            })
+            }).onRowValidationChanged { cell, row in
+                if !row.isValid {
+
+                }
+            }
             
             <<< ButtonRow() {
                 $0.title = "創建球隊"
@@ -104,15 +110,19 @@ class CreateTeamViewController: FormViewController {
                 }
             }
     }
+    
+    func failAlert() {
+        let controller = UIAlertController(title: "哎呦喂呀！", message: "請填入完整資訊再送出", preferredStyle: .alert)
+        let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
+        controller.addAction(backAction)
+        self.present(controller, animated: true, completion: nil)
+    }
     func checkRule() {
         let allValues = self.form.values()
-        let name = allValues["teamName"] as! String
-        let msg = allValues["teamMessage"] as! String
-        if self.uploadImage == nil || name == "" || msg == "" {
-            let controller = UIAlertController(title: "哎呦喂呀！", message: "請填入完整資訊再送出", preferredStyle: .alert)
-            let backAction = UIAlertAction(title: "返回", style: .default, handler: nil)
-            controller.addAction(backAction)
-            self.present(controller, animated: true, completion: nil)
+        let name = allValues["teamName"] as? String
+        let msg = allValues["teamMessage"] as? String
+        if  name == nil || msg == nil || uploadImage == UIImage() {
+           failAlert()
         } else {
             let controller = UIAlertController(title: "Success！", message: "創建成功", preferredStyle: .alert)
             let backAction = UIAlertAction(title: "返回", style: .default) {_ in
@@ -122,9 +132,9 @@ class CreateTeamViewController: FormViewController {
             controller.addAction(backAction)
             self.present(controller, animated: true, completion: nil)
             adminId.append(userId)
-            getUrl(id: teamId) { (result) in
-                FireBaseManager.shared.addNewTeam(admin: self.adminId, teamId: name, image: result, menber: [self.userId], message: msg)
-                FireBaseManager.shared.addTimeline(team: name, content: "\(self.userName) 創建了球隊", event: false)
+            getUrl(id: name!) { (result) in
+                FireBaseManager.shared.addNewTeam(admin: self.adminId, teamId: name!, image: result, menber: [self.userId], message: msg!)
+                FireBaseManager.shared.addTimeline(team: name!, content: "\(self.userName) 創建了球隊", event: false)
                 print(self.uploadImage)
                 print("================\(allValues)===================")
             }
