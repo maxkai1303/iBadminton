@@ -8,6 +8,7 @@
 import UIKit
 import ExpandingMenu
 import CarLensCollectionViewLayout
+import Firebase
 
 class TeamViewController: UIViewController, UICollectionViewDelegate {
     
@@ -20,10 +21,15 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkOwnTeam()
+        
         readTeam()
         setTitle()
         setupView()
+        
+        guard let user = Auth.auth().currentUser else { return }
+        self.userId = user.uid
+        checkOwnTeam()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,17 +61,12 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     }
     // 判斷有球隊才給他修改新增按鈕
     func checkOwnTeam() {
-        firebaseManager.checkLogin { (uid) in
-            guard uid != nil else { return }
-            self.userId = uid!
-            
             self.firebaseManager.getOwnTeam(userId: self.userId) { result in
-                if result.isEmpty {
+                if result.isEmpty == true {
                     print("This user not have any team!!")
                 } else {
                     self.ownTeam = result
                     self.setMenuButton()
-                }
             }
         }
     }

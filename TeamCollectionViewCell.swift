@@ -15,6 +15,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     
     func layoutCell(team: Team) {
         let url = URL(string: team.teamImage)
+        // MARK: 這裡硬拿，如果沒有admin會掛掉
         FireBaseManager.shared.getUserName(userId: team.adminID[0]) { (name) in
             self.adminNameLabel.text = name
         }

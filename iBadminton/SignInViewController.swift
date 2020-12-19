@@ -134,9 +134,9 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                         } else {
                             FireBaseManager.shared.decode(User.self, documents: querySnapshot!.documents) { (result) in
                                 switch result {
-                                case.success(_):
+                                case .success:
                                     FireBaseManager.shared.addUser(collectionName: .user, userId: (signData?.user.uid)!)
-                                case.failure(let error):
+                                case .failure(let error):
                                     print("SignIn decode fail \(error)")
                                 }
                             }

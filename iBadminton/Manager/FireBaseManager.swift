@@ -97,21 +97,20 @@ class FireBaseManager {
     
     // MARK: 要拿到球隊的資訊，直接帶入新活動
     // , dateStart: Timestamp, dateEnd: Timestamp, image: [String], lackCount: Int, level: String
-    func addEvent(collectionName: CollectionName, event: Event, handler: @escaping() -> Void) {
-        let doc = getCollection(name: collectionName).document()
+    func addEvent(doc: DocumentReference, event: Event, handler: @escaping() -> Void) {
          do {
-            
-            try doc.setData(from: event)
-            
+          
+         try doc.setData(from: event)
+          
         } catch {
-            
-            print(error.localizedDescription)
+          
+         print(error.localizedDescription)
         }
     }
     
     func getOwnTeam(userId: String, handler: @escaping ([Team]) -> Void) {
         let collection = FireBaseManager.shared.getCollection(name: .team)
-        collection.whereField("adminID", isEqualTo: userId).getDocuments { (querySnapshot, err) in
+        collection.whereField("adminID", arrayContains: userId).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
@@ -138,7 +137,7 @@ class FireBaseManager {
     
     // MARK: 首次登入創建 User
     func addUser(collectionName: CollectionName, userId: String) {
-        getCollection(name: .user).document("\(userId)").setData([
+        getCollection(name: .user).document(userId).setData([
             "userID": userId,
             "userName": userId,
             "joinCount": 0,
@@ -172,13 +171,26 @@ class FireBaseManager {
                 "status": false
             ])
         }
+//        let doc = getCollection(name: .user).document(userId)
+//        doc.getDocument { (document, _) in
+//            if let document = document, document.exists {
+//                var count = document.data()?["joinCount"] as! Int
+//                count += 1
+//                self.getCollection(name: .user).document(userId).setData([
+//                    "joinCount": count
+//                ])
+//
+//            } else {
+//               print("Document does not exist")
+//            }
+//         }
+        
     }
     
     func joinTeam(userId: String, teamID: String) {
-        //        var name = ""
+        
         getCollection(name: .user).document(userId).getDocument { (document, _) in
             if let document = document, document.exists {
-                //                name = "\(document.data()!["userName"] ?? "靠杯")"
                 self.getCollection(name: .team).document(teamID).updateData([
                     "teamMenber": FieldValue.arrayUnion([userId])
                 ])

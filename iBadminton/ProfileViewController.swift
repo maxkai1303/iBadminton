@@ -38,13 +38,6 @@ class ProfileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goInProfileSegue" {
-            let controller = segue.destination as? InProfileViewController
-            controller?.userId = userId
-            controller?.userName = nickName
-            
-//            delegate = controller.self
-        }
         if segue.identifier == "goCerateTeam" {
             let controller = segue.destination as? CreateTeamViewController
             controller?.userId = userId
@@ -54,10 +47,6 @@ class ProfileViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
        getData()
-    }
-    
-    
-    @IBAction func createTeam(_ sender: Any) {
     }
     
     
@@ -98,7 +87,7 @@ class ProfileViewController: UIViewController {
     }
     
     func read() {
-        let doc = FireBaseManager.shared.fireDb.collection("User").document(userId)
+        let doc = FireBaseManager.shared.getCollection(name: .user).document(userId)
         doc.getDocument { (document, error) in
             if let document = document {
                 guard let data = try? document.data(as: User.self) else {

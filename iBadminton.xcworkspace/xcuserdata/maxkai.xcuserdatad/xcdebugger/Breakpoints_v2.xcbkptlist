@@ -3,4 +3,54 @@
    uuid = "F6BBE8DE-9A12-4262-A426-ECDB41B50D5C"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A362A7B7-2EF8-4C47-9160-D778B8B023D5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iBadminton/Manager/FireBaseManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "175"
+            endingLineNumber = "175"
+            landmarkName = "joinEvent(userId:event:lackCout:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A362A7B7-2EF8-4C47-9160-D778B8B023D5 - 456ce53ded581b5b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iBadminton.FireBaseManager.joinEvent(userId: Swift.String, event: Swift.String, lackCout: Swift.Int) -&gt; ()"
+                  moduleName = "iBadminton"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxkai/iBadminton/iBadminton/Manager/FireBaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "175"
+                  endingLineNumber = "175"
+                  offsetFromSymbolStart = "1412">
+               </Location>
+               <Location
+                  uuid = "A362A7B7-2EF8-4C47-9160-D778B8B023D5 - 286e4050141b44b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in iBadminton.FireBaseManager.joinEvent(userId: Swift.String, event: Swift.String, lackCout: Swift.Int) -&gt; ()"
+                  moduleName = "iBadminton"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxkai/iBadminton/iBadminton/Manager/FireBaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "176"
+                  endingLineNumber = "176"
+                  offsetFromSymbolStart = "72">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

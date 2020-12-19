@@ -22,6 +22,7 @@ class CreateTeamViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabel()
+        getName()
     }
     func getName() {
         FireBaseManager.shared.getUserName(userId: userId) { (name) in

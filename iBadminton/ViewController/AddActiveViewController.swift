@@ -307,7 +307,7 @@ class AddActiveViewController: FormViewController {
 
             self.getUrl(id: doc.documentID) { (urls) in
                 addEvent.image = urls
-                FireBaseManager.shared.addEvent(collectionName: .event, event: addEvent) { }
+                FireBaseManager.shared.addEvent(doc: doc, event: addEvent) { }
             }
             self.form.removeAll()
             self.setTable()

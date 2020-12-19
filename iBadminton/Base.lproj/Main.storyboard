@@ -910,7 +910,6 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="createTeam:" destination="t8D-C6-ekS" eventType="touchUpInside" id="h21-YE-Tw4"/>
                                     <segue destination="ASi-AD-ArU" kind="show" identifier="goCerateTeam" id="8ij-2h-XiM"/>
                                 </connections>
                             </button>
@@ -1025,7 +1024,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createTeamOutlet" destination="jUB-Qj-PJk" id="4Rs-SM-Sab"/>
-                        <outlet property="joinCount" destination="FRX-3g-uQv" id="a9N-eh-wOS"/>
+                        <outlet property="joinCount" destination="FRX-3g-uQv" id="vhy-7H-IYX"/>
                         <outlet property="messageOutlet" destination="H83-eT-h6F" id="Ay6-TT-6pm"/>
                         <outlet property="noShowCount" destination="2q3-G1-5fA" id="bYz-JP-twK"/>
                         <outlet property="userImage" destination="FYh-7O-uXl" id="wn0-bB-ruY"/>

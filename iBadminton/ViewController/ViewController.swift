@@ -137,9 +137,8 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
-        let docRef = FireBaseManager.shared.fireDb.collection("Team").document("\(teamID)")
+        let docRef = FireBaseManager.shared.fireDb.collection("Team").document(teamID)
         docRef.getDocument { (document, _) in
             if let document = document {
                 _ = document.data().map(String.init(describing:)) ?? "nil"
