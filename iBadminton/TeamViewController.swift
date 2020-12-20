@@ -34,6 +34,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         readTeam()
+        teamCollectionView.reloadData()
     }
     
     func setTitle() {
@@ -152,15 +153,4 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
             team = allTeam[indexPath.row]
             performSegue(withIdentifier: "goTeamDetail", sender: nil)
         }
-        //}
-        
-        //extension TeamViewController: UICollectionViewDelegateFlowLayout {
-        //
-        //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        //
-        //        let screenWidth = UIScreen.main.bounds.size.width - 30
-        //        let height = UIScreen.main.bounds.size.height * 0.35
-        //
-        //        return CGSize(width: screenWidth, height: height)
-        //    }
     }

@@ -22,7 +22,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setMenuButton()
+            setMenuButton()
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -43,24 +43,36 @@ class DetailViewController: UIViewController, UITableViewDelegate {
         let item1 = ExpandingMenuItem(
             size: menuButtonSize,
             title: "申請加入球隊",
-            image: #imageLiteral(resourceName: "badminton-court"),
-            highlightedImage: #imageLiteral(resourceName: "badminton-court"),
+            image: #imageLiteral(resourceName: "joinTeam"),
+            highlightedImage: #imageLiteral(resourceName: "joinTeam"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "badminton-court")) { () -> Void in
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
             self.detailJoin(buttonFunc: .joinTeam)
         }
         
-        let item5 = ExpandingMenuItem(
+        let item2 = ExpandingMenuItem(
             size: menuButtonSize,
             title: "加入零打",
-            image: #imageLiteral(resourceName: "shuttlecock"),
-            highlightedImage: #imageLiteral(resourceName: "shuttlecock"),
+            image: #imageLiteral(resourceName: "join"),
+            highlightedImage: #imageLiteral(resourceName: "join"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "shuttlecock")) { () -> Void in
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
             self.detailJoin(buttonFunc: .joinPlay)
         }
         
-        menuButton.addMenuItems([item1, item5])
+        let item3 = ExpandingMenuItem(
+            size: menuButtonSize,
+            title: "查看球隊評價",
+            image: #imageLiteral(resourceName: "checkRating"),
+            highlightedImage: #imageLiteral(resourceName: "checkRating"),
+            backgroundImage: #imageLiteral(resourceName: "circle"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
+            // MARK: 不知道為什麼沒辦法打開評價頁面
+            self.present(TeamRatingViewController(), animated: true, completion: nil)
+            print("GOGOGOGGO")
+        }
+        
+        menuButton.addMenuItems([item1, item2, item3])
     }
     
     func detailJoin(buttonFunc: ButtonFunction) {
@@ -95,7 +107,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     return
                 }
                 
-                FireBaseManager.shared.joinEvent(userId: userId, event: event.eventID, lackCout: event.lackCount)
+                FireBaseManager.shared.joinEvent(userId: userId, event: event.eventID)
             }
         }
     }

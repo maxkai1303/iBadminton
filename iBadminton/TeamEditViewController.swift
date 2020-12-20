@@ -49,6 +49,22 @@ class TeamEditViewController: FormViewController {
                 print("value changed: \(row.value!)")
             })
             
+            <<< ImageRow() {
+                $0.title = "上傳球隊照片（必填）"
+                $0.sourceTypes = [.PhotoLibrary, .Camera]
+                $0.clearAction = .yes(style: .default)
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+            }.onChange({ (row) in
+                self.teamImage = row.value!
+                print("=====\(String(describing: row.value))")
+            })
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
+                }
+            }
+            
             +++ Section("修改內容")
             <<< TextRow(){ row in
                 row.title = "球隊名稱"
@@ -66,23 +82,6 @@ class TeamEditViewController: FormViewController {
                 }
             }
             
-            <<< ImageRow() {
-                $0.title = "上傳球隊照片（必填）"
-                $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: .default)
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-            }.onChange({ (row) in
-                self.teamImage = row.value!
-                print("=====\(String(describing: row.value))")
-            })
-            .cellUpdate { cell, row in
-                if !row.isValid {
-                    cell.textLabel?.textColor = .red
-                }
-            }
-            
-            +++ Section("球隊訊息")
             <<< TextAreaRow(){
                 $0.title = "Note"
                 $0.placeholder = "介紹一下你的球隊 10 - 200 字"
@@ -151,10 +150,18 @@ class TeamEditViewController: FormViewController {
                     controller.addAction(backAction)
                     self.present(controller, animated: true, completion: nil)
                 } else {
+                    self.getUrl(id: self.pickerTeam) { (result) in
+                        
+                        let image = result
+                        FireBaseManager.shared.getCollection(name:.team).document("\(self.pickerTeam)").updateData([
+                            "teamImage": image,
+                            "teamMessage": self.teamMessage,
+                            "adminID": FieldValue.arrayUnion(self.admindId),
+                            "teamID": self.teamName
+                        ])
+                    }
                     
-                    
-                    self.form.removeAll()
-                    self.setUi()
+                    self.showSucessAlert()
                     print("\(self.form.values())")
                 }
             }
@@ -164,17 +171,10 @@ class TeamEditViewController: FormViewController {
         let controller = UIAlertController(title: "Sucess！", message: "修改成功", preferredStyle: .alert)
         
         let backAction = UIAlertAction(title: "完成", style: .default) { (_) in
-            self.getUrl(id: self.pickerTeam) { (result) in
-                
-                let image = result
-                FireBaseManager.shared.getCollection(name:.team).document("\(self.pickerTeam)").updateData([
-                    "teamImage": image,
-                    "teamMessage": self.teamMessage,
-                    "adminID": self.admindId,
-                    "teamID": self.teamName
-                ])
-            }
+            self.form.removeAll()
+            self.setUi()
         }
+        
         controller.addAction(backAction)
         self.present(controller, animated: true, completion: nil)
     }

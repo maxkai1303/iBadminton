@@ -157,26 +157,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQL-cM-WZ0">
-                                                    <rect key="frame" x="296" y="4" width="110" height="36"/>
-                                                    <color key="backgroundColor" name="MainBlue"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="110" id="8go-fx-q7s"/>
-                                                        <constraint firstAttribute="height" constant="36" id="VgZ-Fd-hrw"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                    <state key="normal" title="查看球隊評價">
-                                                        <color key="titleColor" name="White"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="18"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="wrC-4X-GoO" kind="presentation" id="4IY-Zt-3NB"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFj-g3-Oi5">
                                                     <rect key="frame" x="8" y="8" width="240" height="28"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="20"/>
@@ -185,16 +165,12 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="SQL-cM-WZ0" secondAttribute="trailing" constant="8" id="Dv0-89-Lyi"/>
                                                 <constraint firstItem="CFj-g3-Oi5" firstAttribute="leading" secondItem="EhV-p4-erY" secondAttribute="leading" constant="8" id="G0d-hE-c6k"/>
-                                                <constraint firstItem="SQL-cM-WZ0" firstAttribute="centerY" secondItem="CFj-g3-Oi5" secondAttribute="centerY" id="Nd9-G7-1ei"/>
-                                                <constraint firstItem="SQL-cM-WZ0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CFj-g3-Oi5" secondAttribute="trailing" constant="8" symbolic="YES" id="qXW-RO-gKi"/>
                                                 <constraint firstItem="CFj-g3-Oi5" firstAttribute="centerY" secondItem="EhV-p4-erY" secondAttribute="centerY" id="wOj-aj-DXR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="LightBlue"/>
                                         <connections>
-                                            <outlet property="checkTeamRating" destination="SQL-cM-WZ0" id="7Bb-mc-r96"/>
                                             <outlet property="teamName" destination="CFj-g3-Oi5" id="GJw-Jj-ceT"/>
                                         </connections>
                                     </tableViewCell>
@@ -567,7 +543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVt-g8-Jku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6380" y="767"/>
+            <point key="canvasLocation" x="5329" y="1481"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="M5z-g3-hMc">
@@ -1241,7 +1217,7 @@
         <scene sceneID="VnG-MC-3DM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ezF-Bf-Eez" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="userSmall" id="MV2-I1-fJX"/>
+                    <tabBarItem key="tabBarItem" title="" image="user" id="MV2-I1-fJX"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="eiH-Sz-zht"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="W13-LX-Btm">
@@ -1310,9 +1286,6 @@
             <point key="canvasLocation" x="236" y="-938"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="yop-yu-FNE"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" name="MainBlue"/>
     <resources>
         <image name="2111574r0dn5rz5gc0nwor" width="1200" height="630"/>
@@ -1321,15 +1294,14 @@
         <image name="dollar-coin" width="64" height="64"/>
         <image name="editSmall" width="32" height="32"/>
         <image name="email" width="128" height="128"/>
-        <image name="group" width="32" height="32"/>
-        <image name="home" width="24" height="24"/>
+        <image name="group" width="48" height="48"/>
+        <image name="home" width="40" height="40"/>
         <image name="i badminton" width="500" height="500"/>
         <image name="image_placeholder" width="714" height="466"/>
         <image name="map" width="64" height="64"/>
         <image name="note" width="512" height="512"/>
         <image name="stars" width="128" height="128"/>
-        <image name="user" width="256" height="256"/>
-        <image name="userSmall" width="32" height="32"/>
+        <image name="user" width="40" height="40"/>
         <namedColor name="Blue">
             <color red="0.0" green="0.33700001239776611" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

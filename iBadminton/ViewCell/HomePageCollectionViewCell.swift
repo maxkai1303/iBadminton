@@ -15,7 +15,8 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
     func layoutCell(event: Event) {
         let url = URL(string: event.image[0])
         
-        upperView.text = event.teamID
+        teamName.text = event.teamID
+//        upperView.text = event.teamID
         eventImageView.kf.setImage(with: url)
         dateLabel.text = FireBaseManager.shared.timeStampToStringDetail(event.dateStart)
         location.setTitle(event.location, for: .normal)
@@ -40,6 +41,15 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         imageView.backgroundColor = UIColor.maxColor(with: .lightBlue)
         
         return imageView
+    }()
+    
+    let teamName: UILabel = {
+        let name = UILabel()
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.font = UIFont(name: "PingFang TC", size: 20)
+        name.font = UIFont.boldSystemFont(ofSize: name.font.pointSize)
+        name.textColor = UIColor.maxColor(with: .mainBlue)
+        return name
     }()
     
     //MARK:-Date
@@ -129,11 +139,21 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         return label
     }()
     
-    
+    let join: UIButton = {
+        let join = UIButton()
+        join.translatesAutoresizingMaskIntoConstraints = false
+        join.backgroundColor = UIColor.maxColor(with: .mainBlue)
+        join.setTitle("加入零打", for: .normal)
+        join.layer.cornerRadius = 12
+        join.addTarget(self, action: #selector(ViewController.homeJoinButton(_:)), for: .touchUpInside)
+        return join
+    }()
     
     func addSubKit() {
         
         bottomView.addSubview(eventImageView)
+        
+        bottomView.addSubview(teamName)
         
         bottomView.addSubview(dateIcon)
         bottomView.addSubview(dateLabel)
@@ -150,6 +170,8 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         bottomView.addSubview(ratingIcon)
         bottomView.addSubview(teamRating)
         
+        bottomView.addSubview(join)
+        
         NSLayoutConstraint.activate([
             eventImageView.heightAnchor.constraint(equalToConstant: 250),
             eventImageView.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor),
@@ -158,8 +180,14 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
+            teamName.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
+            teamName.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 16),
+            teamName.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: 16)
+        ])
+    
+        NSLayoutConstraint.activate([
             dateIcon.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
-            dateIcon.topAnchor.constraint(equalTo: eventImageView.bottomAnchor, constant: 16),
+            dateIcon.topAnchor.constraint(equalTo: teamName.bottomAnchor, constant: 16),
             dateIcon.widthAnchor.constraint(equalToConstant: 24),
             dateIcon.heightAnchor.constraint(equalToConstant: 24)
         ])
@@ -216,6 +244,13 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         NSLayoutConstraint.activate([
             teamRating.leadingAnchor.constraint(equalTo: ratingIcon.trailingAnchor, constant: 16),
             teamRating.centerYAnchor.constraint(equalTo: ratingIcon.centerYAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            join.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
+            join.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -16),
+            join.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -16),
+            join.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
     

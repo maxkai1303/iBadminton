@@ -161,7 +161,7 @@ class AddActiveViewController: FormViewController {
                 }
             }.onChange({ (row) in
                 
-                guard let location = row.value else { return }
+                guard let location = row.value?.name else { return }
                 
                 self.location = String(describing: location)
 
@@ -307,7 +307,11 @@ class AddActiveViewController: FormViewController {
 
             self.getUrl(id: doc.documentID) { (urls) in
                 addEvent.image = urls
-                FireBaseManager.shared.addEvent(doc: doc, event: addEvent) { }
+                FireBaseManager.shared.addEvent(doc: doc, event: addEvent) {
+                    FireBaseManager.shared.addTimeline(team: self.pickerTeam,
+                                                       content: "\(self.startDate) \(self.pickerTeam) 有新的活動喔！快來參加，活動筋骨！",
+                                                       event: true)
+                }
             }
             self.form.removeAll()
             self.setTable()

@@ -123,6 +123,8 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         teamName.font = .boldSystemFont(ofSize: 30)
         teamName.textAlignment = .center
         teamName.textColor = .white
+        teamName.numberOfLines = 0
+        teamName.lineBreakMode = .byCharWrapping
         return teamName
     }()
     

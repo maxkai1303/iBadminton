@@ -99,7 +99,7 @@ class FireBaseManager {
          do {
           
          try doc.setData(from: event)
-          
+            
         } catch {
           
          print(error.localizedDescription)
@@ -159,16 +159,30 @@ class FireBaseManager {
         }
     }
     
-    func joinEvent(userId: String, event: String, lackCout: Int) {
-        getCollection(name: .event).document(event).updateData([
-            "joinID": FieldValue.arrayUnion([userId]),
-            "lackCount": lackCout - 1
-        ])
-        if lackCout == 0 {
-            getCollection(name: .event).document(event).updateData([
-                "status": false
-            ])
+    func joinEvent(userId: String, event: String) {
+        
+        let doc = getCollection(name: .event).document(event)
+        
+        doc.getDocument { (document, _) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+//                let lack = dataDescription["lackCount"]
+                       print("############Document data: \(dataDescription)")
+                   } else {
+                       print("Document does not exist")
+                   }
         }
+        
+        doc.updateData([
+            "joinID": FieldValue.arrayUnion([userId]),
+//            "lackCount": lack.count - 1
+        ])
+        
+//        if lack.count == 0 {
+//            getCollection(name: .event).document(event).updateData([
+//                "status": false
+//            ])
+//        }
 //        let doc = getCollection(name: .user).document(userId)
 //        doc.getDocument { (document, _) in
 //            if let document = document, document.exists {
@@ -212,7 +226,7 @@ class FireBaseManager {
     }
     
     func addNewTeam(admin: [String], teamId: String, image: String, menber: [String], message: String) {
-        getCollection(name: .team).document(teamId).setData([
+        getCollection(name: .team).document().setData([
             "teamImage": image,
             "teamMessage": message,
             "teamMenber": menber,

@@ -121,7 +121,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     }
     
     //  判斷有沒有登入後加入活動或是跳出登入畫面
-    @IBAction func homeJoinButton(_ sender: UIButton) {
+    @objc func homeJoinButton(_ sender: UIButton) {
         FireBaseManager.shared.checkLogin { uid in
             if uid == nil {
                 if #available(iOS 13.0, *) {
@@ -131,15 +131,16 @@ class ViewController: UIViewController, UICollectionViewDelegate {
             } else {
                 FireBaseManager.shared.joinEvent(
                     userId: uid!,
-                    event: self.events[sender.tag].eventID,
-                    lackCout: self.events[sender.tag].lackCount
+                    event: self.events[sender.tag].eventID
                 )
             }
         }
     }
     
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
-        let docRef = FireBaseManager.shared.fireDb.collection("Team").document(teamID)
+        // MARK: 這要改成讀裡面的 teamID
+//        let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
+        let docRef = FireBaseManager.shared.getCollection(name: .team).document(teamID)
         docRef.getDocument { (document, _) in
             if let document = document {
                 _ = document.data().map(String.init(describing:)) ?? "nil"
