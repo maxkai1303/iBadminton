@@ -120,21 +120,21 @@ class TeamDetailViewController: UIViewController {
         menuButton.addMenuItems([itemRating, itemMember, itemLine])
     }
     
-    
-    
-    
     func setLabel() {
         teamNameLabel.text = teamDetail?.teamID
-        let teamRating = String(describing: teamDetail?.teamRating.averageRating())
-        if  teamRating == "Optional(nan)" {
-            teamRatingLabel.text = "尚未收到評分"
-        } else if teamRating.isEmpty {
+        
+        guard let rating = teamDetail?.teamRating.averageRating() else { return }
+        
+        teamRating = String(describing: rating)
+        
+        if  teamRating == "nan" {
             teamRatingLabel.text = "尚未收到評分"
         } else {
-            teamRatingLabel.text = teamRating
+            teamRatingLabel.text = teamRating + " 顆星"
         }
         
-        teamRatingLabel.text! = "\(teamRating)"
+        teamRatingLabel.text! = teamRating
+        
         guard teamDetail?.teamImage != "" else {
             teamImage.image = UIImage(named: "image_placeholder")
             return

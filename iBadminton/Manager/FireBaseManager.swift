@@ -95,8 +95,6 @@ class FireBaseManager {
         }
     }
     
-    // MARK: 要拿到球隊的資訊，直接帶入新活動
-    // , dateStart: Timestamp, dateEnd: Timestamp, image: [String], lackCount: Int, level: String
     func addEvent(doc: DocumentReference, event: Event, handler: @escaping() -> Void) {
          do {
           

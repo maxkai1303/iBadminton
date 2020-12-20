@@ -8,13 +8,11 @@
 import UIKit
 import FirebaseAuth
 import Lottie
+import CarLensCollectionViewLayout
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
-    
-    @IBOutlet var datePicker: UIDatePicker!
-    @IBOutlet weak var searchBarOutlet: UISearchBar!
-    @IBOutlet weak var searchView: UIView!
+
     @IBOutlet weak var homePageCollection: UICollectionView!
     
     private var height: CGFloat?
@@ -23,23 +21,26 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     var team: [Team] = []
     var event: Event?
     
-//    @IBOutlet weak var searchDateTextField: UITextField! {
-//        didSet {
-//            searchDateTextField.inputView = datePicker
-//        }
-//    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if let tabBarHeight = tabBarController?.tabBar.frame.size.height {
-            height = UIScreen.main.bounds.height - searchView.frame.height - tabBarHeight
+//        if (tabBarController?.tabBar.frame.size.height) != nil {
+//            height = UIScreen.main.bounds.height
             
             imageView.center = view.center
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
                 self.animate()
             })
-        }
+//        }
+    }
+    
+    private func setupView() {
+        homePageCollection.backgroundColor = UIColor.maxColor(with: .mainBlue)
+        homePageCollection.register(HomePageCollectionViewCell.self,
+                                    forCellWithReuseIdentifier: HomePageCollectionViewCell.identifier)
+        homePageCollection.showsHorizontalScrollIndicator = false
+        homePageCollection.collectionViewLayout = CarLensCollectionViewLayout()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,20 +89,20 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         super.viewDidLoad()
         // 隱藏 navigation
         self.navigationController?.isNavigationBarHidden = true
-        setUi()
         FireBaseManager.shared.listen(collectionName: .event) {
             self.readEvent()
         }
+        setupView()
         view.addSubview(imageView)
     }
     
-    func setUi() {
-        // 設定 searchBar文字框顏色
-        if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
-            textfield.backgroundColor = UIColor.white
-            textfield.textColor = UIColor.blue
-        }
-    }
+//    func setUi() {
+//        // 設定 searchBar文字框顏色
+//        if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
+//            textfield.backgroundColor = UIColor.white
+//            textfield.textColor = UIColor.blue
+//        }
+//    }
     
     func readEvent() {
         FireBaseManager.shared.read(collectionName: .event, dataType: Event.self) { (result) in
@@ -156,6 +157,18 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+//        var animationView = UIView()
+//    var animationView = AnimationView(name: "lottie-cat") {
+//            animationView.contentMode = .scaleToFill
+//            animationView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+//            animationView.center = self.view.center
+//            animationView.contentMode = .scaleAspectFill
+//
+//            view.addSubview(animationView)
+//
+//            animationView.play()
+//    }
+    
     // MARK: 監聽活動狀態 status 變成 false不顯示
     // 感覺一開始拿的時候就直接拿 true就好，然後監聽整個 team
     func listenEvent() {
@@ -170,18 +183,21 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return events.count
+//        if events.count == 0 {
+//
+//            homePageCollection.backgroundView = AnimationView(name: "lottie-cat")
+//
+//        }
+            return events.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "HomeCollectionViewCell",
-                for: indexPath) as? HomeCollectionViewCell else { return UICollectionViewCell() }
-        cell.setShadow()
-        cell.setUi()
-        
-        readTeamRating(teamID: events[indexPath.row].teamID) { [self] (data) in
-            cell.setup(data: self.events[indexPath.row], team: data, index: indexPath.row)
+                withReuseIdentifier: HomePageCollectionViewCell.identifier,
+                for: indexPath) as? HomePageCollectionViewCell else { return UICollectionViewCell() }
+        cell.layoutCell(event: events[indexPath.row])
+        readTeamRating(teamID: events[indexPath.row].teamID) { (data) in
+            cell.getTeamRating(data: data)
         }
         return cell
     }
@@ -192,23 +208,23 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let screenWidth = UIScreen.main.bounds.size.width - 20
-        let height = UIScreen.main.bounds.size.height * 0.5
-        
-        return CGSize(width: screenWidth, height: height)
-    }
-}
+//extension ViewController: UICollectionViewDelegateFlowLayout {
+//
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//
+//        let screenWidth = UIScreen.main.bounds.size.width - 20
+//        let height = UIScreen.main.bounds.size.height * 0.5
+//
+//        return CGSize(width: screenWidth, height: height)
+//    }
+//}
 
-extension UIView {
-    func setShadow() {
-        self.layer.shadowColor = UIColor.gray.cgColor
-        self.layer.masksToBounds = false
-        self.layer.shadowOffset = CGSize(width: 1, height: 3)
-        self.layer.shadowRadius = 3.0
-        self.layer.shadowOpacity = 1
-    }
-}
+//extension UIView {
+//    func setShadow() {
+//        self.layer.shadowColor = UIColor.gray.cgColor
+//        self.layer.masksToBounds = false
+//        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+//        self.layer.shadowRadius = 3.0
+//        self.layer.shadowOpacity = 1
+//    }
+//}
