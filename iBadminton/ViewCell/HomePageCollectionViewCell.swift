@@ -21,8 +21,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         location.setTitle(event.location, for: .normal)
         price.text = "\(event.price)"
         levelLabel.text = event.level
-        lackCount.text = "\(event.lackCount)"
-        
+        lackCount.text = "缺 \(event.lackCount - event.joinID.count) 人"
     }
     
 //    func getTeamRating(data: Team) {
@@ -127,18 +126,19 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         return label
     }()
     
-    let ratingIcon: UIImageView = {
+    let lackIcon: UIImageView = {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.image = UIImage(named: "stars")
+        image.image = UIImage(named: "group-1")
         return image
     }()
     
     let lackCount: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "PingFang TC", size: 16)
+        label.font = UIFont(name: "PingFang TC", size: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = UIColor.maxColor(with: .yellow)
         return label
     }()
@@ -171,7 +171,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         bottomView.addSubview(rankIcon)
         bottomView.addSubview(levelLabel)
         
-        bottomView.addSubview(ratingIcon)
+        bottomView.addSubview(lackIcon)
         bottomView.addSubview(lackCount)
         
         bottomView.addSubview(join)
@@ -239,15 +239,15 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            ratingIcon.leadingAnchor.constraint(equalTo: coinIcon.leadingAnchor),
-            ratingIcon.topAnchor.constraint(equalTo: coinIcon.bottomAnchor, constant: 8),
-            ratingIcon.widthAnchor.constraint(equalToConstant: 24),
-            ratingIcon.heightAnchor.constraint(equalToConstant: 24)
+            lackIcon.leadingAnchor.constraint(equalTo: coinIcon.leadingAnchor),
+            lackIcon.topAnchor.constraint(equalTo: coinIcon.bottomAnchor, constant: 28),
+            lackIcon.widthAnchor.constraint(equalToConstant: 30),
+            lackIcon.heightAnchor.constraint(equalToConstant: 30)
         ])
         
         NSLayoutConstraint.activate([
-            lackCount.leadingAnchor.constraint(equalTo: ratingIcon.trailingAnchor, constant: 16),
-            lackCount.centerYAnchor.constraint(equalTo: ratingIcon.centerYAnchor),
+            lackCount.leadingAnchor.constraint(equalTo: lackIcon.trailingAnchor, constant: 16),
+            lackCount.centerYAnchor.constraint(equalTo: lackIcon.centerYAnchor),
             lackCount.heightAnchor.constraint(equalToConstant: 40),
             lackCount.widthAnchor.constraint(equalToConstant: 200)
         ])

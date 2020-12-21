@@ -18,10 +18,8 @@ class ProfileViewController: UIViewController {
     
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userRating: UILabel!
-    
+
     @IBOutlet weak var noShowCount: UILabel!
-    @IBOutlet weak var joinCount: UILabel!
     
     @IBOutlet weak var createTeamOutlet: UIButton!
     @IBOutlet weak var messageOutlet: UIButton!
@@ -108,13 +106,13 @@ class ProfileViewController: UIViewController {
             userImage.kf.setImage(with: url)
             userName.text = profileData?.userName
             noShowCount.text = "\(profileData?.noShow ?? 0) 次"
-            joinCount.text = "\(profileData?.joinCount ?? 0) 次"
-            guard String(describing: profileData!.rating.averageRating()) != "nan"
-            else {
-                userRating.text = "尚未收到評分"
-                return
-            }
-            userRating.text = String(describing: profileData!.rating.averageRating()) + " 顆星"
+//            joinCount.text = "\(profileData?.joinCount ?? 0) 次"
+//            guard String(describing: profileData!.rating.averageRating()) != "nan"
+//            else {
+//                userRating.text = "尚未收到評分"
+//                return
+//            }
+//            userRating.text = String(describing: profileData!.rating.averageRating()) + " 顆星"
             
         }
     

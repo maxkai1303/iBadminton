@@ -125,6 +125,16 @@ class InProfileViewController: FormViewController  {
                         print("No join Event")
                         return
                     }
+                    segmented.section! <<< LabelRow() {
+                        $0.title = "已參加 \(self.joinEvent.count) 次活動"
+                        
+                    }.cellUpdate({ (cell, row) in
+//                        cell.tintColor = UIColor.maxColor(with: .mainBlue)
+                        cell.textLabel?.textColor = UIColor.maxColor(with: .mainBlue)
+                        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+//                        cell.detailTextLabel?.textColor = .green
+                        
+                    })
                     
                     for (name, date) in zip(self.joinEvent, self.eventDate) {
                         segmented.section! <<< LabelRow {

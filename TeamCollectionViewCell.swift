@@ -21,11 +21,11 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         }
         teamImageView.kf.setImage(with: url)
         upperView.text = team.teamName
-        if team.teamRating.averageRating().isNaN {
-            teamRating.text = "尚未收到評分"
-        } else {
-            teamRating.text = "\(team.teamRating.averageRating())"
-        }
+//        if team.teamRating.averageRating().isNaN {
+//            teamRating.text = "尚未收到評分"
+//        } else {
+//            teamRating.text = "\(team.teamRating.averageRating())"
+//        }
         message.text = team.teamMessage
         teamImageView.layer.cornerRadius = 10
         teamImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -58,13 +58,13 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         return label
     }()
     
-    let teamRating: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "PingFang TC", size: 16)
-        label.textColor = UIColor.maxColor(with: .mainBlue)
-        return label
-    }()
+//    let teamRating: UILabel = {
+//        let label = UILabel()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.font = UIFont(name: "PingFang TC", size: 16)
+//        label.textColor = UIColor.maxColor(with: .mainBlue)
+//        return label
+//    }()
     
     let message: UILabel = {
         let label = UILabel()
@@ -83,7 +83,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         
         bottomView.addSubview(adminNameLabel)
     
-        bottomView.addSubview(teamRating)
+//        bottomView.addSubview(teamRating)
         
         bottomView.addSubview(message)
         
@@ -107,15 +107,15 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
             adminNameLabel.centerYAnchor.constraint(equalTo: adminLabel.centerYAnchor)
         ])
     
-        NSLayoutConstraint.activate([
-            teamRating.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
-            teamRating.topAnchor.constraint(equalTo: adminLabel.bottomAnchor, constant: 16),
-            teamRating.heightAnchor.constraint(equalToConstant: 30)
-        ])
+//        NSLayoutConstraint.activate([
+//            teamRating.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
+//            teamRating.topAnchor.constraint(equalTo: adminLabel.bottomAnchor, constant: 16),
+//            teamRating.heightAnchor.constraint(equalToConstant: 30)
+//        ])
         
         NSLayoutConstraint.activate([
             message.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
-            message.topAnchor.constraint(equalTo: teamRating.bottomAnchor, constant: 16),
+            message.topAnchor.constraint(equalTo: adminNameLabel.bottomAnchor, constant: 16),
             message.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -16),
             message.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -16)
         ])

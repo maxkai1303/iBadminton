@@ -79,7 +79,7 @@ class TeamDetailViewController: UIViewController {
     @IBOutlet weak var teamNoteLabel: UILabel!
     
     func setMenuButton() {
-        let menuButtonSize: CGSize = CGSize(width: 60.0, height: 60.0)
+        let menuButtonSize: CGSize = CGSize(width: 40.0, height: 40.0)
         let menuButton = ExpandingMenuButton(
             frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
             image: #imageLiteral(resourceName: "settings"),
@@ -87,24 +87,35 @@ class TeamDetailViewController: UIViewController {
         menuButton.center = CGPoint(x: self.view.bounds.width - 38.0, y: self.view.bounds.height - 130.0)
         view.addSubview(menuButton)
         
-        let itemRating = ExpandingMenuItem(
+        let itemJoin = ExpandingMenuItem(
             size: menuButtonSize,
-            title: "球隊評價",
-            image: #imageLiteral(resourceName: "stars"),
-            highlightedImage: #imageLiteral(resourceName: "edit"),
+            title: "加入球隊",
+            image: #imageLiteral(resourceName: "joinTeam"),
+            highlightedImage: #imageLiteral(resourceName: "joinTeam"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
-            self.performSegue(withIdentifier: "goTeamRating", sender: self)
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
+            FireBaseManager.shared.checkLogin { (uid) in
+                if uid == nil {
+                    if #available(iOS 13.0, *) {
+                        let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+                        self.present(signInPage!, animated: true, completion: nil)
+                    }
+                } else {
+                    // MARK: 點了應該要加入球隊 （還要找傳送球隊資料的地方）
+//                    FireBaseManager.shared.joinTeam(userId: uid!, teamID: <#T##String#>)
+                }
+            }
+//            self.performSegue(withIdentifier: "goTeamRating", sender: self)
         }
-        itemRating.titleColor = .white
+        itemJoin.titleColor = .white
         
         let itemMember = ExpandingMenuItem(
             size: menuButtonSize,
             title: "球隊成員",
-            image: #imageLiteral(resourceName: "writing"),
-            highlightedImage: #imageLiteral(resourceName: "writing"),
-            backgroundImage: #imageLiteral(resourceName: "writing"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "writing")) { () -> Void in
+            image: #imageLiteral(resourceName: "group-1"),
+            highlightedImage: #imageLiteral(resourceName: "group-1"),
+            backgroundImage: #imageLiteral(resourceName: "circle"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
             self.performSegue(withIdentifier: "showTeamManber", sender: self)
         }
         itemMember.titleColor = .white
@@ -119,21 +130,21 @@ class TeamDetailViewController: UIViewController {
             self.performSegue(withIdentifier: "showTeamLine", sender: self)
         }
         itemLine.titleColor = .white
-        menuButton.addMenuItems([itemRating, itemMember, itemLine])
+        menuButton.addMenuItems([itemJoin, itemMember, itemLine])
     }
     
     func setLabel() {
         teamNameLabel.text = teamDetail?.teamName
         
-        guard let rating = teamDetail?.teamRating.averageRating() else { return }
-        
-        teamRating = String(describing: rating)
-        
-        if rating.isNaN {
-            teamRatingLabel.text = "尚未收到評分"
-        } else {
-            teamRatingLabel.text = teamRating + " 顆星"
-        }
+//        guard let rating = teamDetail?.teamRating.averageRating() else { return }
+//
+//        teamRating = String(describing: rating)
+//
+//        if rating.isNaN {
+//            teamRatingLabel.text = "尚未收到評分"
+//        } else {
+//            teamRatingLabel.text = teamRating + " 顆星"
+//        }
         
         guard teamDetail?.teamImage.isEmpty == false else {
             teamImage.image = UIImage(named: "image_placeholder")

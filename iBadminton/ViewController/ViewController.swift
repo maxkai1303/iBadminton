@@ -22,19 +22,14 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     var event: Event?
     var count: Int = 0
     var joinMember: [String] = []
-    
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
-        //        if (tabBarController?.tabBar.frame.size.height) != nil {
-        //            height = UIScreen.main.bounds.height
         
         imageView.center = view.center
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
             self.animate()
         })
-        //        }
     }
     
     private func setupView() {
@@ -98,14 +93,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         view.addSubview(imageView)
     }
     
-    //    func setUi() {
-    //        // 設定 searchBar文字框顏色
-    //        if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
-    //            textfield.backgroundColor = UIColor.white
-    //            textfield.textColor = UIColor.blue
-    //        }
-    //    }
-    
     func readEvent() {
         FireBaseManager.shared.read(collectionName: .event, dataType: Event.self) { (result) in
             switch result {
@@ -135,6 +122,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                     userId: uid!,
                     event: self.events[sender.tag].eventID
                 )
+//                self.getLack(docId: self.events[sender.tag].eventID)
             }
         }
     }
@@ -230,7 +218,7 @@ extension ViewController: UICollectionViewDataSource {
                 for: indexPath) as? HomePageCollectionViewCell else { return UICollectionViewCell() }
         cell.layoutCell(event: events[indexPath.row])
         cell.join.tag = indexPath.row
-        cell.lackCount.text = "\(count - joinMember.count)"
+//        cell.lackCount.text = "\(count - joinMember.count)"
 //        readTeamRating(teamID: events[indexPath.row].teamName) { (data) in
 //            cell.getTeamRating(data: data)
 //        }
