@@ -20,7 +20,7 @@ struct Event: Codable {
     var location: String
     var price: Int
     var status: Bool
-    var teamID: String
+    var teamName: String
     var tag: [String]
     var note: String
 }
@@ -42,6 +42,7 @@ struct Team: Codable {
     var adminID: [String]
     var teamRating: [Int]
     var teamID: String
+    var teamName: String
 }
 
 struct TeamPoint: Codable {

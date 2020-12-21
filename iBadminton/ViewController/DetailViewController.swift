@@ -95,9 +95,9 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     print("event is nil")
                     return
                 }
-                FireBaseManager.shared.joinTeam(userId: userId, teamID: team.teamID)
+                FireBaseManager.shared.joinTeam(userId: userId, teamID: team.teamName)
                 FireBaseManager.shared.getUserName(userId: userId) { (resutl) in
-                    FireBaseManager.shared.addTimeline(team: team.teamID, content: "\(String(describing: resutl)) 加入球隊", event: false)
+                    FireBaseManager.shared.addTimeline(teamDoc: team.teamName, content: "\(String(describing: resutl)) 加入球隊", event: false)
                 }
                 
             case .joinPlay:
@@ -130,7 +130,7 @@ extension DetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "titleTableViewCell", for: indexPath)
                     as? TitleTableViewCell else { return UITableViewCell() }
-            cell.setUp(teamID: detailEvent?.teamID ?? "")
+            cell.setUp(teamID: detailEvent?.teamName ?? "")
             return cell
         case 2:
             guard let cell = tableView.dequeueReusableCell(

@@ -30,15 +30,17 @@ class InProfileViewController: FormViewController  {
         FireBaseManager.shared.listen(collectionName: .event) {
             self.joinEvent = []
             self.getJoinEvent(userId: self.userId) { [weak self] event in
-                self!.joinEvent.append(event["teamID"] as! String)
+                self!.joinEvent.append(event["teamName"] as! String)
                 guard let dateString = self?.timeStampToStringDetail(event["dateStart"] as! Timestamp) else { return }
                 self!.eventDate.append(dateString)
             }
         }
         FireBaseManager.shared.listen(collectionName: .team) {
             self.joinTeam = []
-            self.getTeamManber(userId: self.userId) { teamID in
-                self.joinTeam.append(teamID)
+            self.getTeamManber(userId: self.userId) { teamName in
+                for team in teamName {
+                    self.joinTeam.append(team.teamName)
+                }
             }
         }
         self.tableView.reloadData()
@@ -87,7 +89,7 @@ class InProfileViewController: FormViewController  {
                                                 guard result != "" else { return }
                                                 self.userName = result!
                                             }
-                                            FireBaseManager.shared.addTimeline(team: value, content: "\(self.userName) 離開了球隊", event: false)
+                                            FireBaseManager.shared.addTimeline(teamDoc: value, content: "\(self.userName) 離開了球隊", event: false)
                                             completionHandler?(true)
                                             row.reload()
                                             segmented.reload()
@@ -151,7 +153,7 @@ class InProfileViewController: FormViewController  {
         self.present(controller, animated: true, completion: nil)
     }
     
-    func getTeamManber(userId: String, completion: @escaping (String) -> Void) {
+    func getTeamManber(userId: String, completion: @escaping ([Team]) -> Void) {
         
         FireBaseManager.shared.getCollection(name:.team).whereField("teamMenber",
                                                                     arrayContains: userId
@@ -159,8 +161,19 @@ class InProfileViewController: FormViewController  {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
-                for document in querySnapshot!.documents {
-                    completion(document.documentID)
+                
+                FireBaseManager.shared.decode(Team.self, documents: querySnapshot!.documents) { (result) in
+                    
+                    switch result {
+                    
+                    case .success(let data):
+                        
+                        completion(data)
+                        
+                    case .failure(let error):
+                    
+                        print(error)
+                    }
                 }
             }
         }

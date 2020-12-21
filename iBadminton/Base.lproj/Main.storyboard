@@ -184,7 +184,7 @@
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FSX-eW-AMg">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="71.5"/>
                                                     <color key="backgroundColor" name="LightBlue"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mnc-Lw-7Dp">
+                                                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="mnc-Lw-7Dp">
                                                         <size key="itemSize" width="94" height="33"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -1004,44 +1004,6 @@
                                                 <color key="textColor" name="MainBlue"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaU-Bi-BZA">
-                                                <rect key="frame" x="318" y="262" width="80" height="36"/>
-                                                <color key="backgroundColor" name="Blue"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="vfb-aF-gQM"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                <state key="normal" title="球隊動態">
-                                                    <color key="titleColor" name="White"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="7SE-wx-blJ" kind="show" identifier="showTeamLine" id="kVd-ex-9PZ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EG4-N3-J8M">
-                                                <rect key="frame" x="318" y="349" width="80" height="36"/>
-                                                <color key="backgroundColor" name="MainBlue"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="VEf-SJ-zX1"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                <state key="normal" title="球隊評價">
-                                                    <color key="titleColor" name="White"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="wrC-4X-GoO" kind="show" identifier="goTeamRating" id="yop-yu-FNE"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地方媽媽愛打球什麼球都打" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DZ4-X1-q8n">
                                                 <rect key="frame" x="16" y="266" width="240" height="28"/>
                                                 <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
@@ -1074,53 +1036,26 @@
                                                     <constraint firstAttribute="width" constant="34" id="OcQ-k5-Eze"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PPN-gi-2xT">
-                                                <rect key="frame" x="318" y="304" width="80" height="36"/>
-                                                <color key="backgroundColor" name="Blue"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="AwJ-uY-cWO"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                                <state key="normal" title="球隊成員">
-                                                    <color key="titleColor" name="White"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <segue destination="zTe-tf-SN7" kind="popoverPresentation" identifier="showTeamManber" popoverAnchorView="PPN-gi-2xT" id="sNc-zz-OCc">
-                                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                    </segue>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="HME-cp-IKW" firstAttribute="top" secondItem="ATd-mS-Ooz" secondAttribute="top" id="0YL-B0-VZy"/>
                                             <constraint firstItem="qkF-vY-0Jr" firstAttribute="top" secondItem="6XP-u1-KcV" secondAttribute="bottom" constant="16" id="891-jq-ukk"/>
-                                            <constraint firstItem="EG4-N3-J8M" firstAttribute="trailing" secondItem="vaU-Bi-BZA" secondAttribute="trailing" id="8Fy-da-SaP"/>
                                             <constraint firstItem="6XP-u1-KcV" firstAttribute="leading" secondItem="DZ4-X1-q8n" secondAttribute="leading" id="8vJ-H7-L3a"/>
                                             <constraint firstItem="6XP-u1-KcV" firstAttribute="top" secondItem="DZ4-X1-q8n" secondAttribute="bottom" constant="16" id="Bop-i8-6TK"/>
                                             <constraint firstItem="qTI-hB-rGk" firstAttribute="top" secondItem="mWt-ba-3E6" secondAttribute="top" id="CUb-L3-yJk"/>
                                             <constraint firstItem="mWt-ba-3E6" firstAttribute="top" secondItem="qkF-vY-0Jr" secondAttribute="bottom" constant="24" id="JA1-xf-X5p"/>
-                                            <constraint firstItem="PPN-gi-2xT" firstAttribute="centerY" secondItem="DSI-jq-Ufq" secondAttribute="centerY" id="Kbv-Uf-zQh"/>
-                                            <constraint firstItem="PPN-gi-2xT" firstAttribute="leading" secondItem="vaU-Bi-BZA" secondAttribute="leading" id="Lle-98-DXc"/>
                                             <constraint firstAttribute="trailing" secondItem="HME-cp-IKW" secondAttribute="trailing" id="PWp-A5-aag"/>
                                             <constraint firstItem="mWt-ba-3E6" firstAttribute="leading" secondItem="qkF-vY-0Jr" secondAttribute="leading" id="RDt-qx-EPp"/>
                                             <constraint firstItem="tc0-Il-Eqq" firstAttribute="leading" secondItem="qkF-vY-0Jr" secondAttribute="trailing" constant="16" id="TPi-CV-7hd"/>
                                             <constraint firstItem="DSI-jq-Ufq" firstAttribute="leading" secondItem="6XP-u1-KcV" secondAttribute="trailing" constant="16" id="UdF-aZ-L8G"/>
                                             <constraint firstItem="qkF-vY-0Jr" firstAttribute="leading" secondItem="6XP-u1-KcV" secondAttribute="leading" id="W71-9Y-vWE"/>
-                                            <constraint firstItem="EG4-N3-J8M" firstAttribute="centerY" secondItem="tc0-Il-Eqq" secondAttribute="centerY" id="Y82-KR-0O0"/>
                                             <constraint firstItem="DZ4-X1-q8n" firstAttribute="leading" secondItem="ATd-mS-Ooz" secondAttribute="leading" constant="16" id="cMQ-CF-u3s"/>
                                             <constraint firstItem="DZ4-X1-q8n" firstAttribute="top" secondItem="HME-cp-IKW" secondAttribute="bottom" constant="16" id="f4M-EG-JHW"/>
-                                            <constraint firstAttribute="trailing" secondItem="vaU-Bi-BZA" secondAttribute="trailing" constant="16" id="m7m-rc-dgv"/>
                                             <constraint firstAttribute="trailing" secondItem="qTI-hB-rGk" secondAttribute="trailing" constant="16" id="osr-FA-Oai"/>
                                             <constraint firstItem="DSI-jq-Ufq" firstAttribute="centerY" secondItem="6XP-u1-KcV" secondAttribute="centerY" id="r4Z-8Y-YAg"/>
                                             <constraint firstItem="tc0-Il-Eqq" firstAttribute="centerY" secondItem="qkF-vY-0Jr" secondAttribute="centerY" id="ukF-fV-kSS"/>
                                             <constraint firstAttribute="bottom" secondItem="qTI-hB-rGk" secondAttribute="bottom" constant="16" id="wZ6-mE-Die"/>
-                                            <constraint firstItem="vaU-Bi-BZA" firstAttribute="centerY" secondItem="DZ4-X1-q8n" secondAttribute="centerY" id="wgh-5e-LdL"/>
                                             <constraint firstItem="HME-cp-IKW" firstAttribute="leading" secondItem="ATd-mS-Ooz" secondAttribute="leading" id="yka-bH-HTE"/>
                                             <constraint firstItem="qTI-hB-rGk" firstAttribute="leading" secondItem="mWt-ba-3E6" secondAttribute="trailing" constant="16" id="zNO-hm-J3U"/>
                                         </constraints>
@@ -1153,6 +1088,9 @@
                         <outlet property="teamNameLabel" destination="DZ4-X1-q8n" id="0QF-xX-xmk"/>
                         <outlet property="teamNoteLabel" destination="qTI-hB-rGk" id="mMx-Zm-pke"/>
                         <outlet property="teamRatingLabel" destination="tc0-Il-Eqq" id="JIA-ka-7ub"/>
+                        <segue destination="7SE-wx-blJ" kind="show" identifier="showTeamLine" id="wqZ-IS-JWy"/>
+                        <segue destination="zTe-tf-SN7" kind="show" identifier="showTeamManber" id="I3X-Kp-GEM"/>
+                        <segue destination="wrC-4X-GoO" kind="show" identifier="goTeamRating" id="r9e-qC-uXk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a57-RY-6IF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1202,7 +1140,7 @@
             <objects>
                 <viewController id="zTe-tf-SN7" customClass="TeamManberViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1zE-Vw-n2P">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="gXO-ho-ckw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1294,14 +1232,14 @@
         <image name="dollar-coin" width="64" height="64"/>
         <image name="editSmall" width="32" height="32"/>
         <image name="email" width="128" height="128"/>
-        <image name="group" width="48" height="48"/>
-        <image name="home" width="40" height="40"/>
+        <image name="group" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
         <image name="i badminton" width="500" height="500"/>
         <image name="image_placeholder" width="714" height="466"/>
         <image name="map" width="64" height="64"/>
         <image name="note" width="512" height="512"/>
         <image name="stars" width="128" height="128"/>
-        <image name="user" width="40" height="40"/>
+        <image name="user" width="32" height="32"/>
         <namedColor name="Blue">
             <color red="0.0" green="0.33700001239776611" blue="0.5690000057220459" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -1309,7 +1247,7 @@
             <color red="0.9100000262260437" green="0.94499999284744263" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainBlue">
-            <color red="0.0" green="0.28999999165534973" blue="0.48600000143051147" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.29019607843137252" blue="0.48627450980392156" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainYellow">
             <color red="1" green="0.90029698610305786" blue="0.52202868461608887" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

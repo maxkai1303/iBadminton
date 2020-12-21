@@ -15,7 +15,6 @@ import Firebase
 
 class AddActiveViewController: FormViewController {
     
-    //    var placeMark: CLPlacemark?
     var userId: String = ""
     var userName: String = ""
     var pickerTeam: String = ""
@@ -30,10 +29,15 @@ class AddActiveViewController: FormViewController {
     var level: String = ""
     var price: Int = 0
     var note: String = ""
+    var teamId: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setTable()
+        
+        for i in ownTeam {
+            teamId.append(i.teamID)
+        }
         
         // 鍵盤離正在編輯的 cell距離
 //            rowKeyboardSpacing = 15
@@ -48,10 +52,10 @@ class AddActiveViewController: FormViewController {
             <<< PickerInputRow<String>("Picker Input Row"){
                 $0.title = "活動球隊"
                 $0.options = ["請選擇球隊"]
-                let teamId = ownTeam.map {
-                    return $0.teamID
+                let teamName = ownTeam.map {
+                    return $0.teamName
                 }
-                for i in teamId {
+                for i in teamName {
                     $0.options.append("\(i)")
                 }
                 $0.value = $0.options.first
@@ -301,23 +305,49 @@ class AddActiveViewController: FormViewController {
                 location: self.location,
                 price: self.price,
                 status: true,
-                teamID: self.pickerTeam,
+                teamName: self.pickerTeam,
                 tag: self.tag,
                 note: self.note)
 
             self.getUrl(id: doc.documentID) { (urls) in
                 addEvent.image = urls
-                FireBaseManager.shared.addEvent(doc: doc, event: addEvent) {
-                    FireBaseManager.shared.addTimeline(team: self.pickerTeam,
-                                                       content: "\(self.startDate) \(self.pickerTeam) 有新的活動喔！快來參加，活動筋骨！",
-                                                       event: true)
+                FireBaseManager.shared.getCollection(name: .team).whereField("teamName", isEqualTo: self.pickerTeam).getDocuments { (querySnapshot, error) in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        var datas = [Team]()
+                        
+                        for document in querySnapshot!.documents {
+                            if let data = try? document.data(as: Team.self, decoder: Firestore.Decoder()) {
+                                datas.append(data)
+                            }
+                        }
+                        
+                        print(datas)
+                        
+                        datas.forEach {
+                            self.addTeamline($0.teamID)
+                        }
+                        
+                    }
+                    
                 }
+                FireBaseManager.shared.addEvent(doc: doc, event: addEvent) { }
             }
             self.form.removeAll()
             self.setTable()
         }
         controller.addAction(backAction)
         self.present(controller, animated: true, completion: nil)
+    }
+    
+    func addTeamline(_ id: String) {
+        let time = FireBaseManager.shared.dataToTimeStamp(self.startDate)
+        let times = FireBaseManager.shared.timeStampToStringDetail(time)
+        FireBaseManager.shared.addTimeline(teamDoc: id,
+                                           content: "\(times) \(self.pickerTeam) 有新的活動喔！快來參加，活動筋骨！",
+                                           event: true)
+        print("=============Success!==============")
     }
     
     func getUrl(id: String, handler: @escaping ([String]) -> Void) {

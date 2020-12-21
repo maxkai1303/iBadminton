@@ -30,8 +30,10 @@ class TeamManberViewController: FormViewController {
         form +++ Section(header: "成員列表", footer: "成員共 \(team?.teamMenber.count ?? 0)人")
         guard team?.teamMenber != [] else { return }
             for i in team!.teamMenber {
-                self.form.last! <<< LabelRow() { row in
-                row.title = "\(i)"
+                FireBaseManager.shared.getUserName(userId: i) { (name) in
+                    self.form.last! <<< LabelRow() { row in
+                        row.title = name
+                }
             }
         }
         

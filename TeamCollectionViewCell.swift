@@ -20,8 +20,12 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
             self.adminNameLabel.text = name
         }
         teamImageView.kf.setImage(with: url)
-        upperView.text = team.teamID
-        teamRating.text = "\(team.teamRating.averageRating())"
+        upperView.text = team.teamName
+        if team.teamRating.averageRating().isNaN {
+            teamRating.text = "尚未收到評分"
+        } else {
+            teamRating.text = "\(team.teamRating.averageRating())"
+        }
         message.text = team.teamMessage
         teamImageView.layer.cornerRadius = 10
         teamImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]

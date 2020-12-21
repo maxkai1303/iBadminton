@@ -98,7 +98,7 @@ class FireBaseManager {
     func addEvent(doc: DocumentReference, event: Event, handler: @escaping() -> Void) {
          do {
           
-         try doc.setData(from: event)
+            try doc.setData(from: event)
             
         } catch {
           
@@ -124,13 +124,20 @@ class FireBaseManager {
         }
     }
     
-    func addTimeline(team: String, content: String, event: Bool) {
-        let doc = getCollection(name: .team).document(team).collection("TeamPoint")
+    func addTimeline(teamDoc: String, content: String, event: Bool) {
+        let doc = getCollection(name: .team).document(teamDoc).collection("TeamPoint")
         doc.document().setData([
             "content": content,
             "event": event,
             "time": Timestamp()
-        ])
+        ], merge: true) { error in
+            
+            if let error = error {
+                print(error)
+            } else {
+                print("success")
+            }
+        }
     }
     
     // MARK: 首次登入創建 User
@@ -225,16 +232,32 @@ class FireBaseManager {
         }
     }
     
-    func addNewTeam(admin: [String], teamId: String, image: String, menber: [String], message: String) {
-        getCollection(name: .team).document().setData([
+    func addNewTeam(
+        admin: [String],
+        image: String,
+        menber: [String],
+        message: String,
+        teamName: String,
+        handler: @escaping (String) -> Void) {
+        let doc = getCollection(name: .team).document()
+        doc.setData([
             "teamImage": image,
             "teamMessage": message,
             "teamMenber": menber,
             "adminID": admin,
             "teamRating": [],
-            "teamID": teamId,
+            "teamID": doc.documentID,
+            "teamName": teamName,
             "createTime": Timestamp()
-        ])
+        ]) { error in
+            
+            if let error = error {
+                print(error)
+            } else {
+                handler(doc.documentID)
+            }
+            
+        }
     }
     
     func editName(collectionName: CollectionName, userId: String, key: String, value: Any, handler: @escaping() -> Void) {

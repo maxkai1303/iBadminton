@@ -12,7 +12,7 @@ import CarLensCollectionViewLayout
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
-
+    
     @IBOutlet weak var homePageCollection: UICollectionView!
     
     private var height: CGFloat?
@@ -20,19 +20,21 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     var events: [Event] = []
     var team: [Team] = []
     var event: Event?
+    var count: Int = 0
+    var joinMember: [String] = []
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-//        if (tabBarController?.tabBar.frame.size.height) != nil {
-//            height = UIScreen.main.bounds.height
-            
-            imageView.center = view.center
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
-                self.animate()
-            })
-//        }
+        //        if (tabBarController?.tabBar.frame.size.height) != nil {
+        //            height = UIScreen.main.bounds.height
+        
+        imageView.center = view.center
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+            self.animate()
+        })
+        //        }
     }
     
     private func setupView() {
@@ -96,13 +98,13 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         view.addSubview(imageView)
     }
     
-//    func setUi() {
-//        // 設定 searchBar文字框顏色
-//        if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
-//            textfield.backgroundColor = UIColor.white
-//            textfield.textColor = UIColor.blue
-//        }
-//    }
+    //    func setUi() {
+    //        // 設定 searchBar文字框顏色
+    //        if let textfield = searchBarOutlet.value(forKey: "searchField") as? UITextField {
+    //            textfield.backgroundColor = UIColor.white
+    //            textfield.textColor = UIColor.blue
+    //        }
+    //    }
     
     func readEvent() {
         FireBaseManager.shared.read(collectionName: .event, dataType: Event.self) { (result) in
@@ -137,38 +139,68 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
+    func getLack(docId: String) {
+        let doc = FireBaseManager.shared.getCollection(name: .event).document(docId)
+        doc.getDocument { (result, _) in
+
+        let data = result?.data()
+            
+            self.count = data?["lackCount"] as? Int ?? 0
+            self.joinMember.append(contentsOf: data?["joinID"] as? [String] ?? [])
+            
+        self.homePageCollection.reloadData()
+    }
+}
+    
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
         // MARK: 這要改成讀裡面的 teamID
-//        let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
-        let docRef = FireBaseManager.shared.getCollection(name: .team).document(teamID)
-        docRef.getDocument { (document, _) in
-            if let document = document {
-                _ = document.data().map(String.init(describing:)) ?? "nil"
+        let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
+        docRef.getDocuments { (querySnapshot, error) in
 
-                guard let data = try? document.data(as: Team.self) else {
-                    print("Team decod error ")
-                    return
-                }
-
-                handler(data)
-
+            if let error = error {
+                print(error)
             } else {
-                print("Document does not exist")
+                
+                for document in querySnapshot!.documents {
+                    
+                    guard let data = try? document.data(as: Team.self) else {
+                        print("Team decod error ")
+                        return
+                    }
+                    
+                    handler(data)
+                }
             }
         }
     }
     
-//        var animationView = UIView()
-//    var animationView = AnimationView(name: "lottie-cat") {
-//            animationView.contentMode = .scaleToFill
-//            animationView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-//            animationView.center = self.view.center
-//            animationView.contentMode = .scaleAspectFill
-//
-//            view.addSubview(animationView)
-//
-//            animationView.play()
-//    }
+    var animationView: UIView = {
+        var animationView = AnimationView()
+        animationView = .init(name: "lottie-cat")
+        animationView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        return animationView
+    }()
+    
+    func setLaunchText() {
+        let image: UIImageView = {
+            let image = UIImageView()
+            image.contentMode = .scaleAspectFit
+            image.image = UIImage(named: "noEvent")
+            return image
+        }()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        animationView.addSubview(image)
+        
+        NSLayoutConstraint.activate([
+            image.centerXAnchor.constraint(equalTo: animationView.centerXAnchor),
+            image.topAnchor.constraint(equalTo: animationView.topAnchor, constant: 60),
+            image.leadingAnchor.constraint(equalTo: animationView.leadingAnchor, constant: 30),
+            image.trailingAnchor.constraint(equalTo: animationView.trailingAnchor, constant: -30)
+        ])
+    }
     
     // MARK: 監聽活動狀態 status 變成 false不顯示
     // 感覺一開始拿的時候就直接拿 true就好，然後監聽整個 team
@@ -180,16 +212,16 @@ class ViewController: UIViewController, UICollectionViewDelegate {
 
 extension ViewController: UICollectionViewDataSource {
     
-    // numberofrow 放那個判斷如果是0的話給他動畫View不然就背景nil
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-//        if events.count == 0 {
-//
-//            homePageCollection.backgroundView = AnimationView(name: "lottie-cat")
-//
-//        }
-            return events.count
+        if events.isEmpty {
+            homePageCollection.backgroundView = animationView
+            setLaunchText()
+            
+        } else {
+            homePageCollection.backgroundView = nil
+        }
+        return events.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -197,9 +229,11 @@ extension ViewController: UICollectionViewDataSource {
                 withReuseIdentifier: HomePageCollectionViewCell.identifier,
                 for: indexPath) as? HomePageCollectionViewCell else { return UICollectionViewCell() }
         cell.layoutCell(event: events[indexPath.row])
-        readTeamRating(teamID: events[indexPath.row].teamID) { (data) in
-            cell.getTeamRating(data: data)
-        }
+        cell.join.tag = indexPath.row
+        cell.lackCount.text = "\(count - joinMember.count)"
+//        readTeamRating(teamID: events[indexPath.row].teamName) { (data) in
+//            cell.getTeamRating(data: data)
+//        }
         return cell
     }
     
@@ -220,12 +254,12 @@ extension ViewController: UICollectionViewDataSource {
 //    }
 //}
 
-//extension UIView {
-//    func setShadow() {
-//        self.layer.shadowColor = UIColor.gray.cgColor
-//        self.layer.masksToBounds = false
-//        self.layer.shadowOffset = CGSize(width: 1, height: 3)
-//        self.layer.shadowRadius = 3.0
-//        self.layer.shadowOpacity = 1
-//    }
-//}
+extension UIView {
+    func setShadow() {
+        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.masksToBounds = false
+        self.layer.shadowOffset = CGSize(width: 1, height: 3)
+        self.layer.shadowRadius = 3.0
+        self.layer.shadowOpacity = 1
+    }
+}

@@ -15,23 +15,24 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
     func layoutCell(event: Event) {
         let url = URL(string: event.image[0])
         
-        teamName.text = event.teamID
-//        upperView.text = event.teamID
+        teamName.text = event.teamName
         eventImageView.kf.setImage(with: url)
         dateLabel.text = FireBaseManager.shared.timeStampToStringDetail(event.dateStart)
         location.setTitle(event.location, for: .normal)
         price.text = "\(event.price)"
         levelLabel.text = event.level
+        lackCount.text = "\(event.lackCount)"
+        
     }
     
-    func getTeamRating(data: Team) {
-        guard String(describing: data.teamRating.averageRating()) != "nan"
-        else {
-            teamRating.text = "尚未收到評分"
-            return
-        }
-        teamRating.text = String(describing: data.teamRating.averageRating()) + " 顆星"
-    }
+//    func getTeamRating(data: Team) {
+//        guard String(describing: data.teamRating.averageRating()) != "nan"
+//        else {
+//            teamRating.text = "尚未收到評分"
+//            return
+//        }
+//        teamRating.text = String(describing: data.teamRating.averageRating()) + " 顆星"
+//    }
     
     let eventImageView: UIImageView = {
         let imageView = UIImageView()
@@ -52,7 +53,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         return name
     }()
     
-    //MARK:-Date
+    // MARK: - Date
     let dateIcon: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -69,7 +70,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         return label
     }()
     
-    //MARK:-location
+    // MARK: - location
     
     let mapIcon: UIImageView = {
        let map = UIImageView()
@@ -84,12 +85,15 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.numberOfLines = 1
         // button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.lineBreakMode = .byTruncatingMiddle
+        
+        button.contentHorizontalAlignment = .left
+//        button.titleLabel?.lineBreakMode = .byTruncatingMiddle
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         button.setTitleColor(UIColor.maxColor(with: .mainBlue), for: .normal)
         return button
     }()
     
-    //MARK:-price
+    // MARK: - price
     
     let coinIcon: UIImageView = {
         let coin = UIImageView()
@@ -106,7 +110,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         label.textColor = UIColor.maxColor(with: .mainBlue)
         return label
     }()
-    //MARK:-level
+    // MARK: - level
     let rankIcon: UIImageView = {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -131,7 +135,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         return image
     }()
     
-    let teamRating: UILabel = {
+    let lackCount: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 16)
@@ -168,7 +172,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         bottomView.addSubview(levelLabel)
         
         bottomView.addSubview(ratingIcon)
-        bottomView.addSubview(teamRating)
+        bottomView.addSubview(lackCount)
         
         bottomView.addSubview(join)
         
@@ -242,8 +246,10 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            teamRating.leadingAnchor.constraint(equalTo: ratingIcon.trailingAnchor, constant: 16),
-            teamRating.centerYAnchor.constraint(equalTo: ratingIcon.centerYAnchor)
+            lackCount.leadingAnchor.constraint(equalTo: ratingIcon.trailingAnchor, constant: 16),
+            lackCount.centerYAnchor.constraint(equalTo: ratingIcon.centerYAnchor),
+            lackCount.heightAnchor.constraint(equalToConstant: 40),
+            lackCount.widthAnchor.constraint(equalToConstant: 200)
         ])
         
         NSLayoutConstraint.activate([

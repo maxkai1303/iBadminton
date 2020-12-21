@@ -16,6 +16,7 @@ class TimeLineViewController: UIViewController {
     
     var data: [TeamPoint] = []
     var teamId: String = ""
+    var teamName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -134,12 +134,12 @@ class CreateTeamViewController: FormViewController {
             self.present(controller, animated: true, completion: nil)
             adminId.append(userId)
             getUrl(id: name!) { (result) in
-                FireBaseManager.shared.addNewTeam(admin: self.adminId, teamId: name!, image: result, menber: [self.userId], message: msg!)
-                FireBaseManager.shared.addTimeline(team: name!, content: "\(self.userName) 創建了球隊", event: false)
-                print(self.uploadImage)
-                print("================\(allValues)===================")
+                FireBaseManager.shared.addNewTeam(admin: self.adminId, image: result, menber: [self.userId], message: msg!, teamName: name!) { id in
+                    FireBaseManager.shared.addTimeline(teamDoc: id, content: "\(self.userName) 創建了 \(name!) 球隊", event: false)
+                    print(self.uploadImage)
+                    print("================\(allValues)===================")
+                }
             }
-            
         }
     }
     

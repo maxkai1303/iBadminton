@@ -46,6 +46,7 @@ class TeamDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabel()
+        setMenuButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,6 +60,7 @@ class TeamDetailViewController: UIViewController {
             let controller = segue.destination as? TimeLineViewController
             controller?.data = teamLineData
             controller?.teamId = teamDetail?.teamID ?? ""
+            controller?.teamName = teamDetail?.teamName ?? ""
         }
         if segue.identifier == "showTeamManber" {
             let controller = segue.destination as? TeamManberViewController
@@ -110,8 +112,8 @@ class TeamDetailViewController: UIViewController {
         let itemLine = ExpandingMenuItem(
             size: menuButtonSize,
             title: "球隊動態",
-            image: #imageLiteral(resourceName: "stars"),
-            highlightedImage: #imageLiteral(resourceName: "edit"),
+            image: #imageLiteral(resourceName: "timeline"),
+            highlightedImage: #imageLiteral(resourceName: "timeline"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
             self.performSegue(withIdentifier: "showTeamLine", sender: self)
@@ -121,21 +123,19 @@ class TeamDetailViewController: UIViewController {
     }
     
     func setLabel() {
-        teamNameLabel.text = teamDetail?.teamID
+        teamNameLabel.text = teamDetail?.teamName
         
         guard let rating = teamDetail?.teamRating.averageRating() else { return }
         
         teamRating = String(describing: rating)
         
-        if  teamRating == "nan" {
+        if rating.isNaN {
             teamRatingLabel.text = "尚未收到評分"
         } else {
             teamRatingLabel.text = teamRating + " 顆星"
         }
         
-        teamRatingLabel.text! = teamRating
-        
-        guard teamDetail?.teamImage != "" else {
+        guard teamDetail?.teamImage.isEmpty == false else {
             teamImage.image = UIImage(named: "image_placeholder")
             return
         }
