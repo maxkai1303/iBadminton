@@ -39,7 +39,9 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         imageView.contentMode = .scaleToFill
         imageView.image = UIImage(named: "image_placeholder")
         imageView.backgroundColor = UIColor.maxColor(with: .lightBlue)
-        
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return imageView
     }()
     

@@ -324,6 +324,7 @@ PODS:
     - nanopb/encode (= 1.30906.0)
   - nanopb/decode (1.30906.0)
   - nanopb/encode (1.30906.0)
+  - PKHUD (5.3.0)
   - PromisesObjC (1.2.11)
   - SwiftLint (0.41.0)
 
@@ -342,6 +343,7 @@ DEPENDENCIES:
   - LineSDKSwift (~> 5.0)
   - LocationRow
   - lottie-ios
+  - PKHUD
   - SwiftLint
 
 SPEC REPOS:
@@ -372,6 +374,7 @@ SPEC REPOS:
     - LocationRow
     - lottie-ios
     - nanopb
+    - PKHUD
     - PromisesObjC
     - SwiftLint
 
@@ -402,9 +405,10 @@ SPEC CHECKSUMS:
   LocationRow: b4d85cc066e3756f01bdec091784b72bd174bf4e
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: b7152c4d09fdcbdd76bffbe990ae4124a3849327
+PODFILE CHECKSUM: e72c7cab6d7fe3eeffe7bf5bc8839d9b87af217c
 
 COCOAPODS: 1.10.0

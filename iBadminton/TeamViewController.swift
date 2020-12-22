@@ -34,6 +34,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         readTeam()
+        checkOwnTeam()
         teamCollectionView.reloadData()
     }
     

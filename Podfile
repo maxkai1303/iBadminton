@@ -22,6 +22,7 @@ target 'iBadminton' do
     pod 'Firebase/Auth'
     pod 'CarLensCollectionViewLayout'
     pod 'Firebase/Storage'
+    pod 'PKHUD'
 
 
 end

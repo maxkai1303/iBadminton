@@ -21,11 +21,11 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         }
         teamImageView.kf.setImage(with: url)
         upperView.text = team.teamName
-//        if team.teamRating.averageRating().isNaN {
-//            teamRating.text = "尚未收到評分"
-//        } else {
-//            teamRating.text = "\(team.teamRating.averageRating())"
-//        }
+        //        if team.teamRating.averageRating().isNaN {
+        //            teamRating.text = "尚未收到評分"
+        //        } else {
+        //            teamRating.text = "\(team.teamRating.averageRating())"
+        //        }
         message.text = team.teamMessage
         teamImageView.layer.cornerRadius = 10
         teamImageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -37,6 +37,9 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "image_placeholder")
         imageView.backgroundColor = UIColor.maxColor(with: .lightBlue)
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 10
+        imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         return imageView
     }()
@@ -58,13 +61,13 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         return label
     }()
     
-//    let teamRating: UILabel = {
-//        let label = UILabel()
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.font = UIFont(name: "PingFang TC", size: 16)
-//        label.textColor = UIColor.maxColor(with: .mainBlue)
-//        return label
-//    }()
+    //    let teamRating: UILabel = {
+    //        let label = UILabel()
+    //        label.translatesAutoresizingMaskIntoConstraints = false
+    //        label.font = UIFont(name: "PingFang TC", size: 16)
+    //        label.textColor = UIColor.maxColor(with: .mainBlue)
+    //        return label
+    //    }()
     
     let message: UILabel = {
         let label = UILabel()
@@ -82,8 +85,8 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         bottomView.addSubview(adminLabel)
         
         bottomView.addSubview(adminNameLabel)
-    
-//        bottomView.addSubview(teamRating)
+        
+        //        bottomView.addSubview(teamRating)
         
         bottomView.addSubview(message)
         
@@ -106,12 +109,12 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
             adminNameLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -16),
             adminNameLabel.centerYAnchor.constraint(equalTo: adminLabel.centerYAnchor)
         ])
-    
-//        NSLayoutConstraint.activate([
-//            teamRating.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
-//            teamRating.topAnchor.constraint(equalTo: adminLabel.bottomAnchor, constant: 16),
-//            teamRating.heightAnchor.constraint(equalToConstant: 30)
-//        ])
+        
+        //        NSLayoutConstraint.activate([
+        //            teamRating.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
+        //            teamRating.topAnchor.constraint(equalTo: adminLabel.bottomAnchor, constant: 16),
+        //            teamRating.heightAnchor.constraint(equalToConstant: 30)
+        //        ])
         
         NSLayoutConstraint.activate([
             message.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 16),
@@ -120,7 +123,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
             message.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor, constant: -16)
         ])
     }
-
+    
     private var upperView: UILabel = {
         var teamName = UILabel()
         teamName.translatesAutoresizingMaskIntoConstraints = false
@@ -147,6 +150,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
         fatalError("init(coder:) has not been implemented")
     }
 }

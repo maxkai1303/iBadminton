@@ -9,6 +9,8 @@ import UIKit
 import FirebaseAuth
 import Lottie
 import CarLensCollectionViewLayout
+import PKHUD
+
 //import LineSDK
 
 class ViewController: UIViewController, UICollectionViewDelegate {
@@ -22,7 +24,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     var event: Event?
     var count: Int = 0
     var joinMember: [String] = []
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -91,6 +93,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
         setupView()
         view.addSubview(imageView)
+        
     }
     
     func readEvent() {
@@ -118,11 +121,21 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                     self.present(signInPage!, animated: true, completion: nil)
                 }
             } else {
-                FireBaseManager.shared.joinEvent(
-                    userId: uid!,
-                    event: self.events[sender.tag].eventID
-                )
-//                self.getLack(docId: self.events[sender.tag].eventID)
+                let eventId =  self.events[sender.tag].eventID
+                let doc = FireBaseManager.shared.getCollection(name: .event).document(eventId)
+                doc.getDocument { (document, _) in
+                    if let document = document {
+                        guard let join = document["joinID"] as? [String] else { return }
+                        
+                        if join.contains(uid!) {
+                            HUD.flash(.labeledError(title: "哎呀！", subtitle: "你加入過這個活動囉！"), delay: 1.3)
+                            
+                        } else {
+                            FireBaseManager.shared.joinEvent(userId: uid!, event: eventId)
+                            HUD.flash(.labeledSuccess(title: "Success!", subtitle: "加入成功記得去打球喔！"), delay: 1.3)
+                        }
+                    }
+                }
             }
         }
     }
@@ -130,21 +143,21 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     func getLack(docId: String) {
         let doc = FireBaseManager.shared.getCollection(name: .event).document(docId)
         doc.getDocument { (result, _) in
-
-        let data = result?.data()
+            
+            let data = result?.data()
             
             self.count = data?["lackCount"] as? Int ?? 0
             self.joinMember.append(contentsOf: data?["joinID"] as? [String] ?? [])
             
-        self.homePageCollection.reloadData()
+            self.homePageCollection.reloadData()
+        }
     }
-}
     
     func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
         // MARK: 這要改成讀裡面的 teamID
         let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
         docRef.getDocuments { (querySnapshot, error) in
-
+            
             if let error = error {
                 print(error)
             } else {
@@ -218,10 +231,10 @@ extension ViewController: UICollectionViewDataSource {
                 for: indexPath) as? HomePageCollectionViewCell else { return UICollectionViewCell() }
         cell.layoutCell(event: events[indexPath.row])
         cell.join.tag = indexPath.row
-//        cell.lackCount.text = "\(count - joinMember.count)"
-//        readTeamRating(teamID: events[indexPath.row].teamName) { (data) in
-//            cell.getTeamRating(data: data)
-//        }
+        //        cell.lackCount.text = "\(count - joinMember.count)"
+        //        readTeamRating(teamID: events[indexPath.row].teamName) { (data) in
+        //            cell.getTeamRating(data: data)
+        //        }
         return cell
     }
     
