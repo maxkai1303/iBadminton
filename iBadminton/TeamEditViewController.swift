@@ -20,6 +20,15 @@ class TeamEditViewController: FormViewController {
     var teamMessage: String = ""
     var teamName: String = ""
     var admindId:[String] = []
+    var selectTeam: Team? {
+        didSet {
+            FireBaseManager.shared.getOwnTeam(userId: userId) { (result) in
+                self.ownTeam = result
+            }
+            self.form.allRows.forEach({ $0.updateCell(); $0.reload()})
+//            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,17 +45,24 @@ class TeamEditViewController: FormViewController {
             
             <<< PickerInputRow<String>("Picker Input Row"){
                 $0.options = ["請選擇球隊"]
-                let teamId = ownTeam.map {
-                    return $0.teamID
+                let teamName = ownTeam.map {
+                    return $0.teamName
                 }
-                for i in teamId {
+                for i in teamName {
                     $0.options.append("\(i)")
                 }
                 $0.value = $0.options.first
                 self.pickerTeam = $0.value!
+                
             }.onChange({ (row) in
                 self.pickerTeam = row.value ?? ""
+//                self.form.allRows.forEach({_ in row.updateCell(); row.reload()})
+                for team in self.ownTeam where team.teamName == self.pickerTeam {
+                    self.selectTeam = team
+                }
+                row.reload()
                 print("value changed: \(row.value!)")
+                print(self.selectTeam ?? [])
             })
             
             <<< ImageRow() {
@@ -102,12 +118,18 @@ class TeamEditViewController: FormViewController {
                 $0.title = "顯示球隊管理者"
             }
             <<< LabelRow(){
-                
                 $0.hidden = Condition.function(["adminTag"], { form in
                     return !((form.rowBy(tag: "adminTag") as? SwitchRow)?.value ?? false)
                 })
-                $0.title = "Max"
-            }
+            }.cellUpdate({ cell, row  in
+
+                for i in self.selectTeam!.adminID {
+                        FireBaseManager.shared.getUserName(userId: i) { (name) in
+                            row.title = name
+                        }
+                }
+            })
+    
             
             <<< SwitchRow("manberTag"){
                 $0.title = "顯示球隊成員"
@@ -190,7 +212,7 @@ class TeamEditViewController: FormViewController {
         }
     }
     
-    @objc func multipleSelectorDone(_ item:UIBarButtonItem) {
+    @objc func multipleSelectorDone(_ item: UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
     }
 }
