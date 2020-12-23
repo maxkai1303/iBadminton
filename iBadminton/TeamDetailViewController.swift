@@ -103,23 +103,9 @@ class TeamDetailViewController: UIViewController {
                     }
                 } else {
                     guard let teamId = self.teamDetail?.teamID else { return }
-                    FireBaseManager.shared.getCollection(name: .team).document(teamId).getDocument { (document, _) in
-                        if let document = document {
-                            guard let join = document["teamMenber"] as? [String] else { return }
-                            
-                            if join.contains(uid!) {
-                                HUD.flash(.labeledError(title: "哎呀！", subtitle: "你已經加入囉！"), delay: 2.0)
-                                
-                            } else {
-                                FireBaseManager.shared.joinTeam(userId: uid!, teamID: teamId)
-                                HUD.flash(.labeledSuccess(title: "Success!", subtitle: "加入球隊成功！"), delay: 1.3)
-                            }
-                        }
-                    }
                     FireBaseManager.shared.getUserName(userId: uid!) { (name) in
                         guard let name = name, !name.isEmpty else { return }
-                        FireBaseManager.shared.joinTeam(userId: uid!, teamID: teamId)
-                        HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功"), delay: 2.0)
+                        FireBaseManager.shared.checkJoinTeam(userId: uid!, teamId: teamId, name: name)
                     }
                 }
             }

@@ -122,20 +122,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
                 }
             } else {
                 let eventId =  self.events[sender.tag].eventID
-                let doc = FireBaseManager.shared.getCollection(name: .event).document(eventId)
-                doc.getDocument { (document, _) in
-                    if let document = document {
-                        guard let join = document["joinID"] as? [String] else { return }
-                        
-                        if join.contains(uid!) {
-                            HUD.flash(.labeledError(title: "哎呀！", subtitle: "你加入過這個活動囉！"), delay: 1.3)
-                            
-                        } else {
-                            FireBaseManager.shared.joinEvent(userId: uid!, event: eventId)
-                            HUD.flash(.labeledSuccess(title: "Success!", subtitle: "加入成功記得去打球喔！"), delay: 1.3)
-                        }
-                    }
-                }
+                FireBaseManager.shared.checkJoinEvent(userId: uid!, eventId: eventId)
             }
         }
     }

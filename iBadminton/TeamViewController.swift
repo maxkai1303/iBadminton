@@ -85,7 +85,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         }
         
         func setMenuButton() {
-            let menuButtonSize: CGSize = CGSize(width: 60.0, height: 60.0)
+            let menuButtonSize: CGSize = CGSize(width: 40.0, height: 40.0)
             let menuButton = ExpandingMenuButton(
                 frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
                 image: #imageLiteral(resourceName: "settings"),

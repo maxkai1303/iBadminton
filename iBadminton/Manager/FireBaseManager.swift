@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestoreSwift
+import PKHUD
 
 enum CollectionName: String {
     case event = "Event"
@@ -257,6 +258,41 @@ class FireBaseManager {
                 handler(doc.documentID)
             }
             
+        }
+    }
+    
+    func checkJoinEvent(userId: String, eventId: String) {
+        let doc = getCollection(name: .event).document(eventId)
+        doc.getDocument { (document, _) in
+            if let document = document {
+                guard let join = document["joinID"] as? [String] else { return }
+                
+                if join.contains(userId) {
+                    HUD.flash(.labeledError(title: "哎呀！", subtitle: "你加入過這個活動囉！"), delay: 1.3)
+                    
+                } else {
+                    self.joinEvent(userId: userId, event: eventId)
+                    HUD.flash(.labeledSuccess(title: "Success!", subtitle: "加入成功記得去打球喔！"), delay: 1.3)
+                }
+            }
+        }
+    }
+    
+    func checkJoinTeam(userId: String, teamId: String, name: String) {
+        let doc = getCollection(name: .team).document(teamId)
+        doc.getDocument { (document, _) in
+            if let document = document {
+                guard let join = document["teamMenber"] as? [String] else { return }
+                
+                if join.contains(userId) {
+                    HUD.flash(.labeledError(title: "哎呀！", subtitle: "你加入過這個球隊囉！"), delay: 1.3)
+                    
+                } else {
+                    self.joinTeam(userId: userId, teamID: teamId)
+                    self.addTimeline(teamDoc: teamId, content: "\(name) 加入球隊", event: false)
+                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入球隊成功！"), delay: 1.3)
+                }
+            }
         }
     }
     

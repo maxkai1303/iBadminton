@@ -8,10 +8,13 @@
 import UIKit
 import ExpandingMenu
 import FirebaseAuth
+import Firebase
+import PKHUD
 
 class DetailViewController: UIViewController, UITableViewDelegate {
     
     var detailEvent: Event?
+    
     
     enum ButtonFunction {
         case joinTeam
@@ -19,10 +22,10 @@ class DetailViewController: UIViewController, UITableViewDelegate {
     }
     
     @IBOutlet weak var detailTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            setMenuButton()
+        setMenuButton()
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -60,19 +63,19 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             self.detailJoin(buttonFunc: .joinPlay)
         }
         
-        let item3 = ExpandingMenuItem(
-            size: menuButtonSize,
-            title: "查看球隊評價",
-            image: #imageLiteral(resourceName: "checkRating"),
-            highlightedImage: #imageLiteral(resourceName: "checkRating"),
-            backgroundImage: #imageLiteral(resourceName: "circle"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
-            // MARK: 不知道為什麼沒辦法打開評價頁面
-            self.present(TeamRatingViewController(), animated: true, completion: nil)
-            print("GOGOGOGGO")
-        }
+        //        let item3 = ExpandingMenuItem(
+        //            size: menuButtonSize,
+        //            title: "查看球隊評價",
+        //            image: #imageLiteral(resourceName: "checkRating"),
+        //            highlightedImage: #imageLiteral(resourceName: "checkRating"),
+        //            backgroundImage: #imageLiteral(resourceName: "circle"),
+        //            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
+        //            // MARK: 不知道為什麼沒辦法打開評價頁面
+        //            self.present(TeamRatingViewController(), animated: true, completion: nil)
+        //            print("GOGOGOGGO")
+        //        }
         
-        menuButton.addMenuItems([item1, item2, item3])
+        menuButton.addMenuItems([item1, item2])
     }
     
     func detailJoin(buttonFunc: ButtonFunction) {
@@ -95,10 +98,30 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     print("event is nil")
                     return
                 }
-                FireBaseManager.shared.joinTeam(userId: userId, teamID: team.teamName)
-                FireBaseManager.shared.getUserName(userId: userId) { (resutl) in
-                    FireBaseManager.shared.addTimeline(teamDoc: team.teamName, content: "\(String(describing: resutl)) 加入球隊", event: false)
-                }
+                FireBaseManager.shared.getCollection(name: .team).whereField("teamName",
+                                                                             isEqualTo: team.teamName).getDocuments { (querySnapshot, error) in
+                                                                                if let error = error {
+                                                                                    print(error)
+                                                                                } else {
+                                                                                    var datas = [Team]()
+                                                                                    
+                                                                                    for document in querySnapshot!.documents {
+                                                                                        if let data = try? document.data(as: Team.self, decoder: Firestore.Decoder()) {
+                                                                                            datas.append(data)
+                                                                                        }
+                                                                                    }
+                                                                                    
+                                                                                    print(datas)
+                                                                                    
+                                                                                    datas.forEach { data in
+                                                                                        FireBaseManager.shared.getUserName(userId: userId) { (name) in
+                                                                                            guard let name = name, !name.isEmpty else { return }
+                                                                                            FireBaseManager.shared.checkJoinTeam(userId: userId, teamId: data.teamID, name: name )
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                                
+                                                                             }
                 
             case .joinPlay:
                 
@@ -106,8 +129,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     print("event is nil")
                     return
                 }
-                
-                FireBaseManager.shared.joinEvent(userId: userId, event: event.eventID)
+                FireBaseManager.shared.checkJoinEvent(userId: userId, eventId: event.eventID)
             }
         }
     }
