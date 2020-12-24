@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GuI-aS-Jqx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="781"/>
+            <point key="canvasLocation" x="507" y="822"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="bhE-dG-Bhm">
@@ -907,7 +907,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="raI-Uu-msO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1839" y="1649"/>
+            <point key="canvasLocation" x="1980" y="1649"/>
         </scene>
         <!--新增活動-->
         <scene sceneID="SZe-x5-eGv">
@@ -923,7 +923,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wuy-Is-siN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2628" y="1649"/>
+            <point key="canvasLocation" x="2778" y="1649"/>
         </scene>
         <!--Team Detail View Controller-->
         <scene sceneID="0qr-fZ-YV8">
@@ -1148,7 +1148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cnL-Cq-Zzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="1481"/>
+            <point key="canvasLocation" x="1288" y="861"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XF6-1L-p9s">

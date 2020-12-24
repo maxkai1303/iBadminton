@@ -20,13 +20,14 @@ class TeamEditViewController: FormViewController {
     var teamMessage: String = ""
     var teamName: String = ""
     var admindId:[String] = []
+    var teamMember: [String] = []
     var selectTeam: Team? {
         didSet {
             FireBaseManager.shared.getOwnTeam(userId: userId) { (result) in
                 self.ownTeam = result
             }
             self.form.allRows.forEach({ $0.updateCell(); $0.reload()})
-//            tableView.reloadData()
+            tableView.reloadData()
         }
     }
     
@@ -65,23 +66,7 @@ class TeamEditViewController: FormViewController {
                 print(self.selectTeam ?? [])
             })
             
-            <<< ImageRow() {
-                $0.title = "上傳球隊照片（必填）"
-                $0.sourceTypes = [.PhotoLibrary, .Camera]
-                $0.clearAction = .yes(style: .default)
-                $0.add(rule: RuleRequired())
-                $0.validationOptions = .validatesOnChange
-            }.onChange({ (row) in
-                self.teamImage = row.value!
-                print("=====\(String(describing: row.value))")
-            })
-            .cellUpdate { cell, row in
-                if !row.isValid {
-                    cell.textLabel?.textColor = .red
-                }
-            }
-            
-            +++ Section("修改內容")
+        form +++ Section("修改球隊顯示內容")
             <<< TextRow(){ row in
                 row.title = "球隊名稱"
                 row.placeholder = "最少2字最多12字"
@@ -95,6 +80,22 @@ class TeamEditViewController: FormViewController {
                 if !row.isValid {
                     row.placeholder = "此為必填項目最少2字最多12字"
                     cell.titleLabel?.textColor = .systemRed
+                }
+            }
+            
+            <<< ImageRow() {
+                $0.title = "上傳球隊照片（必填）"
+                $0.sourceTypes = [.PhotoLibrary, .Camera]
+                $0.clearAction = .yes(style: .default)
+                $0.add(rule: RuleRequired())
+                $0.validationOptions = .validatesOnChange
+            }.onChange({ (row) in
+                self.teamImage = row.value!
+                print("=====\(String(describing: row.value))")
+            })
+            .cellUpdate { cell, row in
+                if !row.isValid {
+                    cell.textLabel?.textColor = .red
                 }
             }
             
@@ -113,55 +114,6 @@ class TeamEditViewController: FormViewController {
                 }
             }
             
-            +++ Section("球隊成員")
-            <<< SwitchRow("adminTag"){
-                $0.title = "顯示球隊管理者"
-            }
-            <<< LabelRow(){
-                $0.hidden = Condition.function(["adminTag"], { form in
-                    return !((form.rowBy(tag: "adminTag") as? SwitchRow)?.value ?? false)
-                })
-            }.cellUpdate({ cell, row  in
-
-                for i in self.selectTeam!.adminID {
-                        FireBaseManager.shared.getUserName(userId: i) { (name) in
-                            row.title = name
-                        }
-                }
-            })
-    
-            
-            <<< SwitchRow("manberTag"){
-                $0.title = "顯示球隊成員"
-            }
-            <<< LabelRow(){
-                
-                $0.hidden = Condition.function(["manberTag"], { form in
-                    return !((form.rowBy(tag: "manberTag") as? SwitchRow)?.value ?? false)
-                })
-                $0.title = "item"
-            }
-            
-            
-            +++
-            MultivaluedSection(multivaluedOptions: [.Insert, .Delete, .Reorder],
-                               header: "球隊管理者",
-                               footer: "刪除管理者後該成員不會被踢出球隊，只有移除管理球隊功能") {
-                $0.tag = "options"
-                $0.multivaluedRowToInsertAt = { index in
-                    return ActionSheetRow<String>{
-                        $0.title = "新增管理員"
-                        $0.options = ["二叔公", "小阿姨", "老蔡"]
-                    }.onChange({ row in
-                        row.title = "管理員"
-                        guard row.value != "" else { return }
-                        self.admindId.append(row.value!)
-                    })
-                }
-                
-            }
-            
-            +++ Section()
             <<< ButtonRow() {
                 $0.title = "送出修改"
             }.onCellSelection { cell, row in
@@ -187,6 +139,88 @@ class TeamEditViewController: FormViewController {
                     print("\(self.form.values())")
                 }
             }
+        
+            +++ Section(header: "選擇球隊後點擊切換刷新顯示", footer: "管理員左滑移除刪除\n管理者後該成員不會被踢出球隊，只有移除管理球隊功能\n隊員右滑加入管理員")
+                <<< SegmentedRow<String>("segments"){
+                    $0.options = ["球隊管理員", "球隊隊員名單"]
+                    $0.value = ""
+                    $0.cell.backgroundColor = .groupTableViewBackground
+                    $0.cell.layer.borderWidth = 0
+                    //                $0.baseCell.layer.borderWidth = 0
+                }.onChange({ (segmented) in
+                    if(segmented.value == "球隊管理員") {
+                        segmented.section!.removeLast(segmented.section!.count - 1)
+                        guard let admind = self.selectTeam?.adminID else { return }
+                        for i in admind {
+                            FireBaseManager.shared.getUserName(userId: i) { (name) in
+                                segmented.section! <<< LabelRow() {
+                                    $0.title = name
+                                    $0.hidden = "$segments != '球隊管理員'"
+                                    
+                                        let deleteAction = SwipeAction(style: .destructive, title: "移除管理員", handler: { (action, row, completionHandler) in
+                                            
+                                            guard i != self.userId && admind.count != 1 else {
+                                                self.cantLeave()
+                                                return
+                                            }
+                                            
+                                            let controller = UIAlertController(title: "哎呦喂呀！", message: "確定要移除這位管理員嗎", preferredStyle: .alert)
+                                            
+                                            let okAction = UIAlertAction(title: "移除", style: .destructive, handler: {_ in
+                                                
+                                                print("Delete")
+                                                guard let teamId = self.selectTeam?.teamID else { return }
+                                                FireBaseManager.shared.getCollection(name: .team).document(teamId).updateData([
+                                                    "adminID": FieldValue.arrayRemove([i])
+                                                ])
+                                                FireBaseManager.shared.addTimeline(teamDoc: teamId, content: "\(name!) 解除管理員", event: false)
+                                                completionHandler?(true)
+                                                
+                                            })
+                                            let backAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                                            controller.addAction(backAction)
+                                            controller.addAction(okAction)
+                                            self.present(controller, animated: true, completion: nil)
+                                            
+                                        })
+                                        $0.trailingSwipe.actions = [deleteAction]
+                                        $0.trailingSwipe.performsFirstActionWithFullSwipe = true
+                                    
+                                }
+                            }
+                        }
+                    } else if (segmented.value == "球隊隊員名單") {
+                        segmented.section!.removeLast(segmented.section!.count - 1)
+                        guard let member = self.selectTeam?.teamMenber else { return }
+                        self.teamMember = []
+                        for i in member {
+                            FireBaseManager.shared.getUserName(userId: i) { (name) in
+                                segmented.section! <<< LabelRow() {
+                                    $0.title = name
+                                    $0.hidden = "$segments != '球隊隊員名單'"
+                                    self.teamMember.append(name ?? "")
+                                }
+                            }
+                        }
+                    }
+                }).cellSetup({ (cell, row) in
+                    cell.layer.borderWidth = 0
+                    cell.layer.borderColor = UIColor.groupTableViewBackground.cgColor
+                }).cellUpdate({ (cell, row) in
+                    row.reload()
+                })
+    }
+    
+    func cantLeave() {
+        let controller = UIAlertController(
+            title: "哎呦喂呀！",
+            message: "不能移除自己啦！",
+            preferredStyle: .alert
+        )
+        
+        let backAction = UIAlertAction(title: "返回", style: .default) { _ in }
+        controller.addAction(backAction)
+        self.present(controller, animated: true, completion: nil)
     }
     
     func showSucessAlert() {
