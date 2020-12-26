@@ -10,6 +10,8 @@ import Firebase
 import FirebaseFirestoreSwift
 import PKHUD
 
+typealias FIRTimestamp = Timestamp
+
 enum CollectionName: String {
     case event = "Event"
     case user = "User"
@@ -78,6 +80,20 @@ class FireBaseManager {
         handler(.success(datas))
     }
     
+    func decode<T: Codable>(_ dataType: T.Type, document: DocumentSnapshot, handler: @escaping (Result<T>) -> Void) {
+        
+        var data: T
+        
+        guard let result = try? document.data(as: dataType) else {
+            handler(.failure(FirebaseError.decode))
+            return
+        }
+        
+        data = result
+        
+        handler(.success(data))
+    }
+    
     func listen(collectionName: CollectionName, handler: @escaping() -> Void) {
         let collection = getCollection(name: collectionName)
         collection.addSnapshotListener { documentSnapshot, error in
@@ -97,13 +113,13 @@ class FireBaseManager {
     }
     
     func addEvent(doc: DocumentReference, event: Event, handler: @escaping() -> Void) {
-         do {
-          
+        do {
+            
             try doc.setData(from: event)
             
         } catch {
-          
-         print(error.localizedDescription)
+            
+            print(error.localizedDescription)
         }
     }
     
@@ -170,41 +186,36 @@ class FireBaseManager {
     func joinEvent(userId: String, event: String) {
         
         let doc = getCollection(name: .event).document(event)
-        
+       
         doc.getDocument { (document, _) in
             if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-//                let lack = dataDescription["lackCount"]
-                       print("############Document data: \(dataDescription)")
-                   } else {
-                       print("Document does not exist")
-                   }
+                let lack = document.data()!["lackCount"] as? Int ?? 0
+                let member = document.data()!["joinID"] as? Array<String> ?? []
+//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                switch lack - member.count {
+                case 0:
+                    doc.updateData([
+                        "status": false
+                    ])
+                    HUD.flash(.labeledError(title: "Oops！", subtitle: "這個活動已經滿員了！"))
+                    
+                case 1:
+                    doc.updateData([
+                        "joinID": FieldValue.arrayUnion([userId]),
+                        "status": false
+                    ])
+                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功記得去打球喔！"))
+                    
+                default:
+                    doc.updateData([
+                        "joinID": FieldValue.arrayUnion([userId])
+                    ])
+                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功記得去打球喔！"))
+                }
+            } else {
+                print("Document does not exist")
+            }
         }
-        
-        doc.updateData([
-            "joinID": FieldValue.arrayUnion([userId]),
-//            "lackCount": lack.count - 1
-        ])
-        
-//        if lack.count == 0 {
-//            getCollection(name: .event).document(event).updateData([
-//                "status": false
-//            ])
-//        }
-//        let doc = getCollection(name: .user).document(userId)
-//        doc.getDocument { (document, _) in
-//            if let document = document, document.exists {
-//                var count = document.data()?["joinCount"] as! Int
-//                count += 1
-//                self.getCollection(name: .user).document(userId).setData([
-//                    "joinCount": count
-//                ])
-//
-//            } else {
-//               print("Document does not exist")
-//            }
-//         }
-        
     }
     
     func joinTeam(userId: String, teamID: String) {
@@ -272,7 +283,6 @@ class FireBaseManager {
                     
                 } else {
                     self.joinEvent(userId: userId, event: eventId)
-                    HUD.flash(.labeledSuccess(title: "Success!", subtitle: "加入成功記得去打球喔！"), delay: 1.3)
                 }
             }
         }

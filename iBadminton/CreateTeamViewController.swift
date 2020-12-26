@@ -41,22 +41,28 @@ class CreateTeamViewController: FormViewController {
                 $0.placeholder = "輸入球隊名稱"
                 $0.add(rule: RuleRequired())
                 $0.validationOptions = .validatesOnChangeAfterBlurred
-            }.onRowValidationChanged { cell, row in
-                if !row.isValid {
-                    for (index, _) in row.validationErrors.map({ $0.msg }).enumerated() {
-                        let labelRow = LabelRow() {
-                            $0.title = "此項目為必填項目"
-                            $0.cell.height = { 30 }
-                            $0.cell.backgroundColor = .red
-                        }
-                        let indexPath = row.indexPath!.row + index + 1
-                        row.section?.insert(labelRow, at: indexPath)
-                    }
-                }
-                if let teamRow: TextRow = self.form.rowBy(tag: "teamName"), let value = teamRow.value {
+            }
+//            .onRowValidationChanged({ (cell, row) in
+//                let rowIndex = row.indexPath?.row
+////                row.section?.remove(at: rowIndex ?? 1)
+//                if !row.isValid {
+//                    for (index, _) in row.validationErrors.map({ $0.msg }).enumerated() {
+//                        let labelRow = LabelRow() {
+//                            $0.title = "此項目為必填項目"
+//                            $0.cell.height = { 30 }
+//                            $0.cell.backgroundColor = .red
+//                        }
+//                        let indexPath = rowIndex! + index + 1
+//                        row.section?.insert(labelRow, at: indexPath)
+//                    }
+//                }
+//            })
+            .cellUpdate({ (cell, row) in
+                if let teamRow: TextRow = self.form.rowBy(tag: "teamName"),
+                   let value = teamRow.value {
                     self.teamId = value
                 }
-            }
+            })
             
             <<< TextAreaRow { row in
                 row.tag = "teamMessage"

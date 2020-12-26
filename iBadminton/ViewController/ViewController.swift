@@ -89,20 +89,39 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         // 隱藏 navigation
         self.navigationController?.isNavigationBarHidden = true
         FireBaseManager.shared.listen(collectionName: .event) {
-            self.readEvent()
+            self.readEvents()
         }
         setupView()
         view.addSubview(imageView)
         
     }
     
-    func readEvent() {
-        FireBaseManager.shared.read(collectionName: .event, dataType: Event.self) { (result) in
-            switch result {
-            case .success(let event):
-                self.events = event
-                self.homePageCollection.reloadData()
-            case .failure(let error): print("======== Home Page Set Data \(error.localizedDescription)=========")
+    func readEvents() {
+        FireBaseManager.shared.getCollection(name: .event).whereField("status", isEqualTo: true).getDocuments
+        { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                FireBaseManager.shared.decode(Event.self, documents: querySnapshot!.documents) { (result) in
+                    switch result {
+                    case.success(let event):
+
+                        self.events = event.filter({ (event) -> Bool in
+                            return event.dateStart.dateValue() > FIRTimestamp().dateValue()
+                        })
+                        
+                        for item in event where item.dateStart.dateValue() < FIRTimestamp().dateValue() {
+                            FireBaseManager.shared.getCollection(name: .event).document(item.eventID).updateData([
+                                "status": false
+                            ])
+                        }
+                        
+                        print(self.events)
+                        
+                        self.homePageCollection.reloadData()
+                    case.failure(let error): print("======== Home Page Set Data \(error.localizedDescription)=========")
+                    }
+                }
             }
         }
     }
@@ -127,40 +146,40 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-    func getLack(docId: String) {
-        let doc = FireBaseManager.shared.getCollection(name: .event).document(docId)
-        doc.getDocument { (result, _) in
-            
-            let data = result?.data()
-            
-            self.count = data?["lackCount"] as? Int ?? 0
-            self.joinMember.append(contentsOf: data?["joinID"] as? [String] ?? [])
-            
-            self.homePageCollection.reloadData()
-        }
-    }
+//    func getLack(docId: String) {
+//        let doc = FireBaseManager.shared.getCollection(name: .event).document(docId)
+//        doc.getDocument { (result, _) in
+//
+//            let data = result?.data()
+//
+//            self.count = data?["lackCount"] as? Int ?? 0
+//            self.joinMember.append(contentsOf: data?["joinID"] as? [String] ?? [])
+//
+//            self.homePageCollection.reloadData()
+//        }
+//    }
     
-    func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
-        // MARK: 這要改成讀裡面的 teamID
-        let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
-        docRef.getDocuments { (querySnapshot, error) in
-            
-            if let error = error {
-                print(error)
-            } else {
-                
-                for document in querySnapshot!.documents {
-                    
-                    guard let data = try? document.data(as: Team.self) else {
-                        print("Team decod error ")
-                        return
-                    }
-                    
-                    handler(data)
-                }
-            }
-        }
-    }
+//    func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
+//        // MARK: 這要改成讀裡面的 teamID
+//        let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
+//        docRef.getDocuments { (querySnapshot, error) in
+//
+//            if let error = error {
+//                print(error)
+//            } else {
+//
+//                for document in querySnapshot!.documents {
+//
+//                    guard let data = try? document.data(as: Team.self) else {
+//                        print("Team decod error ")
+//                        return
+//                    }
+//
+//                    handler(data)
+//                }
+//            }
+//        }
+//    }
     
     var animationView: UIView = {
         var animationView = AnimationView()
@@ -190,11 +209,11 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         ])
     }
     
-    // MARK: 監聽活動狀態 status 變成 false不顯示
-    // 感覺一開始拿的時候就直接拿 true就好，然後監聽整個 team
+    // MARK: 監聽活動狀態
     func listenEvent() {
-        let collection = FireBaseManager.shared.getCollection(name: .event)
-        collection.whereField("status", isEqualTo: true)
+        FireBaseManager.shared.listen(collectionName: .event) {
+            self.readEvents()
+        }
     }
 }
 
@@ -218,10 +237,6 @@ extension ViewController: UICollectionViewDataSource {
                 for: indexPath) as? HomePageCollectionViewCell else { return UICollectionViewCell() }
         cell.layoutCell(event: events[indexPath.row])
         cell.join.tag = indexPath.row
-        //        cell.lackCount.text = "\(count - joinMember.count)"
-        //        readTeamRating(teamID: events[indexPath.row].teamName) { (data) in
-        //            cell.getTeamRating(data: data)
-        //        }
         return cell
     }
     
@@ -230,17 +245,6 @@ extension ViewController: UICollectionViewDataSource {
         performSegue(withIdentifier: "showDetailSegue", sender: nil)
     }
 }
-
-//extension ViewController: UICollectionViewDelegateFlowLayout {
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//
-//        let screenWidth = UIScreen.main.bounds.size.width - 20
-//        let height = UIScreen.main.bounds.size.height * 0.5
-//
-//        return CGSize(width: screenWidth, height: height)
-//    }
-//}
 
 extension UIView {
     func setShadow() {

@@ -299,7 +299,7 @@ class AddActiveViewController: FormViewController {
                 dateEnd: FireBaseManager.shared.dataToTimeStamp(self.endDate),
                 eventID: doc.documentID,
                 image: [],
-                joinID: [self.userId],
+                joinID: [],
                 lackCount: self.people,
                 level: self.level,
                 location: self.location,

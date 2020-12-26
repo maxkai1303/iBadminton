@@ -49,6 +49,8 @@
 		45D47DD2256CA7610098F799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD0256CA7610098F799 /* Main.storyboard */; };
 		45D47DD7256CA7620098F799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */; };
 		45D47DE5256D07410098F799 /* LineSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DE4256D07410098F799 /* LineSDK.swift */; };
+		45DAFA0F2595B7AA00F92E1D /* JoinMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */; };
+		45DAFA122595C8D500F92E1D /* JoinMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */; };
 		45E97D32258BC2770047DF81 /* TeamManberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E97D31258BC2770047DF81 /* TeamManberViewController.swift */; };
 		45E97D36258DA10F0047DF81 /* lottie-cat.json in Resources */ = {isa = PBXBuildFile; fileRef = 45E97D35258DA10F0047DF81 /* lottie-cat.json */; };
 		45E97DC7258F22F70047DF81 /* HomePageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E97DC6258F22F60047DF81 /* HomePageCollectionViewCell.swift */; };
@@ -105,6 +107,8 @@
 		45D47DD6256CA7620098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D47DD8256CA7620098F799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45D47DE4256D07410098F799 /* LineSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSDK.swift; sourceTree = "<group>"; };
+		45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberViewController.swift; path = iBadminton/JoinMemberViewController.swift; sourceTree = SOURCE_ROOT; };
+		45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberTableViewCell.swift; path = iBadminton/ViewController/JoinMemberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45E97D31258BC2770047DF81 /* TeamManberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberViewController.swift; path = iBadminton/TeamManberViewController.swift; sourceTree = SOURCE_ROOT; };
 		45E97D35258DA10F0047DF81 /* lottie-cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-cat.json"; sourceTree = "<group>"; };
 		45E97DC6258F22F60047DF81 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */,
 				45E97D31258BC2770047DF81 /* TeamManberViewController.swift */,
 				452D7F9825875DD6005742A6 /* CreateTeamViewController.swift */,
 				452D7F9525874393005742A6 /* TeamDetailViewController.swift */,
@@ -158,6 +163,7 @@
 		4524B5802570EB8200BDE238 /* ViewCell */ = {
 			isa = PBXGroup;
 			children = (
+				45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */,
 				452D7F8E25870902005742A6 /* TeamCollectionViewCell.swift */,
 				45E97DC6258F22F60047DF81 /* HomePageCollectionViewCell.swift */,
 				45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */,
@@ -421,6 +427,7 @@
 				45B78BA92577FB8C00B0922B /* fake.swift in Sources */,
 				45AA848C2574FFA7007E284E /* AddActiveViewController.swift in Sources */,
 				456463E72574EEB200FB0A9E /* TeamBallTableViewCell.swift in Sources */,
+				45DAFA122595C8D500F92E1D /* JoinMemberTableViewCell.swift in Sources */,
 				456463D12574DF0E00FB0A9E /* TeamViewController.swift in Sources */,
 				45B78B5E25779F1C00B0922B /* FireBaseManager.swift in Sources */,
 				45AA84892574F9FB007E284E /* TeamNoteTableViewCell.swift in Sources */,
@@ -435,6 +442,7 @@
 				45E97DC7258F22F70047DF81 /* HomePageCollectionViewCell.swift in Sources */,
 				45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */,
 				459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */,
+				45DAFA0F2595B7AA00F92E1D /* JoinMemberViewController.swift in Sources */,
 				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
 				4519F22A258B6E5100425218 /* FirebaseStorageManager.swift in Sources */,
 				45917E852588BD3700729176 /* UIColorExtension.swift in Sources */,

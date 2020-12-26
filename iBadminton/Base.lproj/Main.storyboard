@@ -88,35 +88,35 @@
                                 <color key="separatorColor" name="MainBlue"/>
                                 <color key="sectionIndexBackgroundColor" name="LightBlue"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageTableViewCell" rowHeight="225" id="oo3-dS-22E" customClass="ImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="225"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="imageTableViewCell" id="oo3-dS-22E" customClass="ImageTableViewCell" customModule="iBadminton" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="224.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oo3-dS-22E" id="jCt-13-BGv">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="224.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-Tn-gKb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-Tn-gKb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="224.5"/>
                                                     <color key="backgroundColor" name="LightBlue"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="224.5" id="kkv-h5-HvX"/>
                                                     </constraints>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g5t-O7-ZEW">
-                                                        <size key="itemSize" width="412" height="222"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="g5t-O7-ZEW">
+                                                        <size key="itemSize" width="412" height="270"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCollectionViewCell" id="7rD-kg-zID" customClass="ImageCollectionViewCell" customModule="iBadminton" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="imageCollectionViewCell" id="7rD-kg-zID" customClass="ImageCollectionViewCell" customModule="iBadminton" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="-23" width="412" height="270"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tqW-lK-jTt">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="412" height="270"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2111574r0dn5rz5gc0nwor" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-LO-8ws">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="225"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2111574r0dn5rz5gc0nwor" translatesAutoresizingMaskIntoConstraints="NO" id="Sbi-LO-8ws">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="412" height="270"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <constraints>
@@ -126,7 +126,6 @@
                                                                     <constraint firstItem="Sbi-LO-8ws" firstAttribute="top" secondItem="tqW-lK-jTt" secondAttribute="top" id="Rg0-pS-p64"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
-                                                            <size key="customSize" width="414" height="225"/>
                                                             <connections>
                                                                 <outlet property="imageView" destination="Sbi-LO-8ws" id="JjI-zk-4rx"/>
                                                             </connections>
@@ -151,7 +150,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="titleTableViewCell" id="2BO-04-e2Y" customClass="TitleTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="253" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="252.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2BO-04-e2Y" id="EhV-p4-erY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -175,7 +174,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tagTableViewCell" rowHeight="71.5" id="0rk-64-DJd" customClass="TagTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="297" width="414" height="71.5"/>
+                                        <rect key="frame" x="0.0" y="296.5" width="414" height="71.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0rk-64-DJd" id="sqb-6A-9Fa">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="71.5"/>
@@ -237,54 +236,62 @@
                                             <outlet property="collectionView" destination="FSX-eW-AMg" id="3jG-Pr-tqm"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateTableViewCell" id="62A-qA-h2j" customClass="DateTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="368.5" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dateTableViewCell" rowHeight="68" id="62A-qA-h2j" customClass="DateTableViewCell" customModule="iBadminton" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="368" width="414" height="68"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="62A-qA-h2j" id="L7A-Fr-Fh4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" translatesAutoresizingMaskIntoConstraints="NO" id="qC2-DY-TVZ">
-                                                    <rect key="frame" x="8" y="8" width="28" height="28"/>
+                                                    <rect key="frame" x="8" y="20" width="28" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="28" id="qvS-lN-nQS"/>
                                                         <constraint firstAttribute="height" constant="28" id="yOA-Ik-5Nx"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020 / 12 / 13  20:00 - 22:00 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imp-Lj-ySy">
-                                                    <rect key="frame" x="60" y="10" width="248" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020 / 12 / 13  20:00  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pVD-pF-jeq">
+                                                    <rect key="frame" x="60" y="36" width="182.5" height="24"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="缺 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70G-Tc-Iiq">
-                                                    <rect key="frame" x="367" y="8" width="39" height="28"/>
+                                                    <rect key="frame" x="351" y="20" width="39" height="28"/>
                                                     <color key="backgroundColor" name="LightBlue"/>
                                                     <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="20"/>
                                                     <color key="textColor" name="MainBlue"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020 / 12 / 13  20:00  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Imp-Lj-ySy">
+                                                    <rect key="frame" x="60" y="8" width="182.5" height="24"/>
+                                                    <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                    <color key="textColor" name="MainBlue"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="70G-Tc-Iiq" firstAttribute="centerY" secondItem="Imp-Lj-ySy" secondAttribute="centerY" id="C0v-EL-z6D"/>
-                                                <constraint firstAttribute="trailing" secondItem="70G-Tc-Iiq" secondAttribute="trailing" constant="8" id="CE6-TB-RdN"/>
-                                                <constraint firstAttribute="trailing" secondItem="Imp-Lj-ySy" secondAttribute="trailing" constant="106" id="Cno-7t-NbT"/>
+                                                <constraint firstItem="pVD-pF-jeq" firstAttribute="leading" secondItem="Imp-Lj-ySy" secondAttribute="leading" id="8UJ-vG-XO2"/>
+                                                <constraint firstItem="Imp-Lj-ySy" firstAttribute="top" secondItem="L7A-Fr-Fh4" secondAttribute="top" constant="8" id="Eu2-Xn-YH6"/>
+                                                <constraint firstAttribute="bottom" secondItem="pVD-pF-jeq" secondAttribute="bottom" constant="8" id="NcJ-rr-Lxv"/>
                                                 <constraint firstItem="qC2-DY-TVZ" firstAttribute="leading" secondItem="L7A-Fr-Fh4" secondAttribute="leading" constant="8" id="Srd-br-f1g"/>
-                                                <constraint firstItem="Imp-Lj-ySy" firstAttribute="leading" secondItem="qC2-DY-TVZ" secondAttribute="trailing" constant="24" id="dxR-Ch-Ibs"/>
-                                                <constraint firstItem="Imp-Lj-ySy" firstAttribute="centerY" secondItem="qC2-DY-TVZ" secondAttribute="centerY" id="gHq-dU-YnC"/>
+                                                <constraint firstItem="Imp-Lj-ySy" firstAttribute="leading" secondItem="qC2-DY-TVZ" secondAttribute="trailing" constant="24" id="UQu-e0-U5r"/>
+                                                <constraint firstItem="pVD-pF-jeq" firstAttribute="top" secondItem="Imp-Lj-ySy" secondAttribute="bottom" constant="4" id="dCD-8X-GTc"/>
+                                                <constraint firstItem="70G-Tc-Iiq" firstAttribute="centerY" secondItem="qC2-DY-TVZ" secondAttribute="centerY" id="jfg-Eu-ksl"/>
+                                                <constraint firstAttribute="trailing" secondItem="70G-Tc-Iiq" secondAttribute="trailing" constant="24" id="jxN-ub-Fgk"/>
                                                 <constraint firstItem="qC2-DY-TVZ" firstAttribute="centerY" secondItem="L7A-Fr-Fh4" secondAttribute="centerY" id="kFr-5J-nMH"/>
-                                                <constraint firstItem="70G-Tc-Iiq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Imp-Lj-ySy" secondAttribute="trailing" constant="30" id="lKU-eh-Il3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="LightBlue"/>
                                         <connections>
                                             <outlet property="dateImage" destination="qC2-DY-TVZ" id="T4t-NC-fnV"/>
                                             <outlet property="dateLabel" destination="Imp-Lj-ySy" id="4pE-sg-hOV"/>
+                                            <outlet property="endTimeLabel" destination="pVD-pF-jeq" id="jPr-nG-Emo"/>
                                             <outlet property="lackCount" destination="70G-Tc-Iiq" id="WsD-Jb-f6O"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="locationTableViewCell" id="ZlC-PI-BRk" customClass="LocationTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="412.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="436" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZlC-PI-BRk" id="KTR-rn-lHb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -320,7 +327,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ballTableViewCell" id="d1n-Xv-s9e" customClass="BallTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="456.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="480" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d1n-Xv-s9e" id="Zsk-hu-vGs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -355,7 +362,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="priceTableViewCell" rowHeight="44" id="YMb-4w-Z8Y" customClass="PriceTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="500.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="524" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMb-4w-Z8Y" id="Wvs-Xy-OAw">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -390,7 +397,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteTableViewCell" id="CRs-bN-EEh" customClass="NoteTableViewCell" customModule="iBadminton" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="544.5" width="414" height="256"/>
+                                        <rect key="frame" x="0.0" y="568" width="414" height="256"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CRs-bN-EEh" id="58w-JL-yGG">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="256"/>
@@ -452,11 +459,72 @@
                     <navigationItem key="navigationItem" id="Z5i-gd-tZP"/>
                     <connections>
                         <outlet property="detailTableView" destination="1OV-6F-XKE" id="CJA-cS-Vk8"/>
+                        <segue destination="v2L-IM-kyT" kind="showDetail" identifier="goJoinMember" id="Xrd-lj-gKL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlc-zZ-JZq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5329" y="767"/>
+            <point key="canvasLocation" x="5328.985507246377" y="766.74107142857144"/>
+        </scene>
+        <!--Join Member View Controller-->
+        <scene sceneID="62S-On-cEf">
+            <objects>
+                <viewController id="v2L-IM-kyT" customClass="JoinMemberViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ohd-dD-C5H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="pfr-fN-Kfv">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <color key="backgroundColor" name="LightBlue"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="joinMemberTableViewCell" id="2YX-vm-JHc" customClass="JoinMemberTableViewCell" customModule="iBadminton" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2YX-vm-JHc" id="yLT-uV-cUf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="讀取中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r1C-9Z-3WP">
+                                                    <rect key="frame" x="24" y="11.5" width="52" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="r1C-9Z-3WP" firstAttribute="centerY" secondItem="yLT-uV-cUf" secondAttribute="centerY" id="JWv-gy-jO8"/>
+                                                <constraint firstItem="r1C-9Z-3WP" firstAttribute="leading" secondItem="yLT-uV-cUf" secondAttribute="leading" constant="24" id="Lfu-D0-oEh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="joinNameLabel" destination="r1C-9Z-3WP" id="4si-fA-hQ2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="v2L-IM-kyT" id="R30-ke-Y3p"/>
+                                    <outlet property="delegate" destination="v2L-IM-kyT" id="2qj-cA-F2c"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ly6-A1-Ni8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pfr-fN-Kfv" firstAttribute="leading" secondItem="ly6-A1-Ni8" secondAttribute="leading" id="FzW-wv-FQE"/>
+                            <constraint firstItem="pfr-fN-Kfv" firstAttribute="top" secondItem="ly6-A1-Ni8" secondAttribute="top" id="mZS-zA-DlC"/>
+                            <constraint firstItem="ly6-A1-Ni8" firstAttribute="bottom" secondItem="pfr-fN-Kfv" secondAttribute="bottom" id="mt7-5m-I6c"/>
+                            <constraint firstItem="ly6-A1-Ni8" firstAttribute="trailing" secondItem="pfr-fN-Kfv" secondAttribute="trailing" id="na2-lI-F6x"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="d2R-Gc-qsV"/>
+                    <connections>
+                        <outlet property="joinMemberTabelView" destination="pfr-fN-Kfv" id="nAd-So-e8p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ovj-rq-RyS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6186.9565217391309" y="766.74107142857144"/>
         </scene>
         <!--Team Rating View Controller-->
         <scene sceneID="Ipf-Fb-bDt">
@@ -543,7 +611,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVt-g8-Jku" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5329" y="1615"/>
+            <point key="canvasLocation" x="4725" y="1649"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="M5z-g3-hMc">

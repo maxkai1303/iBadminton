@@ -20,17 +20,14 @@ class TeamEditViewController: FormViewController {
     var teamImage = UIImage()
     var teamMessage: String = ""
     var teamName: String = ""
-    var admindId:[String] = []
+    var adminId:[String] = []
     var teamId: String = ""
     var teamMember: [String] = []
     
     var selectTeam: Team? {
         didSet {
-            FireBaseManager.shared.getOwnTeam(userId: userId) { (result) in
-                self.ownTeam = result
-            }
-            self.form.allRows.forEach({ $0.updateCell(); $0.reload()})
-            tableView.reloadData()
+            listenAdmin(teamId: selectTeam!.teamID)
+            self.form.rowBy(tag: "segments")?.updateCell()
         }
     }
     
@@ -41,6 +38,27 @@ class TeamEditViewController: FormViewController {
             self.ownTeam = result
         }
         
+    }
+    
+    func listenAdmin(teamId: String) {
+        FireBaseManager.shared.getCollection(name: .team).document(teamId).addSnapshotListener
+        { documentSnapshot, _ in
+            
+            guard let doc = documentSnapshot else { return }
+            print("\(doc)!!!!!!!!!!")
+            
+            self.adminId = doc.data()!["adminID"] as! [String]
+            
+            self.form.rowBy(tag: "segments")?.updateCell()
+            
+            
+        }
+    }
+    
+    func getOwnTeam() {
+        FireBaseManager.shared.getOwnTeam(userId: userId) { (result) in
+            self.ownTeam = result
+        }
     }
     
     func setUi() {
@@ -60,16 +78,14 @@ class TeamEditViewController: FormViewController {
                 
             }.onChange({ (row) in
                 self.pickerTeam = row.value ?? ""
-//                self.form.allRows.forEach({_ in row.updateCell(); row.reload()})
                 for team in self.ownTeam where team.teamName == self.pickerTeam {
                     self.selectTeam = team
                 }
-                self.admindId = self.selectTeam?.adminID ?? []
+                self.adminId = self.selectTeam?.adminID ?? []
                 self.teamId = self.selectTeam?.teamID ?? ""
-                row.reload()
                 print("value changed: \(row.value!)")
                 print(self.selectTeam ?? [])
-                print(self.admindId)
+                print(self.adminId)
             })
             
         form +++ Section("修改球隊顯示內容")
@@ -116,7 +132,7 @@ class TeamEditViewController: FormViewController {
             }).cellUpdate { cell, row in
                 if !row.isValid {
                     row.placeholder = "最少 10 字最多輸入 200 字"
-                    cell.textView.backgroundColor = .systemRed
+//                    cell.textView.backgroundColor = .systemRed
                 }
             }
             
@@ -145,8 +161,9 @@ class TeamEditViewController: FormViewController {
                 }
             }
         
-            +++ Section(header: "選擇球隊後點擊切換刷新顯示", footer: "管理員左滑移除刪除\n管理者後該成員不會被踢出球隊，只有移除管理球隊功能\n隊員右滑加入管理員")
+            +++ Section(header: "選擇球隊後點擊切換刷新顯示", footer: "管理員左滑移除管理球隊功能\n隊員名單右滑加入管理員名單")
                 <<< SegmentedRow<String>("segments"){
+                    $0.tag = "segments"
                     $0.options = ["球隊管理員", "球隊隊員名單"]
                     $0.value = ""
                     $0.cell.backgroundColor = .groupTableViewBackground
@@ -156,7 +173,7 @@ class TeamEditViewController: FormViewController {
                     if(segmented.value == "球隊管理員") {
                         segmented.section!.removeLast(segmented.section!.count - 1)
 
-                        for i in self.admindId {
+                        for i in self.adminId {
                             FireBaseManager.shared.getUserName(userId: i) { (name) in
                                 segmented.section! <<< LabelRow() {
                                     $0.title = name
@@ -164,7 +181,7 @@ class TeamEditViewController: FormViewController {
                                     
                                         let deleteAction = SwipeAction(style: .destructive, title: "移除管理員", handler: { (action, row, completionHandler) in
                                             
-                                            guard i != self.userId && self.admindId.count != 1 else {
+                                            guard i != self.userId && self.adminId.count != 1 else {
                                                 HUD.flash(.labeledError(title: "哎呀！", subtitle: "不能移除自己啦"), delay: 1.3)
                                                 return
                                             }
@@ -179,7 +196,6 @@ class TeamEditViewController: FormViewController {
                                                 ])
                                                 FireBaseManager.shared.addTimeline(teamDoc: self.teamId, content: "\(name!) 已解除管理員", event: false)
                                                 completionHandler?(true)
-                                                self.tableView.reloadData()
                                             })
                                             let backAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
                                             controller.addAction(backAction)
@@ -205,7 +221,7 @@ class TeamEditViewController: FormViewController {
                                     self.teamMember.append(name ?? "")
                                     let infoAction = SwipeAction(style: .normal, title: "新增管理員", handler: { (action, row, completionHandler) in
                                         completionHandler?(true)
-                                        if self.admindId.contains(i) {
+                                        if self.adminId.contains(i) {
                                             HUD.flash(.labeledError(title: "哎呀！", subtitle: "這位已經是管理員了"), delay: 1.3)
                                         } else {
                                             FireBaseManager.shared.getCollection(name:.team).document("\(self.teamId)").updateData([
@@ -213,6 +229,7 @@ class TeamEditViewController: FormViewController {
                                             ])
                                             FireBaseManager.shared.addTimeline(teamDoc: self.teamId, content: "\(name!) 成為球隊管理員", event: false)
                                             HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功"), delay: 1.3)
+                                            self.form.rowBy(tag: "segments")?.updateCell()
                                         }
                                     })
                                     infoAction.actionBackgroundColor = UIColor.maxColor(with: .yellow)
@@ -223,9 +240,6 @@ class TeamEditViewController: FormViewController {
                             }
                         }
                     }
-                }).cellSetup({ (cell, row) in
-                    cell.layer.borderWidth = 0
-                    cell.layer.borderColor = UIColor.groupTableViewBackground.cgColor
                 }).cellUpdate({ (cell, row) in
                     row.reload()
                 })

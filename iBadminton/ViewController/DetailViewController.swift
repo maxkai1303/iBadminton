@@ -14,7 +14,7 @@ import PKHUD
 class DetailViewController: UIViewController, UITableViewDelegate {
     
     var detailEvent: Event?
-    
+    var userId: String = ""
     
     enum ButtonFunction {
         case joinTeam
@@ -32,6 +32,10 @@ class DetailViewController: UIViewController, UITableViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        detailTableView.reloadData()
     }
     
     func setMenuButton() {
@@ -63,26 +67,33 @@ class DetailViewController: UIViewController, UITableViewDelegate {
             self.detailJoin(buttonFunc: .joinPlay)
         }
         
-        //        let item3 = ExpandingMenuItem(
-        //            size: menuButtonSize,
-        //            title: "查看球隊評價",
-        //            image: #imageLiteral(resourceName: "checkRating"),
-        //            highlightedImage: #imageLiteral(resourceName: "checkRating"),
-        //            backgroundImage: #imageLiteral(resourceName: "circle"),
-        //            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
-        //            // MARK: 不知道為什麼沒辦法打開評價頁面
-        //            self.present(TeamRatingViewController(), animated: true, completion: nil)
-        //            print("GOGOGOGGO")
-        //        }
+        let item3 = ExpandingMenuItem(
+            size: menuButtonSize,
+            title: "查看球員名單",
+            image: #imageLiteral(resourceName: "group"),
+            highlightedImage: #imageLiteral(resourceName: "group"),
+            backgroundImage: #imageLiteral(resourceName: "circle"),
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
+
+            self.performSegue(withIdentifier: "goJoinMember", sender: self)
+            print("GOGOGOGGO")
+        }
         
-        menuButton.addMenuItems([item1, item2])
+        menuButton.addMenuItems([item1, item2, item3])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goJoinMember" {
+            let controller = segue.destination as? JoinMemberViewController
+            controller?.eventId = detailEvent?.eventID ?? ""
+        }
     }
     
     func detailJoin(buttonFunc: ButtonFunction) {
         
         FireBaseManager.shared.checkLogin { (uid) in
             
-            guard let userId = uid else {
+            guard self.userId == uid else {
                 if #available(iOS 13.0, *) {
                     let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
                     self.present(signInPage!, animated: true, completion: nil)
@@ -98,30 +109,30 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     print("event is nil")
                     return
                 }
-                FireBaseManager.shared.getCollection(name: .team).whereField("teamName",
-                                                                             isEqualTo: team.teamName).getDocuments { (querySnapshot, error) in
-                                                                                if let error = error {
-                                                                                    print(error)
-                                                                                } else {
-                                                                                    var datas = [Team]()
-                                                                                    
-                                                                                    for document in querySnapshot!.documents {
-                                                                                        if let data = try? document.data(as: Team.self, decoder: Firestore.Decoder()) {
-                                                                                            datas.append(data)
-                                                                                        }
-                                                                                    }
-                                                                                    
-                                                                                    print(datas)
-                                                                                    
-                                                                                    datas.forEach { data in
-                                                                                        FireBaseManager.shared.getUserName(userId: userId) { (name) in
-                                                                                            guard let name = name, !name.isEmpty else { return }
-                                                                                            FireBaseManager.shared.checkJoinTeam(userId: userId, teamId: data.teamID, name: name )
-                                                                                        }
-                                                                                    }
-                                                                                }
-                                                                                
-                                                                             }
+                FireBaseManager.shared.getCollection(name: .team).whereField("teamName", isEqualTo: team.teamName).getDocuments {
+                    querySnapshot, error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        var datas = [Team]()
+                        
+                        for document in querySnapshot!.documents {
+                            if let data = try? document.data(as: Team.self, decoder: Firestore.Decoder()) {
+                                datas.append(data)
+                            }
+                        }
+                        
+                        print(datas)
+                        
+                        datas.forEach { data in
+                            FireBaseManager.shared.getUserName(userId: self.userId) { (name) in
+                                guard let name = name, !name.isEmpty else { return }
+                                FireBaseManager.shared.checkJoinTeam(userId: self.userId, teamId: data.teamID, name: name )
+                            }
+                        }
+                    }
+                    
+                }
                 
             case .joinPlay:
                 
@@ -129,7 +140,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     print("event is nil")
                     return
                 }
-                FireBaseManager.shared.checkJoinEvent(userId: userId, eventId: event.eventID)
+                FireBaseManager.shared.checkJoinEvent(userId: self.userId, eventId: event.eventID)
             }
         }
     }
@@ -145,7 +156,8 @@ extension DetailViewController: UITableViewDataSource {
         case 0:
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "imageTableViewCell", for: indexPath)
-                    as? ImageTableViewCell, let data = detailEvent else { return UITableViewCell() }
+                    as? ImageTableViewCell,
+                  let data = detailEvent else { return UITableViewCell() }
             cell.setUp(event: data)
             return cell
         case 1:
@@ -164,7 +176,7 @@ extension DetailViewController: UITableViewDataSource {
             guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: "dateTableViewCell", for: indexPath)
                     as? DateTableViewCell, let data = detailEvent else { return UITableViewCell() }
-            cell.setUp(lack: data.lackCount, date: data.dateStart)
+            cell.setUp(lack: data.lackCount - data.joinID.count, startDate: data.dateStart, endDate: data.dateEnd)
             return cell
         case 4:
             guard let cell = tableView.dequeueReusableCell(
@@ -197,6 +209,22 @@ extension DetailViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return UITableView.automaticDimension
+        guard let tags = detailEvent?.tag.count else { return UITableView.automaticDimension }
+        
+        switch indexPath.row {
+        
+        case 2: return CGFloat((tags / 3) * 25 + (25 * tags / 3))
+            
+        default: return UITableView.automaticDimension
+            
+        }
+    }
+}
+
+extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
     }
 }
