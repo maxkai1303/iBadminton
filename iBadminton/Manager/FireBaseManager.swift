@@ -197,20 +197,20 @@ class FireBaseManager {
                     doc.updateData([
                         "status": false
                     ])
-                    HUD.flash(.labeledError(title: "Oops！", subtitle: "這個活動已經滿員了！"))
+                    HUD.flash(.labeledError(title: "Oops！", subtitle: "這個活動已經滿員了！"), delay: 1.3)
                     
                 case 1:
                     doc.updateData([
                         "joinID": FieldValue.arrayUnion([userId]),
                         "status": false
                     ])
-                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功記得去打球喔！"))
+                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功記得去打球喔！"), delay: 1.3)
                     
                 default:
                     doc.updateData([
                         "joinID": FieldValue.arrayUnion([userId])
                     ])
-                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功記得去打球喔！"))
+                    HUD.flash(.labeledSuccess(title: "Success！", subtitle: "加入成功記得去打球喔！"), delay: 1.3)
                 }
             } else {
                 print("Document does not exist")

@@ -25,7 +25,6 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         setTitle()
         setupView()
         
-        
         guard let user = Auth.auth().currentUser else { return }
         self.userId = user.uid
         checkOwnTeam()
@@ -35,7 +34,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         readTeam()
         checkOwnTeam()
-        teamCollectionView.reloadData()
+//        teamCollectionView.reloadData()
     }
     
     func setTitle() {
@@ -90,12 +89,12 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
                 frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
                 image: #imageLiteral(resourceName: "settings"),
                 rotatedImage: #imageLiteral(resourceName: "cancel"))
-            menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 100.0)
+            menuButton.center = CGPoint(x: self.view.bounds.width - 32.0, y: self.view.bounds.height - 130.0)
             view.addSubview(menuButton)
             
             let itemEdit = ExpandingMenuItem(
                 size: menuButtonSize,
-                title: "修改球隊資訊",
+                title: "編輯球隊資訊",
                 image: #imageLiteral(resourceName: "joinTeam"),
                 highlightedImage: #imageLiteral(resourceName: "joinTeam"),
                 backgroundImage: #imageLiteral(resourceName: "circle"),

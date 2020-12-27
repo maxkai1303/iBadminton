@@ -36,7 +36,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
     let eventImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "image_placeholder")
         imageView.backgroundColor = UIColor.maxColor(with: .lightBlue)
         imageView.clipsToBounds = true

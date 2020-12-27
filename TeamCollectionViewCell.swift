@@ -33,7 +33,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     
     let teamImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.contentMode = .scaleToFill
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "image_placeholder")
         imageView.backgroundColor = UIColor.maxColor(with: .lightBlue)

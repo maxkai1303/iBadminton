@@ -93,7 +93,9 @@ class DetailViewController: UIViewController, UITableViewDelegate {
         
         FireBaseManager.shared.checkLogin { (uid) in
             
-            guard self.userId == uid else {
+            guard let user = Auth.auth().currentUser else { return }
+            
+            guard user.uid == uid else {
                 if #available(iOS 13.0, *) {
                     let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
                     self.present(signInPage!, animated: true, completion: nil)
@@ -125,9 +127,9 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                         print(datas)
                         
                         datas.forEach { data in
-                            FireBaseManager.shared.getUserName(userId: self.userId) { (name) in
+                            FireBaseManager.shared.getUserName(userId: user.uid) { (name) in
                                 guard let name = name, !name.isEmpty else { return }
-                                FireBaseManager.shared.checkJoinTeam(userId: self.userId, teamId: data.teamID, name: name )
+                                FireBaseManager.shared.checkJoinTeam(userId: user.uid, teamId: data.teamID, name: name )
                             }
                         }
                     }
@@ -140,7 +142,7 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     print("event is nil")
                     return
                 }
-                FireBaseManager.shared.checkJoinEvent(userId: self.userId, eventId: event.eventID)
+                FireBaseManager.shared.checkJoinEvent(userId: user.uid, eventId: event.eventID)
             }
         }
     }

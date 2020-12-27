@@ -52,6 +52,8 @@
 		<string>MKDirectionsModeBus</string>
 		<string>MKDirectionsModeCar</string>
 	</array>
+	<key>NSCameraUsageDescription</key>
+	<string></string>
 	<key>Privacy — Location When In Use Usage Description</key>
 	<string>是否同意在地圖上顯示位置資訊</string>
 	<key>UIApplicationSceneManifest</key>
@@ -86,8 +88,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -98,7 +98,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSCameraUsageDescription</key>
-	<string></string>
 </dict>
 </plist>

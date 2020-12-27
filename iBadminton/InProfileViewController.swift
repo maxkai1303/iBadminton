@@ -15,7 +15,7 @@ class InProfileViewController: FormViewController  {
     var joinEvent: [String] = []
     var eventDate: [String] = []
     var userId: String = ""
-    var userName: String = ""
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,43 +63,70 @@ class InProfileViewController: FormViewController  {
             }.onChange({ (segmented) in
                 if(segmented.value == "參加的球隊") {
                     segmented.section!.removeLast(segmented.section!.count - 1)
+                    var teamId: String = ""
+                    var userName: String = ""
                     for value in self.joinTeam {
                         segmented.section! <<< LabelRow() {
                             $0.title = value
                             $0.hidden = "$segments != '參加的球隊'"
                             let deleteAction = SwipeAction(style: .destructive, title: "退出球隊", handler: { (action, row, completionHandler) in
-                                FireBaseManager.shared.getCollection(name: .team).document(value).getDocument { (document, error) in
-                                    if let document = document {
-                                        let onlyAdmin = document["adminID"] as? Array ?? [self.userId]
-                                        guard onlyAdmin.count != 1 else {
-                                            self.cantLeave()
-                                            return
-                                        }
-                                        let controller = UIAlertController(title: "哎呦喂呀！", message: "確定要離開球隊嗎", preferredStyle: .alert)
+                                FireBaseManager.shared.getCollection(name: .team).whereField("teamName", isEqualTo: value) .getDocuments { (querySnapshot, error) in
+                                    if let error = error {
+                                        print(error)
+                                    } else {
+                                        var datas = [Team]()
                                         
-                                        let okAction = UIAlertAction(title: "離開", style: .destructive, handler: {_ in
-                                            
-                                            print("Delete")
-                                            
-                                            FireBaseManager.shared.getCollection(name: .team).document(value).updateData([
-                                                "teamMenber": FieldValue.arrayRemove([self.userId]),
-                                                "adminID": FieldValue.arrayRemove([self.userId])
-                                            ])
-                                            FireBaseManager.shared.getUserName(userId: self.userId) { (result) in
-                                                guard result != "" else { return }
-                                                self.userName = result!
+                                        for document in querySnapshot!.documents {
+                                            if let data = try? document.data(as: Team.self, decoder: Firestore.Decoder()) {
+                                                datas.append(data)
                                             }
-                                            FireBaseManager.shared.addTimeline(teamDoc: value, content: "\(self.userName) 離開了球隊", event: false)
-                                            completionHandler?(true)
-                                            row.reload()
-                                            segmented.reload()
-                                        })
-                                        let backAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-                                        controller.addAction(backAction)
-                                        controller.addAction(okAction)
-                                        self.present(controller, animated: true, completion: nil)
+                                        }
+                                        
+                                        print(datas)
+                                        
+                                        datas.forEach {
+                                            teamId = $0.teamID
+
+                                            FireBaseManager.shared.getCollection(name: .team).document(teamId).getDocument { (document, error) in
+                                                if let document = document {
+                                                    let onlyAdmin = document["adminID"] as? [String] ?? []
+                                                    
+                                                    if onlyAdmin.count == 1 && onlyAdmin.contains(self.userId) {
+                                                        self.cantLeave()
+                                                        return
+                                                    }
+
+                                                    let controller = UIAlertController(title: "哎呦喂呀！", message: "確定要離開球隊嗎", preferredStyle: .alert)
+                                                    
+                                                    let okAction = UIAlertAction(title: "離開", style: .destructive, handler: {_ in
+                                                        
+                                                        print("Delete")
+                                                        
+                                                        FireBaseManager.shared.getCollection(name: .team).document(teamId).updateData([
+                                                            "teamMenber": FieldValue.arrayRemove([self.userId]),
+                                                            "adminID": FieldValue.arrayRemove([self.userId])
+                                                        ])
+                                                        FireBaseManager.shared.getUserName(userId: self.userId) { (name) in
+                                                            guard let name = name, !name.isEmpty else { return }
+                                                            userName = name
+                                                            FireBaseManager.shared.addTimeline(teamDoc: teamId, content: "\(userName) 離開了球隊", event: false)
+                                                        }
+                                                        completionHandler?(true)
+                                                        row.reload()
+                                                        segmented.reload()
+                                                    })
+                                                    let backAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+                                                    controller.addAction(backAction)
+                                                    controller.addAction(okAction)
+                                                    self.present(controller, animated: true, completion: nil)
+                                                }
+                                            }
+                                        }
+                                        
                                     }
+
                                 }
+                                
                             })
                             $0.trailingSwipe.actions = [deleteAction]
                             $0.trailingSwipe.performsFirstActionWithFullSwipe = true
