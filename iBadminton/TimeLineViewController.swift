@@ -12,11 +12,20 @@ import FirebaseFirestoreSwift
 
 class TimeLineViewController: UIViewController {
     
+<<<<<<< HEAD
     var timeline = ISTimeline()
     
     var data: [TeamPoint] = []
     var teamId: String = ""
     var teamName: String = ""
+=======
+    //    var lineTitle: String?
+    //    var lineDescription: String?
+    //    var pointColor: UIColor
+    //    var lineColor: UIColor
+    //    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
+    //    var fill: Bool
+>>>>>>> teamStory
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -95,6 +104,7 @@ class TimeLineViewController: UIViewController {
         timeline.lineWidth = 2.0
         timeline.bubbleRadius = 0.0
         self.view.addSubview(timeline)
+<<<<<<< HEAD
     }
     
     func setData() {
@@ -127,6 +137,20 @@ class TimeLineViewController: UIViewController {
         
         print("myPoing data: ", myPoint)
         return myPoint
+=======
+        
+        for content in 0...9 {
+            let point = ISPoint(title: "point \(content)")
+            point.description = "my awesome description"
+            point.lineColor = content % 2 == 0 ? .red : .green
+            point.pointColor = point.lineColor
+            point.touchUpInside = { (point:ISPoint) in
+                print(point.title)
+            }
+            timeline.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+            timeline.points.append(point)
+        }
+>>>>>>> teamStory
     }
 }
 /*
