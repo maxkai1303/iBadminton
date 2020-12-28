@@ -10,12 +10,12 @@ import ISTimeline
 
 class TimeLineViewController: UIViewController {
     
-//    var lineTitle: String?
-//    var lineDescription: String?
-//    var pointColor: UIColor
-//    var lineColor: UIColor
-//    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
-//    var fill: Bool
+    //    var lineTitle: String?
+    //    var lineDescription: String?
+    //    var pointColor: UIColor
+    //    var lineColor: UIColor
+    //    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
+    //    var fill: Bool
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +47,9 @@ class TimeLineViewController: UIViewController {
             point.touchUpInside = { (point:ISPoint) in
                 print(point.title)
             }
-        timeline.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
-        timeline.points.append(point)
-    }
+            timeline.contentInset = UIEdgeInsets(top: 20.0, left: 20.0, bottom: 20.0, right: 20.0)
+            timeline.points.append(point)
+        }
     }
 }
 /*
