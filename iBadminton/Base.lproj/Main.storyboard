@@ -1007,7 +1007,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATd-mS-Ooz">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HME-cp-IKW">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image_placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="HME-cp-IKW">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                                 <color key="backgroundColor" name="LightBlue"/>
                                                 <constraints>

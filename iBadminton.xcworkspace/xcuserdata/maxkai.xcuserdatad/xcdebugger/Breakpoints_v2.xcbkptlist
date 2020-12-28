@@ -7,47 +7,78 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "551C38BD-4F0F-49C6-889A-D5512F7D7F92"
+            uuid = "7C52865D-01E7-4F9B-92DF-D32F56561202"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iBadminton/InProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
+            landmarkName = "setLabel()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "38C02AF5-0924-4403-B183-C9E783824547"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iBadminton/InProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
             landmarkName = "setLabel()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "551C38BD-4F0F-49C6-889A-D5512F7D7F92 - bfedb80e3c7b56d2"
+                  uuid = "38C02AF5-0924-4403-B183-C9E783824547 - 369020ba67fff814"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (iBadminton.Team) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Eureka.SwipeAction, Eureka.BaseRow, Swift.Optional&lt;(Swift.Bool) -&gt; ()&gt;) -&gt; () in closure #1 (Eureka.LabelRow) -&gt; () in closure #3 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in iBadminton.InProfileViewController.setLabel() -&gt; ()"
+                  symbolName = "closure #3 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in iBadminton.InProfileViewController.setLabel() -&gt; ()"
                   moduleName = "iBadminton"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maxkai/iBadminton/iBadminton/InProfileViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
-                  offsetFromSymbolStart = "1348">
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "4256">
                </Location>
                <Location
-                  uuid = "551C38BD-4F0F-49C6-889A-D5512F7D7F92 - f6495c6ee32f49ff"
+                  uuid = "38C02AF5-0924-4403-B183-C9E783824547 - 11633c4e179d0e10"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; () in closure #1 (__C.UIAlertAction) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRDocumentSnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (iBadminton.Team) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRQuerySnapshot&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Eureka.SwipeAction, Eureka.BaseRow, Swift.Optional&lt;(Swift.Bool) -&gt; ()&gt;) -&gt; () in closure #1 (Eureka.LabelRow) -&gt; () in closure #3 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in iBadminton.InProfileViewController.setLabel() -&gt; ()"
+                  symbolName = "closure #4 (Eureka.LabelRow) -&gt; () in closure #3 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in iBadminton.InProfileViewController.setLabel() -&gt; ()"
                   moduleName = "iBadminton"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maxkai/iBadminton/iBadminton/InProfileViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "67"
-                  endingLineNumber = "67"
-                  offsetFromSymbolStart = "56">
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "38C02AF5-0924-4403-B183-C9E783824547 - fcb593018d9e7a10"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #5 (Eureka.LabelCellOf&lt;Swift.String&gt;, Eureka.LabelRow) -&gt; () in closure #3 (Eureka.SegmentedRow&lt;Swift.String&gt;) -&gt; () in iBadminton.InProfileViewController.setLabel() -&gt; ()"
+                  moduleName = "iBadminton"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxkai/iBadminton/iBadminton/InProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "171"
+                  endingLineNumber = "171"
+                  offsetFromSymbolStart = "68">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,63 +86,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8DEB6840-5239-4EC6-81CD-7D117CD22976"
+            uuid = "390F0874-600C-45E3-A2EE-8C20056129C4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iBadminton/InProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "setLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "02667BE9-F5BE-46D5-B732-18ABDB1CB0A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iBadminton/InProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "setLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D9841917-FB79-4DC8-87B5-AD611DEC2B7D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iBadminton/InProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
-            landmarkName = "setLabel()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4002E2D4-4FF4-4DF4-BB7A-AFC1ABD6C2AC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "iBadminton/InProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "174"
+            endingLineNumber = "174"
             landmarkName = "setLabel()"
             landmarkType = "7">
          </BreakpointContent>

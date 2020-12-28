@@ -215,7 +215,7 @@ extension DetailViewController: UITableViewDataSource {
         
         switch indexPath.row {
         
-        case 2: return CGFloat((tags / 3) * 25 + (25 * tags / 3))
+        case 2: return CGFloat((tags / 3) * 55 + (23 * tags / 3))
             
         default: return UITableView.automaticDimension
             
