@@ -636,12 +636,22 @@
                                     <constraint firstAttribute="height" constant="240" id="Ls6-YG-RHv"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oRk-nN-wJv">
+                                <rect key="frame" x="117" y="769" width="180" height="33"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="15"/>
+                                <state key="normal" title="登入即代表同意隱私權條款"/>
+                                <connections>
+                                    <segue destination="ro1-aj-v7f" kind="showDetail" id="HAA-Kf-xRy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hOA-pS-jbH"/>
                         <color key="backgroundColor" name="LightBlue"/>
                         <constraints>
                             <constraint firstItem="srU-ja-zS7" firstAttribute="centerX" secondItem="hOA-pS-jbH" secondAttribute="centerX" id="bDl-gj-0N0"/>
+                            <constraint firstItem="oRk-nN-wJv" firstAttribute="centerX" secondItem="ckJ-80-C0h" secondAttribute="centerX" id="isd-bg-P3N"/>
                             <constraint firstItem="yuJ-wB-rBv" firstAttribute="centerX" secondItem="ckJ-80-C0h" secondAttribute="centerX" id="knQ-wm-iwo"/>
+                            <constraint firstItem="hOA-pS-jbH" firstAttribute="bottom" secondItem="oRk-nN-wJv" secondAttribute="bottom" constant="60" id="pGe-dw-LFk"/>
                             <constraint firstItem="hOA-pS-jbH" firstAttribute="bottom" secondItem="srU-ja-zS7" secondAttribute="bottom" constant="205" id="rxA-Ig-3WS"/>
                             <constraint firstItem="yuJ-wB-rBv" firstAttribute="top" secondItem="hOA-pS-jbH" secondAttribute="top" constant="120" id="sSV-21-pTM"/>
                         </constraints>
@@ -649,6 +659,7 @@
                     <navigationItem key="navigationItem" id="zNn-uL-ZT0"/>
                     <connections>
                         <outlet property="appleLoginView" destination="srU-ja-zS7" id="5m3-Sh-0vE"/>
+                        <outlet property="privacyButton" destination="oRk-nN-wJv" id="J5B-8h-7Xg"/>
                         <segue destination="TjG-8Q-ZX1" kind="show" id="Uk9-bl-PDr"/>
                     </connections>
                 </viewController>
@@ -1163,6 +1174,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DAM-8G-JmP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4012" y="2399"/>
+        </scene>
+        <!--Privacy Policy View Controller-->
+        <scene sceneID="qid-KV-GRx">
+            <objects>
+                <viewController id="ro1-aj-v7f" customClass="PrivacyPolicyViewController" customModule="iBadminton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XFs-tG-2Hc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="9PE-ch-4qe"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="rNA-D0-iOO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4iI-St-Exh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140.5797101449277" y="-167.41071428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VnG-MC-3DM">

@@ -8,6 +8,7 @@
 import UIKit
 import Eureka
 import Firebase
+import FirebaseAuth
 
 class InProfileViewController: FormViewController  {
     

@@ -26,6 +26,7 @@ class SignInViewController: UIViewController {
         self.appleLoginView.addSubview(authorizationAppleIDButton)
     }
     @IBOutlet weak var appleLoginView: UIView!
+    @IBOutlet weak var privacyButton: UIButton!
     
     //    @IBAction func lineLoginButton(_ sender: Any) {
     //        print("==== Line login ====")

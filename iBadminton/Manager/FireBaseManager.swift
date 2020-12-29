@@ -9,6 +9,7 @@ import Foundation
 import Firebase
 import FirebaseFirestoreSwift
 import PKHUD
+import FirebaseAuth
 
 typealias FIRTimestamp = Timestamp
 

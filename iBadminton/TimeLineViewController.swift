@@ -12,18 +12,11 @@ import FirebaseFirestoreSwift
 
 class TimeLineViewController: UIViewController {
     
-
     var timeline = ISTimeline()
     
     var data: [TeamPoint] = []
     var teamId: String = ""
     var teamName: String = ""
-    //    var lineTitle: String?
-    //    var lineDescription: String?
-    //    var pointColor: UIColor
-    //    var lineColor: UIColor
-    //    var touchUpInside: Optional<(_ point:ISPoint) -> Void> = nil
-    //    var fill: Bool
     
     override func viewDidLoad() {
         super.viewDidLoad()
