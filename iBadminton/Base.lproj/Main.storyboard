@@ -813,7 +813,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createTeamOutlet" destination="jUB-Qj-PJk" id="4Rs-SM-Sab"/>
-                        <outlet property="messageOutlet" destination="H83-eT-h6F" id="Ay6-TT-6pm"/>
+                        <outlet property="mailOutlet" destination="H83-eT-h6F" id="y8f-9x-A6q"/>
                         <outlet property="noShowCount" destination="2q3-G1-5fA" id="bYz-JP-twK"/>
                         <outlet property="userImage" destination="FYh-7O-uXl" id="wn0-bB-ruY"/>
                         <outlet property="userName" destination="9Ec-1m-VoC" id="RD4-5f-OUM"/>

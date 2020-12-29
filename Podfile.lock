@@ -226,6 +226,9 @@ PODS:
     - FirebaseAuth (~> 6.9.2)
   - Firebase/CoreOnly (6.34.0):
     - FirebaseCore (= 6.10.4)
+  - Firebase/Crashlytics (6.34.0):
+    - Firebase/CoreOnly
+    - FirebaseCrashlytics (~> 4.6.2)
   - Firebase/Firestore (6.34.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.19.0)
@@ -246,6 +249,12 @@ PODS:
     - GoogleUtilities/Environment (~> 6.7)
     - GoogleUtilities/Logger (~> 6.7)
     - nanopb (~> 1.30906.0)
+  - FirebaseCrashlytics (4.6.2):
+    - FirebaseCore (~> 6.10)
+    - FirebaseInstallations (~> 1.6)
+    - GoogleDataTransport (~> 7.2)
+    - nanopb (~> 1.30906.0)
+    - PromisesObjC (~> 1.2)
   - FirebaseFirestore (1.19.0):
     - abseil/algorithm (= 0.20200225.0)
     - abseil/base (= 0.20200225.0)
@@ -260,6 +269,11 @@ PODS:
     - nanopb (~> 1.30906.0)
   - FirebaseFirestoreSwift (0.4.0):
     - FirebaseFirestore (>= 1.6.1, ~> 1.6)
+  - FirebaseInstallations (1.7.0):
+    - FirebaseCore (~> 6.10)
+    - GoogleUtilities/Environment (~> 6.7)
+    - GoogleUtilities/UserDefaults (~> 6.7)
+    - PromisesObjC (~> 1.2)
   - FirebaseStorage (3.9.1):
     - FirebaseCore (~> 6.10)
     - GTMSessionFetcher/Core (~> 1.1)
@@ -279,6 +293,8 @@ PODS:
     - GoogleUtilities/Reachability
   - "GoogleUtilities/NSData+zlib (6.7.2)"
   - GoogleUtilities/Reachability (6.7.2):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (6.7.2):
     - GoogleUtilities/Logger
   - "gRPC-C++ (1.28.2)":
     - "gRPC-C++/Implementation (= 1.28.2)"
@@ -313,9 +329,6 @@ PODS:
     - Kingfisher/Core (= 5.15.7)
   - Kingfisher/Core (5.15.7)
   - leveldb-library (1.22)
-  - LineSDKSwift (5.7.0):
-    - LineSDKSwift/Core (= 5.7.0)
-  - LineSDKSwift/Core (5.7.0)
   - LocationRow (1.0.0):
     - Eureka (~> 4.3)
   - lottie-ios (3.1.9)
@@ -333,6 +346,7 @@ DEPENDENCIES:
   - Eureka
   - ExpandingMenu
   - Firebase/Auth
+  - Firebase/Crashlytics
   - Firebase/Firestore
   - Firebase/Storage
   - FirebaseFirestoreSwift
@@ -340,7 +354,6 @@ DEPENDENCIES:
   - IQKeyboardManager
   - ISTimeline
   - Kingfisher
-  - LineSDKSwift (~> 5.0)
   - LocationRow
   - lottie-ios
   - PKHUD
@@ -357,8 +370,10 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCrashlytics
     - FirebaseFirestore
     - FirebaseFirestoreSwift
+    - FirebaseInstallations
     - FirebaseStorage
     - GoogleDataTransport
     - GoogleUtilities
@@ -370,7 +385,6 @@ SPEC REPOS:
     - ISTimeline
     - Kingfisher
     - leveldb-library
-    - LineSDKSwift
     - LocationRow
     - lottie-ios
     - nanopb
@@ -388,8 +402,10 @@ SPEC CHECKSUMS:
   FirebaseAuth: c92d49ada7948d1a23466e3db17bc4c2039dddc3
   FirebaseCore: d3a978a3cfa3240bf7e4ba7d137fdf5b22b628ec
   FirebaseCoreDiagnostics: 770ac5958e1372ce67959ae4b4f31d8e127c3ac1
+  FirebaseCrashlytics: 1a747c9cc084a24dc6d9511c991db1cd078154eb
   FirebaseFirestore: 9b2f1b9b9a6f2f0b6fb7484b9e32ab7e39243554
   FirebaseFirestoreSwift: 2c46dbc1156db97dc4f6dd798d4f5b57b9c7fab6
+  FirebaseInstallations: 466c7b4d1f58fe16707693091da253726a731ed2
   FirebaseStorage: 15e0f15ef3c7fec3d1899d68623e47d4447066b4
   GoogleDataTransport: f56af7caa4ed338dc8e138a5d7c5973e66440833
   GoogleUtilities: 7f2f5a07f888cdb145101d6042bc4422f57e70b3
@@ -401,7 +417,6 @@ SPEC CHECKSUMS:
   ISTimeline: 1b5c01c76724b3ba3b41a07e508a271e93cd82ad
   Kingfisher: 6e1a13523fcb1c86924ce53affe4ac957e544d59
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
-  LineSDKSwift: f9c232f89185b887b5725aa278325f3a23e33bbc
   LocationRow: b4d85cc066e3756f01bdec091784b72bd174bf4e
   lottie-ios: 3a3758ef5a008e762faec9c9d50a39842f26d124
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
@@ -409,6 +424,6 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SwiftLint: c585ebd615d9520d7fbdbe151f527977b0534f1e
 
-PODFILE CHECKSUM: e72c7cab6d7fe3eeffe7bf5bc8839d9b87af217c
+PODFILE CHECKSUM: 67e9f768f1942410a596f44d07a3a746598b841e
 
 COCOAPODS: 1.10.0

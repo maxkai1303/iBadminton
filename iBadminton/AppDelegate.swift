@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import LineSDK
 import CoreLocation
 import Firebase
 import FirebaseFirestoreSwift
@@ -17,14 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let locationManager = CLLocationManager()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        LoginManager.shared.setup(channelID: "1655262516", universalLinkURL: nil)
         locationManager.requestWhenInUseAuthorization()
         FirebaseApp.configure()
         return true
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return LoginManager.shared.application(app, open: url)
     }
 
     // MARK: UISceneSession Lifecycle

@@ -49,7 +49,6 @@
 		45D47DCF256CA7610098F799 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DCE256CA7610098F799 /* ViewController.swift */; };
 		45D47DD2256CA7610098F799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD0256CA7610098F799 /* Main.storyboard */; };
 		45D47DD7256CA7620098F799 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */; };
-		45D47DE5256D07410098F799 /* LineSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D47DE4256D07410098F799 /* LineSDK.swift */; };
 		45DAFA0F2595B7AA00F92E1D /* JoinMemberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */; };
 		45DAFA122595C8D500F92E1D /* JoinMemberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */; };
 		45E97D32258BC2770047DF81 /* TeamManberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45E97D31258BC2770047DF81 /* TeamManberViewController.swift */; };
@@ -108,7 +107,6 @@
 		45D47DD1256CA7610098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45D47DD6256CA7620098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D47DD8256CA7620098F799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45D47DE4256D07410098F799 /* LineSDK.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineSDK.swift; sourceTree = "<group>"; };
 		45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberViewController.swift; path = iBadminton/JoinMemberViewController.swift; sourceTree = SOURCE_ROOT; };
 		45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberTableViewCell.swift; path = iBadminton/ViewController/JoinMemberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45E97D31258BC2770047DF81 /* TeamManberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberViewController.swift; path = iBadminton/TeamManberViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -245,7 +243,6 @@
 				45B78BA82577FB8C00B0922B /* fake.swift */,
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
-				45D47DE4256D07410098F799 /* LineSDK.swift */,
 				45D47DD0256CA7610098F799 /* Main.storyboard */,
 				4524B57F2570EB6300BDE238 /* ViewController */,
 				4524B5802570EB8200BDE238 /* ViewCell */,
@@ -286,7 +283,8 @@
 				45D47DC4256CA7610098F799 /* Frameworks */,
 				45D47DC5256CA7610098F799 /* Resources */,
 				A235E0C9FBC4FEF83F01C269 /* [CP] Embed Pods Frameworks */,
-				453B5B9E256E51AF00DF67CC /* ShellScript */,
+				453B5B9E256E51AF00DF67CC /* SwiftLint */,
+				45C98E13259B07FA00172BAE /* FirebaseCrashlytics */,
 			);
 			buildRules = (
 			);
@@ -349,7 +347,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		453B5B9E256E51AF00DF67CC /* ShellScript */ = {
+		453B5B9E256E51AF00DF67CC /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -358,6 +356,7 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -365,6 +364,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
+		45C98E13259B07FA00172BAE /* FirebaseCrashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = FirebaseCrashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		84B822873D6EF07AE0C63CA2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -447,7 +466,6 @@
 				45B78C03257B488E00B0922B /* SignInViewController.swift in Sources */,
 				459E6147257212DB00C05266 /* BallTableViewCell.swift in Sources */,
 				45DAFA0F2595B7AA00F92E1D /* JoinMemberViewController.swift in Sources */,
-				45D47DE5256D07410098F799 /* LineSDK.swift in Sources */,
 				4519F22A258B6E5100425218 /* FirebaseStorageManager.swift in Sources */,
 				45917E852588BD3700729176 /* UIColorExtension.swift in Sources */,
 				45D47DCD256CA7610098F799 /* SceneDelegate.swift in Sources */,
@@ -605,6 +623,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iBadminton/iBadminton.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 97D8WZ992M;
 				INFOPLIST_FILE = iBadminton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -626,6 +645,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = iBadminton/iBadminton.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 97D8WZ992M;
 				INFOPLIST_FILE = iBadminton/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

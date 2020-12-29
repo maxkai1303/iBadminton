@@ -6,7 +6,6 @@ target 'iBadminton' do
   use_frameworks!
 
   # Pods for iBadminton
-    pod 'LineSDKSwift', '~> 5.0'
     pod 'SwiftLint'
     pod 'lottie-ios'
     pod 'IQKeyboardManager'
@@ -23,6 +22,8 @@ target 'iBadminton' do
     pod 'CarLensCollectionViewLayout'
     pod 'Firebase/Storage'
     pod 'PKHUD'
+    pod 'Firebase/Crashlytics'
+
 
 
 end

@@ -22,7 +22,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var noShowCount: UILabel!
     
     @IBOutlet weak var createTeamOutlet: UIButton!
-    @IBOutlet weak var messageOutlet: UIButton!
+    @IBOutlet weak var mailOutlet: UIButton!
     
     var profileData: User?
     var userId: String = ""
@@ -33,6 +33,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+        mailOutlet.isHidden = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,7 +53,9 @@ class ProfileViewController: UIViewController {
         setEditAlert()
     }
     @IBAction func mailButton(_ sender: Any) {
-        loginOut()
+
+//        fatalError("FireBase Crashlytics Test")
+//        loginOut()
     }
     
     // MARK: - func 
