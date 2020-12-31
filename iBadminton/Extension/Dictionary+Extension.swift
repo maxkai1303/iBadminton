@@ -24,7 +24,7 @@ extension Array where Element == Int {
     }
     
 }
-
+// 四捨五入
 extension Double {
     func rounding(toDecimal decimal: Int) -> Double {
         let numberOfDigits = pow(10.0, Double(decimal))

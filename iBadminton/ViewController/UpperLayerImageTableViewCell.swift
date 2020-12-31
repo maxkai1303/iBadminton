@@ -22,5 +22,4 @@ class UpperLayerImageTableViewCell: UITableViewCell {
     @IBOutlet weak var leftImageOutlet: UIImageView!
     @IBOutlet weak var rightImageOutlet: UIImageView!
     
-
 }
