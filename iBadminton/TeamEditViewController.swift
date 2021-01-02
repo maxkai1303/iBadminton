@@ -211,7 +211,7 @@ class TeamEditViewController: FormViewController {
                         }
                     } else if (segmented.value == "球隊隊員名單") {
                         segmented.section!.removeLast(segmented.section!.count - 1)
-                        guard let member = self.selectTeam?.teamMenber else { return }
+                        guard let member = self.selectTeam?.teamMember else { return }
                         self.teamMember = []
                         for i in member {
                             FireBaseManager.shared.getUserName(userId: i) { (name) in

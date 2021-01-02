@@ -14,12 +14,16 @@ class TeamManberViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setLabel()
     }
     
     func listenManber() {
+        
         FireBaseManager.shared.listen(collectionName: .team) {
+            
             self.tableView.reloadData()
+            
         }
     }
     
@@ -27,12 +31,16 @@ class TeamManberViewController: FormViewController {
         
         tableView.backgroundColor = UIColor.maxColor(with: .lightBlue)
         
-        form +++ Section(header: "成員列表", footer: "成員共 \(team?.teamMenber.count ?? 0)人")
-        guard team?.teamMenber != [] else { return }
-            for i in team!.teamMenber {
-                FireBaseManager.shared.getUserName(userId: i) { (name) in
-                    self.form.last! <<< LabelRow() { row in
-                        row.title = name
+        form +++ Section(header: "成員列表", footer: "成員共 \(team?.teamMember.count ?? 0)人")
+        
+        guard team?.teamMember != [] else { return }
+        
+        for member in team!.teamMember {
+            
+            FireBaseManager.shared.getUserName(userId: member) { (name) in
+                
+                self.form.last! <<< LabelRow() { row in
+                    row.title = name
                 }
             }
         }

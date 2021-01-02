@@ -37,7 +37,7 @@ class IBadmintonTests: XCTestCase {
         XCTAssertEqual(roundedItem, 3.142)
     }
     
-    func testBad() throws {
+    func testInteger() throws {
         let item = 3.1415
         let roundedItem = item.rounding(toDecimal: 0)
         XCTAssertEqual(roundedItem, 3)
@@ -45,7 +45,7 @@ class IBadmintonTests: XCTestCase {
     
     func testZero() throws {
         let item = 0.0000
-        let roundedItem = item.rounding(toDecimal: 5)
+        let roundedItem = item.rounding(toDecimal: 4)
         XCTAssertEqual(roundedItem, 0)
         
     }
@@ -60,5 +60,17 @@ class IBadmintonTests: XCTestCase {
         let item = 0.5534
         let roundedItem = item.rounding(toDecimal: 1)
         XCTAssertEqual(roundedItem, 0.6)
+    }
+    
+    func testMaximum() throws {
+        let item = 999999999.999999
+        let roundedItem = item.rounding(toDecimal: 4)
+        XCTAssertEqual(roundedItem, 1000000000)
+    }
+    
+    func testMinusMaximum() throws {
+        let item = -999999999.999999
+        let roundedItem = item.rounding(toDecimal: 4)
+        XCTAssertEqual(roundedItem, -1000000000)
     }
 }

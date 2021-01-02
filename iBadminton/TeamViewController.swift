@@ -34,7 +34,6 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         readTeam()
         checkOwnTeam()
-//        teamCollectionView.reloadData()
     }
     
     func setTitle() {
@@ -84,6 +83,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         }
         
         func setMenuButton() {
+            
             let menuButtonSize: CGSize = CGSize(width: 40.0, height: 40.0)
             let menuButton = ExpandingMenuButton(
                 frame: CGRect(origin: CGPoint.zero, size: menuButtonSize),
@@ -117,6 +117,7 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
         }
         
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            
             if segue.identifier == "showTeamEditView" {
                 let controller = segue.destination as? TeamEditViewController
                 controller?.userId = userId

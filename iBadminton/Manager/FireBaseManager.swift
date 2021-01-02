@@ -192,7 +192,7 @@ class FireBaseManager {
             if let document = document, document.exists {
                 let lack = document.data()!["lackCount"] as? Int ?? 0
                 let member = document.data()!["joinID"] as? Array<String> ?? []
-//                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+
                 switch lack - member.count {
                 case 0:
                     doc.updateData([
