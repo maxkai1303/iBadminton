@@ -22,7 +22,9 @@ class JoinMemberTableViewCell: UITableViewCell {
     @IBOutlet weak var joinNameLabel: UILabel!
     
     func setUi(member: String) {
+        
             FireBaseManager.shared.getUserName(userId: member) { (name) in
+                
                 self.joinNameLabel.text = name
         }
     }

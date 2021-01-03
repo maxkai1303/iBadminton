@@ -20,47 +20,58 @@ class TimeLineViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setView()
         
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         
         listenNew()
     }
     
     func listenNew() {
+        
         FireBaseManager.shared.listen(collectionName: .team) {
+            
             self.readPoint(dataType: TeamPoint.self) { (result) in
+                
                 switch result {
+                
                 case.success(let data):
-                    
                     self.data = data.sorted (by: { (first, second) -> Bool in
                         
                         return first.time.dateValue() > second.time.dateValue()
                     })
                     
                     print("data: ", self.data)
-                    
                     self.setData()
                     
                 case.failure(let error): print("===== Get Error \(error) ======")
                 }
             }
-            
         }
     }
     
     func readPoint <T: Codable> (dataType: T.Type, handler: @escaping (Result<[T]>) -> Void) {
+        
         let collection = FireBaseManager.shared.fireDb.collection("Team").document(teamId).collection("TeamPoint")
+        
         collection.getDocuments(completion: { (querySnapshot, error) in
+            
             guard let querySnapshot = querySnapshot else {
+                
                 handler(.failure(error!))
                 return
             }
+            
             self.decode(dataType, documents: querySnapshot.documents) { (result) in
+                
                 switch result {
+                
                 case .success(let data):
                     handler(.success(data))
+                    
                 case .failure(let error):
                     handler(.failure(error))
                 }
@@ -69,11 +80,15 @@ class TimeLineViewController: UIViewController {
     }
     
     func decode<T: Codable>(_ dataType: T.Type, documents: [QueryDocumentSnapshot], handler: @escaping (Result<[T]>) -> Void) {
+        
         var datas: [T] = []
         for document in documents {
+            
             guard let data = try? document.data(as: dataType) else {
+                
                 handler(.failure(FirebaseError.decode))
                 return
+                
             }
             datas.append(data)
         }
@@ -81,12 +96,16 @@ class TimeLineViewController: UIViewController {
     }
     
     func setView() {
+        
         navigationController?.navigationBar.isHidden = false
         tabBarController?.tabBar.isHidden = true
+        
         let screenWidth = UIScreen.main.bounds.size.width
         let screenHeight = UIScreen.main.bounds.size.height
+        
         let frame = CGRect(x: 0.0, y: 0.0, width: screenWidth, height: screenHeight)
         timeline.frame = frame
+        
         timeline.backgroundColor = UIColor(named: "MainBlue")
         timeline.bubbleColor = .init(red: 0.95, green: 0.95, blue: 0.95, alpha: 1.0)
         timeline.titleColor = UIColor(named: "MainBlue")!
@@ -94,23 +113,31 @@ class TimeLineViewController: UIViewController {
         timeline.pointDiameter = 7.0
         timeline.lineWidth = 2.0
         timeline.bubbleRadius = 0.0
+        
         self.view.addSubview(timeline)
     }
     
     func setData() {
+        
         let data = pointsData()
+        
         timeline.contentInset = UIEdgeInsets(top: 100.0, left: 20.0, bottom: 20.0, right: 20.0)
         timeline.points = data
+        
     }
     
     func pointsData() -> [ISPoint] {
+        
         let touchAction = { (point: ISPoint) in
+            
             print("point \(point.title)")
+            
         }
         
         var myPoint: [ISPoint] = []
         
         for item in self.data {
+            
             let point =
                 ISPoint(title: item.content,
                         description: FireBaseManager.shared.timeStampToStringDetail(item.time),
@@ -119,17 +146,20 @@ class TimeLineViewController: UIViewController {
                         touchUpInside: touchAction,
                         fill: true
                 )
-            print("point data: ", point)
             
+            print("point data: ", point)
             myPoint.append(point)
+            
         }
-        print("==================\(myPoint)=============")
         
+        print("==================\(myPoint)=============")
         print("myPoing data: ", myPoint)
+        
         return myPoint
         
     }
 }
+
 /*
  var title:String shown in the bubble
  var description:String? shown below the bubble

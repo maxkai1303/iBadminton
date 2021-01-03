@@ -14,9 +14,11 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     static let identifier = "TeamCollectionViewCell"
     
     func layoutCell(team: Team) {
+        
         let url = URL(string: team.teamImage)
         // MARK: 這裡硬拿，如果沒有admin會掛掉
         FireBaseManager.shared.getUserName(userId: team.adminID[0]) { (name) in
+            
             self.adminNameLabel.text = name
         }
         teamImageView.kf.setImage(with: url)
@@ -32,6 +34,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     }
     
     let teamImageView: UIImageView = {
+        
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,19 +48,23 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     }()
     
     let adminLabel: UILabel = {
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 20)
         label.textColor = UIColor.maxColor(with: .mainBlue)
         label.text = "管理員:"
+        
         return label
     }()
     
     let adminNameLabel: UILabel = {
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 20)
         label.textColor = UIColor.maxColor(with: .mainBlue)
+        
         return label
     }()
     
@@ -66,15 +73,18 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     //        label.translatesAutoresizingMaskIntoConstraints = false
     //        label.font = UIFont(name: "PingFang TC", size: 16)
     //        label.textColor = UIColor.maxColor(with: .mainBlue)
+    
     //        return label
     //    }()
     
     let message: UILabel = {
+        
         let label = UILabel()
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 16)
         label.textColor = UIColor.maxColor(with: .mainBlue)
+        
         return label
     }()
     
@@ -125,6 +135,7 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
     }
     
     private var upperView: UILabel = {
+        
         var teamName = UILabel()
         teamName.translatesAutoresizingMaskIntoConstraints = false
         teamName.font = .boldSystemFont(ofSize: 30)
@@ -132,24 +143,30 @@ class TeamCollectionViewCell: CarLensCollectionViewCell {
         teamName.textColor = .white
         teamName.numberOfLines = 0
         teamName.lineBreakMode = .byCharWrapping
+        
         return teamName
     }()
     
     var bottomView: UIView = {
+        
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
+        
         return view
     }()
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
+        
         configure(topView: upperView, cardView: bottomView, topViewHeight: 150)
         addSubKit()
     }
     
     required init?(coder aDecoder: NSCoder) {
+        
         super.init(coder: aDecoder)
         fatalError("init(coder:) has not been implemented")
     }

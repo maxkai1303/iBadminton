@@ -21,22 +21,30 @@ class ImageTableViewCell: UITableViewCell, UICollectionViewDelegate {
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     func setUp(event: Event) {
+        
         imageArray = event.image
     }
 }
 
 extension ImageTableViewCell: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return imageArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "imageCollectionViewCell",
                 for: indexPath) as? ImageCollectionViewCell
+        
         else { return UICollectionViewCell() }
+        
         cell.setImage(image: imageArray[indexPath.row])
+        
         return cell
+        
     }
 }
 
@@ -48,6 +56,7 @@ extension ImageTableViewCell: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         return 0
     }
     

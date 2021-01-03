@@ -22,6 +22,7 @@ class BallTableViewCell: UITableViewCell {
     @IBOutlet weak var ballLabel: UILabel!
     
     func setUp(ball: String) {
+        
         ballLabel.text = ball
     }
     

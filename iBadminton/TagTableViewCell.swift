@@ -10,7 +10,9 @@ import UIKit
 class TagTableViewCell: UITableViewCell, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView! {
+        
         didSet {
+            
             collectionView.delegate = self
             collectionView.dataSource = self
         }
@@ -27,20 +29,27 @@ class TagTableViewCell: UITableViewCell, UICollectionViewDelegate {
     }
     
     func setUp(tag: Event) {
+        
         eventTag = tag.tag
     }
 }
 
 extension TagTableViewCell: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return eventTag.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "tagCollectionViewCell", for: indexPath)
                 as? TagCollectionViewCell else { return UICollectionViewCell() }
+        
         cell.setTag(tag: eventTag[indexPath.row])
+        
         return cell
+        
     }
 }

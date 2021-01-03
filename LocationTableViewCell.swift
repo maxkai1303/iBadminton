@@ -22,6 +22,7 @@ class LocationTableViewCell: UITableViewCell {
     @IBOutlet weak var locationButton: UIButton!
     
     func setUp(location: String) {
+        
         locationButton.setTitle(location, for: .normal)
     }
 }

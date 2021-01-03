@@ -21,5 +21,4 @@ class TeamBallTableViewCell: UITableViewCell {
     @IBOutlet weak var ballTitleLabel: UILabel!
     @IBOutlet weak var ballLabel: UILabel!
 
-    
 }

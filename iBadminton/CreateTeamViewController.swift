@@ -40,6 +40,7 @@ class CreateTeamViewController: FormViewController {
         form +++ Section("創建球隊")
             
             <<< TextRow() {
+                
                 $0.tag = "teamName"
                 $0.title = ""
                 $0.placeholder = "輸入球隊名稱"
@@ -47,13 +48,17 @@ class CreateTeamViewController: FormViewController {
                 $0.validationOptions = .validatesOnChangeAfterBlurred
             }
             .cellUpdate({ (cell, row) in
+                
                 if let teamRow: TextRow = self.form.rowBy(tag: "teamName"),
                    let value = teamRow.value {
+                    
                     self.teamId = value
+                    
                 }
             })
             
             <<< TextAreaRow { row in
+                
                 row.tag = "teamMessage"
                 row.placeholder = "輸入球隊資訊"
                 row.add(rule: RuleMinLength(minLength: 2))

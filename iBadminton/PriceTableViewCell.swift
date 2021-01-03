@@ -22,6 +22,7 @@ class PriceTableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     
     func setUp(price: Int) {
+        
         priceLabel.text = "\(price)"
     }
     

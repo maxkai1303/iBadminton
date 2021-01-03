@@ -12,6 +12,7 @@ class TagCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var tagLabel: UILabel!
     
     func setTag(tag: String) {
+        
         tagLabel.text = tag
     }
 }

@@ -11,7 +11,9 @@ import ISTimeline
 class FakeData {
     
     static func pointsData() -> [ISPoint] {
+        
         let touchAction = { (point: ISPoint) in
+            
             print("point \(point.title)")
         }
         

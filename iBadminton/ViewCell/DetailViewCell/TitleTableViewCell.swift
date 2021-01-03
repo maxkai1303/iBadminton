@@ -21,6 +21,7 @@ class TitleTableViewCell: UITableViewCell {
     @IBOutlet weak var checkTeamRating: UIButton!
     
     func setUp(teamID: String) {
+        
         teamName.text = teamID
     }
     

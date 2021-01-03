@@ -13,6 +13,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
     static let identifier = "homePageCollectionViewCell"
     
     func layoutCell(event: Event) {
+        
         let url = URL(string: event.image[0])
         
         teamName.text = event.teamName
@@ -22,6 +23,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         price.text = "\(event.price)"
         levelLabel.text = event.level
         lackCount.text = "缺 \(event.lackCount - event.joinID.count) 人"
+        
     }
     
 //    func getTeamRating(data: Team) {
@@ -34,6 +36,7 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
 //    }
     
     let eventImageView: UIImageView = {
+        
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
@@ -42,46 +45,56 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
         imageView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
         return imageView
     }()
     
     let teamName: UILabel = {
+        
         let name = UILabel()
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont(name: "PingFang TC", size: 20)
         name.font = UIFont.boldSystemFont(ofSize: name.font.pointSize)
         name.textColor = UIColor.maxColor(with: .mainBlue)
+        
         return name
     }()
     
     // MARK: - Date
     let dateIcon: UIImageView = {
+        
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.image = UIImage(named: "calendar")
+        
         return image
     }()
     
     let dateLabel: UILabel = {
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 16)
         label.textColor = UIColor.maxColor(with: .mainBlue)
+        
         return label
     }()
     
     // MARK: - location
     
     let mapIcon: UIImageView = {
+        
        let map = UIImageView()
         map.translatesAutoresizingMaskIntoConstraints = false
         map.contentMode = .scaleToFill
         map.image = UIImage(named: "map")
+        
         return map
     }()
     
     let location: UIButton = {
+        
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.titleLabel?.numberOfLines = 1
@@ -91,67 +104,82 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
 //        button.titleLabel?.lineBreakMode = .byTruncatingMiddle
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         button.setTitleColor(UIColor.maxColor(with: .mainBlue), for: .normal)
+        
         return button
     }()
     
     // MARK: - price
     
     let coinIcon: UIImageView = {
+        
         let coin = UIImageView()
         coin.translatesAutoresizingMaskIntoConstraints = false
         coin.contentMode = .scaleToFill
         coin.image = UIImage(named: "dollar-coin")
+        
         return coin
     }()
     
     let price: UILabel = {
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 16)
         label.textColor = UIColor.maxColor(with: .mainBlue)
+        
         return label
     }()
     // MARK: - level
     let rankIcon: UIImageView = {
+        
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.image = UIImage(named: "medal-of-honor")
+        
         return image
     }()
     
     let levelLabel: UILabel = {
+        
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 16)
         label.textColor = UIColor.maxColor(with: .mainBlue)
+        
         return label
     }()
     
     let lackIcon: UIImageView = {
+        
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
-        image.image = UIImage(named: "group-1")
+        image.image = UIImage(named: "group whole body")
+        
         return image
     }()
     
     let lackCount: UILabel = {
+        
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "PingFang TC", size: 20)
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = UIColor.maxColor(with: .yellow)
+        
         return label
     }()
     
     let join: UIButton = {
+        
         let join = UIButton()
         join.translatesAutoresizingMaskIntoConstraints = false
         join.backgroundColor = UIColor.maxColor(with: .mainBlue)
         join.setTitle("加入零打", for: .normal)
         join.layer.cornerRadius = 12
         join.addTarget(self, action: #selector(ViewController.homeJoinButton(_:)), for: .touchUpInside)
+        
         return join
     }()
     
@@ -263,25 +291,31 @@ class HomePageCollectionViewCell: CarLensCollectionViewCell {
     }
     
     private var upperView: UILabel = {
+        
         var teamName = UILabel()
         teamName.translatesAutoresizingMaskIntoConstraints = false
         teamName.font = .boldSystemFont(ofSize: 24)
         teamName.textAlignment = .center
         teamName.textColor = .white
+        
         return teamName
     }()
     
     private var bottomView: UIView = {
+        
         var view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
         view.layer.cornerRadius = 10
+        
         return view
     }()
     
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         configure(topView: upperView, cardView: bottomView, topViewHeight: 100)
+        
         addSubKit()
     }
     

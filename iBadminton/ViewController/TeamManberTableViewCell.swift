@@ -21,8 +21,10 @@ class TeamManberTableViewCell: UITableViewCell {
     }
     
     func setManber(data: [String]) {
+        
         for item in 0 ..< data.count {
-            let manberLebel = UILabel(frame: CGRect(x: 28, y: CGFloat(19 + 24 * item), width: UIScreen.main.bounds.width - 8, height: 36))
+            
+            _ = UILabel(frame: CGRect(x: 28, y: CGFloat(19 + 24 * item), width: UIScreen.main.bounds.width - 8, height: 36))
         }
     }
 
