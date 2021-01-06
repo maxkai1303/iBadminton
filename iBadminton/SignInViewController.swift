@@ -160,14 +160,11 @@ extension SignInViewController: ASAuthorizationControllerDelegate {
                 // 登入成功
                 else {
                     
-                    guard Auth.auth().currentUser != nil  else {
-                        
-                        self.dismiss(animated: true, completion: nil)
-                        return
-                        
-                    }
+                    guard Auth.auth().currentUser != nil  else { return }
                     
                     guard signData?.user.uid != nil else { return }
+                    
+                    self.dismiss(animated: true, completion: nil)
                     
                     FireBaseManager.shared.getCollection(name: .user).whereField(
                         

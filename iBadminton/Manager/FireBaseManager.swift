@@ -128,12 +128,17 @@ class FireBaseManager {
         let collection = FireBaseManager.shared.getCollection(name: .team)
         collection.whereField("adminID", arrayContains: userId).getDocuments { (querySnapshot, err) in
             if let err = err {
+                
                 print("Error getting documents: \(err)")
+                
             } else {
+                
                 self.decode(Team.self, documents: querySnapshot!.documents) { (result) in
                     switch result {
+                    
                     case .success(let item):
                         handler(item)
+                        
                     case .failure(let error):
                         print("Get own team decode error: \(error)")
                     }
@@ -143,7 +148,9 @@ class FireBaseManager {
     }
     
     func addTimeline(teamDoc: String, content: String, event: Bool) {
+        
         let doc = getCollection(name: .team).document(teamDoc).collection("TeamPoint")
+        
         doc.document().setData([
             "content": content,
             "event": event,
@@ -160,6 +167,7 @@ class FireBaseManager {
     
     // MARK: 首次登入創建 User
     func addUser(collectionName: CollectionName, userId: String) {
+        
         getCollection(name: .user).document(userId).setData([
             "userID": userId,
             "userName": userId,
@@ -174,10 +182,13 @@ class FireBaseManager {
     func checkLogin(handler: @escaping (String?) -> Void) {
         Auth.auth().addStateDidChangeListener { (_, user) in
             if let user = user {
+                
                 print("\(String(describing: user.uid))")
                 print("\(String(describing: user.email)) login")
                 handler(user.uid)
+                
             } else {
+                
                 print("not login")
                 handler(nil)
             }
@@ -189,7 +200,9 @@ class FireBaseManager {
         let doc = getCollection(name: .event).document(event)
        
         doc.getDocument { (document, _) in
+            
             if let document = document, document.exists {
+                
                 let lack = document.data()!["lackCount"] as? Int ?? 0
                 let member = document.data()!["joinID"] as? Array<String> ?? []
 
@@ -224,7 +237,7 @@ class FireBaseManager {
         getCollection(name: .user).document(userId).getDocument { (document, _) in
             if let document = document, document.exists {
                 self.getCollection(name: .team).document(teamID).updateData([
-                    "teamMenber": FieldValue.arrayUnion([userId])
+                    "teamMember": FieldValue.arrayUnion([userId])
                 ])
                 print(document.documentID, document.data()!)
             } else {
@@ -256,7 +269,7 @@ class FireBaseManager {
         doc.setData([
             "teamImage": image,
             "teamMessage": message,
-            "teamMenber": menber,
+            "teamMember": menber,
             "adminID": admin,
             "teamRating": [],
             "teamID": doc.documentID,
@@ -293,7 +306,7 @@ class FireBaseManager {
         let doc = getCollection(name: .team).document(teamId)
         doc.getDocument { (document, _) in
             if let document = document {
-                guard let join = document["teamMenber"] as? [String] else { return }
+                guard let join = document["teamMember"] as? [String] else { return }
                 
                 if join.contains(userId) {
                     HUD.flash(.labeledError(title: "哎呀！", subtitle: "你加入過這個球隊囉！"), delay: 1.3)

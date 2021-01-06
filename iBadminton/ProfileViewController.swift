@@ -62,7 +62,7 @@ class ProfileViewController: UIViewController {
     @IBAction func mailButton(_ sender: Any) {
         
         //        fatalError("FireBase Crashlytics Test")
-        //        loginOut()
+//                loginOut()
     }
     
     // MARK: - func 

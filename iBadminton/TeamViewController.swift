@@ -88,11 +88,14 @@ class TeamViewController: UIViewController, UICollectionViewDelegate {
     }
     
     func readTeam() {
+        
         firebaseManager.read(collectionName: .team, dataType: Team.self) { result in
             switch result {
+            
             case .success(let team):
                 self.allTeam = team
                 self.teamCollectionView.reloadData()
+                
             case .failure(let error): print("======== All Team Set Data \(error.localizedDescription)=========")
             }
         }

@@ -48,7 +48,7 @@ class InProfileViewController: FormViewController  {
             
             self.joinTeam = []
             
-            self.getTeamManber(userId: self.userId) { teamName in
+            self.getTeamMamber(userId: self.userId) { teamName in
                 
                 for team in teamName {
                     
@@ -135,7 +135,7 @@ class InProfileViewController: FormViewController  {
                                                         print("Delete")
                                                         
                                                         FireBaseManager.shared.getCollection(name: .team).document(teamId).updateData([
-                                                            "teamMenber": FieldValue.arrayRemove([self.userId]),
+                                                            "teamMember": FieldValue.arrayRemove([self.userId]),
                                                             "adminID": FieldValue.arrayRemove([self.userId])
                                                         ])
                                                         
@@ -238,9 +238,9 @@ class InProfileViewController: FormViewController  {
         self.present(controller, animated: true, completion: nil)
     }
     
-    func getTeamManber(userId: String, completion: @escaping ([Team]) -> Void) {
+    func getTeamMamber(userId: String, completion: @escaping ([Team]) -> Void) {
         
-        FireBaseManager.shared.getCollection(name:.team).whereField("teamMenber",
+        FireBaseManager.shared.getCollection(name:.team).whereField("teamMember",
                                                                     arrayContains: userId
         ).getDocuments() { (querySnapshot, err) in
             

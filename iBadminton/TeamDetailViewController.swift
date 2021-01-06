@@ -147,20 +147,20 @@ class TeamDetailViewController: UIViewController {
             //            self.performSegue(withIdentifier: "goTeamRating", sender: self)
         }
         
-        itemJoin.titleColor = .white
-        
+//        itemJoin.titleColor = .white
+//
         let itemMember = ExpandingMenuItem(
             size: menuButtonSize,
             title: "球隊成員",
-            image: #imageLiteral(resourceName: "group-1"),
-            highlightedImage: #imageLiteral(resourceName: "group-1"),
+            image: #imageLiteral(resourceName: "group whole body"),
+            highlightedImage: #imageLiteral(resourceName: "group whole body"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
             backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
             self.performSegue(withIdentifier: "showTeamManber", sender: self)
         }
-        
+//
         itemMember.titleColor = .white
-        
+
         let itemLine = ExpandingMenuItem(
             size: menuButtonSize,
             title: "球隊動態",
@@ -170,9 +170,9 @@ class TeamDetailViewController: UIViewController {
             backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
             self.performSegue(withIdentifier: "showTeamLine", sender: self)
         }
-        
+
         itemLine.titleColor = .white
-        
+
         menuButton.addMenuItems([itemJoin, itemMember, itemLine])
     }
     
