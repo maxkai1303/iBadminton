@@ -20,7 +20,6 @@ target 'iBadminton' do
     pod 'Kingfisher'
     pod 'Firebase/Auth'
     pod 'CarLensCollectionViewLayout'
-    pod 'Firebase/Storage'
     pod 'PKHUD'
     pod 'Firebase/Crashlytics'
 
