@@ -805,7 +805,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7D6-e6-qiK">
-                        <barButtonItem key="rightBarButtonItem" title="修改暱稱" image="editSmall" id="fDR-zc-Qzd">
+                        <barButtonItem key="rightBarButtonItem" image="editSmall" style="plain" id="fDR-zc-Qzd">
                             <connections>
                                 <action selector="editProfile:" destination="t8D-C6-ekS" id="feK-Kk-f2S"/>
                             </connections>
@@ -1267,13 +1267,13 @@
     <color key="tintColor" name="MainBlue"/>
     <resources>
         <image name="2111574r0dn5rz5gc0nwor" width="1200" height="630"/>
-        <image name="badminton" width="64" height="64"/>
+        <image name="badminton" width="32" height="32"/>
         <image name="calendar" width="64" height="64"/>
         <image name="dollar-coin" width="64" height="64"/>
-        <image name="editSmall" width="32" height="32"/>
-        <image name="email" width="128" height="128"/>
-        <image name="group" width="32" height="32"/>
-        <image name="home" width="32" height="32"/>
+        <image name="editSmall" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="email" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="group" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="home" width="42.666667938232422" height="42.666667938232422"/>
         <image name="i badminton" width="500" height="500"/>
         <image name="image_placeholder" width="714" height="466"/>
         <image name="map" width="64" height="64"/>

@@ -167,7 +167,7 @@ class TeamDetailViewController: UIViewController {
             image: #imageLiteral(resourceName: "timeline"),
             highlightedImage: #imageLiteral(resourceName: "timeline"),
             backgroundImage: #imageLiteral(resourceName: "circle"),
-            backgroundHighlightedImage: #imageLiteral(resourceName: "edit")) { () -> Void in
+            backgroundHighlightedImage: #imageLiteral(resourceName: "circle")) { () -> Void in
             self.performSegue(withIdentifier: "showTeamLine", sender: self)
         }
 
