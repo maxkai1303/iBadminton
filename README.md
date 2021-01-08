@@ -1,4 +1,4 @@
-# iBadminton 愛羽球   <a href="apple.co/38j03kO"><img src="https://github.com/Volorf/Badges/blob/master/App%20Store/App%20Store%20Badge.png" alt="drawing" width="100" align="center" </a>
+# iBadminton 愛羽球   <a href="apple.co/38j03kO"><img src="https://github.com/Volorf/Badges/blob/master/App%20Store/App%20Store%20Badge.png" alt="drawing" width="100" align="center" /></a>
 
 
 *有時候想要打球卻不知道要去哪裡打* <BR>
