@@ -8,7 +8,7 @@
 *讓羽球資訊可以更開放流通，每個人都可以找到適合的活動，每天有球打 (๑•̀ㅂ•́)و✧*
 
 
-# 功能
+# Features
 ### 登入
 * **串接**`Sign in with Apple`**加速使用者登入流程**
 
@@ -17,9 +17,7 @@
     - 引用 ` CarLensCollectionViewLayout` 達成首頁與球隊總覽頁面 Swiping Card 效果
 * **登入狀態下可以在首頁看到適合的活動直接點擊加入**
 * **活動到期或是招募人數已滿會隱藏該活動**
-* **點擊進入活動詳細說明頁面**
-
-
+<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/smartmockups_kjrbjb51.png" width="200" align="center" />
 
 
 ### 個人頁面
@@ -31,6 +29,9 @@
     - 記錄參加過的活動並計算總參加次數提升球友成就感
 * **查看加入的球隊**
     - 可以退出球隊 (唯一管理員無法退出)
+    
+    <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/smartmockups_kjrbduv2.png" width="200" align="center" />
+
 
 ### 球隊總覽
 ###### 球隊管理員編輯功能
