@@ -1,10 +1,12 @@
 # iBadminton 愛羽球   <a href="https://apps.apple.com/us/app/ibadminton-%E6%84%9B%E7%BE%BD%E7%90%83/id1546797864"><img src="https://github.com/Volorf/Badges/blob/master/App%20Store/App%20Store%20Badge.png" alt="drawing" width="100" align="center" /></a>
 
+![This is a alt text.](https://github.com/maxkai1303/ProjectAsset/blob/master/cutmypic.png "iBadminton icon")
 
 *有時候想要打球卻不知道要去哪裡打* <BR>
 *有時候隊友請假找不到人來補位子* <BR>
 *為了這樣的需求，而生出來的 App* <BR>
 *讓羽球資訊可以更開放流通，每個人都可以找到適合的活動，每天有球打 (๑•̀ㅂ•́)و✧*
+
 
 # 功能
 ### 查看活動
@@ -12,8 +14,7 @@
  * 引用 ` CarLensCollectionViewLayout` 達成首頁與球隊總覽頁面 Swiping Card 效果
 * **登入狀態下可以在首頁看到適合的活動直接點擊加入**
 
-![This is a alt text.](/image/sample.png "This is a sample image.")
-<img src="Your_Image_URL" width="200" align="center" />
+
 
 ### 個人頁面
 * **修改暱稱**
