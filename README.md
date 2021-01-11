@@ -17,8 +17,7 @@
     - 引用 ` CarLensCollectionViewLayout` 達成首頁與球隊總覽頁面 Swiping Card 效果
 * **登入狀態下可以在首頁看到適合的活動直接點擊加入**
 * **活動到期或是招募人數已滿會隱藏該活動**
-<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMB_VlYTL2.gif" width="200" align="center" />
-<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2088.PNG" width="200" align="center" />
+<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMB_VlYTL2.gif" width="200" align="center" /><img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2088.PNG" width="200" align="center" />
 
 
 ### 個人頁面
