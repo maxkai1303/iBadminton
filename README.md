@@ -18,7 +18,7 @@
 * **登入狀態下可以在首頁看到適合的活動直接點擊加入**
 * **活動到期或是招募人數已滿會隱藏該活動**
 <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMB_VlYTL2.gif" width="200" align="center" />
-<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/smartmockups_kjrbjb51.png" width="200" align="center" />
+<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2088.PNG" width="200" align="center" />
 
 
 ### 個人頁面
@@ -31,7 +31,7 @@
 * **查看加入的球隊**
     - 可以退出球隊 (唯一管理員無法退出)
     
-    <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/smartmockups_kjrbduv2.png" width="200" align="center" />
+    <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2087.PNG" width="200" align="center" />
     <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2096.PNG" width="200" align="center" />
 
 
@@ -50,6 +50,7 @@
 ###### 一般用戶功能
 * **球隊動態**
     - 引用 `ISTimeline`實現球隊動態，包含新增 / 退出隊員、活動、新增或移除管理者訊息
+    <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2097.PNG" width="200" align="center" />
 * **查看球隊成員**
 * **加入球隊**
     - 可以加入多個球隊
