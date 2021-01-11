@@ -17,6 +17,7 @@
     - 引用 ` CarLensCollectionViewLayout` 達成首頁與球隊總覽頁面 Swiping Card 效果
 * **登入狀態下可以在首頁看到適合的活動直接點擊加入**
 * **活動到期或是招募人數已滿會隱藏該活動**
+<img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMB_VlYTL2.gif" width="200" align="center" />
 <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/smartmockups_kjrbjb51.png" width="200" align="center" />
 
 
@@ -31,6 +32,7 @@
     - 可以退出球隊 (唯一管理員無法退出)
     
     <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/smartmockups_kjrbduv2.png" width="200" align="center" />
+    <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMG_2096.PNG" width="200" align="center" />
 
 
 ### 球隊總覽
@@ -38,8 +40,12 @@
 * **新增活動**
     - 輸入興趣點可以帶出地址
     - 最多可上傳四張活動照片
+    <img src="https://github.com/maxkai1303/ProjectAsset/blob/master/IMB_esWNpd.gif" width="200" align="center" />
 * **修改球隊資訊**
     - 新增 / 移除管理權限給球隊隊員
+    
+    <img src=" https://github.com/maxkai1303/ProjectAsset/blob/master/IMB_EAWl1E.gif" width="200" align="center" />
+   
 
 ###### 一般用戶功能
 * **球隊動態**
@@ -52,26 +58,29 @@
 
 # Libraries
 * SwiftLint
-* lottie-ios
-* IQKeyboardManager
-* Eureka
-* ImageRow
-* LocationRow
-* ExpandingMenu
-* Firebase/Firestore
-* FirebaseFirestoreSwift
-* Firebase/Storage
-* ISTimeline
-* Kingfisher
-* Firebase/Auth
 * CarLensCollectionViewLayout
+* Kingfisher
+* lottie-ios
+* ISTimeline
+* ExpandingMenu
 * PKHUD
-* Firebase/Crashlytics
+* IQKeyboardManager
+* Firebase
+    * FirebaseFirestoreSwift
+    * Firestore
+    * Storage
+    * Auth
+    * Crashlytics
+* Eureka
+    * ImageRow
+    * LocationRow
 
-
-## Requirement
+# Requirement
 
 Version  | iOS   | Xcode   |                Content               |
 :--------:|:------:|:---------:|:-------------------------------|
 1.1.1     | 12.0+ |  12.2 +  | 置換 App 內元件 icon 圖片|
 1.1        | 12.0+ |  12.2 +  | Release                               |
+
+# Contact Me
+* Email: xdnqo@boun.cr
