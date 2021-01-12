@@ -80,8 +80,10 @@
 
 Version  | iOS   | Xcode   |                Content               |
 :--------:|:------:|:---------:|:-------------------------------|
-1.1.1     | 12.0+ |  12.2 +  | 置換 App 內元件 icon 圖片|
-1.1        | 12.0+ |  12.2 +  | Release                               |
+1.1.2     | 12.0 + |  12.2 +  | 置換 App 內圖片              |
+1.1.1     | 12.0 + |  12.2 +  | 置換 App 內元件 icon 圖片|
+1.1        | 12.0 + |  12.2 +  | Release                               |
 
 # Contact Me
-* Email: xdnqo@boun.cr
+💻｜[Max Kao](https://github.com/maxkai1303 'Max Kao')
+✉️｜xdnqo@boun.cr
