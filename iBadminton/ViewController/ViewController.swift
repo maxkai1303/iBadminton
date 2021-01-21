@@ -178,19 +178,6 @@ class ViewController: UIViewController, UICollectionViewDelegate {
         }
     }
     
-//    func getLack(docId: String) {
-//        let doc = FireBaseManager.shared.getCollection(name: .event).document(docId)
-//        doc.getDocument { (result, _) in
-//
-//            let data = result?.data()
-//
-//            self.count = data?["lackCount"] as? Int ?? 0
-//            self.joinMember.append(contentsOf: data?["joinID"] as? [String] ?? [])
-//
-//            self.homePageCollection.reloadData()
-//        }
-//    }
-    
 //    func readTeamRating(teamID: String, handler: @escaping (Team) -> Void) {
 //        // MARK: 這要改成讀裡面的 teamID
 //        let docRef = FireBaseManager.shared.getCollection(name: .team).whereField("teamID", isEqualTo: teamID)
@@ -250,6 +237,7 @@ class ViewController: UIViewController, UICollectionViewDelegate {
     func listenEvent() {
         
         FireBaseManager.shared.listen(collectionName: .event) {
+            
             self.readEvents()
         }
     }

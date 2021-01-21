@@ -38,6 +38,7 @@ open class CarLensCollectionViewCell: UICollectionViewCell {
     private func animateViews(toProgress progress: Double) {
         let offset = topViewHeight - (CGFloat(progress) * topViewHeight)
         cardView.transform = .init(translationX: 0, y: -offset)
+        print(offset, -offset)
     }
     
     private func setupView() {

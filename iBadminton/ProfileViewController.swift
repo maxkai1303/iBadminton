@@ -37,16 +37,38 @@ class ProfileViewController: UIViewController {
         mailOutlet.isHidden = true
         
     }
+    @IBAction func cerateTeamButton(_ sender: Any) {
+        
+        if  Auth.auth().currentUser == nil {
+            
+            if #available(iOS 13.0, *) {
+                
+                let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+                
+                self.present(signInPage!, animated: true, completion: nil)
+                
+            }
+            
+        } else {
+            
+            performSegue(withIdentifier: "goCerateTeam", sender: nil)
+            
+        }
+
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "goCerateTeam" {
-            
-            let controller = segue.destination as? CreateTeamViewController
-            controller?.userId = userId
-            controller?.userName = nickName
+
+            if segue.identifier == "goCerateTeam" {
+                
+                let controller = segue.destination as? CreateTeamViewController
+                
+                controller?.userId = userId
+                
+                controller?.userName = nickName
+                
+            }
         }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -54,18 +76,30 @@ class ProfileViewController: UIViewController {
     }
     
     
+    @available(iOS 13.0, *)
     @IBAction func editProfile(_ sender: Any) {
         
-        setEditAlert()
+        if Auth.auth().currentUser == nil {
+            
+            let signInPage = self.storyboard?.instantiateViewController(identifier: "SignInViewController")
+            
+            self.present(signInPage!, animated: true, completion: nil)
+            
+        } else {
+            
+            setEditAlert()
+            
+        }
+        
     }
     
     @IBAction func mailButton(_ sender: Any) {
         
         //        fatalError("FireBase Crashlytics Test")
-//                loginOut()
+        //                loginOut()
     }
     
-    // MARK: - func 
+    // MARK: - func
     
     // 確認有沒有登入，抓取用戶資料顯示
     func getData() {

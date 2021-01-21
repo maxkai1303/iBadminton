@@ -122,7 +122,9 @@ class DetailViewController: UIViewController, UITableViewDelegate {
                     return
                 }
                 
-                FireBaseManager.shared.getCollection(name: .team).whereField("teamName", isEqualTo: team.teamName).getDocuments { querySnapshot, error in
+                FireBaseManager.shared.getCollection(name: .team).whereField(
+                    "teamName",
+                    isEqualTo: team.teamName).getDocuments { querySnapshot, error in
                     
                     if let error = error {
                         

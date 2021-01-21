@@ -720,7 +720,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="ASi-AD-ArU" kind="show" identifier="goCerateTeam" id="8ij-2h-XiM"/>
+                                    <action selector="cerateTeamButton:" destination="t8D-C6-ekS" eventType="touchUpInside" id="wOc-8z-VxJ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXt-ff-Ffm">
@@ -817,6 +817,7 @@
                         <outlet property="noShowCount" destination="2q3-G1-5fA" id="bYz-JP-twK"/>
                         <outlet property="userImage" destination="FYh-7O-uXl" id="wn0-bB-ruY"/>
                         <outlet property="userName" destination="9Ec-1m-VoC" id="RD4-5f-OUM"/>
+                        <segue destination="ASi-AD-ArU" kind="show" identifier="goCerateTeam" id="DYQ-g5-tdg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iw3-De-a9W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1270,10 +1271,10 @@
         <image name="badminton" width="32" height="32"/>
         <image name="calendar" width="64" height="64"/>
         <image name="dollar-coin" width="64" height="64"/>
-        <image name="editSmall" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="editSmall" width="21.333333969116211" height="21.333333969116211"/>
         <image name="email" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="group" width="42.666667938232422" height="42.666667938232422"/>
-        <image name="home" width="42.666667938232422" height="42.666667938232422"/>
+        <image name="group" width="32" height="32"/>
+        <image name="home" width="32" height="32"/>
         <image name="i badminton" width="500" height="500"/>
         <image name="image_placeholder" width="714" height="466"/>
         <image name="map" width="64" height="64"/>
