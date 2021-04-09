@@ -209,6 +209,7 @@ class AddActiveViewController: FormViewController {
                 
                 $0.placeholder = "請輸入打球地點"
             }
+            
             .cellUpdate { cell, row in
                 if !row.isValid {
                     

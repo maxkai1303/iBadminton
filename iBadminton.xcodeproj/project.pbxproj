@@ -74,17 +74,17 @@
 		05FC7BC96BC0EC4A1657EE15 /* Pods_iBadminton.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iBadminton.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		38CF8DE9AE83D9E9375CCBD4 /* Pods-iBadminton.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iBadminton.release.xcconfig"; path = "Target Support Files/Pods-iBadminton/Pods-iBadminton.release.xcconfig"; sourceTree = "<group>"; };
 		4507FFD625809C780066CEDF /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
-		4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberTableViewCell.swift; path = iBadminton/ViewController/TeamManberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberTableViewCell.swift; path = iBadminton/Member/TeamManberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		4519F229258B6E5000425218 /* FirebaseStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseStorageManager.swift; sourceTree = "<group>"; };
 		4524B57C2570EAFB00BDE238 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4524B5942570F6E400BDE238 /* TitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleTableViewCell.swift; sourceTree = "<group>"; };
 		4524B5972570F77100BDE238 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = iBadminton/ViewCell/DetailViewCell/ImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		452D7F8E25870902005742A6 /* TeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		452D7F8E25870902005742A6 /* TeamCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamCollectionViewCell.swift; path = iBadminton/HomePage/TeamViewCell/TeamCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		452D7F92258732C7005742A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		452D7F9525874393005742A6 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamDetailViewController.swift; path = iBadminton/TeamDetailViewController.swift; sourceTree = SOURCE_ROOT; };
-		452D7F9825875DD6005742A6 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTeamViewController.swift; path = iBadminton/CreateTeamViewController.swift; sourceTree = SOURCE_ROOT; };
-		456463C82574911700FB0A9E /* InProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InProfileViewController.swift; path = iBadminton/InProfileViewController.swift; sourceTree = SOURCE_ROOT; };
-		456463D02574DF0E00FB0A9E /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamViewController.swift; path = iBadminton/TeamViewController.swift; sourceTree = SOURCE_ROOT; };
+		452D7F9525874393005742A6 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamDetailViewController.swift; path = iBadminton/Team/TeamDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		452D7F9825875DD6005742A6 /* CreateTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreateTeamViewController.swift; path = iBadminton/Team/CreateTeamViewController.swift; sourceTree = SOURCE_ROOT; };
+		456463C82574911700FB0A9E /* InProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InProfileViewController.swift; path = iBadminton/Profile/InProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		456463D02574DF0E00FB0A9E /* TeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamViewController.swift; path = iBadminton/Team/TeamViewController.swift; sourceTree = SOURCE_ROOT; };
 		456463D92574E24300FB0A9E /* TeamTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamTitleTableViewCell.swift; path = iBadminton/TeamTitleTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		456463E02574E8C800FB0A9E /* UpperLayerImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UpperLayerImageTableViewCell.swift; path = iBadminton/ViewController/UpperLayerImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		456463E32574EA2700FB0A9E /* LowerImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LowerImageTableViewCell.swift; path = iBadminton/LowerImageTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -95,8 +95,8 @@
 		459E6146257212DB00C05266 /* BallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BallTableViewCell.swift; path = iBadminton/BallTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E61492572139B00C05266 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NoteTableViewCell.swift; path = iBadminton/ViewController/NoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		459E614C257285E400C05266 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PriceTableViewCell.swift; path = iBadminton/PriceTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		459E614F257297F800C05266 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = iBadminton/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
-		459E617F2573F2A200C05266 /* TeamEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamEditViewController.swift; path = iBadminton/TeamEditViewController.swift; sourceTree = SOURCE_ROOT; };
+		459E614F257297F800C05266 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = iBadminton/Profile/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		459E617F2573F2A200C05266 /* TeamEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamEditViewController.swift; path = iBadminton/Team/TeamEditViewController.swift; sourceTree = SOURCE_ROOT; };
 		45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamNoteTableViewCell.swift; path = iBadminton/TeamNoteTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45AA848B2574FFA7007E284E /* AddActiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActiveViewController.swift; sourceTree = "<group>"; };
 		45B78B0F25776A8600B0922B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -112,8 +112,8 @@
 		45C98E7B259D761100172BAE /* iBadmintonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBadmintonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C98E7D259D761100172BAE /* iBadmintonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBadmintonTests.swift; sourceTree = "<group>"; };
 		45C98E7F259D761100172BAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamRatingViewController.swift; path = iBadminton/TeamRatingViewController.swift; sourceTree = SOURCE_ROOT; };
-		45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamRatingTableViewCell.swift; path = iBadminton/ViewCell/TeamRatingTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamRatingViewController.swift; path = iBadminton/Team/TeamRatingViewController.swift; sourceTree = SOURCE_ROOT; };
+		45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamRatingTableViewCell.swift; path = iBadminton/HomePage/TeamViewCell/TeamRatingTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		45D47DC7256CA7610098F799 /* iBadminton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBadminton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45D47DCA256CA7610098F799 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45D47DCC256CA7610098F799 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,9 +121,9 @@
 		45D47DD1256CA7610098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45D47DD6256CA7620098F799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		45D47DD8256CA7620098F799 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberViewController.swift; path = iBadminton/JoinMemberViewController.swift; sourceTree = SOURCE_ROOT; };
-		45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberTableViewCell.swift; path = iBadminton/ViewController/JoinMemberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		45E97D31258BC2770047DF81 /* TeamManberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberViewController.swift; path = iBadminton/TeamManberViewController.swift; sourceTree = SOURCE_ROOT; };
+		45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberViewController.swift; path = iBadminton/Member/JoinMemberViewController.swift; sourceTree = SOURCE_ROOT; };
+		45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JoinMemberTableViewCell.swift; path = iBadminton/Member/JoinMemberTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		45E97D31258BC2770047DF81 /* TeamManberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TeamManberViewController.swift; path = iBadminton/Team/TeamManberViewController.swift; sourceTree = SOURCE_ROOT; };
 		45E97D35258DA10F0047DF81 /* lottie-cat.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "lottie-cat.json"; sourceTree = "<group>"; };
 		45E97DC6258F22F60047DF81 /* HomePageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCollectionViewCell.swift; sourceTree = "<group>"; };
 		45EEE8932570F92E00ED6DB9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -160,39 +160,59 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		451EF1DE261EAD0200B78036 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				456463D32574E19800FB0A9E /* TeamViewCell */,
+				45AA848B2574FFA7007E284E /* AddActiveViewController.swift */,
+				452D7F9825875DD6005742A6 /* CreateTeamViewController.swift */,
+				45E97D31258BC2770047DF81 /* TeamManberViewController.swift */,
+				452D7F9525874393005742A6 /* TeamDetailViewController.swift */,
+				45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */,
+				456463D02574DF0E00FB0A9E /* TeamViewController.swift */,
+				459E617F2573F2A200C05266 /* TeamEditViewController.swift */,
+			);
+			path = Team;
+			sourceTree = "<group>";
+		};
+		451EF1E3261EAE3400B78036 /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */,
+				45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */,
+				4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */,
+			);
+			path = Member;
+			sourceTree = "<group>";
+		};
+		451EF1E4261EAE7400B78036 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				459E614F257297F800C05266 /* ProfileViewController.swift */,
+				456463C82574911700FB0A9E /* InProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		4524B57F2570EB6300BDE238 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				45C98DBB259ACBF500172BAE /* PrivacyPolicyViewController.swift */,
-				45DAFA0E2595B7AA00F92E1D /* JoinMemberViewController.swift */,
-				45E97D31258BC2770047DF81 /* TeamManberViewController.swift */,
-				452D7F9825875DD6005742A6 /* CreateTeamViewController.swift */,
-				452D7F9525874393005742A6 /* TeamDetailViewController.swift */,
-				45CB4ECB257DBEB0008E48C3 /* TeamRatingViewController.swift */,
 				45B78C02257B488E00B0922B /* SignInViewController.swift */,
 				45B78B802577E80B00B0922B /* TimeLineViewController.swift */,
-				456463D02574DF0E00FB0A9E /* TeamViewController.swift */,
-				45AA848B2574FFA7007E284E /* AddActiveViewController.swift */,
-				459E617F2573F2A200C05266 /* TeamEditViewController.swift */,
-				459E614F257297F800C05266 /* ProfileViewController.swift */,
-				456463C82574911700FB0A9E /* InProfileViewController.swift */,
-				45D47DCE256CA7610098F799 /* ViewController.swift */,
-				4524B57C2570EAFB00BDE238 /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		4524B5802570EB8200BDE238 /* ViewCell */ = {
+		4524B5802570EB8200BDE238 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				45DAFA112595C8D500F92E1D /* JoinMemberTableViewCell.swift */,
-				452D7F8E25870902005742A6 /* TeamCollectionViewCell.swift */,
+				4524B57C2570EAFB00BDE238 /* DetailViewController.swift */,
+				45D47DCE256CA7610098F799 /* ViewController.swift */,
 				45E97DC6258F22F60047DF81 /* HomePageCollectionViewCell.swift */,
-				45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */,
-				456463D32574E19800FB0A9E /* TeamViewCell */,
 				4524B59A2570F77D00BDE238 /* DetailViewCell */,
 			);
-			path = ViewCell;
+			path = HomePage;
 			sourceTree = "<group>";
 		};
 		4524B59A2570F77D00BDE238 /* DetailViewCell */ = {
@@ -215,7 +235,8 @@
 		456463D32574E19800FB0A9E /* TeamViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				4507FFD92580E3200066CEDF /* TeamManberTableViewCell.swift */,
+				452D7F8E25870902005742A6 /* TeamCollectionViewCell.swift */,
+				45CB4ECE257DC002008E48C3 /* TeamRatingTableViewCell.swift */,
 				45AA84882574F9FB007E284E /* TeamNoteTableViewCell.swift */,
 				456463E62574EEB200FB0A9E /* TeamBallTableViewCell.swift */,
 				456463E32574EA2700FB0A9E /* LowerImageTableViewCell.swift */,
@@ -276,8 +297,11 @@
 				45D47DCA256CA7610098F799 /* AppDelegate.swift */,
 				45D47DCC256CA7610098F799 /* SceneDelegate.swift */,
 				45D47DD0256CA7610098F799 /* Main.storyboard */,
+				451EF1E4261EAE7400B78036 /* Profile */,
+				451EF1E3261EAE3400B78036 /* Member */,
+				451EF1DE261EAD0200B78036 /* Team */,
 				4524B57F2570EB6300BDE238 /* ViewController */,
-				4524B5802570EB8200BDE238 /* ViewCell */,
+				4524B5802570EB8200BDE238 /* HomePage */,
 				45D47DD5256CA7620098F799 /* LaunchScreen.storyboard */,
 				45D47DD8256CA7620098F799 /* Info.plist */,
 				45B78B0F25776A8600B0922B /* GoogleService-Info.plist */,

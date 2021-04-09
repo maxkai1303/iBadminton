@@ -39,6 +39,7 @@ class TimeLineViewController: UIViewController {
                 switch result {
                 
                 case.success(let data):
+                    
                     self.data = data.sorted (by: { (first, second) -> Bool in
                         
                         return first.time.dateValue() > second.time.dateValue()
